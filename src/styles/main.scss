@@ -9,7 +9,8 @@ h1, h2, h3, h4, p {
 }
 
 html, body {
-    font-family: 'Proxima Nova';
+    font-family: 'OpenSans';
+		font-size: 15px;
 }
 
 .wrapper {
@@ -32,4 +33,12 @@ html, body {
 		justify-content: space-between;
 	}
 
+	&-item {
+		display: flex;
+		align-items: center;
+	}
+
+	&-link {
+		color: $color-blue;
+	}
 }
