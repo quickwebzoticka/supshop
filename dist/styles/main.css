@@ -434,9 +434,8 @@ template {
   border-radius: 6px;
   transition: background-color .2s linear, width .2s ease-in-out;
   -webkit-transition: background-color .2s linear, width .2s ease-in-out;
-  width: 6px;
-  /* there must be 'right' for ps__thumb-y */
-  right: -3px;
+  width: 5px;
+  right: -2px;
   /* please don't change 'position' */
   position: absolute; }
 
@@ -445,12 +444,6 @@ template {
 .ps__rail-x.ps--clicking .ps__thumb-x {
   background-color: #999;
   height: 11px; }
-
-.ps__rail-y:hover > .ps__thumb-y,
-.ps__rail-y:focus > .ps__thumb-y,
-.ps__rail-y.ps--clicking .ps__thumb-y {
-  background-color: #999;
-  width: 11px; }
 
 /* MS supports */
 @supports (-ms-overflow-style: none) {
@@ -585,6 +578,16 @@ html, body {
     .main-block-bar_center {
       justify-content: center;
       padding: 0 60px; }
+    .main-block-bar_sb {
+      padding: 0 125px;
+      justify-content: space-between; }
+      .main-block-bar_sb .header-link {
+        margin-right: 0px; }
+      .main-block-bar_sb .main-block-bar-item {
+        flex: 0 1 130px;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
   .main-block-content_p {
     padding: 0 40px; }
 
@@ -740,11 +743,33 @@ html, body {
       opacity: 1;
       width: 100%; }
     .main-block-content_payment .input-text.active .placeholder {
-      top: 0%;
-      left: 0; }
+      top: -5px;
+      left: 0;
+      font-size: 12px;
+      color: #0092FF; }
 
-.input-text input:focus + .placeholder {
-  top: 0%;
-  left: 0; }
+.payment-methods {
+  display: flex;
+  align-items: center; }
+  .payment-methods-item {
+    margin-right: 50px; }
+    .payment-methods-item:last-child {
+      margin-right: 0px; }
+  .payment-methods-head {
+    text-align: center;
+    margin-bottom: 40px; }
+
+.payment-history {
+  padding: 25px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .payment-history-wrapper {
+    padding: 15px 125px; }
+  .payment-history-item {
+    flex: 0 1 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
 
 /*# sourceMappingURL=maps/main.css.map */

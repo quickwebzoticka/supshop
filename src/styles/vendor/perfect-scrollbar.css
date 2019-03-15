@@ -71,9 +71,8 @@
   border-radius: 6px;
   transition: background-color .2s linear, width .2s ease-in-out;
   -webkit-transition: background-color .2s linear, width .2s ease-in-out;
-  width: 6px;
-  /* there must be 'right' for ps__thumb-y */
-  right: -3px;
+    width: 5px;
+    right: -2px;
   /* please don't change 'position' */
   position: absolute;
 }
@@ -88,8 +87,7 @@
 .ps__rail-y:hover > .ps__thumb-y,
 .ps__rail-y:focus > .ps__thumb-y,
 .ps__rail-y.ps--clicking .ps__thumb-y {
-  background-color: #999;
-  width: 11px;
+
 }
 
 /* MS supports */

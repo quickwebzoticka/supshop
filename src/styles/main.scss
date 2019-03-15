@@ -173,9 +173,30 @@ html, body {
 		align-items: center;
 		background: $color-black-back-light;
 		padding: 0 140px 0 60px;
+
+
 		&_center {
 			justify-content: center;
 			padding: 0 60px;
+		}
+
+
+		&_sb {
+			padding: 0 125px;
+			justify-content: space-between;
+
+
+			.header-link {
+				margin-right: 0px;
+			}
+
+
+			.main-block-bar-item  {
+				flex: 0 1 130px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
 		}
 	}
 
@@ -428,17 +449,54 @@ html, body {
 			}
 
 
-			.placeholder  {
-				top: 0%;
+			.placeholder {
+				top: -5px;
 				left: 0;
+				font-size: 12px;
+				color: $color-blue-light;
 			}
 
 		}
 	}
 }
 
+.payment-methods {
+	display: flex;
+	align-items: center;
 
-.input-text input:focus + .placeholder {
-			top: 0%;
-			left: 0;
+
+	&-item {
+		margin-right: 50px;
+
+
+		&:last-child {
+			margin-right: 0px;
 		}
+	}
+
+
+	&-head {
+		text-align: center;
+		margin-bottom: 40px;
+	}
+}
+
+.payment-history {
+	padding: 25px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+
+	&-wrapper {
+		padding: 15px 125px;
+	}
+
+
+	&-item {
+		flex: 0 1 130px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
