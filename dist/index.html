@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="scrollbar-rail" lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="styles/main.css">
     <title>GetLucky Buisness</title>
   </head>
-  <body>
+  <body class="scrollbar-rail" style="overflow: hidden">
     <div class="wrapper">
       <header class="header">
         <div class="container">
           <div class="header-container">
             <div class="header-item"><a class="header-logo" href="index.html"><img src="img/logo.svg" alt="logo"></a></div>
-            <div class="header-item"><a class="header-link active" href="#">Мои кампании</a><a class="header-link" href="#">Статистика</a><a class="header-link no-mr" href="#">Пополнить баланс</a></div>
+            <div class="header-item"><a class="header-link active" href="index.html#campaings">Мои кампании</a><a class="header-link" href="index.html#statistic">Статистика</a><a class="header-link no-mr" href="index.html#payment">Пополнить баланс</a></div>
             <div class="header-item">
               <div class="balance"><img class="icon" src="img/cash-icon.svg">
                 <div class="balance-text">Баланс <span>100500</span></div>
@@ -24,8 +24,8 @@
                 <div class="header-arrow"><svg width="11" height="6" viewBox="0 0 11 6" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M5.50009 5.18254C4.99259 5.18254 4.55759 4.96504 4.19509 4.67504L0.860093 1.34003C0.715093 1.19503 0.715093 0.977535 0.860093 0.832535C1.00509 0.687535 1.22259 0.687535 1.36759 0.832535L4.70259 4.16754C5.13759 4.60254 5.79009 4.60254 6.22509 4.16754L9.56009 0.832535C9.70509 0.687535 9.92259 0.687535 10.0676 0.832535C10.2126 0.977535 10.2126 1.19503 10.0676 1.34003L6.73259 4.67504C6.44259 4.96504 6.00759 5.18254 5.50009 5.18254Z" fill="#F3F6FF"/>
 </svg>
-                  <div class="header-menu"><a class="header-menu__link" href="#">Редактировать</a>
-                    <div class="line-grey"></div><a class="header-menu__link" href="#">Помощь</a>
+                  <div class="header-menu"><a class="header-menu__link" href="edit.html">Редактировать</a>
+                    <div class="line-grey"></div><a class="header-menu__link" href="faq.html">Помощь</a>
                     <div class="line-grey"></div><a class="header-menu__link" href="#">Выйти</a>
                   </div>
                 </div>
@@ -35,11 +35,12 @@
         </div>
       </header>
       <div class="block">
-        <div class="main-block campaings">
+        <div class="main-block campaings" id="campaings">
           <div class="main-block-head">Мои кампании</div>
           <div class="main-block-nav"><a class="header-link main-block-nav__link active" href="#" data-tabs-link>Активные</a><a class="header-link main-block-nav__link" href="#" data-tabs-link>На модерации</a><a class="header-link main-block-nav__link" href="#" data-tabs-link>Завершенные</a></div>
           <div class="main-block-content campaings-inn main-block-tabs-item active">
-            <div class="campaings-inn-row"><a class="header-link campaings-btn-add" href="#"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div class="campaings-inn campaings-inn-content scrollbar-rail">
+              <div class="campaings-inn-row"><a class="header-link campaings-btn-add" href="#"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_f)">
 <circle cx="24" cy="24" r="18" fill="#0076FF"/>
 </g>
@@ -58,150 +59,154 @@
 </clipPath>
 </defs>
 </svg>
-                <div class="campaings-btn-add__text">Создать новую кампанию</div></a></div>
-            <div class="campaings-inn-row campaings-item">
-              <div class="campaings-item-img"><img src="img/coffee.png"></div>
-              <div class="campaings-item-info">
-                <div class="campaings-item-info__name">Кофе</div>
-                <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
-                <div class="campaings-item-info__count">25 ед.</div>
+                  <div class="campaings-btn-add__text">Создать новую кампанию</div></a></div>
+              <div class="campaings-inn-row campaings-item">
+                <div class="campaings-item-img"><img src="img/coffee.png"></div>
+                <div class="campaings-item-info">
+                  <div class="campaings-item-info__name">Кофе</div>
+                  <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
+                  <div class="campaings-item-info__count">25 ед.</div>
+                </div>
+                <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
               </div>
-              <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
-            </div>
-            <div class="campaings-inn-row campaings-item">
-              <div class="campaings-item-img"><img src="img/coffee.png"></div>
-              <div class="campaings-item-info">
-                <div class="campaings-item-info__name">Кофе</div>
-                <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
-                <div class="campaings-item-info__count">25 ед.</div>
+              <div class="campaings-inn-row campaings-item">
+                <div class="campaings-item-img"><img src="img/coffee.png"></div>
+                <div class="campaings-item-info">
+                  <div class="campaings-item-info__name">Кофе</div>
+                  <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
+                  <div class="campaings-item-info__count">25 ед.</div>
+                </div>
+                <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
               </div>
-              <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
-            </div>
-            <div class="campaings-inn-row campaings-item">
-              <div class="campaings-item-img"><img src="img/coffee.png"></div>
-              <div class="campaings-item-info">
-                <div class="campaings-item-info__name">Кофе</div>
-                <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
-                <div class="campaings-item-info__count">25 ед.</div>
+              <div class="campaings-inn-row campaings-item">
+                <div class="campaings-item-img"><img src="img/coffee.png"></div>
+                <div class="campaings-item-info">
+                  <div class="campaings-item-info__name">Кофе</div>
+                  <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
+                  <div class="campaings-item-info__count">25 ед.</div>
+                </div>
+                <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
               </div>
-              <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
-            </div>
-            <div class="campaings-inn-row campaings-item">
-              <div class="campaings-item-img"><img src="img/coffee.png"></div>
-              <div class="campaings-item-info">
-                <div class="campaings-item-info__name">Кофе</div>
-                <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
-                <div class="campaings-item-info__count">25 ед.</div>
+              <div class="campaings-inn-row campaings-item">
+                <div class="campaings-item-img"><img src="img/coffee.png"></div>
+                <div class="campaings-item-info">
+                  <div class="campaings-item-info__name">Кофе</div>
+                  <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
+                  <div class="campaings-item-info__count">25 ед.</div>
+                </div>
+                <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
               </div>
-              <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
-            </div>
-            <div class="campaings-inn-row campaings-item">
-              <div class="campaings-item-img"><img src="img/coffee.png"></div>
-              <div class="campaings-item-info">
-                <div class="campaings-item-info__name">Кофе</div>
-                <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
-                <div class="campaings-item-info__count">25 ед.</div>
+              <div class="campaings-inn-row campaings-item">
+                <div class="campaings-item-img"><img src="img/coffee.png"></div>
+                <div class="campaings-item-info">
+                  <div class="campaings-item-info__name">Кофе</div>
+                  <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
+                  <div class="campaings-item-info__count">25 ед.</div>
+                </div>
+                <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
               </div>
-              <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
-            </div>
-          </div>
-          <div class="main-block-content campaings-inn main-block-tabs-item">
-            <div class="campaings-inn-row campaings-item">
-              <div class="campaings-item-img"><img src="img/coffee.png"></div>
-              <div class="campaings-item-info">
-                <div class="campaings-item-info__name">Кофе</div>
-                <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
-                <div class="campaings-item-info__count">25 ед.</div>
-              </div>
-              <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
-            </div>
-            <div class="campaings-inn-row campaings-item">
-              <div class="campaings-item-img"><img src="img/coffee.png"></div>
-              <div class="campaings-item-info">
-                <div class="campaings-item-info__name">Кофе</div>
-                <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
-                <div class="campaings-item-info__count">25 ед.</div>
-              </div>
-              <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
-            </div>
-            <div class="campaings-inn-row campaings-item">
-              <div class="campaings-item-img"><img src="img/coffee.png"></div>
-              <div class="campaings-item-info">
-                <div class="campaings-item-info__name">Кофе</div>
-                <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
-                <div class="campaings-item-info__count">25 ед.</div>
-              </div>
-              <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
-            </div>
-            <div class="campaings-inn-row campaings-item">
-              <div class="campaings-item-img"><img src="img/coffee.png"></div>
-              <div class="campaings-item-info">
-                <div class="campaings-item-info__name">Кофе</div>
-                <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
-                <div class="campaings-item-info__count">25 ед.</div>
-              </div>
-              <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
-            </div>
-            <div class="campaings-inn-row campaings-item">
-              <div class="campaings-item-img"><img src="img/coffee.png"></div>
-              <div class="campaings-item-info">
-                <div class="campaings-item-info__name">Кофе</div>
-                <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
-                <div class="campaings-item-info__count">25 ед.</div>
-              </div>
-              <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
             </div>
           </div>
           <div class="main-block-content campaings-inn main-block-tabs-item">
-            <div class="main-block-content campaings-inn main-block-tabs-item"></div>
-            <div class="campaings-inn-row campaings-item">
-              <div class="campaings-item-img"><img src="img/coffee.png"></div>
-              <div class="campaings-item-info">
-                <div class="campaings-item-info__name">Кофе</div>
-                <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
-                <div class="campaings-item-info__count">25 ед.</div>
+            <div class="campaings-inn campaings-inn-content scrollbar-rail">
+              <div class="campaings-inn-row campaings-item">
+                <div class="campaings-item-img"><img src="img/coffee.png"></div>
+                <div class="campaings-item-info">
+                  <div class="campaings-item-info__name">Кофе</div>
+                  <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
+                  <div class="campaings-item-info__count">25 ед.</div>
+                </div>
+                <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
               </div>
-              <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
+              <div class="campaings-inn-row campaings-item">
+                <div class="campaings-item-img"><img src="img/coffee.png"></div>
+                <div class="campaings-item-info">
+                  <div class="campaings-item-info__name">Кофе</div>
+                  <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
+                  <div class="campaings-item-info__count">25 ед.</div>
+                </div>
+                <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
+              </div>
+              <div class="campaings-inn-row campaings-item">
+                <div class="campaings-item-img"><img src="img/coffee.png"></div>
+                <div class="campaings-item-info">
+                  <div class="campaings-item-info__name">Кофе</div>
+                  <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
+                  <div class="campaings-item-info__count">25 ед.</div>
+                </div>
+                <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
+              </div>
+              <div class="campaings-inn-row campaings-item">
+                <div class="campaings-item-img"><img src="img/coffee.png"></div>
+                <div class="campaings-item-info">
+                  <div class="campaings-item-info__name">Кофе</div>
+                  <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
+                  <div class="campaings-item-info__count">25 ед.</div>
+                </div>
+                <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
+              </div>
+              <div class="campaings-inn-row campaings-item">
+                <div class="campaings-item-img"><img src="img/coffee.png"></div>
+                <div class="campaings-item-info">
+                  <div class="campaings-item-info__name">Кофе</div>
+                  <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
+                  <div class="campaings-item-info__count">25 ед.</div>
+                </div>
+                <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
+              </div>
             </div>
-            <div class="campaings-inn-row campaings-item">
-              <div class="campaings-item-img"><img src="img/coffee.png"></div>
-              <div class="campaings-item-info">
-                <div class="campaings-item-info__name">Кофе</div>
-                <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
-                <div class="campaings-item-info__count">25 ед.</div>
+          </div>
+          <div class="main-block-content campaings-inn main-block-tabs-item">
+            <div class="campaings-inn campaings-inn-content scrollbar-rail">
+              <div class="campaings-inn-row campaings-item">
+                <div class="campaings-item-img"><img src="img/coffee.png"></div>
+                <div class="campaings-item-info">
+                  <div class="campaings-item-info__name">Кофе</div>
+                  <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
+                  <div class="campaings-item-info__count">25 ед.</div>
+                </div>
+                <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
               </div>
-              <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
-            </div>
-            <div class="campaings-inn-row campaings-item">
-              <div class="campaings-item-img"><img src="img/coffee.png"></div>
-              <div class="campaings-item-info">
-                <div class="campaings-item-info__name">Кофе</div>
-                <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
-                <div class="campaings-item-info__count">25 ед.</div>
+              <div class="campaings-inn-row campaings-item">
+                <div class="campaings-item-img"><img src="img/coffee.png"></div>
+                <div class="campaings-item-info">
+                  <div class="campaings-item-info__name">Кофе</div>
+                  <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
+                  <div class="campaings-item-info__count">25 ед.</div>
+                </div>
+                <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
               </div>
-              <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
-            </div>
-            <div class="campaings-inn-row campaings-item">
-              <div class="campaings-item-img"><img src="img/coffee.png"></div>
-              <div class="campaings-item-info">
-                <div class="campaings-item-info__name">Кофе</div>
-                <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
-                <div class="campaings-item-info__count">25 ед.</div>
+              <div class="campaings-inn-row campaings-item">
+                <div class="campaings-item-img"><img src="img/coffee.png"></div>
+                <div class="campaings-item-info">
+                  <div class="campaings-item-info__name">Кофе</div>
+                  <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
+                  <div class="campaings-item-info__count">25 ед.</div>
+                </div>
+                <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
               </div>
-              <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
-            </div>
-            <div class="campaings-inn-row campaings-item">
-              <div class="campaings-item-img"><img src="img/coffee.png"></div>
-              <div class="campaings-item-info">
-                <div class="campaings-item-info__name">Кофе</div>
-                <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
-                <div class="campaings-item-info__count">25 ед.</div>
+              <div class="campaings-inn-row campaings-item">
+                <div class="campaings-item-img"><img src="img/coffee.png"></div>
+                <div class="campaings-item-info">
+                  <div class="campaings-item-info__name">Кофе</div>
+                  <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
+                  <div class="campaings-item-info__count">25 ед.</div>
+                </div>
+                <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
               </div>
-              <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
+              <div class="campaings-inn-row campaings-item">
+                <div class="campaings-item-img"><img src="img/coffee.png"></div>
+                <div class="campaings-item-info">
+                  <div class="campaings-item-info__name">Кофе</div>
+                  <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
+                  <div class="campaings-item-info__count">25 ед.</div>
+                </div>
+                <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="main-block">
+        <div class="main-block" id="statistic">
           <div class="main-block-head main-block-head_with-p">Статистика</div>
           <div class="main-block-bar">
             <div class="date-pick">
@@ -275,7 +280,7 @@
             </table>
           </div>
         </div>
-        <div class="main-block">
+        <div class="main-block" id="payment">
           <div class="main-block-nav main-block-nav_mb"><a class="header-link main-block-nav__link active" href="#" data-tabs-link>Пополнить баланс</a><a class="header-link main-block-nav__link" href="#" data-tabs-link>История платежей</a></div>
           <div class="main-block-tabs">
             <div class="main-block-tabs-item active">
@@ -335,9 +340,75 @@
           </div>
         </div>
       </div>
+      <form class="main-block registration active">
+        <div class="main-block-head registration-head">Регистрация бизнес-профиля</div>
+        <div class="main-block-content registration-main">
+          <div class="block-photo-upload">
+            <div class="block-photo-upload__avatar"></div>
+            <label class="block-photo-upload__link">
+              <svg width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.4999 12.3855C12.4125 12.3855 13.9375 10.9227 13.9375 9.14287C13.9375 7.36306 12.3867 5.90021 10.4999 5.90021C8.61315 5.90021 7.06238 7.36306 7.06238 9.14287C7.06238 10.9227 8.5873 12.3855 10.4999 12.3855Z" fill="#0092FF"/>
+<path d="M0.0581055 3.63276V14.336C0.0581055 15.2625 0.859336 16.0183 1.84149 16.0183H19.1843C20.1664 16.0183 20.9676 15.2625 20.9676 14.336V3.63276C20.9676 2.70628 20.1664 1.95047 19.1843 1.95047H1.84149C0.83349 1.95047 0.0581055 2.70628 0.0581055 3.63276ZM17.0649 4.58361C17.6076 4.58361 18.0212 4.99809 18.0212 5.48571C18.0212 5.99771 17.5818 6.3878 17.0649 6.3878C16.548 6.3878 16.1086 5.97333 16.1086 5.48571C16.0827 4.97371 16.5221 4.58361 17.0649 4.58361ZM10.5 4.68114C13.1104 4.68114 15.2298 6.68037 15.2298 9.14285C15.2298 11.6053 13.1104 13.6046 10.5 13.6046C7.88949 13.6046 5.7701 11.6053 5.7701 9.14285C5.7701 6.68037 7.88949 4.68114 10.5 4.68114Z" fill="#0092FF"/>
+<path d="M6.7264 1.09713C7.08825 1.09713 7.37255 0.82894 7.37255 0.487606C7.37255 0.146273 7.0624 -0.121918 6.7264 -0.121918H4.06424C3.7024 -0.121918 3.41809 0.146273 3.41809 0.487606C3.41809 0.82894 3.7024 1.09713 4.06424 1.09713H6.7264Z" fill="#0092FF"/>
+</svg>Загрузить лого компании
+              <input class="block-photo-upload__input" type="file">
+            </label>
+            <div class="block-photo-upload__description">Размер фотографии не более 20 Mb в формате png или jpg</div>
+          </div>
+          <div class="block-form">
+            <div class="block-form-column">
+              <label class="form-input">
+                <div class="form-input__descr">Название компании (не более 20 символов)</div>
+                <input type="text" maxlength="20">
+              </label>
+              <label class="form-input">
+                <div class="form-input__descr">Полное наименование компании (ООО, ИП...)</div>
+                <input type="text">
+              </label>
+              <label class="form-input">
+                <div class="form-input__descr">ИНН</div>
+                <input type="text" data-inn>
+              </label>
+              <label class="form-input">
+                <div class="form-input__descr">ОГРН</div>
+                <input type="text">
+              </label>
+              <label class="form-input">
+                <div class="form-input__descr">Юридический адрес</div>
+                <input type="text">
+              </label>
+            </div>
+            <div class="block-form-column">
+              <label class="form-input">
+                <div class="form-input__descr">Логин</div>
+                <input type="text" max="20">
+              </label>
+              <label class="form-input">
+                <div class="form-input__descr">Пароль</div>
+                <input type="password">
+              </label>
+              <label class="form-input">
+                <div class="form-input__descr">Телефон</div>
+                <input type="text" data-phone>
+              </label>
+              <label class="form-input">
+                <div class="form-input__descr">E-mail</div>
+                <input type="text">
+              </label>
+              <label class="form-input">
+                <div class="form-input__descr">Адрес выдачи подарков</div>
+                <input type="text">
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="block-btns"><a class="btn-cancel mr-30" href="#">Отмена</a>
+          <input class="btn-submit" type="submit" value="Создать бизнес-профиль">
+        </div>
+      </form>
     </div>
     <script src="js/jquery.min.js"></script>
-    <script src="js/perfect-scrollbar.min.js"></script>
+    <script src="js/jquery.scrollbar.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

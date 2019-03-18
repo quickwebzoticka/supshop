@@ -15,7 +15,7 @@
     max-height: none;
     max-width: none !important;
     overflow: scroll !important;
-    padding: 0;
+    padding: 0 66px 0 0;
     position: relative !important;
     top: 0;
     width: auto !important;
@@ -131,8 +131,8 @@
 }
 
 .scrollbar-inner > .scroll-element .scroll-element_track { background-color: #e0e0e0; }
-.scrollbar-inner > .scroll-element .scroll-bar { background-color: #c2c2c2; }
-.scrollbar-inner > .scroll-element:hover .scroll-bar { background-color: #919191; }
+.scrollbar-inner > .scroll-element .scroll-bar { background-color: #0092FF; }
+.scrollbar-inner > .scroll-element:hover .scroll-bar { background-color: #0092FF; }
 .scrollbar-inner > .scroll-element.scroll-draggable .scroll-bar { background-color: #919191; }
 
 
@@ -201,14 +201,14 @@
 .scrollbar-outer > .scroll-element .scroll-element_outer,
 .scrollbar-outer > .scroll-element .scroll-element_track,
 .scrollbar-outer > .scroll-element .scroll-bar {
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
 }
 
-.scrollbar-outer > .scroll-element .scroll-bar { background-color: #d9d9d9; }
-.scrollbar-outer > .scroll-element .scroll-bar:hover { background-color: #c2c2c2; }
-.scrollbar-outer > .scroll-element.scroll-draggable .scroll-bar { background-color: #919191; }
+.scrollbar-outer > .scroll-element .scroll-bar { background-color: #0092FF; }
+.scrollbar-outer > .scroll-element .scroll-bar:hover { background-color: #0092FF; }
+.scrollbar-outer > .scroll-element.scroll-draggable .scroll-bar { background-color: #0092FF; }
 
 
 /* scrollbar height/width & offset from container borders */
@@ -260,16 +260,16 @@
 
 .scrollbar-macosx > .scroll-element .scroll-element_track { display: none; }
 .scrollbar-macosx > .scroll-element .scroll-bar {
-    background-color: #6C6E71;
+    background-color: #0092FF;
     display: block;
 
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
     opacity: 0;
 
-    -webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
-    border-radius: 7px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
 
     -webkit-transition: opacity 0.2s linear;
     -moz-transition: opacity 0.2s linear;
@@ -304,7 +304,7 @@
 
 /* scrollbar height/width & offset from container borders */
 .scrollbar-macosx > .scroll-element.scroll-x .scroll-bar { height: 7px; min-width: 10px; top: -9px; }
-.scrollbar-macosx > .scroll-element.scroll-y .scroll-bar { left: -9px; min-height: 10px; width: 7px; }
+.scrollbar-macosx > .scroll-element.scroll-y .scroll-bar { left: -9px; min-height: 10px; width: 3px; }
 
 .scrollbar-macosx > .scroll-element.scroll-x .scroll-element_outer { left: 2px; }
 .scrollbar-macosx > .scroll-element.scroll-x .scroll-element_size { left: -4px; }
@@ -459,8 +459,7 @@
 }
 
 .scrollbar-rail > .scroll-element .scroll-element_size {
-    background-color: #999;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: #0092FF;
 }
 
 .scrollbar-rail > .scroll-element .scroll-element_outer:hover .scroll-element_size {
@@ -512,7 +511,7 @@
 .scrollbar-rail > .scroll-element.scroll-x .scroll-element_size { height: 2px; left: -10px; top: 5px; }
 
 .scrollbar-rail > .scroll-element.scroll-y .scroll-element_outer { top: 5px; width: 15px; }
-.scrollbar-rail > .scroll-element.scroll-y .scroll-element_size { left: 5px; top: -10px; width: 2px; }
+.scrollbar-rail > .scroll-element.scroll-y .scroll-element_size { left: 5px; top: -10px; width: 1px; }
 
 /* update scrollbar offset if both scrolls are visible */
 
@@ -591,7 +590,7 @@
 }
 
 .scrollbar-dynamic > .scroll-element .scroll-bar {
-    background-color: #6c6e71;
+    background-color: #0092FF;
 
     -webkit-border-radius: 7px;
     -moz-border-radius: 7px;

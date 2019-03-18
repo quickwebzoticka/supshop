@@ -1,0 +1,47 @@
+extends ../template
+
+block title
+	title GetLucky | FAQ
+
+block contain
+	.block
+		.main-block#faq
+			.main-block-nav.main-block-nav_mb
+				a.header-link.main-block-nav__link.active(href="#" data-tabs-link) Обратиться в техподдержку
+				a.header-link.main-block-nav__link(href="#" data-tabs-link) Заказать звонок
+				a.header-link.main-block-nav__link(href="#" data-tabs-link) FAQ
+			.main-block-content.main-block-tabs-item.main-block-content_card.active
+				.faq-head Если у вас есть вопрос или предложение по работе приложения Get Lucky, напишите нам
+				form.faq-main
+					.faq-main-body
+						.form-input
+							.form-input__descr Тема сообщения
+							.form-input-radio-wrapper
+								label.form-input__radio
+									input(type="radio" name="type-of-question")
+									.radio-circle
+									| Техническая проблема
+								label.form-input__radio
+									input(type="radio" name="type-of-question")
+									.radio-circle
+									| Пожелания и предложения
+						label.form-input
+							.form-input__descr E-mail на который будет отправлен ответ
+							input(type="text")
+						label.form-input
+							.form-input__descr Сообщение (при необходимости приложите скриншот)
+							textarea
+						label.form-input__upload
+							input(type="file")
+							| Загрузить скриншот
+							.form-input__upload_descr
+								| Максимум 5 файлов размером до 10 Mb
+				.block-btns
+					a(href="index.html").btn-cancel.mr-30 Назад
+					input(type="submit" value="Сохранить изменения").btn-submit
+
+								
+
+
+			.main-block-content.main-block-tabs-item.main-block-content_card
+			.main-block-content.main-block-tabs-item.main-block-content_card

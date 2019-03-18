@@ -5,194 +5,196 @@ block title
 
 block contain
 	.block
-		.main-block.campaings
+		.main-block.campaings#campaings
 			.main-block-head Мои кампании
 			.main-block-nav
 				a.header-link.main-block-nav__link.active(href="#" data-tabs-link) Активные
 				a.header-link.main-block-nav__link(href="#" data-tabs-link) На модерации
 				a.header-link.main-block-nav__link(href="#" data-tabs-link) Завершенные
 			.main-block-content.campaings-inn.main-block-tabs-item.active
-				.campaings-inn-row
-					a.header-link.campaings-btn-add(href="#")
-						<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<g filter="url(#filter0_f)">
-							<circle cx="24" cy="24" r="18" fill="#0076FF"/>
-							</g>
-							<circle cx="24" cy="24" r="18" fill="#0092FF"/>
-							<g clip-path="url(#clip0)">
-							<path d="M24 16.2857C23.1754 16.2857 22.5069 16.9541 22.5069 17.7787V22.5069H17.7788C16.9542 22.5069 16.2857 23.1753 16.2857 23.9999C16.2857 24.8245 16.9542 25.493 17.7788 25.493H22.5069V30.2212C22.5069 31.0458 23.1754 31.7142 24 31.7142C24.8246 31.7142 25.4931 31.0458 25.4931 30.2212V25.493H30.2212C31.0458 25.493 31.7143 24.8245 31.7143 23.9999C31.7143 23.1753 31.0458 22.5069 30.2212 22.5069H25.4931V17.7787C25.4931 16.9541 24.8246 16.2857 24 16.2857Z" fill="white"/>
-							</g>
-							<defs>
-							<filter id="filter0_f" x="0" y="0" width="48" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-							<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-							<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-							<feGaussianBlur stdDeviation="3" result="effect1_foregroundBlur"/>
-							</filter>
-							<clipPath id="clip0">
-							<rect width="15.4286" height="15.4286" fill="white" transform="translate(16.2857 16.2857)"/>
-							</clipPath>
-							</defs>
-						</svg>
-						.campaings-btn-add__text Создать новую кампанию
+				.campaings-inn.campaings-inn-content.scrollbar-rail
+					.campaings-inn-row
+						a.header-link.campaings-btn-add(href="#")
+							<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g filter="url(#filter0_f)">
+								<circle cx="24" cy="24" r="18" fill="#0076FF"/>
+								</g>
+								<circle cx="24" cy="24" r="18" fill="#0092FF"/>
+								<g clip-path="url(#clip0)">
+								<path d="M24 16.2857C23.1754 16.2857 22.5069 16.9541 22.5069 17.7787V22.5069H17.7788C16.9542 22.5069 16.2857 23.1753 16.2857 23.9999C16.2857 24.8245 16.9542 25.493 17.7788 25.493H22.5069V30.2212C22.5069 31.0458 23.1754 31.7142 24 31.7142C24.8246 31.7142 25.4931 31.0458 25.4931 30.2212V25.493H30.2212C31.0458 25.493 31.7143 24.8245 31.7143 23.9999C31.7143 23.1753 31.0458 22.5069 30.2212 22.5069H25.4931V17.7787C25.4931 16.9541 24.8246 16.2857 24 16.2857Z" fill="white"/>
+								</g>
+								<defs>
+								<filter id="filter0_f" x="0" y="0" width="48" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+								<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+								<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+								<feGaussianBlur stdDeviation="3" result="effect1_foregroundBlur"/>
+								</filter>
+								<clipPath id="clip0">
+								<rect width="15.4286" height="15.4286" fill="white" transform="translate(16.2857 16.2857)"/>
+								</clipPath>
+								</defs>
+							</svg>
+							.campaings-btn-add__text Создать новую кампанию
 
-				.campaings-inn-row.campaings-item
-					.campaings-item-img
-						img(src="img/coffee.png")
-					.campaings-item-info
-						.campaings-item-info__name Кофе
-						.campaings-item-info__period 25.01.2019 – 26.01.2019
-						.campaings-item-info__count 25 ед.
-					.campaings-item-btns
-						a.campaings-item-btn(href="#") Изменить
-						a.campaings-item-btn(href="#") Остановить
-				.campaings-inn-row.campaings-item
-					.campaings-item-img
-						img(src="img/coffee.png")
-					.campaings-item-info
-						.campaings-item-info__name Кофе
-						.campaings-item-info__period 25.01.2019 – 26.01.2019
-						.campaings-item-info__count 25 ед.
-					.campaings-item-btns
-						a.campaings-item-btn(href="#") Изменить
-						a.campaings-item-btn(href="#") Остановить
-				.campaings-inn-row.campaings-item
-					.campaings-item-img
-						img(src="img/coffee.png")
-					.campaings-item-info
-						.campaings-item-info__name Кофе
-						.campaings-item-info__period 25.01.2019 – 26.01.2019
-						.campaings-item-info__count 25 ед.
-					.campaings-item-btns
-						a.campaings-item-btn(href="#") Изменить
-						a.campaings-item-btn(href="#") Остановить
-				.campaings-inn-row.campaings-item
-					.campaings-item-img
-						img(src="img/coffee.png")
-					.campaings-item-info
-						.campaings-item-info__name Кофе
-						.campaings-item-info__period 25.01.2019 – 26.01.2019
-						.campaings-item-info__count 25 ед.
-					.campaings-item-btns
-						a.campaings-item-btn(href="#") Изменить
-						a.campaings-item-btn(href="#") Остановить
-				.campaings-inn-row.campaings-item
-					.campaings-item-img
-						img(src="img/coffee.png")
-					.campaings-item-info
-						.campaings-item-info__name Кофе
-						.campaings-item-info__period 25.01.2019 – 26.01.2019
-						.campaings-item-info__count 25 ед.
-					.campaings-item-btns
-						a.campaings-item-btn(href="#") Изменить
-						a.campaings-item-btn(href="#") Остановить
+					.campaings-inn-row.campaings-item
+						.campaings-item-img
+							img(src="img/coffee.png")
+						.campaings-item-info
+							.campaings-item-info__name Кофе
+							.campaings-item-info__period 25.01.2019 – 26.01.2019
+							.campaings-item-info__count 25 ед.
+						.campaings-item-btns
+							a.campaings-item-btn(href="#") Изменить
+							a.campaings-item-btn(href="#") Остановить
+					.campaings-inn-row.campaings-item
+						.campaings-item-img
+							img(src="img/coffee.png")
+						.campaings-item-info
+							.campaings-item-info__name Кофе
+							.campaings-item-info__period 25.01.2019 – 26.01.2019
+							.campaings-item-info__count 25 ед.
+						.campaings-item-btns
+							a.campaings-item-btn(href="#") Изменить
+							a.campaings-item-btn(href="#") Остановить
+					.campaings-inn-row.campaings-item
+						.campaings-item-img
+							img(src="img/coffee.png")
+						.campaings-item-info
+							.campaings-item-info__name Кофе
+							.campaings-item-info__period 25.01.2019 – 26.01.2019
+							.campaings-item-info__count 25 ед.
+						.campaings-item-btns
+							a.campaings-item-btn(href="#") Изменить
+							a.campaings-item-btn(href="#") Остановить
+					.campaings-inn-row.campaings-item
+						.campaings-item-img
+							img(src="img/coffee.png")
+						.campaings-item-info
+							.campaings-item-info__name Кофе
+							.campaings-item-info__period 25.01.2019 – 26.01.2019
+							.campaings-item-info__count 25 ед.
+						.campaings-item-btns
+							a.campaings-item-btn(href="#") Изменить
+							a.campaings-item-btn(href="#") Остановить
+					.campaings-inn-row.campaings-item
+						.campaings-item-img
+							img(src="img/coffee.png")
+						.campaings-item-info
+							.campaings-item-info__name Кофе
+							.campaings-item-info__period 25.01.2019 – 26.01.2019
+							.campaings-item-info__count 25 ед.
+						.campaings-item-btns
+							a.campaings-item-btn(href="#") Изменить
+							a.campaings-item-btn(href="#") Остановить
 
-
-			.main-block-content.campaings-inn.main-block-tabs-item
-				.campaings-inn-row.campaings-item
-					.campaings-item-img
-						img(src="img/coffee.png")
-					.campaings-item-info
-						.campaings-item-info__name Кофе
-						.campaings-item-info__period 25.01.2019 – 26.01.2019
-						.campaings-item-info__count 25 ед.
-					.campaings-item-btns
-						a.campaings-item-btn(href="#") Изменить
-						a.campaings-item-btn(href="#") Остановить
-				.campaings-inn-row.campaings-item
-					.campaings-item-img
-						img(src="img/coffee.png")
-					.campaings-item-info
-						.campaings-item-info__name Кофе
-						.campaings-item-info__period 25.01.2019 – 26.01.2019
-						.campaings-item-info__count 25 ед.
-					.campaings-item-btns
-						a.campaings-item-btn(href="#") Изменить
-						a.campaings-item-btn(href="#") Остановить
-				.campaings-inn-row.campaings-item
-					.campaings-item-img
-						img(src="img/coffee.png")
-					.campaings-item-info
-						.campaings-item-info__name Кофе
-						.campaings-item-info__period 25.01.2019 – 26.01.2019
-						.campaings-item-info__count 25 ед.
-					.campaings-item-btns
-						a.campaings-item-btn(href="#") Изменить
-						a.campaings-item-btn(href="#") Остановить
-				.campaings-inn-row.campaings-item
-					.campaings-item-img
-						img(src="img/coffee.png")
-					.campaings-item-info
-						.campaings-item-info__name Кофе
-						.campaings-item-info__period 25.01.2019 – 26.01.2019
-						.campaings-item-info__count 25 ед.
-					.campaings-item-btns
-						a.campaings-item-btn(href="#") Изменить
-						a.campaings-item-btn(href="#") Остановить
-				.campaings-inn-row.campaings-item
-					.campaings-item-img
-						img(src="img/coffee.png")
-					.campaings-item-info
-						.campaings-item-info__name Кофе
-						.campaings-item-info__period 25.01.2019 – 26.01.2019
-						.campaings-item-info__count 25 ед.
-					.campaings-item-btns
-						a.campaings-item-btn(href="#") Изменить
-						a.campaings-item-btn(href="#") Остановить
 
 			.main-block-content.campaings-inn.main-block-tabs-item
-				.main-block-content.campaings-inn.main-block-tabs-item
-				.campaings-inn-row.campaings-item
-					.campaings-item-img
-						img(src="img/coffee.png")
-					.campaings-item-info
-						.campaings-item-info__name Кофе
-						.campaings-item-info__period 25.01.2019 – 26.01.2019
-						.campaings-item-info__count 25 ед.
-					.campaings-item-btns
-						a.campaings-item-btn(href="#") Изменить
-						a.campaings-item-btn(href="#") Остановить
-				.campaings-inn-row.campaings-item
-					.campaings-item-img
-						img(src="img/coffee.png")
-					.campaings-item-info
-						.campaings-item-info__name Кофе
-						.campaings-item-info__period 25.01.2019 – 26.01.2019
-						.campaings-item-info__count 25 ед.
-					.campaings-item-btns
-						a.campaings-item-btn(href="#") Изменить
-						a.campaings-item-btn(href="#") Остановить
-				.campaings-inn-row.campaings-item
-					.campaings-item-img
-						img(src="img/coffee.png")
-					.campaings-item-info
-						.campaings-item-info__name Кофе
-						.campaings-item-info__period 25.01.2019 – 26.01.2019
-						.campaings-item-info__count 25 ед.
-					.campaings-item-btns
-						a.campaings-item-btn(href="#") Изменить
-						a.campaings-item-btn(href="#") Остановить
-				.campaings-inn-row.campaings-item
-					.campaings-item-img
-						img(src="img/coffee.png")
-					.campaings-item-info
-						.campaings-item-info__name Кофе
-						.campaings-item-info__period 25.01.2019 – 26.01.2019
-						.campaings-item-info__count 25 ед.
-					.campaings-item-btns
-						a.campaings-item-btn(href="#") Изменить
-						a.campaings-item-btn(href="#") Остановить
-				.campaings-inn-row.campaings-item
-					.campaings-item-img
-						img(src="img/coffee.png")
-					.campaings-item-info
-						.campaings-item-info__name Кофе
-						.campaings-item-info__period 25.01.2019 – 26.01.2019
-						.campaings-item-info__count 25 ед.
-					.campaings-item-btns
-						a.campaings-item-btn(href="#") Изменить
-						a.campaings-item-btn(href="#") Остановить
+				.campaings-inn.campaings-inn-content.scrollbar-rail
+					.campaings-inn-row.campaings-item
+						.campaings-item-img
+							img(src="img/coffee.png")
+						.campaings-item-info
+							.campaings-item-info__name Кофе
+							.campaings-item-info__period 25.01.2019 – 26.01.2019
+							.campaings-item-info__count 25 ед.
+						.campaings-item-btns
+							a.campaings-item-btn(href="#") Изменить
+							a.campaings-item-btn(href="#") Остановить
+					.campaings-inn-row.campaings-item
+						.campaings-item-img
+							img(src="img/coffee.png")
+						.campaings-item-info
+							.campaings-item-info__name Кофе
+							.campaings-item-info__period 25.01.2019 – 26.01.2019
+							.campaings-item-info__count 25 ед.
+						.campaings-item-btns
+							a.campaings-item-btn(href="#") Изменить
+							a.campaings-item-btn(href="#") Остановить
+					.campaings-inn-row.campaings-item
+						.campaings-item-img
+							img(src="img/coffee.png")
+						.campaings-item-info
+							.campaings-item-info__name Кофе
+							.campaings-item-info__period 25.01.2019 – 26.01.2019
+							.campaings-item-info__count 25 ед.
+						.campaings-item-btns
+							a.campaings-item-btn(href="#") Изменить
+							a.campaings-item-btn(href="#") Остановить
+					.campaings-inn-row.campaings-item
+						.campaings-item-img
+							img(src="img/coffee.png")
+						.campaings-item-info
+							.campaings-item-info__name Кофе
+							.campaings-item-info__period 25.01.2019 – 26.01.2019
+							.campaings-item-info__count 25 ед.
+						.campaings-item-btns
+							a.campaings-item-btn(href="#") Изменить
+							a.campaings-item-btn(href="#") Остановить
+					.campaings-inn-row.campaings-item
+						.campaings-item-img
+							img(src="img/coffee.png")
+						.campaings-item-info
+							.campaings-item-info__name Кофе
+							.campaings-item-info__period 25.01.2019 – 26.01.2019
+							.campaings-item-info__count 25 ед.
+						.campaings-item-btns
+							a.campaings-item-btn(href="#") Изменить
+							a.campaings-item-btn(href="#") Остановить
 
-		.main-block
+			.main-block-content.campaings-inn.main-block-tabs-item
+				.campaings-inn.campaings-inn-content.scrollbar-rail
+					.campaings-inn-row.campaings-item
+						.campaings-item-img
+							img(src="img/coffee.png")
+						.campaings-item-info
+							.campaings-item-info__name Кофе
+							.campaings-item-info__period 25.01.2019 – 26.01.2019
+							.campaings-item-info__count 25 ед.
+						.campaings-item-btns
+							a.campaings-item-btn(href="#") Изменить
+							a.campaings-item-btn(href="#") Остановить
+					.campaings-inn-row.campaings-item
+						.campaings-item-img
+							img(src="img/coffee.png")
+						.campaings-item-info
+							.campaings-item-info__name Кофе
+							.campaings-item-info__period 25.01.2019 – 26.01.2019
+							.campaings-item-info__count 25 ед.
+						.campaings-item-btns
+							a.campaings-item-btn(href="#") Изменить
+							a.campaings-item-btn(href="#") Остановить
+					.campaings-inn-row.campaings-item
+						.campaings-item-img
+							img(src="img/coffee.png")
+						.campaings-item-info
+							.campaings-item-info__name Кофе
+							.campaings-item-info__period 25.01.2019 – 26.01.2019
+							.campaings-item-info__count 25 ед.
+						.campaings-item-btns
+							a.campaings-item-btn(href="#") Изменить
+							a.campaings-item-btn(href="#") Остановить
+					.campaings-inn-row.campaings-item
+						.campaings-item-img
+							img(src="img/coffee.png")
+						.campaings-item-info
+							.campaings-item-info__name Кофе
+							.campaings-item-info__period 25.01.2019 – 26.01.2019
+							.campaings-item-info__count 25 ед.
+						.campaings-item-btns
+							a.campaings-item-btn(href="#") Изменить
+							a.campaings-item-btn(href="#") Остановить
+					.campaings-inn-row.campaings-item
+						.campaings-item-img
+							img(src="img/coffee.png")
+						.campaings-item-info
+							.campaings-item-info__name Кофе
+							.campaings-item-info__period 25.01.2019 – 26.01.2019
+							.campaings-item-info__count 25 ед.
+						.campaings-item-btns
+							a.campaings-item-btn(href="#") Изменить
+							a.campaings-item-btn(href="#") Остановить
+
+		.main-block#statistic
 			.main-block-head.main-block-head_with-p Статистика
 			.main-block-bar
 				.date-pick
@@ -266,7 +268,7 @@ block contain
 							td 25
 							td —
 							td —
-		.main-block
+		.main-block#payment
 			.main-block-nav.main-block-nav_mb
 				a.header-link.main-block-nav__link.active(href="#" data-tabs-link) Пополнить баланс
 				a.header-link.main-block-nav__link(href="#" data-tabs-link) История платежей
@@ -339,6 +341,65 @@ block contain
 							.payment-history-item 1 488 500
 							.payment-history-item
 								img(src="img/method-2.png", alt="mastercard")
-
+	form.main-block.registration.active
+			.main-block-head.registration-head Регистрация бизнес-профиля
+			.main-block-content.registration-main
+				.block-photo-upload
+					.block-photo-upload__avatar
+					label.block-photo-upload__link
+						<svg width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.4999 12.3855C12.4125 12.3855 13.9375 10.9227 13.9375 9.14287C13.9375 7.36306 12.3867 5.90021 10.4999 5.90021C8.61315 5.90021 7.06238 7.36306 7.06238 9.14287C7.06238 10.9227 8.5873 12.3855 10.4999 12.3855Z" fill="#0092FF"/>
+							<path d="M0.0581055 3.63276V14.336C0.0581055 15.2625 0.859336 16.0183 1.84149 16.0183H19.1843C20.1664 16.0183 20.9676 15.2625 20.9676 14.336V3.63276C20.9676 2.70628 20.1664 1.95047 19.1843 1.95047H1.84149C0.83349 1.95047 0.0581055 2.70628 0.0581055 3.63276ZM17.0649 4.58361C17.6076 4.58361 18.0212 4.99809 18.0212 5.48571C18.0212 5.99771 17.5818 6.3878 17.0649 6.3878C16.548 6.3878 16.1086 5.97333 16.1086 5.48571C16.0827 4.97371 16.5221 4.58361 17.0649 4.58361ZM10.5 4.68114C13.1104 4.68114 15.2298 6.68037 15.2298 9.14285C15.2298 11.6053 13.1104 13.6046 10.5 13.6046C7.88949 13.6046 5.7701 11.6053 5.7701 9.14285C5.7701 6.68037 7.88949 4.68114 10.5 4.68114Z" fill="#0092FF"/>
+							<path d="M6.7264 1.09713C7.08825 1.09713 7.37255 0.82894 7.37255 0.487606C7.37255 0.146273 7.0624 -0.121918 6.7264 -0.121918H4.06424C3.7024 -0.121918 3.41809 0.146273 3.41809 0.487606C3.41809 0.82894 3.7024 1.09713 4.06424 1.09713H6.7264Z" fill="#0092FF"/>
+						</svg>
+						| Загрузить лого компании
+						input(type="file").block-photo-upload__input
+					.block-photo-upload__description Размер фотографии не более 20 Mb в формате png или jpg
+				.block-form
+					.block-form-column
+						label.form-input
+							.form-input__descr
+								| Название компании (не более 20 символов)
+							input(type="text" maxlength="20")
+						label.form-input
+							.form-input__descr
+								| Полное наименование компании (ООО, ИП...)
+							input(type="text")
+						label.form-input
+							.form-input__descr
+								| ИНН
+							input(type="text" data-inn)
+						label.form-input
+							.form-input__descr
+								| ОГРН
+							input(type="text")
+						label.form-input
+							.form-input__descr
+								| Юридический адрес
+							input(type="text")
+					.block-form-column
+						label.form-input
+							.form-input__descr
+								| Логин
+							input(type="text" max="20")
+						label.form-input
+							.form-input__descr
+								| Пароль
+							input(type="password")
+						label.form-input
+							.form-input__descr
+								| Телефон
+							input(type="text" data-phone)
+						label.form-input
+							.form-input__descr
+								| E-mail
+							input(type="text")
+						label.form-input
+							.form-input__descr
+								| Адрес выдачи подарков
+							input(type="text")
+			.block-btns
+				a(href="#").btn-cancel.mr-30 Отмена
+				input(type="submit" value="Создать бизнес-профиль").btn-submit
 
 

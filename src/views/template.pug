@@ -1,5 +1,5 @@
 doctype html
-html(lang="en")
+html(lang="en").scrollbar-rail
 	head
 		meta(charset="utf-8")
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
@@ -7,11 +7,11 @@ html(lang="en")
 		link(rel="shortcut icon" href="img/favicons/favicon.ico" type="image/x-icon")
 		link(rel="stylesheet" href="styles/main.css")
 		block title
-	body
+	body.scrollbar-rail(style="overflow: hidden")
 		.wrapper
 			include components/header
 			block contain
 
 		script(src="js/jquery.min.js")
-		script(src="js/perfect-scrollbar.min.js")
+		script(src="js/jquery.scrollbar.min.js")
 		script(src="js/main.js")

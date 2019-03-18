@@ -1,0 +1,85 @@
+extends ../template
+
+block title
+	title GetLucky | edit
+
+block contain
+	.block
+		form.main-block#edit
+			.main-block-content.registration-main
+				.block-photo-upload
+					.block-photo-upload__avatar
+					label.block-photo-upload__link
+						<svg width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10.4999 12.3855C12.4125 12.3855 13.9375 10.9227 13.9375 9.14287C13.9375 7.36306 12.3867 5.90021 10.4999 5.90021C8.61315 5.90021 7.06238 7.36306 7.06238 9.14287C7.06238 10.9227 8.5873 12.3855 10.4999 12.3855Z" fill="#0092FF"/>
+							<path d="M0.0581055 3.63276V14.336C0.0581055 15.2625 0.859336 16.0183 1.84149 16.0183H19.1843C20.1664 16.0183 20.9676 15.2625 20.9676 14.336V3.63276C20.9676 2.70628 20.1664 1.95047 19.1843 1.95047H1.84149C0.83349 1.95047 0.0581055 2.70628 0.0581055 3.63276ZM17.0649 4.58361C17.6076 4.58361 18.0212 4.99809 18.0212 5.48571C18.0212 5.99771 17.5818 6.3878 17.0649 6.3878C16.548 6.3878 16.1086 5.97333 16.1086 5.48571C16.0827 4.97371 16.5221 4.58361 17.0649 4.58361ZM10.5 4.68114C13.1104 4.68114 15.2298 6.68037 15.2298 9.14285C15.2298 11.6053 13.1104 13.6046 10.5 13.6046C7.88949 13.6046 5.7701 11.6053 5.7701 9.14285C5.7701 6.68037 7.88949 4.68114 10.5 4.68114Z" fill="#0092FF"/>
+							<path d="M6.7264 1.09713C7.08825 1.09713 7.37255 0.82894 7.37255 0.487606C7.37255 0.146273 7.0624 -0.121918 6.7264 -0.121918H4.06424C3.7024 -0.121918 3.41809 0.146273 3.41809 0.487606C3.41809 0.82894 3.7024 1.09713 4.06424 1.09713H6.7264Z" fill="#0092FF"/>
+						</svg>
+						| Загрузить лого компании
+						input(type="file").block-photo-upload__input
+					.block-photo-upload__description Размер фотографии не более 20 Mb в формате png или jpg
+				.block-form.block-form_column
+					.main-block-nav
+						a.header-link.main-block-nav__link.active(href="#" data-tabs-link) Информация о профиле
+						a.header-link.main-block-nav__link(href="#" data-tabs-link) Адреса выдачи подарков
+					.main-block-tabs-item.main-block-tabs-item_flex.active
+						.block-form-column
+							label.form-input
+								.form-input__descr
+									| Название компании (не более 20 символов)
+								input(type="text" maxlength="20")
+							label.form-input
+								.form-input__descr
+									| Юридический адрес
+								input(type="text")
+							label.form-input
+								.form-input__descr
+									| Телефон
+								input(type="text" data-phone)
+							label.form-input
+								.form-input__descr
+									| E-mail
+								input(type="text")
+							
+						.block-form-column
+							label.form-input
+								.form-input__descr
+									| Логин
+								input(type="text" max="20")
+							label.form-input
+								.form-input__descr
+									| Пароль
+								input(type="password")
+							
+							
+							label.form-input
+								.form-input__descr
+									| Адрес выдачи
+								textarea
+					.main-block-tabs-item.main-block-tabs-item_flex
+						.block-form-column
+							.address-list.scrollbar-rail
+								- for (var x = 0; x < 8; x++) 
+									.address-list-item
+										.address-list-item__name
+											| 50404 Coco Palm Drive Indio, CA 92201 USA
+										a.address-list-item__btn.header-link(href="#" data-remove) Удалить
+									
+						.block-form-column
+							form.address-add
+								.address-add__head Добавить новый адрес
+								.address-add__inputs
+									label.form-input
+										.form-input__descr
+											| Город
+										input(type="text")
+									label.form-input
+										.form-input__descr
+											| Адрес
+										input(type="text")
+								.address-add__btn
+									input.btn-submit(type="submit" value="Добавить")
+
+			.block-btns
+				a(href="index.html").btn-cancel.mr-30 Назад
+				input(type="submit" value="Сохранить изменения").btn-submit
