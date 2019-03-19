@@ -25,6 +25,12 @@ $(document).ready(function(){
       $('.registration').removeClass('active');
       $('body').css('overflow', '');
 
+
+      console.log(pathname.length);
+      if (!pathname.length) {
+        return false;
+      }
+
       let target = $(`#${pathname}`).offset().top - 150;
 
       $('html, body').animate({scrollTop: target}, 1000);
@@ -159,9 +165,8 @@ $(document).ready(function(){
   }
 
   const faqOpenInnerText = function(e) {
-    console.log(e.target.classList.contains('date-pick-period__link_inline'));
-
     if (e.target.classList.contains('date-pick-period__link_inline')) {
+      window.location = e.target.href;
       return false;
     }
 
