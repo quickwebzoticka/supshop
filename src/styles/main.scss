@@ -3,6 +3,7 @@
 @import "base/typography";
 @import "vendor/normalize";
 @import "vendor/jquery.scrollbar";
+@import "vendor/sumoselect.min";
 
 * {
 	box-sizing: border-box;
@@ -17,6 +18,57 @@ html, body {
     font-family: 'OpenSans';
 		font-size: 15px;
 		min-height: 100vh;
+}
+
+
+.SumoSelect {
+	width: 100%;
+}
+
+.SumoSelect > .CaptionCont {
+	background: transparent;
+	border: 1px solid $color-blue;
+	border-radius: 5px;
+	color: $color-blue-light;
+}
+
+.SumoSelect.open > .CaptionCont, .SumoSelect:focus > .CaptionCont, .SumoSelect:hover > .CaptionCont {
+	box-shadow: 0 0 2px $color-blue-light;
+  border-color: $color-blue-light;
+}
+
+.SumoSelect > .CaptionCont > label > i {
+	background: url(../img/arrow.svg) no-repeat center center;
+}
+
+.SumoSelect > .optWrapper {
+	background: $color-black-back;
+	border: 1px solid $color-blue-light;
+	color: $color-blue;
+}
+
+.SumoSelect > .optWrapper > .options {
+	&::-webkit-scrollbar {
+			width: 3px;
+		}
+	&::-webkit-scrollbar-thumb {
+		width: 3px;
+		border-radius: 3px;
+		background: $color-blue-light;
+	}
+	&::-webkit-scrollbar-track {
+	  background: transparent; 
+	}
+}
+
+.SumoSelect > .optWrapper > .options li.opt {
+	border-bottom: 1px solid $color-blue-light;
+
+
+	&:hover {
+		color: $color-blue-light;
+		background-color: $color-black-back-light
+	}
 }
 
 .wrapper {
@@ -347,6 +399,12 @@ html, body {
 			svg {
 				margin-left: 5px;
 			}
+
+
+			&_inline {
+				display: inline-block;
+				margin-left: 0px;
+			}
 		}
 	}
 }
@@ -655,7 +713,7 @@ html, body {
 .form-input {
 	display: flex;
 	align-items: center;
-
+	
 
 	input {
 		width: 200px;
@@ -715,14 +773,42 @@ html, body {
 			border: 1px solid $color-blue-light;
 		}
 	}
+
+
+	&_width {
+
+
+		textarea {
+			width: 270px;
+		}
+
+
+		input {
+			width: 270px;
+		}
+	}
+
+
+	&_ai-center {
+		align-items: center !important;
+	}
 }
 
 
 .block-btns {
 	display: flex;
 	align-items: center;
-	justify-content: flex-start;
-	padding: 50px 200px 0 345px;
+	justify-content: center;
+	max-width: 1220px;
+	margin: 0 auto;
+	padding: 40px 0;
+
+
+	&_ml {
+		padding: 0;
+		padding-left: 100px;
+
+	}
 }
 
 .btn-cancel {
@@ -846,11 +932,6 @@ html, body {
 
 #faq {
 
-
-	.block-btns {
-		padding: 0;
-		justify-content: center;
-	}
 }
 
 .main-block-content_card {
@@ -926,4 +1007,157 @@ html, body {
 
 .form-input-radio-wrapper {
 	margin-bottom: 10px;
+}
+
+
+.form-input__upload {
+	display: block;
+	margin-left: 240px;
+	cursor: pointer;
+	
+
+	input[type="file"] {
+		display: none;
+	}
+	
+	
+	&_link {
+		color: $color-blue-light;
+		text-decoration: underline;
+		margin-bottom: 10px;
+	}
+
+
+	&_descr {
+		color: $color-blue;
+		text-decoration: none;
+	}
+}
+
+
+.form-input-time {
+	width: 80px;
+	height: 28px;
+	color: $color-blue-light;
+	background: transparent;
+	border-radius: 5px;
+	border: 1px solid $color-blue;
+
+
+	&-wrapper {
+		margin: 0 20px 0 10px;
+	}
+}
+
+.faq {
+	&-content {
+		padding: 90px 0;
+		width: 60%;
+	}
+	
+
+	&-theme {
+		margin-bottom: 30px;
+
+		&:last-child {
+			margin-bottom: 0px;
+		}
+
+
+		&__text {
+			font-weight: 600;
+		}
+
+
+		&-main {
+			display: none;
+			padding: 30px 0 25px 30px;
+		}
+
+
+		&__arrow {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: .3s;
+		}
+
+
+		&-top {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			cursor: pointer;
+
+
+			&.active {
+				.faq-theme__arrow {
+					transform: rotate(180deg);				
+				}
+			}
+		}
+	}
+
+
+	&-question {
+		margin-bottom: 35px;
+
+		&-main {
+			display: none;
+		}
+
+
+		&-top {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			cursor: pointer;
+			margin-bottom: 10px;
+
+
+			&:hover {
+				.faq-question__text {
+					color: $color-blue-light;
+				}
+
+				.faq-question__arrow {
+					path {
+						fill: $color-blue-light;
+					}
+				}
+			}
+
+			&.active {
+				.faq-question__arrow {
+					transform: rotate(180deg);
+				}
+
+				.faq-question__text {
+					color: $color-blue-light;
+				}
+
+				.faq-question__arrow {
+					path {
+						fill: $color-blue-light;
+					}
+				}
+			}
+		}
+
+		&__text {
+			color: $color-blue;
+			transition: .3s;
+		}
+
+
+		&__arrow {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: .3s;
+			path {
+				transition : .3s;
+			}
+		}
+	}
 }

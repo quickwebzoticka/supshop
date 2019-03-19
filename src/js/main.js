@@ -2,6 +2,8 @@ $(document).ready(function(){
   $('.campaings-inn-content').scrollbar();
   $('.address-list').scrollbar();
 
+  $('select').SumoSelect();
+
   const closeHeaderMenu = function(e) {
     if (!e.target.closest('.header-menu') && !e.target.closest('.header-menu-container')) {
       $('.header-menu').slideUp(300);
@@ -10,6 +12,10 @@ $(document).ready(function(){
 
   const moveToAnchor = function() {
     let pathname = location.href;
+
+    if (!$('.registration').length) {
+      $('body').css('overflow', '');
+    }
 
     if (pathname.indexOf('#') > 0) {
       pathname = pathname.split('#');
@@ -135,9 +141,51 @@ $(document).ready(function(){
     $(this).closest('.form-input').addClass('active');
   };
 
+
+  const faqOpenText = function() {
+    if($(this).hasClass('active')) {
+      $(this).removeClass('active')
+             .siblings('.faq-theme-main')
+             .slideUp(300);
+
+      return false;
+    } else {
+      $(this).addClass('active')
+             .siblings('.faq-theme-main')
+             .slideDown(300);
+
+      return false;
+    }
+  }
+
+  const faqOpenInnerText = function(e) {
+    console.log(e.target.classList.contains('date-pick-period__link_inline'));
+
+    if (e.target.classList.contains('date-pick-period__link_inline')) {
+      return false;
+    }
+
+    if($(this).hasClass('active')) {
+      $(this).removeClass('active')
+             .siblings('.faq-question-main')
+             .slideUp(300);
+
+      return false;
+    } else {
+      $(this).addClass('active')
+             .siblings('.faq-question-main')
+             .slideDown(300);
+
+      return false;
+    }
+  }
+
   removeActiveLinks();
   moveToAnchor();
 
+
+  $(document).on('click', '.faq-question-top', faqOpenInnerText);
+  $(document).on('click', '.faq-theme-top', faqOpenText);
   $(document).on('click', '.form-input__radio', activeRadio);
   $(document).on('click', '.registration .btn-cancel', removePopup);
   $(document).on('click', 'header .header-link', scrollToBlock);
@@ -146,9 +194,15 @@ $(document).ready(function(){
   $(document).on('click', '.header .header-link:not(active)', headerNav);
   $(document).on('click', '[data-tabs-link]:not(.active)', changeTabs);
   $(document).on('click', closeHeaderMenu);
+
+
   $(document).on('change', '.input-text input', toLocaleString);
+
+
   $(document).on('focus', '.input-text', inputFocusOn);
   $(document).on('focus', '.form-input', inputFocusOn);
+
+
   $(document).on('blur', '.input-text', inputFocusOff);
   $(document).on('blur', '.form-input', inputFocusOff);
   
