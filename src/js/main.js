@@ -1,8 +1,14 @@
 $(document).ready(function(){
   $('.campaings-inn-content').scrollbar();
   $('.address-list').scrollbar();
+  $('.select-emul-dropdown').scrollbar();
+
+  $('[data-datepicker]').datepicker();
 
   $('select').SumoSelect();
+
+
+  $('[data-time]').inputmask({ alias: "email" });
 
   const closeHeaderMenu = function(e) {
     if (!e.target.closest('.header-menu') && !e.target.closest('.header-menu-container')) {
@@ -25,8 +31,6 @@ $(document).ready(function(){
       $('.registration').removeClass('active');
       $('body').css('overflow', '');
 
-
-      console.log(pathname.length);
       if (!pathname.length) {
         return false;
       }
@@ -162,7 +166,7 @@ $(document).ready(function(){
 
       return false;
     }
-  }
+  };
 
   const faqOpenInnerText = function(e) {
     if (e.target.classList.contains('date-pick-period__link_inline')) {
@@ -183,12 +187,85 @@ $(document).ready(function(){
 
       return false;
     }
+  };
+
+
+  const dropdownMenu = function(e) {
+    if ($(this).siblings('.select-emul-dropdown').hasClass('active')) {
+      $(this).siblings('.select-emul-dropdown')
+           .css({
+            height: '0px'
+           })
+           .removeClass('active');
+           
+    } else {
+      $(this).siblings('.select-emul-dropdown')
+           .css({
+            height: '100px'
+           })
+           .addClass('active');
+    }
+  };
+
+
+  const closeDropdownMenu = function(e) {
+    if (e.target !== $('.select-emul-wrapper') && !e.target.closest('.select-emul-wrapper') ) {
+
+      $('.select-emul-dropdown')
+           .css({
+            height: '0px'
+           })
+           .removeClass('active');
+    }
+  };
+
+
+  const selectGift = function() {
+    let textField = $(this).closest('.select-emul-wrapper').find('.select-emul__text');
+    let itemCloned = $(this).clone();
+    let itemClonedDescr = itemCloned.find('img').data('value');
+
+    textField.html(itemCloned);
+    textField.append(` - ${itemClonedDescr}`);
+
+    $('.select-emul-dropdown')
+           .css({
+            height: '0px'
+           })
+           .removeClass('active');
+  };
+
+
+  const activeDatepicker = function() {
+    $(this).closest('.campaign-datepicker').addClass('active');
+  }
+
+  const deactiveDatepicker = function() {
+    let wrapper = $(this).closest('.campaign-datepicker');
+    let inputs = wrapper.find('input');
+    let result = 0;
+
+
+   inputs.map((index, el) => {
+      if (el.value.length > 0){
+        ++result;
+      }
+    });
+
+    if (result > 0) return false;
+    wrapper.removeClass('active');
   }
 
   removeActiveLinks();
   moveToAnchor();
 
 
+
+  $(document).on('focus', '.campaign-datepicker input', activeDatepicker);
+  $(document).on('blur', '.campaign-datepicker input', deactiveDatepicker);
+  $(document).on('click', '.dropdown-item', selectGift);
+  $(document).on('click', closeDropdownMenu);
+  $(document).on('click', '.select-emul', dropdownMenu);
   $(document).on('click', '.faq-question-top', faqOpenInnerText);
   $(document).on('click', '.faq-theme-top', faqOpenText);
   $(document).on('click', '.form-input__radio', activeRadio);
@@ -212,5 +289,21 @@ $(document).ready(function(){
   $(document).on('blur', '.form-input', inputFocusOff);
   
 
+  if ($('.map').length) {
+      function initMap () {
+        let map = new google.maps.Map(document.querySelector('.map'), {
+          center: new google.maps.LatLng(60.068521, 30.313409),
+          zoom: 14,
+          streetViewControl: false,
+          mapTypeControl: false,
+          gestureHandling: 'greedy',
+          scrollwheel: false,
+          disableDefaultUI: true,
+        });
+    }
+
+    initMap();
+  }
+  
 
 });

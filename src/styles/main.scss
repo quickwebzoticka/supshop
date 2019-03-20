@@ -4,6 +4,7 @@
 @import "vendor/normalize";
 @import "vendor/jquery.scrollbar";
 @import "vendor/sumoselect.min";
+@import "vendor/datepicker.min";
 
 * {
 	box-sizing: border-box;
@@ -20,55 +21,8 @@ html, body {
 		min-height: 100vh;
 }
 
-
-.SumoSelect {
-	width: 100%;
-}
-
-.SumoSelect > .CaptionCont {
-	background: transparent;
-	border: 1px solid $color-blue;
-	border-radius: 5px;
+.datepicker--day-name {
 	color: $color-blue-light;
-}
-
-.SumoSelect.open > .CaptionCont, .SumoSelect:focus > .CaptionCont, .SumoSelect:hover > .CaptionCont {
-	box-shadow: 0 0 2px $color-blue-light;
-  border-color: $color-blue-light;
-}
-
-.SumoSelect > .CaptionCont > label > i {
-	background: url(../img/arrow.svg) no-repeat center center;
-}
-
-.SumoSelect > .optWrapper {
-	background: $color-black-back;
-	border: 1px solid $color-blue-light;
-	color: $color-blue;
-}
-
-.SumoSelect > .optWrapper > .options {
-	&::-webkit-scrollbar {
-			width: 3px;
-		}
-	&::-webkit-scrollbar-thumb {
-		width: 3px;
-		border-radius: 3px;
-		background: $color-blue-light;
-	}
-	&::-webkit-scrollbar-track {
-	  background: transparent; 
-	}
-}
-
-.SumoSelect > .optWrapper > .options li.opt {
-	border-bottom: 1px solid $color-blue-light;
-
-
-	&:hover {
-		color: $color-blue-light;
-		background-color: $color-black-back-light
-	}
 }
 
 .wrapper {
@@ -1162,6 +1116,58 @@ html, body {
 	}
 }
 
+.faq-main {
+	.SumoSelect {
+		width: 100%;
+	}
+
+	.SumoSelect > .CaptionCont {
+		background: transparent;
+		border: 1px solid $color-blue;
+		border-radius: 5px;
+		color: $color-blue-light;
+	}
+
+	.SumoSelect.open > .CaptionCont, .SumoSelect:focus > .CaptionCont, .SumoSelect:hover > .CaptionCont {
+		box-shadow: 0 0 2px $color-blue-light;
+	  border-color: $color-blue-light;
+	}
+
+	.SumoSelect > .CaptionCont > label > i {
+		background: url(../img/arrow.svg) no-repeat center center;
+	}
+
+	.SumoSelect > .optWrapper {
+		background: $color-black-back;
+		border: 1px solid $color-blue-light;
+		color: $color-blue;
+	}
+
+	.SumoSelect > .optWrapper > .options {
+		&::-webkit-scrollbar {
+				width: 3px;
+			}
+		&::-webkit-scrollbar-thumb {
+			width: 3px;
+			border-radius: 3px;
+			background: $color-blue-light;
+		}
+		&::-webkit-scrollbar-track {
+		  background: transparent; 
+		}
+	}
+
+	.SumoSelect > .optWrapper > .options li.opt {
+		border-bottom: 1px solid $color-blue-light;
+
+
+		&:hover {
+			color: $color-blue-light;
+			background-color: $color-black-back-light
+		}
+	}
+}
+
 
 .conformation {
 	box-sizing: border-box;
@@ -1229,7 +1235,7 @@ html, body {
 		background: $color-black-back-light;
 		height: 540px;
 		padding: 20px;
-		border-right: 3px;
+		border-radius: 3px;
 	}
 
 
@@ -1263,4 +1269,332 @@ a.btn-submit {
 	justify-content: center;
 	text-decoration: none;
 	outline: none;
+}
+
+
+.campaign-spec {
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	position: relative;
+	z-index: 10;
+	flex-direction: column; 
+	align-items: flex-end;
+	padding: 157px 110px 20px;
+
+
+	&-wrapper {
+		width: 570px;
+		padding: 40px 30px;
+		background: $color-black-back;
+		border-radius: 3px;
+	}
+
+
+	&-container {
+		background: $color-black-back-light;
+		padding: 15px 40px 25px;
+		border-radius: 3px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		text-align: left;
+		margin-bottom: 30px;
+	}
+
+
+	.SumoSelect {
+		width: 100%;
+	}
+
+	.SumoSelect > .CaptionCont {
+		background: $color-white-back;
+		border: 1px solid transparent;
+		border-radius: 3px;
+		color: $color-blue;
+	}
+
+	.SumoSelect.open > .CaptionCont, .SumoSelect:focus > .CaptionCont, .SumoSelect:hover > .CaptionCont {
+		box-shadow: 0 0 2px $color-white-back;
+	  border-color: transparent;
+	}
+
+	.SumoSelect > .CaptionCont > label > i {
+		background: url(../img/arrow-black.svg) no-repeat center center;
+	}
+
+	.SumoSelect > .optWrapper {
+		background: $color-white-back;
+		border: 1px solid $color-white-back;
+		color: $color-blue;
+	}
+
+	.SumoSelect > .optWrapper > .options {
+		&::-webkit-scrollbar {
+				width: 3px;
+			}
+		&::-webkit-scrollbar-thumb {
+			width: 3px;
+			border-radius: 3px;
+			background: $color-blue-light;
+		}
+		&::-webkit-scrollbar-track {
+		  background: transparent; 
+		}
+	}
+
+	.SumoSelect > .optWrapper > .options li.opt {
+		border-bottom: none;
+		padding: 0px;
+		&:hover {
+			background-color: #dcdada;
+		}
+	}
+
+	.SumoSelect > .optWrapper > .options li.opt label {
+		padding: 6px;
+	}
+}
+
+
+.container {
+
+
+	&-head {
+		padding: 0 15px;
+		margin-bottom: 20px;
+		color: $color-white-back;
+	}
+
+	&-select {
+		width: 100%;
+		margin-bottom: 15px;
+	}
+}
+
+.select-emul {
+	width: 100%;
+	height: 29px;
+	display: flex;
+	align-items: stretch;
+	padding: 5px 8px;
+	background: $color-white-back;
+	border-radius: 3px;
+	cursor: pointer;
+
+
+	&__text {
+		display: flex;
+		align-items: center;
+		flex: 1;
+		color: $color-blue;
+
+
+		.dropdown-item {
+			flex: 0 1 30px;
+			height: 100%;
+
+			img  {
+				height: 100%;
+			}
+		}
+	}
+
+
+	&__arrow {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: url(../img/arrow-black.svg) no-repeat center center;
+		flex: 0 1 16px;
+	}
+
+
+	&-wrapper {
+		position: relative;
+	}
+
+
+	&-dropdown {
+		background: $color-white-back;
+		border-radius: 3px;
+		position: absolute;
+		top: calc(100% + 5px);
+		left: 0;
+		right: 0;
+		padding: 5px 8px;
+		display: flex;
+		flex-wrap: wrap;
+		max-height: 100px;
+		height: 0px;
+
+		&.scroll-wrapper > .scroll-content {
+			padding: 0px;
+		}
+	}
+}
+
+.dropdown-item {
+	flex: 0 1 25%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 5px;
+	cursor: pointer;
+}
+
+.campaign-input {
+	width: 100%;
+	margin-bottom: 15px;
+
+
+	input {
+		width: 100%;
+		border: none;
+		border-radius: 3px;
+		background: $color-white-back;
+		height: 29px;
+		padding: 5px 8px;
+		color: $color-blue;
+		outline: none;
+		&::placeholder {
+			color: $color-blue;
+		}
+	}
+}
+
+.campaign-textarea {
+	width: 100%;
+
+
+	textarea {
+		width: 100%;
+		border: none;
+		border-radius: 3px;
+		background: $color-white-back;
+		height: 60px;
+		padding: 5px 8px;
+		color: $color-blue;
+		resize: none;
+		outline: none;
+		&::placeholder {
+			color: $color-blue;
+		}
+		&::-webkit-scrollbar {
+			width: 3px;
+		}
+		&::-webkit-scrollbar-thumb {
+			width: 3px;
+			border-radius: 3px;
+			background: $color-blue-light;
+		}
+		&::-webkit-scrollbar-track {
+		  background: transparent; 
+		}
+	}
+}
+
+
+.campaign-datepicker {
+
+
+	&-row {
+		display: flex;
+		align-items: center;
+		margin-bottom: 20px;
+	}
+
+
+	&__head {
+		color: $color-blue;
+		margin-bottom: 10px;
+		transition: .8s;
+	}
+
+
+	&__field {
+		flex: 0 1 130px;
+		width: 130px;
+		height: 29px;
+		position: relative;
+		margin-right: 40px;
+		cursor: pointer;
+		input {
+			border-radius: 3px;
+			background: $color-white-back;
+			border: none;
+			height: 29px;
+			width: 100%;
+			padding: 5px 25px 5px 8px;
+			outline: none;
+		}
+	}
+
+
+	&__time {
+		flex: 0 1 130px;
+		width: 130px;
+		height: 29px;
+		position: relative;
+		cursor: pointer;
+		input {
+			border-radius: 3px;
+			background: $color-white-back;
+			border: none;
+			height: 29px;
+			width: 100%;
+			padding: 5px 25px 5px 8px;
+			outline: none;
+		}
+	}
+
+
+	&:hover {
+		.campaign-datepicker__head {
+			color: $color-blue-light;
+		}
+
+		.date-icon {
+			svg {
+				path {
+					fill: $color-blue-light;
+				}
+			}
+		}
+	}
+
+	&.active {
+		.campaign-datepicker__head {
+			color: $color-blue-light;
+		}
+
+		.date-icon {
+			svg {
+				path {
+					fill: $color-blue-light;
+				}
+			}
+		}
+	}
+}
+
+
+.date-icon {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 4px;
+	width: 18px;
+	height: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	svg {
+		width: 100%;
+		height: 100%;
+		path {
+			transition: .8s;
+		}
+	}
 }
