@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html class="scrollbar-rail" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="shortcut icon" href="img/favicons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/main.css">
+    <title>GetLucky | campaign-target</title>
+  </head>
+  <body class="scrollbar-rail" style="overflow: hidden">
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header-container">
+            <div class="header-item"><a class="header-logo" href="index.html"><img src="img/logo.svg" alt="logo"></a></div>
+            <div class="header-item"><a class="header-link active" href="index.html#campaings">Мои кампании</a><a class="header-link" href="index.html#statistic">Статистика</a><a class="header-link no-mr" href="index.html#payment">Пополнить баланс</a></div>
+            <div class="header-item">
+              <div class="balance"><img class="icon" src="img/cash-icon.svg">
+                <div class="balance-text">Баланс <span>100500</span></div>
+              </div>
+              <div class="header-menu-container">
+                <div class="header-avatar"><img src="img/avatar.svg"></div>
+                <div class="header-arrow"><svg width="11" height="6" viewBox="0 0 11 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.50009 5.18254C4.99259 5.18254 4.55759 4.96504 4.19509 4.67504L0.860093 1.34003C0.715093 1.19503 0.715093 0.977535 0.860093 0.832535C1.00509 0.687535 1.22259 0.687535 1.36759 0.832535L4.70259 4.16754C5.13759 4.60254 5.79009 4.60254 6.22509 4.16754L9.56009 0.832535C9.70509 0.687535 9.92259 0.687535 10.0676 0.832535C10.2126 0.977535 10.2126 1.19503 10.0676 1.34003L6.73259 4.67504C6.44259 4.96504 6.00759 5.18254 5.50009 5.18254Z" fill="#F3F6FF"/>
+</svg>
+                  <div class="header-menu"><a class="header-menu__link" href="edit.html">Редактировать</a>
+                    <div class="line-grey"></div><a class="header-menu__link" href="faq.html">Помощь</a>
+                    <div class="line-grey"></div><a class="header-menu__link" href="#">Выйти</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="map"></div>
+      <div class="map-wrapper"></div>
+      <div class="block campaign-spec campaign-spec_center">
+        <div class="campaign-spec-window-wrapper">
+          <div class="campaign-spec-additional">
+            <div class="campaign-spec-wrapper">
+              <div class="campaign-spec-container">
+                <div class="campaign-spec-additional__head">Охват аудитории</div>
+                <div class="campaign-spec-additional__count"><span>14 880 000</span> человек</div>
+              </div>
+            </div>
+          </div>
+          <div class="campaign-spec-window">
+            <div class="campaign-spec-wrapper">
+              <div class="campaign-spec-nav">
+                <div class="main-block-nav"><a class="header-link main-block-nav__link active" href="#" data-tabs-link>Новая аудитория</a><a class="header-link main-block-nav__link" href="#" data-tabs-link>Существующая</a><a class="header-link main-block-nav__link" href="#" data-tabs-link>Загрузить аудиторию</a></div>
+              </div>
+              <div class="main-block-tabs-item active">
+                <div class="campaign-spec-container">
+                  <div class="container-head">1. Название аудитории</div>
+                  <div class="campaign-input">
+                    <input type="text" placeholder="Введите название">
+                  </div>
+                </div>
+                <div class="campaign-spec-container">
+                  <div class="container-head">2. Личные данные</div>
+                  <div class="container-category">
+                    <div class="container-category-head">
+                      <div class="container-category-head__btn"><span class="line"></span><span class="line"></span></div>
+                      <div class="container-category-head__text">Пол</div>
+                    </div>
+                    <div class="container-category-main">
+                      <label class="address-location__checkbox container__checkbox">
+                        <input type="checkbox">
+                        <div class="address-location__checkbox_square"></div>Мужской
+                      </label>
+                      <label class="address-location__checkbox container__checkbox">
+                        <input type="checkbox">
+                        <div class="address-location__checkbox_square"></div>Женщина
+                      </label>
+                    </div>
+                  </div>
+                  <div class="container-category">
+                    <div class="container-category-head">
+                      <div class="container-category-head__btn"><span class="line"></span><span class="line"></span></div>
+                      <div class="container-category-head__text">Возвраст</div>
+                    </div>
+                    <div class="container-category-main">
+                      <input class="range-slider container__age">
+                    </div>
+                  </div>
+                  <div class="container-category">
+                    <div class="container-category-head">
+                      <div class="container-category-head__btn"><span class="line"></span><span class="line"></span></div>
+                      <div class="container-category-head__text">Образование</div>
+                    </div>
+                    <div class="container-category-main">
+                      <label class="address-location__checkbox container__checkbox">
+                        <input type="checkbox">
+                        <div class="address-location__checkbox_square"></div>есть высшее
+                      </label>
+                      <label class="address-location__checkbox container__checkbox">
+                        <input type="checkbox">
+                        <div class="address-location__checkbox_square"></div>нет высшего
+                      </label>
+                      <div class="campaign-input">
+                        <input type="text" placeholder="Направление обучения">
+                      </div>
+                      <div class="campaign-input">
+                        <input type="text" placeholder="Учебное заведение">
+                      </div>
+                      <div class="container__head-inn">Годы последнего курса</div>
+                      <input class="range-slider container__years">
+                    </div>
+                  </div>
+                  <div class="container-category">
+                    <div class="container-category-head">
+                      <div class="container-category-head__btn"><span class="line"></span><span class="line"></span></div>
+                      <div class="container-category-head__text">Карьера</div>
+                    </div>
+                    <div class="container-category-main">
+                      <div class="campaign-input">
+                        <input type="text" placeholder="Место работы">
+                      </div>
+                      <div class="campaign-input">
+                        <input type="text" placeholder="Должность">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container-category">
+                    <div class="container-category-head">
+                      <div class="container-category-head__btn"><span class="line"></span><span class="line"></span></div>
+                      <div class="container-category-head__text">Семья</div>
+                    </div>
+                    <div class="container-category-main">
+                      <div class="container__select container__select_family">
+                        <select placeholder="Семейное положение">
+                          <option value="">Холост/не замужем</option>
+                          <option value="">В браке</option>
+                          <option value="">Разведен/разведена</option>
+                        </select>
+                      </div>
+                      <div class="container-category-inn">
+                        <label class="container-category-inn-head address-location__checkbox container__checkbox">
+                          <input type="checkbox">
+                          <div class="address-location__checkbox_square"></div>Наличие братьев и/или сестер
+                          <div class="container__checkbox_arrow"><svg width="8" height="4" viewBox="0 0 8 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.48056 3.97458C7.37758 3.97465 7.27757 3.93729 7.19653 3.86846L4.00002 1.16028L0.803511 3.86838C0.707082 3.95007 0.584647 3.98692 0.463139 3.97082C0.341631 3.95472 0.231004 3.88699 0.155595 3.78252C0.0801859 3.67806 0.0461713 3.54542 0.0610343 3.41379C0.0758972 3.28215 0.13842 3.16231 0.234849 3.08061L3.71569 0.131713C3.79689 0.0629748 3.89698 0.0256341 4.00003 0.0256341C4.10307 0.0256341 4.20316 0.0629747 4.28436 0.131713L7.76519 3.0807C7.84089 3.14483 7.89623 3.23296 7.92349 3.3328C7.95074 3.43264 7.94854 3.5392 7.9172 3.63762C7.88586 3.73604 7.82695 3.82141 7.74868 3.88182C7.6704 3.94222 7.57667 3.97465 7.48057 3.97458L7.48056 3.97458Z" fill="#F3F6FF"/>
+</svg>
+                          </div>
+                        </label>
+                        <div class="container-category-inn-main">
+                          <div class="container__head-inn">Возраст</div>
+                          <input class="range-slider container__age">
+                          <div class="container__head-inn">Пол </div>
+                          <label class="address-location__checkbox container__checkbox">
+                            <input type="checkbox">
+                            <div class="address-location__checkbox_square"></div>Мужской
+                          </label>
+                          <label class="address-location__checkbox container__checkbox">
+                            <input type="checkbox">
+                            <div class="address-location__checkbox_square"></div>Женщина
+                          </label>
+                        </div>
+                      </div>
+                      <div class="container-category-inn">
+                        <label class="container-category-inn-head address-location__checkbox container__checkbox">
+                          <input type="checkbox">
+                          <div class="address-location__checkbox_square"></div>Наличие детей
+                          <div class="container__checkbox_arrow"><svg width="8" height="4" viewBox="0 0 8 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.48056 3.97458C7.37758 3.97465 7.27757 3.93729 7.19653 3.86846L4.00002 1.16028L0.803511 3.86838C0.707082 3.95007 0.584647 3.98692 0.463139 3.97082C0.341631 3.95472 0.231004 3.88699 0.155595 3.78252C0.0801859 3.67806 0.0461713 3.54542 0.0610343 3.41379C0.0758972 3.28215 0.13842 3.16231 0.234849 3.08061L3.71569 0.131713C3.79689 0.0629748 3.89698 0.0256341 4.00003 0.0256341C4.10307 0.0256341 4.20316 0.0629747 4.28436 0.131713L7.76519 3.0807C7.84089 3.14483 7.89623 3.23296 7.92349 3.3328C7.95074 3.43264 7.94854 3.5392 7.9172 3.63762C7.88586 3.73604 7.82695 3.82141 7.74868 3.88182C7.6704 3.94222 7.57667 3.97465 7.48057 3.97458L7.48056 3.97458Z" fill="#F3F6FF"/>
+</svg>
+                          </div>
+                        </label>
+                        <div class="container-category-inn-main">
+                          <div class="container__head-inn">Возраст</div>
+                          <input class="range-slider container__age">
+                          <div class="container__head-inn">Пол </div>
+                          <label class="address-location__checkbox container__checkbox">
+                            <input type="checkbox">
+                            <div class="address-location__checkbox_square"></div>Мужской
+                          </label>
+                          <label class="address-location__checkbox container__checkbox">
+                            <input type="checkbox">
+                            <div class="address-location__checkbox_square"></div>Женщина
+                          </label>
+                        </div>
+                      </div>
+                      <div class="container-category-inn">
+                        <label class="container-category-inn-head address-location__checkbox container__checkbox">
+                          <input type="checkbox">
+                          <div class="address-location__checkbox_square"></div>Родители
+                          <div class="container__checkbox_arrow"><svg width="8" height="4" viewBox="0 0 8 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.48056 3.97458C7.37758 3.97465 7.27757 3.93729 7.19653 3.86846L4.00002 1.16028L0.803511 3.86838C0.707082 3.95007 0.584647 3.98692 0.463139 3.97082C0.341631 3.95472 0.231004 3.88699 0.155595 3.78252C0.0801859 3.67806 0.0461713 3.54542 0.0610343 3.41379C0.0758972 3.28215 0.13842 3.16231 0.234849 3.08061L3.71569 0.131713C3.79689 0.0629748 3.89698 0.0256341 4.00003 0.0256341C4.10307 0.0256341 4.20316 0.0629747 4.28436 0.131713L7.76519 3.0807C7.84089 3.14483 7.89623 3.23296 7.92349 3.3328C7.95074 3.43264 7.94854 3.5392 7.9172 3.63762C7.88586 3.73604 7.82695 3.82141 7.74868 3.88182C7.6704 3.94222 7.57667 3.97465 7.48057 3.97458L7.48056 3.97458Z" fill="#F3F6FF"/>
+</svg>
+                          </div>
+                        </label>
+                        <div class="container-category-inn-main">
+                          <div class="container__head-inn">Возраст</div>
+                          <input class="range-slider container__age">
+                          <div class="container__head-inn">Пол </div>
+                          <label class="address-location__checkbox container__checkbox">
+                            <input type="checkbox">
+                            <div class="address-location__checkbox_square"></div>Мужской
+                          </label>
+                          <label class="address-location__checkbox container__checkbox">
+                            <input type="checkbox">
+                            <div class="address-location__checkbox_square"></div>Женщина
+                          </label>
+                        </div>
+                      </div>
+                      <div class="container-category-inn">
+                        <label class="container-category-inn-head address-location__checkbox container__checkbox">
+                          <input type="checkbox">
+                          <div class="address-location__checkbox_square"></div>Бабушки и дедушки
+                          <div class="container__checkbox_arrow"><svg width="8" height="4" viewBox="0 0 8 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.48056 3.97458C7.37758 3.97465 7.27757 3.93729 7.19653 3.86846L4.00002 1.16028L0.803511 3.86838C0.707082 3.95007 0.584647 3.98692 0.463139 3.97082C0.341631 3.95472 0.231004 3.88699 0.155595 3.78252C0.0801859 3.67806 0.0461713 3.54542 0.0610343 3.41379C0.0758972 3.28215 0.13842 3.16231 0.234849 3.08061L3.71569 0.131713C3.79689 0.0629748 3.89698 0.0256341 4.00003 0.0256341C4.10307 0.0256341 4.20316 0.0629747 4.28436 0.131713L7.76519 3.0807C7.84089 3.14483 7.89623 3.23296 7.92349 3.3328C7.95074 3.43264 7.94854 3.5392 7.9172 3.63762C7.88586 3.73604 7.82695 3.82141 7.74868 3.88182C7.6704 3.94222 7.57667 3.97465 7.48057 3.97458L7.48056 3.97458Z" fill="#F3F6FF"/>
+</svg>
+                          </div>
+                        </label>
+                        <div class="container-category-inn-main">
+                          <div class="container__head-inn">Возраст</div>
+                          <input class="range-slider container__age">
+                          <div class="container__head-inn">Пол </div>
+                          <label class="address-location__checkbox container__checkbox">
+                            <input type="checkbox">
+                            <div class="address-location__checkbox_square"></div>Мужской
+                          </label>
+                          <label class="address-location__checkbox container__checkbox">
+                            <input type="checkbox">
+                            <div class="address-location__checkbox_square"></div>Женщина
+                          </label>
+                        </div>
+                      </div>
+                      <div class="container-category-inn">
+                        <label class="container-category-inn-head address-location__checkbox container__checkbox">
+                          <input type="checkbox">
+                          <div class="address-location__checkbox_square"></div>Внуки
+                          <div class="container__checkbox_arrow"><svg width="8" height="4" viewBox="0 0 8 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.48056 3.97458C7.37758 3.97465 7.27757 3.93729 7.19653 3.86846L4.00002 1.16028L0.803511 3.86838C0.707082 3.95007 0.584647 3.98692 0.463139 3.97082C0.341631 3.95472 0.231004 3.88699 0.155595 3.78252C0.0801859 3.67806 0.0461713 3.54542 0.0610343 3.41379C0.0758972 3.28215 0.13842 3.16231 0.234849 3.08061L3.71569 0.131713C3.79689 0.0629748 3.89698 0.0256341 4.00003 0.0256341C4.10307 0.0256341 4.20316 0.0629747 4.28436 0.131713L7.76519 3.0807C7.84089 3.14483 7.89623 3.23296 7.92349 3.3328C7.95074 3.43264 7.94854 3.5392 7.9172 3.63762C7.88586 3.73604 7.82695 3.82141 7.74868 3.88182C7.6704 3.94222 7.57667 3.97465 7.48057 3.97458L7.48056 3.97458Z" fill="#F3F6FF"/>
+</svg>
+                          </div>
+                        </label>
+                        <div class="container-category-inn-main">
+                          <div class="container__head-inn">Возраст</div>
+                          <input class="range-slider container__age">
+                          <div class="container__head-inn">Пол </div>
+                          <label class="address-location__checkbox container__checkbox">
+                            <input type="checkbox">
+                            <div class="address-location__checkbox_square"></div>Мужской
+                          </label>
+                          <label class="address-location__checkbox container__checkbox">
+                            <input type="checkbox">
+                            <div class="address-location__checkbox_square"></div>Женщина
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="campaign-spec-container">
+                  <div class="container-head">3. Локация</div>
+                  <div class="campaign-input">
+                    <input type="text" placeholder="Родной город">
+                  </div>
+                  <div class="campaign-input">
+                    <input type="text" placeholder="Текущая локация">
+                  </div>
+                </div>
+                <div class="campaign-spec-container">
+                  <div class="container-head">4. Устройство</div>
+                  <div class="container__select">
+                    <select class="select_default">
+                      <option value="">iPhone X</option>
+                      <option value="">iPhone 8</option>
+                      <option value="">iPhone 7</option>
+                      <option value="">iPhone 6</option>
+                      <option value="">iPhone 5</option>
+                      <option value="">iPhone 4</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="campaign-spec-container">
+                  <div class="container-head">5. Интересы</div>
+                  <div class="container__text">Включить людей, которые соответствуют как минимум одному из следующих условий</div>
+                  <div class="campaign-input">
+                    <select class="select_tags" multiple>
+                      <option value="">Автозапчасти и сервис </option>
+                      <option value="">Аренда автобусов</option>
+                      <option value="">Мото</option>
+                      <option value="">Шины и диски</option>
+                    </select>
+                  </div>
+                  <div class="campaign-tags">
+                    <div class="campaign-tags__icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5.8949e-05 12.0208L8.74247 3.2784L15.5564 3.53553L15.8135 10.3495L7.07113 19.0919L5.8949e-05 12.0208ZM13.7351 5.35687C13.3446 4.96637 12.7018 4.97596 12.2994 5.3783C11.8971 5.78063 11.8875 6.42344 12.278 6.81394C12.6685 7.20444 13.3113 7.19484 13.7136 6.79251C14.116 6.39018 14.1256 5.74737 13.7351 5.35687Z" fill="#316193"/>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect width="10" height="17" fill="white" transform="translate(12.0209) rotate(45)"/>
+</clipPath>
+</defs>
+</svg>
+                    </div>
+                    <div class="campaign-tags__text"><span>Автозапчасти и сервис</span><span>Аренда автобусов</span><span>Мото</span><span>Шины и диски   </span></div>
+                  </div>
+                </div>
+                <div class="campaign-spec-btns">
+                  <div class="campaign-spec-btn">
+                    <input class="btn-submit" type="submit" value="Создать">
+                  </div>
+                  <div class="campaign-spec-btn"><a class="btn-cancel" href="campaign.html">Назад</a></div>
+                </div>
+              </div>
+              <div class="main-block-tabs-item">
+                <div class="campaign-spec-container">
+                  <div class="container-head container-head_np">1. Мои кампании</div>
+                  <div class="campaign-input">
+                    <input type="text" placeholder="Введите название">
+                  </div>
+                </div>
+                <div class="campaign-spec-container campaign-spec-container_back">
+                  <label class="address-location__checkbox container__checkbox">
+                    <input type="checkbox">
+                    <div class="address-location__checkbox_square"></div>Тем, кто не собирал
+                  </label>
+                  <label class="address-location__checkbox container__checkbox">
+                    <input type="checkbox">
+                    <div class="address-location__checkbox_square"></div>Тем, кто собрал, но не получил
+                  </label>
+                  <label class="address-location__checkbox container__checkbox">
+                    <input type="checkbox">
+                    <div class="address-location__checkbox_square"></div>Тем, кто собрал, и получил
+                  </label>
+                </div>
+              </div>
+              <div class="main-block-tabs-item">
+                <div class="campaign-spec-container_p">
+                  <div class="campaign-spec-container_p-text">Охватите людей из вашей базы контактов, которые присутствуют в приложении GetLucky</div>
+                  <label class="block-photo-upload__link campaign-spec-container_p-file">Загрузить Excel файл
+                    <input class="block-photo-upload__input" type="file">
+                  </label>
+                  <div class="campaign-spec-container_p-file__output"></div>
+                  <div class="campaign-spec-container_p-result">Найдено 1120 пользователей</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkslnk8EAdAaemfr1cAifpzDiolTyy99Q"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.scrollbar.min.js"></script>
+    <script src="js/jquery.sumoselect.min.js"></script>
+    <script src="js/datepicker.min.js"></script>
+    <script src="js/jquery.inputmask.bundle.js"></script>
+    <script src="js/ion.rangeSlider.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

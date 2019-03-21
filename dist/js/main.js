@@ -5,10 +5,59 @@ $(document).ready(function(){
 
   $('[data-datepicker]').datepicker();
 
-  $('select').SumoSelect();
+  $('.select_default').SumoSelect();
+
+  $('.container__select_family select').SumoSelect({
+    placeholder: 'Семейное положение'
+  });
+
+  $('select.select_tags').SumoSelect({
+    placeholder: 'Данные и интересы вашей аудитории',
+    captionFormat: '{0} выбрано',
+    captionFormatAllSelected: '{0} все выбраны!',
+  });
 
 
-  $('[data-time]').inputmask({ alias: "email" });
+  $('.container__age').ionRangeSlider({
+    type: "double",
+    grid: false,
+    min: 18,
+    max: 100,
+    from: 25,
+    to: 100,
+    drag_interval: true,
+    min_interval: null,
+    max_interval: null,
+    skin: 'round',
+  });
+
+  $('.container__radius').ionRangeSlider({
+    grid: false,
+    min: 1,
+    max: 100000,
+    from: 25,
+    to: 100000,
+    min_interval: null,
+    max_interval: null,
+    skin: 'round',
+  });
+
+  $('.container__years').ionRangeSlider({
+    type: "double",
+    grid: false,
+    min: 1917,
+    max: 2017,
+    from: 1917,
+    to: 1995,
+    drag_interval: true,
+    min_interval: null,
+    max_interval: null,
+    skin: 'round',
+  });
+
+
+  $('[data-time]').inputmask('99:99:99');
+  $('[data-datepicker]').inputmask('99.99.9999');
 
   const closeHeaderMenu = function(e) {
     if (!e.target.closest('.header-menu') && !e.target.closest('.header-menu-container')) {
@@ -238,7 +287,7 @@ $(document).ready(function(){
 
   const activeDatepicker = function() {
     $(this).closest('.campaign-datepicker').addClass('active');
-  }
+  };
 
   const deactiveDatepicker = function() {
     let wrapper = $(this).closest('.campaign-datepicker');
@@ -254,15 +303,67 @@ $(document).ready(function(){
 
     if (result > 0) return false;
     wrapper.removeClass('active');
+  };
+
+
+  const openCategory = function() {
+    if($(this).hasClass('active')) {
+      $(this).siblings('.container-category-main')
+             .slideUp(300);
+      $(this).removeClass('active');
+
+    } else {
+      $(this).siblings('.container-category-main')
+             .slideDown(300);
+      $(this).addClass('active');
+
+    }
+    
+  };
+
+
+  const openCategoryInn = function() {
+    if( $(this).hasClass('active') ) {
+      $(this).find('input[type="checkbox"]').prop('checked', 0);
+      $(this).removeClass('active');
+      $(this).siblings('.container-category-inn-main')
+             .slideUp(300);
+      return false;
+    } else {
+      $(this).find('input[type="checkbox"]').prop('checked', 1);
+      $(this).addClass('active');
+      $(this).siblings('.container-category-inn-main')
+             .slideDown(300);
+      return false;
+    }
+  };
+
+
+  const campaignTabs = function(e) {
+    e.preventDefault();
+    $(this).addClass('active')
+           .siblings()
+           .removeClass('active');
+
+    $(this).closest('.campaign-spec-window')
+           .find('.main-block-tabs-item')
+           .removeClass('active')
+           .eq($(this).index())
+           .addClass('active');
+  };
+
+
+  const getNameOfFile = function() {
+    let fileName = this.files[0].name;
+
+    $('.campaign-spec-container_p-file__output').text(fileName);
   }
 
   removeActiveLinks();
   moveToAnchor();
 
-
-
-  $(document).on('focus', '.campaign-datepicker input', activeDatepicker);
-  $(document).on('blur', '.campaign-datepicker input', deactiveDatepicker);
+  $(document).on('click', '.container-category-inn-head', openCategoryInn);
+  $(document).on('click', '.container-category-head', openCategory);
   $(document).on('click', '.dropdown-item', selectGift);
   $(document).on('click', closeDropdownMenu);
   $(document).on('click', '.select-emul', dropdownMenu);
@@ -276,15 +377,16 @@ $(document).ready(function(){
   $(document).on('click', '.header .header-link:not(active)', headerNav);
   $(document).on('click', '[data-tabs-link]:not(.active)', changeTabs);
   $(document).on('click', closeHeaderMenu);
-
+  $(document).on('click', '.campaign-spec-nav .main-block-nav__link:not(active)', campaignTabs);
 
   $(document).on('change', '.input-text input', toLocaleString);
+  $(document).on('change', '.campaign-spec-container_p-file .block-photo-upload__input', getNameOfFile);
 
-
+  $(document).on('focus', '.campaign-datepicker input', activeDatepicker);
   $(document).on('focus', '.input-text', inputFocusOn);
   $(document).on('focus', '.form-input', inputFocusOn);
 
-
+  $(document).on('blur', '.campaign-datepicker input', deactiveDatepicker);
   $(document).on('blur', '.input-text', inputFocusOff);
   $(document).on('blur', '.form-input', inputFocusOff);
   
@@ -299,6 +401,7 @@ $(document).ready(function(){
           gestureHandling: 'greedy',
           scrollwheel: false,
           disableDefaultUI: true,
+          draggable: false
         });
     }
 

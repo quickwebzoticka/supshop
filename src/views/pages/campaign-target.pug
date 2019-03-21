@@ -1,0 +1,305 @@
+extends ../template
+
+block title
+	title GetLucky | campaign-target
+
+block contain
+	.map
+	.map-wrapper
+	
+
+	.block.campaign-spec.campaign-spec_center
+		.campaign-spec-window-wrapper
+			.campaign-spec-additional
+				.campaign-spec-wrapper
+					.campaign-spec-container
+						.campaign-spec-additional__head Охват аудитории
+						.campaign-spec-additional__count <span>14 880 000</span> человек
+			.campaign-spec-window
+				.campaign-spec-wrapper
+					.campaign-spec-nav
+						.main-block-nav
+							a.header-link.main-block-nav__link.active(href="#" data-tabs-link) Новая аудитория
+							a.header-link.main-block-nav__link(href="#" data-tabs-link) Существующая
+							a.header-link.main-block-nav__link(href="#" data-tabs-link) Загрузить аудиторию
+
+					.main-block-tabs-item.active
+						.campaign-spec-container
+							.container-head 1. Название аудитории
+							.campaign-input
+								input(type="text" placeholder="Введите название")
+
+						.campaign-spec-container
+							.container-head 2. Личные данные
+							.container-category
+								.container-category-head
+									.container-category-head__btn
+										span.line
+										span.line
+									.container-category-head__text Пол
+									
+								.container-category-main
+									label.address-location__checkbox.container__checkbox
+										input(type="checkbox")
+										.address-location__checkbox_square
+										| Мужской
+									label.address-location__checkbox.container__checkbox
+										input(type="checkbox")
+										.address-location__checkbox_square
+										| Женщина
+							.container-category
+								.container-category-head
+									.container-category-head__btn
+										span.line
+										span.line
+									.container-category-head__text Возвраст
+									
+								.container-category-main
+									input.range-slider.container__age
+
+							.container-category
+								.container-category-head
+									.container-category-head__btn
+										span.line
+										span.line
+									.container-category-head__text Образование
+									
+								.container-category-main
+									label.address-location__checkbox.container__checkbox
+										input(type="checkbox")
+										.address-location__checkbox_square
+										| есть высшее
+									label.address-location__checkbox.container__checkbox
+										input(type="checkbox")
+										.address-location__checkbox_square
+										| нет высшего
+									.campaign-input
+										input(type="text" placeholder="Направление обучения")
+									.campaign-input
+										input(type="text" placeholder="Учебное заведение")
+
+									.container__head-inn Годы последнего курса
+									input.range-slider.container__years
+											
+
+
+							.container-category
+								.container-category-head
+									.container-category-head__btn
+										span.line
+										span.line
+									.container-category-head__text Карьера
+									
+								.container-category-main
+									.campaign-input
+										input(type="text" placeholder="Место работы")
+									.campaign-input
+										input(type="text" placeholder="Должность")
+
+
+							.container-category
+								.container-category-head
+									.container-category-head__btn
+										span.line
+										span.line
+									.container-category-head__text Семья
+									
+								.container-category-main
+									.container__select.container__select_family
+										select(placeholder="Семейное положение")
+											option(value="") Холост/не замужем
+											option(value="") В браке
+											option(value="") Разведен/разведена
+									.container-category-inn
+										label.container-category-inn-head.address-location__checkbox.container__checkbox
+											input(type="checkbox")
+											.address-location__checkbox_square
+											| Наличие братьев и/или сестер
+											.container__checkbox_arrow
+												<svg width="8" height="4" viewBox="0 0 8 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M7.48056 3.97458C7.37758 3.97465 7.27757 3.93729 7.19653 3.86846L4.00002 1.16028L0.803511 3.86838C0.707082 3.95007 0.584647 3.98692 0.463139 3.97082C0.341631 3.95472 0.231004 3.88699 0.155595 3.78252C0.0801859 3.67806 0.0461713 3.54542 0.0610343 3.41379C0.0758972 3.28215 0.13842 3.16231 0.234849 3.08061L3.71569 0.131713C3.79689 0.0629748 3.89698 0.0256341 4.00003 0.0256341C4.10307 0.0256341 4.20316 0.0629747 4.28436 0.131713L7.76519 3.0807C7.84089 3.14483 7.89623 3.23296 7.92349 3.3328C7.95074 3.43264 7.94854 3.5392 7.9172 3.63762C7.88586 3.73604 7.82695 3.82141 7.74868 3.88182C7.6704 3.94222 7.57667 3.97465 7.48057 3.97458L7.48056 3.97458Z" fill="#F3F6FF"/>
+												</svg>
+										.container-category-inn-main
+											.container__head-inn Возраст
+											input.range-slider.container__age
+											.container__head-inn Пол 
+											label.address-location__checkbox.container__checkbox
+												input(type="checkbox")
+												.address-location__checkbox_square
+												| Мужской
+											label.address-location__checkbox.container__checkbox
+												input(type="checkbox")
+												.address-location__checkbox_square
+												| Женщина
+									.container-category-inn
+										label.container-category-inn-head.address-location__checkbox.container__checkbox
+											input(type="checkbox")
+											.address-location__checkbox_square
+											| Наличие детей
+											.container__checkbox_arrow
+												<svg width="8" height="4" viewBox="0 0 8 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M7.48056 3.97458C7.37758 3.97465 7.27757 3.93729 7.19653 3.86846L4.00002 1.16028L0.803511 3.86838C0.707082 3.95007 0.584647 3.98692 0.463139 3.97082C0.341631 3.95472 0.231004 3.88699 0.155595 3.78252C0.0801859 3.67806 0.0461713 3.54542 0.0610343 3.41379C0.0758972 3.28215 0.13842 3.16231 0.234849 3.08061L3.71569 0.131713C3.79689 0.0629748 3.89698 0.0256341 4.00003 0.0256341C4.10307 0.0256341 4.20316 0.0629747 4.28436 0.131713L7.76519 3.0807C7.84089 3.14483 7.89623 3.23296 7.92349 3.3328C7.95074 3.43264 7.94854 3.5392 7.9172 3.63762C7.88586 3.73604 7.82695 3.82141 7.74868 3.88182C7.6704 3.94222 7.57667 3.97465 7.48057 3.97458L7.48056 3.97458Z" fill="#F3F6FF"/>
+												</svg>
+										.container-category-inn-main
+											.container__head-inn Возраст
+											input.range-slider.container__age
+											.container__head-inn Пол 
+											label.address-location__checkbox.container__checkbox
+												input(type="checkbox")
+												.address-location__checkbox_square
+												| Мужской
+											label.address-location__checkbox.container__checkbox
+												input(type="checkbox")
+												.address-location__checkbox_square
+												| Женщина
+									.container-category-inn
+										label.container-category-inn-head.address-location__checkbox.container__checkbox
+											input(type="checkbox")
+											.address-location__checkbox_square
+											| Родители
+											.container__checkbox_arrow
+												<svg width="8" height="4" viewBox="0 0 8 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M7.48056 3.97458C7.37758 3.97465 7.27757 3.93729 7.19653 3.86846L4.00002 1.16028L0.803511 3.86838C0.707082 3.95007 0.584647 3.98692 0.463139 3.97082C0.341631 3.95472 0.231004 3.88699 0.155595 3.78252C0.0801859 3.67806 0.0461713 3.54542 0.0610343 3.41379C0.0758972 3.28215 0.13842 3.16231 0.234849 3.08061L3.71569 0.131713C3.79689 0.0629748 3.89698 0.0256341 4.00003 0.0256341C4.10307 0.0256341 4.20316 0.0629747 4.28436 0.131713L7.76519 3.0807C7.84089 3.14483 7.89623 3.23296 7.92349 3.3328C7.95074 3.43264 7.94854 3.5392 7.9172 3.63762C7.88586 3.73604 7.82695 3.82141 7.74868 3.88182C7.6704 3.94222 7.57667 3.97465 7.48057 3.97458L7.48056 3.97458Z" fill="#F3F6FF"/>
+												</svg>
+										.container-category-inn-main
+											.container__head-inn Возраст
+											input.range-slider.container__age
+											.container__head-inn Пол 
+											label.address-location__checkbox.container__checkbox
+												input(type="checkbox")
+												.address-location__checkbox_square
+												| Мужской
+											label.address-location__checkbox.container__checkbox
+												input(type="checkbox")
+												.address-location__checkbox_square
+												| Женщина
+									.container-category-inn
+										label.container-category-inn-head.address-location__checkbox.container__checkbox
+											input(type="checkbox")
+											.address-location__checkbox_square
+											| Бабушки и дедушки
+											.container__checkbox_arrow
+												<svg width="8" height="4" viewBox="0 0 8 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M7.48056 3.97458C7.37758 3.97465 7.27757 3.93729 7.19653 3.86846L4.00002 1.16028L0.803511 3.86838C0.707082 3.95007 0.584647 3.98692 0.463139 3.97082C0.341631 3.95472 0.231004 3.88699 0.155595 3.78252C0.0801859 3.67806 0.0461713 3.54542 0.0610343 3.41379C0.0758972 3.28215 0.13842 3.16231 0.234849 3.08061L3.71569 0.131713C3.79689 0.0629748 3.89698 0.0256341 4.00003 0.0256341C4.10307 0.0256341 4.20316 0.0629747 4.28436 0.131713L7.76519 3.0807C7.84089 3.14483 7.89623 3.23296 7.92349 3.3328C7.95074 3.43264 7.94854 3.5392 7.9172 3.63762C7.88586 3.73604 7.82695 3.82141 7.74868 3.88182C7.6704 3.94222 7.57667 3.97465 7.48057 3.97458L7.48056 3.97458Z" fill="#F3F6FF"/>
+												</svg>
+										.container-category-inn-main
+											.container__head-inn Возраст
+											input.range-slider.container__age
+											.container__head-inn Пол 
+											label.address-location__checkbox.container__checkbox
+												input(type="checkbox")
+												.address-location__checkbox_square
+												| Мужской
+											label.address-location__checkbox.container__checkbox
+												input(type="checkbox")
+												.address-location__checkbox_square
+												| Женщина
+									.container-category-inn
+										label.container-category-inn-head.address-location__checkbox.container__checkbox
+											input(type="checkbox")
+											.address-location__checkbox_square
+											| Внуки
+											.container__checkbox_arrow
+												<svg width="8" height="4" viewBox="0 0 8 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M7.48056 3.97458C7.37758 3.97465 7.27757 3.93729 7.19653 3.86846L4.00002 1.16028L0.803511 3.86838C0.707082 3.95007 0.584647 3.98692 0.463139 3.97082C0.341631 3.95472 0.231004 3.88699 0.155595 3.78252C0.0801859 3.67806 0.0461713 3.54542 0.0610343 3.41379C0.0758972 3.28215 0.13842 3.16231 0.234849 3.08061L3.71569 0.131713C3.79689 0.0629748 3.89698 0.0256341 4.00003 0.0256341C4.10307 0.0256341 4.20316 0.0629747 4.28436 0.131713L7.76519 3.0807C7.84089 3.14483 7.89623 3.23296 7.92349 3.3328C7.95074 3.43264 7.94854 3.5392 7.9172 3.63762C7.88586 3.73604 7.82695 3.82141 7.74868 3.88182C7.6704 3.94222 7.57667 3.97465 7.48057 3.97458L7.48056 3.97458Z" fill="#F3F6FF"/>
+												</svg>
+										.container-category-inn-main
+											.container__head-inn Возраст
+											input.range-slider.container__age
+											.container__head-inn Пол 
+											label.address-location__checkbox.container__checkbox
+												input(type="checkbox")
+												.address-location__checkbox_square
+												| Мужской
+											label.address-location__checkbox.container__checkbox
+												input(type="checkbox")
+												.address-location__checkbox_square
+												| Женщина
+											
+
+
+
+
+						.campaign-spec-container
+							.container-head 3. Локация
+							.campaign-input
+								input(type="text" placeholder="Родной город")
+							.campaign-input
+								input(type="text" placeholder="Текущая локация")
+
+						.campaign-spec-container
+							.container-head 4. Устройство
+							.container__select
+								select.select_default
+									option(value="") iPhone X
+									option(value="") iPhone 8
+									option(value="") iPhone 7
+									option(value="") iPhone 6
+									option(value="") iPhone 5
+									option(value="") iPhone 4
+
+						.campaign-spec-container
+							.container-head 5. Интересы
+							.container__text
+								| Включить людей, которые соответствуют как минимум одному из следующих условий
+							.campaign-input
+								select(multiple).select_tags
+									option(value="") Автозапчасти и сервис 
+									option(value="") Аренда автобусов
+									option(value="") Мото
+									option(value="") Шины и диски
+							.campaign-tags
+								.campaign-tags__icon
+									<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<g clip-path="url(#clip0)">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M5.8949e-05 12.0208L8.74247 3.2784L15.5564 3.53553L15.8135 10.3495L7.07113 19.0919L5.8949e-05 12.0208ZM13.7351 5.35687C13.3446 4.96637 12.7018 4.97596 12.2994 5.3783C11.8971 5.78063 11.8875 6.42344 12.278 6.81394C12.6685 7.20444 13.3113 7.19484 13.7136 6.79251C14.116 6.39018 14.1256 5.74737 13.7351 5.35687Z" fill="#316193"/>
+										</g>
+										<defs>
+										<clipPath id="clip0">
+										<rect width="10" height="17" fill="white" transform="translate(12.0209) rotate(45)"/>
+										</clipPath>
+										</defs>
+									</svg>
+								.campaign-tags__text
+									span Автозапчасти и сервис
+									span Аренда автобусов
+									span Мото
+									span Шины и диски   
+					
+
+						.campaign-spec-btns
+							.campaign-spec-btn
+								input(type="submit" value="Создать").btn-submit
+							.campaign-spec-btn
+								a(href="campaign.html").btn-cancel Назад
+
+					.main-block-tabs-item
+						.campaign-spec-container
+							.container-head.container-head_np 1. Мои кампании
+							.campaign-input
+								input(type="text" placeholder="Введите название")
+						.campaign-spec-container.campaign-spec-container_back
+							label.address-location__checkbox.container__checkbox
+								input(type="checkbox")
+								.address-location__checkbox_square
+								| Тем, кто не собирал
+							label.address-location__checkbox.container__checkbox
+								input(type="checkbox")
+								.address-location__checkbox_square
+								| Тем, кто собрал, но не получил
+							label.address-location__checkbox.container__checkbox
+								input(type="checkbox")
+								.address-location__checkbox_square
+								| Тем, кто собрал, и получил
+
+					.main-block-tabs-item
+						.campaign-spec-container_p
+							.campaign-spec-container_p-text
+								| Охватите людей из вашей базы контактов, которые присутствуют в приложении GetLucky
+							label.block-photo-upload__link.campaign-spec-container_p-file
+								| Загрузить Excel файл
+								input(type="file").block-photo-upload__input
+
+							.campaign-spec-container_p-file__output
+								
+							.campaign-spec-container_p-result Найдено 1120 пользователей

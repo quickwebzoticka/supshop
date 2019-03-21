@@ -5,6 +5,7 @@
 @import "vendor/jquery.scrollbar";
 @import "vendor/sumoselect.min";
 @import "vendor/datepicker.min";
+@import "vendor/ion.rangeSlider.min";
 
 * {
 	box-sizing: border-box;
@@ -21,8 +22,55 @@ html, body {
 		min-height: 100vh;
 }
 
+*:not(body) {
+	scrollbar-width: none;
+}
+
+.range-slider {
+	width: 100%;
+}
+
 .datepicker--day-name {
 	color: $color-blue-light;
+}
+
+.irs--round .irs-line {
+	height: 1px;
+	background-color: $color-blue;
+}
+
+.irs--round .irs-bar {
+	background-color: $color-blue-light;
+}
+
+.irs--round .irs-min, .irs--round .irs-max {
+	color: $color-blue;
+	background: transparent;
+	border-color: $color-blue;
+	border: 1px solid $color-blue;
+	padding: 3px 12px;
+}
+
+.irs--round .irs-from:before, .irs--round .irs-to:before, .irs--round .irs-single:before {
+  border-top-color: $color-blue-light;
+}
+
+.irs--round .irs-from, .irs--round .irs-to, .irs--round .irs-single {
+	background-color: $color-blue-light;
+}
+
+.irs-handle {
+  border: 1px solid $color-black;
+  background-color: $color-blue-light;
+}
+
+.irs--round .irs-handle {
+  border: 1px solid $color-black;
+  background-color: $color-blue-light;
+}
+
+.irs--round .irs-handle.state_hover, .irs--round .irs-handle:hover {
+	background-color: $color-blue-light;
 }
 
 .wrapper {
@@ -1258,6 +1306,17 @@ html, body {
 	right: 0;
 	bottom: 0;
 	background: #111111;
+	cursor: default;
+
+
+	&-wrapper {
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
 }
 
 
@@ -1275,13 +1334,77 @@ a.btn-submit {
 .campaign-spec {
 	height: 100vh;
 	width: 100%;
+	max-width: 1220px;
+	margin: 0 auto;
 	display: flex;
 	justify-content: flex-start;
 	position: relative;
 	z-index: 10;
 	flex-direction: column; 
 	align-items: flex-end;
-	padding: 157px 110px 20px;
+	padding: 157px 0 0px;
+
+
+	&-additional {
+		position: absolute;
+		top: 0px;
+		right: calc(100% + 15px);
+		z-index: 3;
+		width: 255px;
+		text-align: center;
+		.campaign-spec-wrapper {
+			width: 255px;
+			padding: 15px 20px;
+		}
+		.campaign-spec-container {
+			margin-bottom: 	0px;
+			padding: 30px 0;
+			align-items: center;
+		}
+
+
+		&__head {
+			margin-bottom: 10px;
+		}
+
+
+		&__count {	
+			color: $color-blue-light;
+		}
+	}
+
+
+	&_center {
+		align-items: center;
+	}
+
+
+	&-btns {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+
+
+	&-btn {
+		margin-bottom: 25px;
+
+		&:last-child {
+			margin-bottom: 0px;
+		}
+	}
+
+
+	&-window {
+		max-height: 820px;
+		overflow: auto;
+		&::-webkit-scrollbar {
+			display: none;
+		}
+		&-wrapper {
+			position: relative;
+		}
+	}
 
 
 	&-wrapper {
@@ -1301,6 +1424,18 @@ a.btn-submit {
 		align-items: flex-start;
 		text-align: left;
 		margin-bottom: 30px;
+		max-width: unset;
+    min-height: auto;
+
+    &_back {
+    	background: transparent;
+    	.container__checkbox {
+    		margin-left: 0px;
+    	}
+    	.container-head {
+    		padding: 0px;
+    	}
+    }
 	}
 
 
@@ -1355,6 +1490,15 @@ a.btn-submit {
 	.SumoSelect > .optWrapper > .options li.opt label {
 		padding: 6px;
 	}
+
+	.SumoSelect > .optWrapper > .options li.opt.selected {
+		background-color: #dcdada;
+	}
+
+	.SumoSelect > .CaptionCont > span.placeholder {
+		font-style: normal;
+		color: $color-blue;
+	}
 }
 
 
@@ -1365,6 +1509,11 @@ a.btn-submit {
 		padding: 0 15px;
 		margin-bottom: 20px;
 		color: $color-white-back;
+
+
+		&_np {
+			padding: 0;
+		}
 	}
 
 	&-select {
@@ -1595,6 +1744,351 @@ a.btn-submit {
 		height: 100%;
 		path {
 			transition: .8s;
+		}
+	}
+}
+
+
+.campaign-spec-tabs {
+	padding: 25px 0 0 0;
+	width: 100%;
+}
+
+.address-location {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+	margin-bottom: 10px;
+
+
+	&:last-child {
+		margin-bottom: 0px;
+	}
+
+
+	&__btn {
+		position: absolute;
+		top: 50%;
+		left: -10px;
+		transform: translate(-100%, -50%);
+		cursor: pointer;
+		svg {
+			path {
+				transition: .3s;
+			}
+		}
+
+		&:hover {
+			svg {
+				path {
+					fill: $color-blue-light;
+				}
+			}
+		}
+	}
+
+
+	&__name {
+		flex: 0 1 50%;
+
+		&_colored {
+			flex: 0 1 50%;
+			color: $color-blue-light;
+		}
+	}
+
+
+	&__count {
+		flex: 0 1 42px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-bottom: 1px solid $color-blue;
+		transition: .3s;
+
+
+		&:hover {
+			border-bottom: 1px solid $color-blue-light;
+		}
+
+
+		&.active {
+			border-bottom: 1px solid $color-blue-light;			
+		}
+
+		input {
+			background: transparent;
+			width: 100%;
+			border: none;
+			outline: none;
+			text-align: center;
+			color: $color-white-back;
+		}
+	}
+
+
+	&__checkbox {
+		cursor: pointer;
+		flex: 0 1 16px;
+
+
+		&_square {
+			width: 16px;
+			height: 16px;
+			border: 1px solid $color-blue-light;
+			border-radius: 2px;
+			background: transparent;
+			position: relative;
+			transition: .3s;
+			
+
+			&:after {
+				content: '';
+				display: none;
+				position: absolute;
+		    top: 42%;
+		    left: 51%;
+		    transform: translate(-50%, -50%) rotate(-45deg);
+		    height: 5px;
+		    width: 9px;
+				border-bottom: 1px solid $color-black-back;
+				border-left: 1px solid $color-black-back;
+			}
+		}
+
+
+		input {
+			display: none;
+			&:checked ~ .address-location__checkbox_square {
+				background: $color-blue-light;
+				border: 1px solid $color-blue-light;
+
+
+
+				&:after {
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+
+.container {
+	width: 100%;
+	&__checkbox {
+		display: flex;
+		align-items: center;
+		margin-bottom: 15px;
+		margin-left: 40px;
+		.address-location__checkbox_square {
+			margin-right: 10px;
+			border: 1px solid $color-blue;
+
+
+		}
+	
+	}
+
+	&__select {
+		margin-bottom: 15px;
+		width: 100%;
+	}
+
+	&__head-inn {
+		margin-bottom: 15px;
+	}
+
+	&__text {
+		color: $color-blue;
+		margin-bottom: 20px;
+	}
+
+
+	&-category {
+		width: 100%;
+		margin-bottom: 20px;
+
+		&-head {
+			display: flex;
+			align-items: center;
+			cursor: pointer;
+
+
+			&__text {
+				color: $color-blue;
+				transition: .3s;
+			}
+
+
+			&__btn {
+				height: 16px; 
+				width: 16px;
+				display: flex;
+				align-items: center;
+				position: relative;
+				border-radius: 50%;
+				background: $color-blue;
+				margin-right: 10px;
+				transition: .3s;
+			}
+
+
+			&:hover {
+				.container-category-head__text {
+					color: $color-blue-light;
+				}
+				.container-category-head__btn {
+					background: $color-blue-light;
+				}
+			}
+
+			&.active {
+				.container-category-head__text {
+					color: $color-blue-light;
+				}
+				.container-category-head__btn {
+					background: $color-blue-light;
+				}
+				.line:first-child {
+					transform: translate(-50%, -50%);
+				}
+			}
+		}
+
+
+		&-main {
+			padding: 20px 0 0;
+			display: none;
+		}
+	}
+}
+
+.line {
+	width: 8px;
+	height: 1px;
+	background: $color-white-back;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: .3s;
+
+	&:first-child {
+		transform: translate(-50%, -50%) rotate(90deg);
+	}
+}
+
+
+.container-category-inn {
+	.container__checkbox {
+		margin-left: 0px;
+		position: relative;
+
+
+		&_arrow {
+			position: absolute;
+			right: 9px;
+			top: 50%;
+			transform: translate(0,-50%) rotate(180deg);
+			transition: .3s;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		&.active {
+			.container__checkbox_arrow {
+				transform: translate(0,-50%);
+			} 
+		}
+	}
+
+
+	&-main {
+		padding: 20px 0 20px 26px;
+		display: none;
+		.container__checkbox {
+			margin-left: 40px;
+		}
+	}
+}
+
+
+.campaign-tags {
+	display: flex;
+	position: relative;
+	padding: 0 0 0 30px;
+	
+
+	&__text {
+		color: $color-blue;
+
+
+		span {
+			margin-right: 20px;
+			display: inline-block;
+		}
+	}
+
+
+	&__icon {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+	}
+}
+
+
+.container__slider {
+	width: 100%;
+}
+
+.container-slider__info {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px 0 0 0;
+}
+
+.align-stretch {
+	align-items: stretch;
+}
+
+.campaign-spec-nav {
+	padding-bottom: 30px;
+
+
+	.main-block-nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 20px;
+
+
+		.header-link {
+			margin-right: 0px;
+		}
+	}
+}
+
+
+.campaign-spec-container_p {
+	padding: 0 20px;
+
+
+	&-text {
+		margin-bottom: 30px;
+	}
+
+	&-file {
+		margin-bottom: 10px;
+
+		&__output {
+
+			margin-bottom: 20px;
 		}
 	}
 }
