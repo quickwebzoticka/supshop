@@ -6,6 +6,7 @@
 @import "vendor/sumoselect.min";
 @import "vendor/datepicker.min";
 @import "vendor/ion.rangeSlider.min";
+@import "vendor/jquery.kladr.min";
 
 * {
 	box-sizing: border-box;
@@ -1421,7 +1422,7 @@ a.btn-submit {
 		border-radius: 3px;
 		display: flex;
 		flex-direction: column;
-		align-items: flex-start;
+		align-items: stretch;
 		text-align: left;
 		margin-bottom: 30px;
 		max-width: unset;

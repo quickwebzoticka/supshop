@@ -365,7 +365,7 @@ block contain
 						label.form-input
 							.form-input__descr
 								| Полное наименование компании (ООО, ИП...)
-							input(type="text")
+							input(type="text" data-type-company)
 						label.form-input
 							.form-input__descr
 								| ИНН
@@ -373,11 +373,11 @@ block contain
 						label.form-input
 							.form-input__descr
 								| ОГРН
-							input(type="text")
-						label.form-input
+							input(type="text" data-ogrn)
+						label.form-input(id="address")
 							.form-input__descr
 								| Юридический адрес
-							input(type="text")
+							input(type="text" data-address)
 					.block-form-column
 						label.form-input
 							.form-input__descr

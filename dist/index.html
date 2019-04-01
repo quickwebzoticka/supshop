@@ -363,7 +363,7 @@
               </label>
               <label class="form-input">
                 <div class="form-input__descr">Полное наименование компании (ООО, ИП...)</div>
-                <input type="text">
+                <input type="text" data-type-company>
               </label>
               <label class="form-input">
                 <div class="form-input__descr">ИНН</div>
@@ -371,11 +371,11 @@
               </label>
               <label class="form-input">
                 <div class="form-input__descr">ОГРН</div>
-                <input type="text">
+                <input type="text" data-ogrn>
               </label>
-              <label class="form-input">
+              <label class="form-input" id="address">
                 <div class="form-input__descr">Юридический адрес</div>
-                <input type="text">
+                <input type="text" data-address>
               </label>
             </div>
             <div class="block-form-column">
@@ -414,6 +414,8 @@
     <script src="js/datepicker.min.js"></script>
     <script src="js/jquery.inputmask.bundle.js"></script>
     <script src="js/ion.rangeSlider.min.js"></script>
+    <script src="js/jquery.kladr.min.js"></script>
+    <script src="js/map.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

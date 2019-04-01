@@ -17,6 +17,10 @@ $(document).ready(function(){
     captionFormatAllSelected: '{0} все выбраны!',
   });
 
+  $('[data-address]').kladr({
+    oneString: true
+});
+
 
   $('.container__age').ionRangeSlider({
     type: "double",
@@ -388,25 +392,6 @@ $(document).ready(function(){
 
   $(document).on('blur', '.campaign-datepicker input', deactiveDatepicker);
   $(document).on('blur', '.input-text', inputFocusOff);
-  $(document).on('blur', '.form-input', inputFocusOff);
-  
-
-  if ($('.map').length) {
-      function initMap () {
-        let map = new google.maps.Map(document.querySelector('.map'), {
-          center: new google.maps.LatLng(60.068521, 30.313409),
-          zoom: 14,
-          streetViewControl: false,
-          mapTypeControl: false,
-          gestureHandling: 'greedy',
-          scrollwheel: false,
-          disableDefaultUI: true,
-          draggable: false
-        });
-    }
-
-    initMap();
-  }
-  
+  $(document).on('blur', '.form-input', inputFocusOff);  
 
 });
