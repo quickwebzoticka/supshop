@@ -363,9 +363,54 @@ $(document).ready(function(){
     $('.campaign-spec-container_p-file__output').text(fileName);
   }
 
+
+  const testAPICall = function(e) {
+    e.preventDefault();
+    $.ajax({
+      type: 'GET',
+      method: 'POST',
+      url: 'http://api.auto.ria.com/average',
+      data: {
+        marka_id: 9,
+        model_id: 31887,
+        yers: 2014,
+        fuel_id: 1,
+        fuel_id: 2
+      },
+      dataType: 'json',
+      cache: false,
+      contentType: false, // важно - убираем форматирование данных по умолчанию
+      processData: false, // важно - убираем преобразование строк по умолчанию
+    }).
+    done(function(data) {
+      alert('Данные отправлены');
+      console.log(data);
+    }).fail(function() {
+      alert('Произошла ошибка');
+    });
+  };
+
+
+  const uploadPhoto = function(e) {
+    let file = this.files[0];
+
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onload = function(e) {
+      url = e.target.result;
+
+      $('.block-photo-upload__avatar').css({background: `url(${url}) no-repeat center center`, backgroundSize: 'cover'});
+    }
+
+   
+  }
+
   removeActiveLinks();
   moveToAnchor();
 
+
+  $(document).on('change', '.block-photo-upload__input', uploadPhoto);
   $(document).on('click', '.container-category-inn-head', openCategoryInn);
   $(document).on('click', '.container-category-head', openCategory);
   $(document).on('click', '.dropdown-item', selectGift);

@@ -1277,12 +1277,15 @@ html, body {
 		padding: 40px 30px;
 		background: $color-black-back;
 		border-radius: 3px;
+		max-height: 620px;
+		height: 100%;
 	}
 
 
 	&-container {
 		background: $color-black-back-light;
-		height: 540px;
+		max-height: 540px;
+		height: 100%;
 		padding: 20px;
 		border-radius: 3px;
 	}
