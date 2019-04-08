@@ -2,6 +2,8 @@ $(document).ready(function() {
 
 	if ($('.map').length) {
       function initMap () {
+      	
+
         let map = new google.maps.Map(document.querySelector('.map'), {
           center: new google.maps.LatLng(59.928657, 30.360101),
           zoom: 16,
@@ -279,6 +281,24 @@ $(document).ready(function() {
 					  }
 					]
         });
+
+		let infowindow = new google.maps.InfoWindow();
+
+      	let request = {
+		    query: 'Museum of Contemporary Art Australia',
+		    fields: ['name', 'geometry'],
+		  };
+
+	  	let service = new google.maps.places.PlacesService(map);
+
+	  	service.findPlaceFromQuery(request, function(results, status) {
+		    if (status === google.maps.places.PlacesServiceStatus.OK) {
+		      for (let i = 0; i < results.length; i++) {
+		        createMarker(results[i]);
+		      }
+		      map.setCenter(results[0].geometry.location);
+		    }
+	  	});
     }
 
     initMap();

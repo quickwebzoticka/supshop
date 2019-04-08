@@ -402,9 +402,42 @@ $(document).ready(function(){
 
       $('.block-photo-upload__avatar').css({background: `url(${url}) no-repeat center center`, backgroundSize: 'cover'});
     }
-
-   
   }
+
+  let rowCampaingTemplate = $('.campaings-inn-row.campaings-item').clone();
+  let baseURL = 'http://getlucky.city/api';
+
+  let id = 0;
+  let key = 'byte';
+
+  $(document).on('click', '[data-giftsbackpack-active]', function() {
+    $.ajax({
+      url: `${baseURL}/gift/b/${id}/${key}`,
+      type: 'GET',
+      dataType: 'json',
+    })
+    .done(function(response) {
+      let values = response.value;
+      values.each(function() {
+        rowCampaingTemplate.find('.campaings-item-img img').attr('src', `img/icons/${this.userGift.userGiftImageID}`);
+        rowCampaingTemplate.find('.campaings-item-info__name').text(this.userGift.userGiftName);
+        rowCampaingTemplate.find('.campaings-item-info__period').text(`${this.userGift.userGiftUsedDate} - ${this.userGift.userGiftExpirationDate}`);
+        rowCampaingTemplate.find('.campaings-item-info__count').text(this.userGift.userGiftText);
+        rowCampaingTemplate.attr('data-campaing-id', userGiftID);
+        $('.campaings-inn').append(rowCampaingTemplate.clone());
+      });
+      console.log("success");
+    })
+    .fail(function(error) {
+
+      console.log(error);
+    })
+    .always(function() {
+      console.log("complete");
+    });
+    
+  });
+    
 
   removeActiveLinks();
   moveToAnchor();

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="shortcut icon" href="img/favicons/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/main.min.css">
     <title>GetLucky Buisness</title>
   </head>
   <body class="scrollbar-rail" style="overflow: hidden">
@@ -37,7 +37,7 @@
       <div class="block">
         <div class="main-block campaings" id="campaings">
           <div class="main-block-head">Мои кампании</div>
-          <div class="main-block-nav"><a class="header-link main-block-nav__link active" href="#" data-tabs-link>Активные</a><a class="header-link main-block-nav__link" href="#" data-tabs-link>На модерации</a><a class="header-link main-block-nav__link" href="#" data-tabs-link>Завершенные</a></div>
+          <div class="main-block-nav"><a class="header-link main-block-nav__link active" href="#" data-tabs-link data-giftsbackpack-active>Активные</a><a class="header-link main-block-nav__link" href="#" data-tabs-link data-giftsbackpack-moderating>На модерации</a><a class="header-link main-block-nav__link" href="#" data-tabs-link data-giftsbackpack-finished>Завершенные</a></div>
           <div class="main-block-content campaings-inn main-block-tabs-item active">
             <div class="campaings-inn campaings-inn-content scrollbar-rail">
               <div class="campaings-inn-row"><a class="header-link campaings-btn-add" href="campaign.html"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -60,42 +60,6 @@
 </defs>
 </svg>
                   <div class="campaings-btn-add__text">Создать новую кампанию</div></a></div>
-              <div class="campaings-inn-row campaings-item">
-                <div class="campaings-item-img"><img src="img/coffee.png"></div>
-                <div class="campaings-item-info">
-                  <div class="campaings-item-info__name">Кофе</div>
-                  <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
-                  <div class="campaings-item-info__count">25 ед.</div>
-                </div>
-                <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
-              </div>
-              <div class="campaings-inn-row campaings-item">
-                <div class="campaings-item-img"><img src="img/coffee.png"></div>
-                <div class="campaings-item-info">
-                  <div class="campaings-item-info__name">Кофе</div>
-                  <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
-                  <div class="campaings-item-info__count">25 ед.</div>
-                </div>
-                <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
-              </div>
-              <div class="campaings-inn-row campaings-item">
-                <div class="campaings-item-img"><img src="img/coffee.png"></div>
-                <div class="campaings-item-info">
-                  <div class="campaings-item-info__name">Кофе</div>
-                  <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
-                  <div class="campaings-item-info__count">25 ед.</div>
-                </div>
-                <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
-              </div>
-              <div class="campaings-inn-row campaings-item">
-                <div class="campaings-item-img"><img src="img/coffee.png"></div>
-                <div class="campaings-item-info">
-                  <div class="campaings-item-info__name">Кофе</div>
-                  <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
-                  <div class="campaings-item-info__count">25 ед.</div>
-                </div>
-                <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
-              </div>
               <div class="campaings-inn-row campaings-item">
                 <div class="campaings-item-img"><img src="img/coffee.png"></div>
                 <div class="campaings-item-info">
@@ -407,7 +371,7 @@
         </div>
       </form>
     </div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkslnk8EAdAaemfr1cAifpzDiolTyy99Q"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkslnk8EAdAaemfr1cAifpzDiolTyy99Q&amp;libraries=places"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.scrollbar.min.js"></script>
     <script src="js/jquery.sumoselect.min.js"></script>
