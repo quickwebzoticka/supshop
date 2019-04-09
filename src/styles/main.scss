@@ -756,6 +756,39 @@ html, body {
 	}
 
 
+	&_wide {
+		position: relative;
+
+
+		input {
+			width: 270px;
+
+
+			&::placeholder {
+				color: $color-blue;
+			}
+		}
+
+
+		&--right-side {
+			justify-content: flex-end;
+		}
+
+
+		.glass-icon {
+			position: absolute;
+			top: 50%;
+			right: 0px;
+			transform: translate(-50%, -50%);
+			svg {
+				path {
+					transition: .3s;
+				}
+			}
+		}
+	}
+
+
 	&__descr {
 		text-align: right;
 		color: $color-blue;
@@ -774,6 +807,11 @@ html, body {
 		}
 		textarea {
 			border: 1px solid $color-blue-light;
+		}
+		svg {
+			path {
+				fill: $color-blue-light;
+			}
 		}
 	}
 

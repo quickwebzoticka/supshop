@@ -190,8 +190,7 @@ $(document).ready(function(){
 
     $('body').css('overflow', '');
 
-    $(this).closest('.active')
-           .removeClass('active');
+    $('.registration').removeClass('active');
   };
 
   const removeActiveLinks = function() {
@@ -404,40 +403,6 @@ $(document).ready(function(){
     }
   }
 
-  let rowCampaingTemplate = $('.campaings-inn-row.campaings-item').clone();
-  let baseURL = 'http://getlucky.city/api';
-
-  let id = 0;
-  let key = 'byte';
-
-  $(document).on('click', '[data-giftsbackpack-active]', function() {
-    $.ajax({
-      url: `${baseURL}/gift/b/${id}/${key}`,
-      type: 'GET',
-      dataType: 'json',
-    })
-    .done(function(response) {
-      let values = response.value;
-      values.each(function() {
-        rowCampaingTemplate.find('.campaings-item-img img').attr('src', `img/icons/${this.userGift.userGiftImageID}`);
-        rowCampaingTemplate.find('.campaings-item-info__name').text(this.userGift.userGiftName);
-        rowCampaingTemplate.find('.campaings-item-info__period').text(`${this.userGift.userGiftUsedDate} - ${this.userGift.userGiftExpirationDate}`);
-        rowCampaingTemplate.find('.campaings-item-info__count').text(this.userGift.userGiftText);
-        rowCampaingTemplate.attr('data-campaing-id', userGiftID);
-        $('.campaings-inn').append(rowCampaingTemplate.clone());
-      });
-      console.log("success");
-    })
-    .fail(function(error) {
-
-      console.log(error);
-    })
-    .always(function() {
-      console.log("complete");
-    });
-    
-  });
-    
 
   removeActiveLinks();
   moveToAnchor();
@@ -471,5 +436,131 @@ $(document).ready(function(){
   $(document).on('blur', '.campaign-datepicker input', deactiveDatepicker);
   $(document).on('blur', '.input-text', inputFocusOff);
   $(document).on('blur', '.form-input', inputFocusOff);  
+
+
+//----------------------------------------------API-------------------------------------------------------------
+//----------------------------------------------API-------------------------------------------------------------
+//----------------------------------------------API-------------------------------------------------------------
+//----------------------------------------------API-------------------------------------------------------------
+//----------------------------------------------API-------------------------------------------------------------
+//----------------------------------------------API-------------------------------------------------------------
+//----------------------------------------------API-------------------------------------------------------------
+//----------------------------------------------API-------------------------------------------------------------
+//----------------------------------------------API-------------------------------------------------------------
+//----------------------------------------------API-------------------------------------------------------------
+//----------------------------------------------API-------------------------------------------------------------
+//----------------------------------------------API-------------------------------------------------------------
+//----------------------------------------------API-------------------------------------------------------------
+//----------------------------------------------API-------------------------------------------------------------
+//----------------------------------------------API-------------------------------------------------------------
+
+
+
+
+  let rowCampaingTemplate = $('.campaings-inn-row.campaings-item').clone();
+  let baseURL = 'http://getlucky.city/api';
+
+  String.prototype.hashCode = function() {
+    var hash = 0, i, chr;
+    if (this.length === 0) return hash;
+    for (i = 0; i < this.length; i++) {
+      chr   = this.charCodeAt(i);
+      hash  = ((hash << 5) - hash) + chr;
+      hash |= 0;
+    }
+    return hash;
+  };
+
+  const uuid = () => ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,c=>(c^crypto.getRandomValues(new Uint8Array(1))[0]&15 >> c/4).toString(16));
+  let id = 0;
+  let key = '';
+
+  $(document).on('click', '[data-giftsbackpack-active]', function() {
+    $.ajax({
+      url: `${baseURL}/gift/b/${id}/${key}`,
+      type: 'GET',
+      dataType: 'json',
+    })
+    .done(function(response) {
+      let values = response.value;
+      values.each(function() {
+        rowCampaingTemplate.find('.campaings-item-img img').attr('src', `img/icons/${this.userGift.userGiftImageID}`);
+        rowCampaingTemplate.find('.campaings-item-info__name').text(this.userGift.userGiftName);
+        rowCampaingTemplate.find('.campaings-item-info__period').text(`${this.userGift.userGiftUsedDate} - ${this.userGift.userGiftExpirationDate}`);
+        rowCampaingTemplate.find('.campaings-item-info__count').text(this.userGift.userGiftText);
+        rowCampaingTemplate.attr('data-campaing-id', userGiftID);
+        $('.campaings-inn').append(rowCampaingTemplate.clone());
+      });
+      console.log("success");
+    })
+    .fail(function(error) {
+      console.log(error);
+    })
+  });
+
+
+  $(document).on('click', '#btn-create-profile', function(e) {
+    e.preventDefault();
+    let data = {};
+    let date = new Date();
+    let key = `${$('[data-org-login]').val()}${$('[data-org-password]')}`;
+
+    let avatar = $('.block-photo-upload__avatar').attr('style');
+
+
+    if (avatar) {
+      avatar = avatar.split(' ');
+      avatar = avatar[1].split('"');
+      avatar = avatar[1];
+    } else {
+      avatar = 0;
+    }
+    
+
+    key = key.hashCode();
+
+    data.user = {};
+    data.user.device = {};
+    data.user.user = {};
+    data.user.location =[];
+    data.org = {};
+
+    id = `${date.getTime()}`;
+
+    data.org.orgName = `${$('[data-org-name]').val()}`;
+    data.org.orgFullName = `${$('[data-org-type]').val()}`;
+    data.org.orgTIN = `${$('[data-org-inn]').val()}`;
+    data.org.orgOGRN = `${$('[data-org-ogrn]').val()}`;
+    data.user.user.userName = `${$('[data-org-login]').val()}`;
+    data.user.user.userKey = `${key}`;
+    data.org.orgPhone = `${$('[data-org-phone]').val()}`;
+    data.user.user.userEmail = `${$('[data-org-email]').val()}`;
+    data.user.user.userName = `${$('[data-org-address-addr]').val()}`;
+    data.org.orgLogo = `${avatar}`;
+    data.addresses = [{
+      addressValue: `${$('[data-org-address-city]').val()}`,
+      addressLocality: `${$('[data-org-address-addr]').val()}`,
+    }]
+    data.user.user.userID = id;
+    
+    console.log(data);
+    
+
+    $.ajax({
+      url: `${baseURL}/org/create`,
+      method: 'POST',
+      type: 'POST',
+      dataType: 'json',
+      data: data,
+    })
+    .done(function(response) {
+      removePopup(e);
+      console.log('success');
+    })
+    .fail(function(error) {
+      console.log('error');
+    });
+
+  });
 
 });

@@ -3,7 +3,6 @@ extends ../template
 block title
 	title GetLucky Buisness
 
-
 block contain
 	.block
 		.main-block.campaings#campaings
@@ -321,46 +320,54 @@ block contain
 						label.form-input
 							.form-input__descr
 								| Название компании (не более 20 символов)
-							input(type="text" maxlength="20")
+							input(type="text" maxlength="20" data-org-name)
 						label.form-input
 							.form-input__descr
 								| Полное наименование компании (ООО, ИП...)
-							input(type="text" data-type-company)
+							input(type="text" data-org-type)
 						label.form-input
 							.form-input__descr
 								| ИНН
-							input(type="text" data-inn)
+							input(type="text" data-org-inn)
 						label.form-input
 							.form-input__descr
 								| ОГРН
-							input(type="text" data-ogrn)
-						label.form-input(id="address")
+							input(type="text" data-org-ogrn)
+						label.form-input.form-input_wide
 							.form-input__descr
-								| Юридический адрес
-							input(type="text" data-address)
+								| Адрес выдачи подарков
+							input(type="text" data-org-address-city placeholder="Укажите город")
+							.glass-icon
+								<svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M5.5 11C2.5 11 0 8.5 0 5.5C0 2.5 2.5 0 5.5 0C8.5 0 11 2.5 11 5.5C11 8.5 8.5 11 5.5 11ZM5.5 1C3 1 1 3 1 5.5C1 8 3 10 5.5 10C8 10 10 8 10 5.5C10 3 8 1 5.5 1Z" fill="#316193"/>
+									<path d="M9.49995 8.79999L13.9 13.2C14.0999 13.4 14.0999 13.7 13.9 13.9C13.8 14 13.6 14 13.5 14C13.4 14 13.2 14 13.1 13.9L8.69995 9.49999L9.49995 8.79999Z" fill="#316193"/>
+								</svg>
 					.block-form-column
 						label.form-input
 							.form-input__descr
 								| Логин
-							input(type="text" max="20")
+							input(type="text" max="20" data-org-login)
 						label.form-input
 							.form-input__descr
 								| Пароль
-							input(type="password")
+							input(type="password" data-org-password)
 						label.form-input
 							.form-input__descr
 								| Телефон
-							input(type="text" data-phone)
+							input(type="text" data-org-phone)
 						label.form-input
 							.form-input__descr
 								| E-mail
-							input(type="text")
-						label.form-input
-							.form-input__descr
-								| Адрес выдачи подарков
-							input(type="text")
+							input(type="text" data-org-email)
+						label.form-input.form-input_wide.form-input_wide--right-side
+							input(type="text" data-org-address-addr placeholder="Укажите адрес")
+							.glass-icon
+								<svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M5.5 11C2.5 11 0 8.5 0 5.5C0 2.5 2.5 0 5.5 0C8.5 0 11 2.5 11 5.5C11 8.5 8.5 11 5.5 11ZM5.5 1C3 1 1 3 1 5.5C1 8 3 10 5.5 10C8 10 10 8 10 5.5C10 3 8 1 5.5 1Z" fill="#316193"/>
+									<path d="M9.49995 8.79999L13.9 13.2C14.0999 13.4 14.0999 13.7 13.9 13.9C13.8 14 13.6 14 13.5 14C13.4 14 13.2 14 13.1 13.9L8.69995 9.49999L9.49995 8.79999Z" fill="#316193"/>
+								</svg>
 			.block-btns
 				a(href="#").btn-cancel.mr-30 Отмена
-				input(type="submit" value="Создать бизнес-профиль").btn-submit
+				input(type="submit" value="Создать бизнес-профиль" id="btn-create-profile").btn-submit
 
 
