@@ -3016,9 +3016,26 @@ html, body {
       text-decoration: none;
       color: #0092FF;
       flex-wrap: nowrap;
-      border-bottom: 1px solid #0092FF; }
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #0092FF;
+      outline: none; }
+      .date-pick-period__link::placeholder {
+        color: #0092FF; }
+      .date-pick-period__link--wrapper {
+        position: relative; }
+        .date-pick-period__link--wrapper svg {
+          position: absolute;
+          margin-left: 5px;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          right: 0px; }
       .date-pick-period__link svg {
-        margin-left: 5px; }
+        position: absolute;
+        margin-left: 5px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        right: 5px; }
       .date-pick-period__link_inline {
         display: inline-block;
         margin-left: 0px; }

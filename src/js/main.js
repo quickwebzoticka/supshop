@@ -475,6 +475,9 @@ $(document).ready(function(){
   let id = 0;
   let key = '';
 
+
+  //АКТИВНЫЕ КАМПАНИИ
+
   $(document).on('click', '[data-giftsbackpack-active]', function() {
     $.ajax({
       url: `${baseURL}/gift/b/${id}/${key}`,
@@ -498,6 +501,9 @@ $(document).ready(function(){
     })
   });
 
+  //КОНЕЦ АКТИВНЫЕ КАМПАНИИ
+
+  //СОЗДАНИЕ БИЗНЕС ПРОФИЛЯ
 
   $(document).on('click', '#btn-create-profile', function(e) {
     e.preventDefault();
@@ -555,6 +561,7 @@ $(document).ready(function(){
     })
     .done(function(response) {
       removePopup(e);
+      getInfoBuisnessProfile();
       console.log('success');
     })
     .fail(function(error) {
@@ -562,5 +569,41 @@ $(document).ready(function(){
     });
 
   });
+
+  //КОНЕЦ СОЗДАНИЯ БИЗНЕС ПРОФИЛЯ
+
+
+  //ПОЛУЧЕНИЕ ИНФОРМАЦИИ О БИЗНЕС ПРОФИЛЕ
+
+  var getInfoBuisnessProfile = function() {
+
+    $.$.ajax({
+      url: `${baseURL}/org/${id}/${key}`,
+      type: 'GET',
+      method: 'GET',
+      dataType: 'json',
+    })
+    .done(function(response) {
+      let orgmoney = response.value.orgMoney || 0;
+      $(document).find('.balance-text span').text(orgmoney);
+      if (response.value.orgLogo) {
+        $(document).find('.header-avatar img').attr('src', response.value.orgLogo);
+      }
+      
+      $(document).find('.balance-text span').text(response.value.orgMoney);
+
+      console.log("get info about buisness profile");
+    })
+    .fail(function() {
+
+
+      console.log("can't get info about buisness profile");
+    })
+    
+
+    
+  }
+
+  //КОНЕЦ ПОЛУЧЕНИЕ ИНФОРМАЦИИ О БИЗНЕС ПРОФИЛЕ
 
 });

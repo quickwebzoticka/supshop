@@ -397,10 +397,35 @@ html, body {
 			text-decoration: none;
 			color: $color-blue-light;
 			flex-wrap: nowrap;
+			background: transparent;
+			border: none;
 			border-bottom: 1px solid $color-blue-light;
+			outline: none;
+			
+			
+			&::placeholder {
+				color: $color-blue-light;
+			}
+
+			
+			&--wrapper {
+				position: relative;
+				
+				svg {
+					position: absolute;
+					margin-left: 5px;
+					top: 50%;
+					transform: translate(-50%, -50%);
+					right: 0px;
+				}
+			}
 
 			svg {
+				position: absolute;
 				margin-left: 5px;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				right: 5px;
 			}
 
 
