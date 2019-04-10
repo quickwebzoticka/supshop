@@ -458,7 +458,7 @@ $(document).ready(function(){
 
 
   let rowCampaingTemplate = $('.campaings-inn-row.campaings-item').clone();
-  let baseURL = 'http://getlucky.city/api';
+  let baseURL = 'https://getlucky.city/api';
 
   String.prototype.hashCode = function() {
     var hash = 0, i, chr;
