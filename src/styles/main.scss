@@ -867,7 +867,7 @@ html, body {
 
 .block-btns {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: center;
 	max-width: 1220px;
 	margin: 0 auto;
@@ -878,6 +878,46 @@ html, body {
 		padding: 0;
 		padding-left: 100px;
 
+	}
+	&-wrap{
+		display: flex;
+    flex-direction: column;
+		align-items: center;
+		span{
+			visibility: hidden;
+			margin-top: 5px;
+			font-size: 12px;
+		}
+	}
+}
+
+.send{
+
+
+	&-success-content {
+		padding: 20px 40px;
+		border-radius: 3px;
+		background: $color-black-back;
+		color: $color-blue-light;
+	}
+
+	&-modal{
+		position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+		z-index: 999;
+		background-color: rgba(0, 0, 0, 0.7);
+		display: flex;
+    justify-content: center;
+    align-items: center;
+	}
+}
+
+#send-error {
+	.send-success-content {
+		color: red;
 	}
 }
 

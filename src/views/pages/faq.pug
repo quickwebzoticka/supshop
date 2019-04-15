@@ -27,7 +27,7 @@ block contain
 									| Пожелания и предложения
 						label.form-input.form-input_width
 							.form-input__descr E-mail на который будет отправлен ответ
-							input(type="text")
+							input(type="text" data-support-email)
 						label.form-input.form-input_width
 							.form-input__descr Сообщение (при необходимости приложите скриншот)
 							textarea
@@ -39,13 +39,16 @@ block contain
 								| Максимум 5 файлов размером до 10 Mb
 				.block-btns.block-btns_ml
 					a(href="index.html").btn-cancel.mr-30 Назад
-					input(type="submit" value="Сохранить изменения").btn-submit
+					.block-btns-wrap
+						input(type="submit" value="Обратиться в техподдержку").btn-submit
+						span Заполните все поля
 
 								
 
 
 			.main-block-content.main-block-tabs-item.main-block-content_card
-				.faq-head Если ваш вопрос не удалось решить через <a class="date-pick-period__link date-pick-period__link_inline" href="#" data-form-back>форму обратной связи<a>, вы можете оставить номер телефона и мы вам перезвоним
+				.faq-head Если ваш вопрос не удалось решить через 
+				<a class="date-pick-period__link date-pick-period__link_inline" href="#" data-form-back>форму обратной связи</a>, вы можете оставить номер телефона и мы вам перезвоним
 				form.faq-main(method="POST" action="")
 					.faq-main-body
 						.form-input
@@ -61,10 +64,10 @@ block contain
 									| Пожелания и предложения
 						label.form-input.form-input_width
 							.form-input__descr Укажите ваш e-mail
-							input(type="text")
+							input(type="text" data-callback-email)
 						label.form-input.form-input_width
 							.form-input__descr Ваш номер телефона
-							input(type="text")
+							input(type="text" data-callback-phone)
 						label.form-input.form-input_ai-center
 							.form-input__descr Выбрать удобное время
 
@@ -83,7 +86,9 @@ block contain
 								
 				.block-btns.block-btns_ml
 					a(href="index.html").btn-cancel.mr-30 Назад
-					input(type="submit" value="Сохранить изменения").btn-submit
+					.block-btns-wrap
+						input(type="submit" value="Заказать звонок").btn-submit
+						span Заполните все поля
 
 
 			.main-block-content.main-block-tabs-item.main-block-content_card
@@ -318,4 +323,7 @@ block contain
 									| Если вы заметили подозрительную активность в своём аккаунте (резкое исчезновение подарков, примеры подозрительной активности?), есть несколько способов убедиться, взломан ваш аккаунт или нет. 
 									| Если вы входите в GetLucky, используя профиль Facebook (VKontakte, Odnoklassniki), то ваш аккаунт привязывается к уникальному идентификатору Facebook (VKontakte, Odnoklassniki). Если есть основания полагать, что кто-то получил незаконный доступ к вашему аккаунту Facebook (VKontakte, Odnoklassniki), мы советуем вам незамедлительно сменить пароль от этого аккаунта. 
 
-									
+			#send-success.send-modal(style="display:none")
+				.send-success-content Регистрация прошла успешно
+			#send-error.send-modal(style="display:none")
+				.send-success-content Ошибка регистрации						

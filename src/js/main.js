@@ -63,6 +63,35 @@ $(document).ready(function(){
   $('[data-time]').inputmask('99:99:99');
   $('[data-datepicker]').inputmask('99.99.9999');
 
+
+  $('[data-org-phone], [data-edit-phone], [data-callback-phone]').inputmask({
+    mask: "+7 (999) 999-99-99",
+    showMaskOnHover: false,
+    showMaskOnFocus: true
+  });
+  $('[data-org-email], [data-support-email], [data-callback-email]').inputmask({ 
+    alias: "email",
+    showMaskOnHover: false,
+    showMaskOnFocus: true
+  });
+  $('[data-org-inn], [data-edit-inn]').inputmask({ 
+    mask: "9999999999",
+    showMaskOnHover: false,
+    showMaskOnFocus: true
+  });
+  $('[data-org-ogrn], [data-edit-ogrn]').inputmask({ 
+    mask: "9999999999999",
+    showMaskOnHover: false,
+    showMaskOnFocus: true
+  });
+
+  const showModal = function(idModal, text) {
+    console.log($('#' + idModal));
+    $('#' + idModal).attr('style', 'display:flex');
+    $('#' + idModal).find('.send-success-content').text(text);
+    setTimeout(function() { $('#' + idModal).fadeOut() }, 3000);
+  };
+
   const closeHeaderMenu = function(e) {
     if (!e.target.closest('.header-menu') && !e.target.closest('.header-menu-container')) {
       $('.header-menu').slideUp(300);
@@ -419,9 +448,11 @@ $(document).ready(function(){
     $('a.header-link.main-block-nav__link').removeClass('active').eq(0).addClass('active');
 
     $('.main-block-content.main-block-tabs-item.main-block-content_card').removeClass('active').eq(0).addClass('active');
-  }
+  };
 
+  const addAddressMap = function() {
 
+  };
 
   removeActiveLinks();
   moveToAnchor();
@@ -479,22 +510,44 @@ $(document).ready(function(){
 
   const uuid = () => ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,c=>(c^crypto.getRandomValues(new Uint8Array(1))[0]&15 >> c/4).toString(16));
   
-  if (localStorage["id"] && localStorage["key"]) {
-    let id = localStorage["id"];
-    let key = localStorage["key"];
-    let orgID = localStorage["orgID"];
-    removePopup();
-  } else {
-    let id = 0;
-    let key = '';
-    let orgID = 0;
-  }
-  
-  localStorage.clear();
+  let id, authKey, orgID;
 
   let rowTable = $('.row-template').clone();
   $('.row-template').remove();
 
+  let campaingItem = $('.campaings-inn-row.campaings-item').clone();
+  $('.campaings-inn-row.campaings-item').remove();
+
+
+  //ПОЛУЧЕНИЕ ИНФОРМАЦИИ О БИЗНЕС ПРОФИЛЕ
+
+  var getInfoBuisnessProfile = function() {
+
+    $.ajax({
+      url: `${baseURL}/org/${id}/${authKey}`,
+      type: 'GET',
+      method: 'GET',
+      dataType: 'json',
+    })
+    .done(function(response) {
+      let orgmoney = response.value.orgMoney || 0;
+      $(document).find('.balance-text span').text(orgmoney);
+
+      if (response.value.orgLogo) {
+        $(document).find('.header-avatar img').attr('src', response.value.orgLogo);
+      }
+
+
+      $(document).find('.balance-text span').text(response.value.orgMoney);
+
+      console.log("get info about buisness profile");
+    })
+    .fail(function() {
+      console.log("can't get info about buisness profile");
+    })
+  }
+
+  //КОНЕЦ ПОЛУЧЕНИЕ ИНФОРМАЦИИ О БИЗНЕС ПРОФИЛЕ
 
   //ПОЛУЧЕНИЕ СТАТИСТИКИ КАМПАНИИ  
   var getStatisticCampaings = function() {
@@ -517,7 +570,7 @@ $(document).ready(function(){
     }
 
     $.ajax({
-      url: `${baseURL}/gift/${id}${key}/stats`,
+      url: `${baseURL}/gift/${id}${authKey}/stats`,
       type: 'GET',
       dataType: 'json',
       contentType: 'application/json',
@@ -557,13 +610,12 @@ $(document).ready(function(){
   $(document).on('change', '[data-date-end]', getStatisticCampaings);
   //КОНЕЦ ПОЛУЧЕНИЕ СТАТИСТИКИ КАМПАНИИ
 
-  let campaingItem = $('.campaings-inn-row.campaings-item').clone();
-  $('.campaings-inn-row.campaings-item').remove();
-
   //ПОЛУЧЕНИЕ СПИСКА КАМПАНИИ
   var getListCampaings = function() {
+    console.log(`${baseURL}/gift/${id}/${authKey}`);
+
     $.ajax({
-      url: `${baseURL}/gift/${id}${key}`,
+      url: `${baseURL}/gift/${id}/${authKey}`,
       type: 'GET',
       dataType: 'json',
     })
@@ -596,18 +648,82 @@ $(document).ready(function(){
       }
       console.log("gift list added");
     })
-    .fail(function() {
+    .fail(function(error) {
+      console.log(error);
       console.log("gift list failed");
     })
     
   };
   //КОНЕЦ ПОЛУЧЕНИЕ СПИСКА КАМПАНИИ
 
+  //ПОЛУЧЕНИЕ СПИСКА АДРЕСОВ
+
+  var getAddresses = function() {
+    $.ajax({
+      url: `${baseURL}/org/${id}/${authKey}/address`,
+      type: 'GET',
+      dataType: 'json',
+    })
+    .done(function(response) {
+      console.log(response);
+      $('.address-list.scroll-content').html('');
+      response.value.forEach(function(item, i) {
+        console.log(item);
+        let city = item.addressValue;
+        let addr = item.addressLocality;
+        let addrID = item.addressID;
+
+        if (city && addr) {
+          let temp = addressTemplate.clone();
+
+          temp.attr('data-addr-id', addrID);
+
+          temp.find('.address-list-item__name').find('.address-list-item__name--city').text(`${city}`);
+          temp.find('.address-list-item__name').find('.address-list-item__name--addr').text(`${addr}`);
+          
+
+          $('.address-list.scroll-content').append(temp);
+        }
+      });
+      console.log("success get of info of buisness profile");
+    })
+    .fail(function() {
+      console.log("error get of info of buisness profile");
+    })
+  }
+
+   //КОНЕЦ ПОЛУЧЕНИЕ СПИСКА АДРЕСОВ
+
+   //ПЕРВОНАЧАЛЬНАЯ ИНИЦИАЛИЗАЦИЯ ПРИ НАЛИЧИИ ТОКЕНА И ID
+
+  if (localStorage["id"] && localStorage["authKey"]) {
+    id = localStorage["id"];
+    authKey = localStorage["authKey"];
+    orgID = localStorage["orgID"];
+    removePopup();
+    getInfoBuisnessProfile();
+    getStatisticCampaings();
+    getListCampaings();
+  } else {
+    id = 0;
+    authKey = '';
+    orgID = 0;
+  }
+
+  //КОНЕЦ ПЕРВОНАЧАЛЬНАЯ ИНИЦИАЛИЗАЦИЯ ПРИ НАЛИЧИИ ТОКЕНА И ID
 
   //СОЗДАНИЕ БИЗНЕС ПРОФИЛЯ
 
   $(document).on('click', '#btn-create-profile', function(e) {
     e.preventDefault();
+
+    if ($('.block-form input').val() == "" || !$('[data-org-phone], [data-org-email], [data-org-inn], [data-org-ogrn]').inputmask("isComplete")) {
+      $('.block-btns-wrap span').attr('style', 'visibility:initial');
+      showModal($('#send-error').attr('id'));
+      return false;
+    }
+    showModal($('#send-success').attr('id'));
+
     let data = {};
     let avatar = $('.block-photo-upload__avatar').attr('style');
 
@@ -620,22 +736,23 @@ $(document).ready(function(){
       let avatarImg = new FormData();
       let avatarImage = $('.block-photo-upload__input')[0].files[0];
       avatarImg.append('file', avatarImage);
-      avatarImg.append('type', 1);
-      avatarImg.append('category', 'logoOrg');
+      avatarImg.append('type', 0);
+      avatarImg.append('category', 'banner');
 
 
       $.ajax({
-        url: `${baseURL}/images/upload`,
+        url: `${baseURL}/image/upload`,
         method: 'POST',
-        type: 'POST',
         dataType: 'json',
+        contentType: 'multipart/form-data',
         processData: false,
         data: avatarImg,
       })
       .done(function() {
         console.log("avatar uploaded");
       })
-      .fail(function() {
+      .fail(function(error) {
+        console.log(error);
         console.log("avatar not uploaded");
       })    
     } else {
@@ -664,10 +781,6 @@ $(document).ready(function(){
         }
       ]
     }
-
-
-    // data.user.userName = `${$('[data-org-address]').val()}`;
-
     console.log(data);
     console.log(typeof(data));
     console.log(`${baseURL}/org/create`);
@@ -682,14 +795,12 @@ $(document).ready(function(){
     })
     .done(function(response) {
 
-      console.log(response.responseJSON);
-
       id = response.value.userID;
-      key = response.value.userKey;
+      authKey = response.value.userKey;
       orgID = response.value.orgID;
 
       localStorage["id"] = id;
-      localStorage["key"] = key;
+      localStorage["authKey"] = authKey;
       localStorage["orgID"] = orgID;
 
       removePopup(e);
@@ -699,7 +810,6 @@ $(document).ready(function(){
       console.log('buisness profile registered');
     })
     .fail(function(error) {
-      console.log(error.responseJSON);
       console.log('buisness profile register failed');
     });
 
@@ -708,24 +818,30 @@ $(document).ready(function(){
   //КОНЕЦ СОЗДАНИЯ БИЗНЕС ПРОФИЛЯ
 
 
-  //РЕДАКТИРОВАНИЕ ПРОФИЛЯ
+  
 
   let addressTemplate = $('[data-edit-address]').clone();
   $('[data-edit-address]').remove();
+
+  //РЕДАКТИРОВАНИЕ ПРОФИЛЯ
 
   $(document).on('click', '[data-edit-add-addr-btn]', function(e) {
     e.preventDefault();
     let city = $('[data-edit-add-city]').val();
     let addr = $('[data-edit-add-addr]').val();
+    let data = [
+      {
+        "addressValue": `${city}`,
+        "addressLocality": `${addr}`
+      }
+    ]
 
     $.ajax({
-      url: `${baseURL}/org/${id}/${key}/address`,
-      type: 'POST',
+      url: `${baseURL}/org/${id}/${authKey}/address`,
+      method: 'POST',
       dataType: 'json',
-      data: {
-        addressValue: `${city}`,
-        addressLocality: `${addr}`
-      },
+      contentType: 'application/json',
+      data: JSON.stringify(data),
     })
     .done(function() {
       getAddresses();
@@ -743,7 +859,7 @@ $(document).ready(function(){
     let tempItem = $(this).closest('[data-edit-address]');
 
     $.ajax({
-      url: `${baseURL}/org/${id}/${key}/address`,
+      url: `${baseURL}/org/${id}/${authKey}/address`,
       type: 'DELETE',
       dataType: 'json',
       data: {
@@ -762,40 +878,52 @@ $(document).ready(function(){
 
   $(document).on('click', '[data-edit-save]', function(e) {
     e.preventDefault();
-    let data = {};
 
-    data.name = $('[data-edit-name]').val();
-    data.fullname = $('[data-edit-type]').val();
-    data.tin = $('[data-edit-inn]').val();
-    data.ogrn = $('[data-edit-ogrn]').val();
-    data.phone = $('[data-edit-phone]').val();
-    data.addresses = [{
-      addressValue: $('[data-edit-address-city]').val(),
-      addressLocality: $('[data-edit-address-addr]').val(),
-    }];
-    console.log(data);
-    $.ajax({
-      url: `${baseURL}/org/${id}${key}`,
-      method: 'PUT',
-      type: 'PUT',
-      dataType: 'json',
-      data: data,
-    })
-    .done(function() {
-      console.log("edit profile success");
-    })
-    .fail(function() {
-
-      console.log("edit profile error");
-    })
+    if ($('.form-input input').val() == "" || !$('[data-edit-phone], [data-edit-inn], [data-edit-ogrn]').inputmask("isComplete")) {
+      $('.block-btns-wrap span').attr('style', 'visibility:initial');
+      showModal($('#send-error').attr('id'), 'Ошибка изменения');
+      return false;
+    }
     
 
+    let data = {};
+
+    let editName = $('[data-edit-name]').val();
+    let editFullname = $('[data-edit-type]').val();
+    let editTin = $('[data-edit-inn]').val();
+    let editOgrn = $('[data-edit-ogrn]').val();
+    let editPhone = $('[data-edit-phone]').val();
+    data.addresses = [
+      {
+        addressValue: $('[data-edit-address-city]').val(),
+        addressLocality: $('[data-edit-address-addr]').val(),
+      }
+    ];
+    console.log(JSON.stringify(data));
+    $.ajax({
+      url: `${baseURL}/org/${id}/${authKey}?name=${editName}&fullname=${editFullname}&tin=${editTin}&ogrn=${editOgrn}&phone=${editPhone}`,
+      method: 'PUT',
+      dataType: 'json',
+      contentType: 'application/json',
+      processData: true,
+      data: JSON.stringify(data),
+    })
+    .done(function(response) {
+      console.log(response);
+      console.log("edit profile success");
+      showModal($('#send-success').attr('id'), 'Изменения сохранены');
+    })
+    .fail(function(error) {
+      console.log(error);
+      showModal($('#send-error').attr('id'), 'Ошибка изменения');
+      console.log("edit profile error");
+    })
   });
 
   if (window.location.href.indexOf('edit') > 1) {
-    console.log(1);
+    console.log('ПОЛУЧНИЕ ИНФОРМАЦИИ О ПРОФИЛЕ');
     $.ajax({
-      url: `${baseURL}/org/${id}/${key}`,
+      url: `${baseURL}/org/${id}/${authKey}`,
       type: 'GET',
       dataType: 'json',
     })
@@ -815,84 +943,20 @@ $(document).ready(function(){
     getAddresses();
   }
 
-  var getAddresses = function() {
-    $.ajax({
-      url: `${baseURL}/org/${id}/${key}/address`,
-      type: 'GET',
-      dataType: 'json',
-    })
-    .done(function(response) {
-      $('.address-list.scroll-content').html('');
-      response.value.forEach(function(item, i) {
-        let city = item.addressValue;
-        let addr = item.addressLocality;
-        let addrID = item.addressID;
-
-        if (city && addr) {
-          let temp = addressTemplate.clone();
-
-          temp.attr('data-addr-id', addrID);
-
-          temp.find('.address-list-item__name').find('.address-list-item__name--city').text(`${city}`);
-          temp.find('.address-list-item__name').find('.address-list-item__name--addr').text(`${addr}`);
-          
-
-          $('.address-list.scroll-content').append(temp);
-        }
-      });
-      console.log("success get of info of buisness profile");
-    })
-    .fail(function() {
-      console.log("error get of info of buisness profile");
-    })
-  }
-
   //КОНЕЦ РЕДАКТИРОВАНИЕ ПРОФИЛЯ
 
-
-  //ПОЛУЧЕНИЕ ИНФОРМАЦИИ О БИЗНЕС ПРОФИЛЕ
-
-  var getInfoBuisnessProfile = function() {
-
-    $.ajax({
-      url: `${baseURL}/org/${id}/${key}`,
-      type: 'GET',
-      method: 'GET',
-      dataType: 'json',
-    })
-    .done(function(response) {
-      let orgmoney = response.value.orgMoney || 0;
-      $(document).find('.balance-text span').text(orgmoney);
-
-      if (response.value.orgLogo) {
-        $(document).find('.header-avatar img').attr('src', response.value.orgLogo);
-      }
-
-
-      $(document).find('.balance-text span').text(response.value.orgMoney);
-
-      console.log("get info about buisness profile");
-    })
-    .fail(function() {
-      console.log("can't get info about buisness profile");
-    })
-  }
-
-  //КОНЕЦ ПОЛУЧЕНИЕ ИНФОРМАЦИИ О БИЗНЕС ПРОФИЛЕ
-
-
-  $.ajax({
-    url: `${baseURL}/images`,
-    type: 'GET',
-    dataType: 'json',
-    data: {id: '1'},
-  })
-  .done(function() {
-    console.log("success");
-  })
-  .fail(function() {
-    console.log("error");
-  })
+  // $.ajax({
+  //   url: `${baseURL}/images`,
+  //   type: 'GET',
+  //   dataType: 'json',
+  //   data: {id: '1'},
+  // })
+  // .done(function() {
+  //   console.log("success");
+  // })
+  // .fail(function() {
+  //   console.log("error");
+  // })
   
 
 });

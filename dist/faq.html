@@ -56,7 +56,7 @@
                 </div>
                 <label class="form-input form-input_width">
                   <div class="form-input__descr">E-mail на который будет отправлен ответ</div>
-                  <input type="text">
+                  <input type="text" data-support-email>
                 </label>
                 <label class="form-input form-input_width">
                   <div class="form-input__descr">Сообщение (при необходимости приложите скриншот)</div>
@@ -71,11 +71,13 @@
               </div>
             </form>
             <div class="block-btns block-btns_ml"><a class="btn-cancel mr-30" href="index.html">Назад</a>
-              <input class="btn-submit" type="submit" value="Сохранить изменения">
+              <div class="block-btns-wrap">
+                <input class="btn-submit" type="submit" value="Обратиться в техподдержку"><span>Заполните все поля</span>
+              </div>
             </div>
           </div>
           <div class="main-block-content main-block-tabs-item main-block-content_card">
-            <div class="faq-head">Если ваш вопрос не удалось решить через <a class="date-pick-period__link date-pick-period__link_inline" href="#" data-form-back>форму обратной связи<a>, вы можете оставить номер телефона и мы вам перезвоним</div>
+            <div class="faq-head">Если ваш вопрос не удалось решить через </div><a class="date-pick-period__link date-pick-period__link_inline" href="#" data-form-back>форму обратной связи</a>, вы можете оставить номер телефона и мы вам перезвоним
             <form class="faq-main" method="POST" action="">
               <div class="faq-main-body">
                 <div class="form-input">
@@ -93,11 +95,11 @@
                 </div>
                 <label class="form-input form-input_width">
                   <div class="form-input__descr">Укажите ваш e-mail</div>
-                  <input type="text">
+                  <input type="text" data-callback-email>
                 </label>
                 <label class="form-input form-input_width">
                   <div class="form-input__descr">Ваш номер телефона</div>
-                  <input type="text">
+                  <input type="text" data-callback-phone>
                 </label>
                 <label class="form-input form-input_ai-center">
                   <div class="form-input__descr">Выбрать удобное время</div>
@@ -164,7 +166,9 @@
               </div>
             </form>
             <div class="block-btns block-btns_ml"><a class="btn-cancel mr-30" href="index.html">Назад</a>
-              <input class="btn-submit" type="submit" value="Сохранить изменения">
+              <div class="block-btns-wrap">
+                <input class="btn-submit" type="submit" value="Заказать звонок"><span>Заполните все поля</span>
+              </div>
             </div>
           </div>
           <div class="main-block-content main-block-tabs-item main-block-content_card">
@@ -443,6 +447,12 @@
                 </div>
               </div>
             </div>
+          </div>
+          <div class="send-modal" id="send-success" style="display:none">
+            <div class="send-success-content">Регистрация прошла успешно</div>
+          </div>
+          <div class="send-modal" id="send-error" style="display:none">
+            <div class="send-success-content">Ошибка регистрации						</div>
           </div>
         </div>
       </div>

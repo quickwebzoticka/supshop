@@ -1,6 +1,33 @@
 $(document).ready(function() {
 
+	const showModal = function(idModal, text) {
+    console.log($('#' + idModal));
+    $('#' + idModal).attr('style', 'display:flex');
+    $('#' + idModal).find('.send-success-content').text(text);
+    setTimeout(function() { $('#' + idModal).fadeOut() }, 3000);
+  };
+
 	if ($('.map').length) {
+
+			if ($('[data-addreses-wrapper-1]').length && $('[data-addreses-wrapper-2]').length) {
+				var addressTemplate1 = $('[data-addreses-wrapper-1]').find('.address-location').clone();
+				var addressTemplate2 = $('[data-addreses-wrapper-2]').find('.address-location').clone();
+
+				$('[data-addreses-wrapper-1]').find('.address-location').remove();
+				$('[data-addreses-wrapper-2]').find('.address-location').remove();
+			}
+
+			function makeAddresses (location) {
+				let count = $('[data-addreses-wrapper-1]').find('.address-location').length;
+
+				addressTemplate1.find('.address-location__name').text(location);
+				addressTemplate2.find('.address-location__name').text(location);
+
+				$('[data-addreses-wrapper-1]').append(addressTemplate1.clone().attr('data-address-id', count));
+				$('[data-addreses-wrapper-2]').append(addressTemplate2.clone().attr('data-address-id', count));
+			} 
+
+
       function initMap () {
       	
 
@@ -310,22 +337,24 @@ $(document).ready(function() {
         });
 
         autocomplete.addListener('place_changed', function() {
-          infowindow.close();
-          marker.setVisible(false);
+          // infowindow.close();
+          // marker.setVisible(false);
           var place = autocomplete.getPlace();
           if (!place.geometry) {
             // User entered the name of a Place that was not suggested and
             // pressed the Enter key, or the Place Details request failed.
-            window.alert("No details available for input: '" + place.name + "'");
+            showModal($('#send-error').attr('id'), 'Некорректный адрес');
             return;
           }
 
           // If the place has a geometry, then present it on a map.
           if (place.geometry.viewport) {
+          	console.log(22);
             map.fitBounds(place.geometry.viewport);
           } else {
+          	console.log(11);
             map.setCenter(place.geometry.location);
-            map.setZoom(17);  // Why 17? Because it looks good.
+            map.setZoom(10);  // Why 14? Because it looks good.
           }
           marker.setPosition(place.geometry.location);
           if (window.location.href.indexOf('supertarget') > 1) {
@@ -337,12 +366,20 @@ $(document).ready(function() {
 
           var address = '';
           if (place.address_components) {
+          	console.log(place.address_components);
             address = [
               (place.address_components[0] && place.address_components[0].short_name || ''),
               (place.address_components[1] && place.address_components[1].short_name || ''),
-              (place.address_components[2] && place.address_components[2].short_name || '')
+              (place.address_components[2] && place.address_components[2].short_name || ''),
+              (place.address_components[3] && place.address_components[3].short_name || ''),
+              (place.address_components[4] && place.address_components[4].short_name || ''),
+              (place.address_components[5] && place.address_components[5].short_name || ''),
+              (place.address_components[6] && place.address_components[6].short_name || ''),
+              (place.address_components[7] && place.address_components[7].short_name || '')
             ].join(' ');
           }
+
+          makeAddresses(address);
 
           localStorage['giftLat'] = place.geometry.location.lat();
           localStorage['giftLng'] = place.geometry.location.lng();
@@ -362,10 +399,10 @@ $(document).ready(function() {
 
           	  $('.radius-hidden').show();
 
-	    	google.maps.event.addDomListener(
-			   document.querySelectorAll('.range-slider.container__radius.irs-hidden-input')[0], 'change', function() {
-			       cityCircle.setRadius = document.querySelectorAll('.range-slider.container__radius.irs-hidden-input')[0].value;
-			   });
+          	  $('.range-slider.container__radius.irs-hidden-input').on('change', function() {
+          	  	cityCircle.setRadius = $(this).val();
+          	  	cityCircle.set('radius', parseInt($(this).val(), 10) );
+          	  })
           } else {
           	infowindow.open(map, marker);
           }

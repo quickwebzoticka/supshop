@@ -3312,7 +3312,7 @@ html, body {
 
 .block-btns {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   max-width: 1220px;
   margin: 0 auto;
@@ -3320,6 +3320,35 @@ html, body {
   .block-btns_ml {
     padding: 0;
     padding-left: 100px; }
+  .block-btns-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .block-btns-wrap span {
+      visibility: hidden;
+      margin-top: 5px;
+      font-size: 12px; }
+
+.send-success-content {
+  padding: 20px 40px;
+  border-radius: 3px;
+  background: #1A182B;
+  color: #0092FF; }
+
+.send-modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+#send-error .send-success-content {
+  color: red; }
 
 .btn-cancel {
   width: 294px;

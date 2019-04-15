@@ -82,4 +82,10 @@ block contain
 
 			.block-btns
 				a(href="index.html").btn-cancel.mr-30 Назад
-				input(type="submit" value="Сохранить изменения" data-edit-save).btn-submit
+				.block-btns-wrap
+					input(type="submit" value="Сохранить изменения" data-edit-save).btn-submit
+					span Заполните все поля
+		#send-success.send-modal(style="display:none")
+			.send-success-content Регистрация прошла успешно
+		#send-error.send-modal(style="display:none")
+			.send-success-content Ошибка регистрации

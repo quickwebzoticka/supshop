@@ -118,9 +118,17 @@
             </div>
           </div>
           <div class="block-btns"><a class="btn-cancel mr-30" href="index.html">Назад</a>
-            <input class="btn-submit" type="submit" value="Сохранить изменения" data-edit-save>
+            <div class="block-btns-wrap">
+              <input class="btn-submit" type="submit" value="Сохранить изменения" data-edit-save><span>Заполните все поля</span>
+            </div>
           </div>
         </form>
+        <div class="send-modal" id="send-success" style="display:none">
+          <div class="send-success-content">Регистрация прошла успешно</div>
+        </div>
+        <div class="send-modal" id="send-error" style="display:none">
+          <div class="send-success-content">Ошибка регистрации</div>
+        </div>
       </div>
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtQMpc4MRFpmdc42z0OjRF2HLthIwvgdI&amp;libraries=places"></script>
