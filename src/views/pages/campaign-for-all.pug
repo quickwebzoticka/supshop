@@ -4,9 +4,19 @@ block title
 	title GetLucky | ForAll
 
 block contain
-	.map
+	.map-container
+		.map.map-shifted
 	.map-wrapper
+	#infowindow-content
+		#place-header Количество подарков
+		#place-count 42шт
 	.block.campaign-spec
+		.campaign-spec-input
+			<svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M5.5 11C2.5 11 0 8.5 0 5.5C0 2.5 2.5 0 5.5 0C8.5 0 11 2.5 11 5.5C11 8.5 8.5 11 5.5 11ZM5.5 1C3 1 1 3 1 5.5C1 8 3 10 5.5 10C8 10 10 8 10 5.5C10 3 8 1 5.5 1Z" fill="#316193"/>
+				<path d="M9.50001 8.8L13.9 13.2C14.1 13.4 14.1 13.7 13.9 13.9C13.8 14 13.6 14 13.5 14C13.4 14 13.2 14 13.1 13.9L8.70001 9.5L9.50001 8.8Z" fill="#316193"/>
+			</svg>
+			input(type="text" placeholder="Введите адрес")#autocomplete
 		.campaign-spec-window
 			.campaign-spec-wrapper
 				.campaign-spec-container

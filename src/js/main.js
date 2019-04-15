@@ -185,9 +185,7 @@ $(document).ready(function(){
     }
   };
 
-  const removePopup = function(e) {
-    e.preventDefault();
-
+  const removePopup = function() {
     $('body').css('overflow', '');
 
     $('.registration').removeClass('active');
@@ -401,13 +399,35 @@ $(document).ready(function(){
 
       $('.block-photo-upload__avatar').css({background: `url(${url}) no-repeat center center`, backgroundSize: 'cover'});
     }
+  };
+
+
+  const uploadScreenShot = function() {
+    console.log(this.files);
+    let file = this.files;
+
+    for (let i = 0; i < this.files.length; i++) {
+      $('.form-input__upload_result').append(`<div>${this.files[i].name}</div>`)
+    }
+    
+  };
+
+  const linkForm = function(e) {
+    e.preventDefault();
+
+    $('a.header-link.main-block-nav__link').removeClass('active').eq(0).addClass('active');
+    $('a.header-link.main-block-nav__link').removeClass('active').eq(0).addClass('active');
+
+    $('.main-block-content.main-block-tabs-item.main-block-content_card').removeClass('active').eq(0).addClass('active');
   }
+
 
 
   removeActiveLinks();
   moveToAnchor();
 
-
+  $(document).on('click', '[data-form-back]', linkForm);
+  $(document).on('change', '.form-input__upload input[type="file"]', uploadScreenShot);
   $(document).on('change', '.block-photo-upload__input', uploadPhoto);
   $(document).on('click', '.container-category-inn-head', openCategoryInn);
   $(document).on('click', '.container-category-head', openCategory);
@@ -454,63 +474,146 @@ $(document).ready(function(){
 //----------------------------------------------API-------------------------------------------------------------
 //----------------------------------------------API-------------------------------------------------------------
 
-
-
-
-  let rowCampaingTemplate = $('.campaings-inn-row.campaings-item').clone();
-  let baseURL = 'https://getlucky.city/api';
-
-  String.prototype.hashCode = function() {
-    var hash = 0, i, chr;
-    if (this.length === 0) return hash;
-    for (i = 0; i < this.length; i++) {
-      chr   = this.charCodeAt(i);
-      hash  = ((hash << 5) - hash) + chr;
-      hash |= 0;
-    }
-    return hash;
-  };
+  // let baseURL = 'https://getlucky.city/api';
+  let baseURL = 'http://185.162.92.149:8080/api';
 
   const uuid = () => ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,c=>(c^crypto.getRandomValues(new Uint8Array(1))[0]&15 >> c/4).toString(16));
-  let id = 0;
-  let key = '';
+  
+  if (localStorage["id"] && localStorage["key"]) {
+    let id = localStorage["id"];
+    let key = localStorage["key"];
+    let orgID = localStorage["orgID"];
 
 
-  //АКТИВНЫЕ КАМПАНИИ
+    removePopup();
+    console.log(localStorage);
+  } else {
+    let id = 0;
+    let key = '';
+    let orgID = 0;
+  }
+  
+  
 
-  $(document).on('click', '[data-giftsbackpack-active]', function() {
+  let rowTable = $('.row-template').clone();
+  $('.row-template').remove();
+
+
+  //ПОЛУЧЕНИЕ СТАТИСТИКИ КАМПАНИИ  
+  var getStatisticCampaings = function() {
+    $('.table-statistic').html('');
+
+    let startDate, endDate;
+
+    if ($('[data-date-start]').val()) {
+      startDate = '01.01.2019';
+      $('[data-date-start]').val(startDate);
+    } else {
+      startDate = $('[data-date-start]').val();
+    }
+
+    if ($('[data-date-end]').val()) {
+      endDate = '01.12.2019';
+      $('[data-date-end]').val(endDate);
+    } else {
+      endDate = $('[data-date-end]').val();
+    }
+
     $.ajax({
-      url: `${baseURL}/gift/b/${id}/${key}`,
+      url: `${baseURL}/gift/${id}${key}/stats`,
+      type: 'GET',
+      dataType: 'json',
+      contentType: 'application/json',
+      data:{
+        start: startDate,
+        end: endDate,
+      }
+    })
+    .done(function(response) {
+
+      let gift = response.value;
+
+      if (gift) {
+        gift.forEach(function(item, i) {
+          let row = rowTable.clone();
+          row.find('td').eq(0).text(item.giftName);
+          row.find('td').eq(1).text(item.giftConversion);
+          row.find('td').eq(2).text(item.giftType);
+          row.find('td').eq(3).text(item.giftDate);
+          row.find('td').eq(4).text(item.giftMoney);
+          row.find('td').eq(5).text(item.giftReleased);
+          row.find('td').eq(6).text(item.giftCollected);
+          row.find('td').eq(7).text(item.giftDistributed);
+          row.find('td').eq(8).text(item.giftCost);
+          row.find('td').eq(9).text(item.giftVisitorCost);
+          $('.table-statistic').append(row);
+        });
+      }
+      
+
+      console.log("gift statistic added");
+    })
+    .fail(function() {
+      console.log("gift statistic failed");
+    })
+    
+  };
+  $(document).on('change', '[data-date-start]', getStatisticCampaings);
+  $(document).on('change', '[data-date-end]', getStatisticCampaings);
+  //КОНЕЦ ПОЛУЧЕНИЕ СТАТИСТИКИ КАМПАНИИ
+
+  let campaingItem = $('.campaings-inn-row.campaings-item').clone();
+  $('.campaings-inn-row.campaings-item').remove();
+
+  //ПОЛУЧЕНИЕ СПИСКА КАМПАНИИ
+  var getListCampaings = function() {
+    $.ajax({
+      url: `${baseURL}/gift/${id}${key}`,
       type: 'GET',
       dataType: 'json',
     })
     .done(function(response) {
-      let values = response.value;
-      values.each(function() {
-        rowCampaingTemplate.find('.campaings-item-img img').attr('src', `img/icons/${this.userGift.userGiftImageID}`);
-        rowCampaingTemplate.find('.campaings-item-info__name').text(this.userGift.userGiftName);
-        rowCampaingTemplate.find('.campaings-item-info__period').text(`${this.userGift.userGiftUsedDate} - ${this.userGift.userGiftExpirationDate}`);
-        rowCampaingTemplate.find('.campaings-item-info__count').text(this.userGift.userGiftText);
-        rowCampaingTemplate.attr('data-campaing-id', userGiftID);
-        $('.campaings-inn').append(rowCampaingTemplate.clone());
-      });
-      console.log("success");
-    })
-    .fail(function(error) {
-      console.log(error);
-    })
-  });
 
-  //КОНЕЦ АКТИВНЫЕ КАМПАНИИ
+      let gifts = response.value;
+
+      if (gifts) {
+        gifts.forEach(function(item, i) {
+          $('[data-giftsbackpack-active]').find('.campaings-inn-row.campaings-item').remove();
+          $('[data-giftsbackpack-moderating]').find('.campaings-inn-row.campaings-item').remove();
+          $('[data-giftsbackpack-finished]').find('.campaings-inn-row.campaings-item').remove();
+
+          let campaingRow = campaingItem.clone();
+
+          campaingRow.attr('data-gift-id', item.Gift.giftID);
+          campaingRow.find('.campaings-item-info__name').text(item.Gift.giftName);
+          campaingRow.find('.campaings-item-info__period').text(`${item.Gift.giftDateCreation} - ${item.Gift.giftDateUserEnd}`);
+          campaingRow.find('.campaings-item-info__count').text(item.locations.giftCount);
+          if (item.Gift.giftStatus == 'in_progress') {
+            $('[data-giftsbackpack-active]').find('.campaings-inn').append(campaingRow);
+          }
+          if (item.Gift.giftStatus == 'available') {
+            $('[data-giftsbackpack-moderating]').find('.campaings-inn').append(campaingRow);
+          }
+          if (item.Gift.giftStatus == 'not_available') {
+            $('[data-giftsbackpack-finished]').find('.campaings-inn').append(campaingRow);
+          }
+        });
+      }
+      console.log("gift list added");
+    })
+    .fail(function() {
+      console.log("gift list failed");
+    })
+    
+  };
+  //КОНЕЦ ПОЛУЧЕНИЕ СПИСКА КАМПАНИИ
+
 
   //СОЗДАНИЕ БИЗНЕС ПРОФИЛЯ
 
   $(document).on('click', '#btn-create-profile', function(e) {
     e.preventDefault();
     let data = {};
-    let date = new Date();
-    let key = `${$('[data-org-login]').val()}${$('[data-org-password]')}`;
-
     let avatar = $('.block-photo-upload__avatar').attr('style');
 
 
@@ -518,54 +621,90 @@ $(document).ready(function(){
       avatar = avatar.split(' ');
       avatar = avatar[1].split('"');
       avatar = avatar[1];
+
+      let avatarImg = new FormData();
+      let avatarImage = $('.block-photo-upload__input')[0].files[0];
+      avatarImg.append('file', avatarImage);
+      avatarImg.append('type', 1);
+      avatarImg.append('category', 'logoOrg');
+
+
+      $.ajax({
+        url: `${baseURL}/images/upload`,
+        method: 'POST',
+        type: 'POST',
+        dataType: 'json',
+        processData: false,
+        data: avatarImg,
+      })
+      .done(function() {
+        console.log("avatar uploaded");
+      })
+      .fail(function() {
+        console.log("avatar not uploaded");
+      })    
     } else {
       avatar = 0;
     }
-    
 
-    key = key.hashCode();
+
 
     data.user = {};
-    data.user.device = {};
-    data.user.user = {};
-    data.user.location =[];
     data.org = {};
 
-    id = `${date.getTime()}`;
-
-    data.org.orgName = `${$('[data-org-name]').val()}`;
-    data.org.orgFullName = `${$('[data-org-type]').val()}`;
-    data.org.orgTIN = `${$('[data-org-inn]').val()}`;
-    data.org.orgOGRN = `${$('[data-org-ogrn]').val()}`;
-    data.user.user.userName = `${$('[data-org-login]').val()}`;
-    data.user.user.userKey = `${key}`;
-    data.org.orgPhone = `${$('[data-org-phone]').val()}`;
-    data.user.user.userEmail = `${$('[data-org-email]').val()}`;
-    data.user.user.userName = `${$('[data-org-address-addr]').val()}`;
-    data.org.orgLogo = `${avatar}`;
     data.addresses = [{
       addressValue: `${$('[data-org-address-city]').val()}`,
       addressLocality: `${$('[data-org-address-addr]').val()}`,
     }]
-    data.user.user.userID = id;
+
+    data.user.userName = `${$('[data-org-login]').val()}`;
+    data.user.userKey = `${$('[data-org-password]').val()}`;
     
+    data.user.userEmail = `${$('[data-org-email]').val()}`;
+    data.user.userName = `${$('[data-org-address]').val()}`;
+
+    data.org.orgName = `${$('[data-org-name]').val()}`;
+    data.org.orgFullName = `${$('[data-org-type]').val()}`;
+    data.org.orgBanner = 0;
+    data.org.orgLogo = 0;
+    data.org.orgTIN = `${$('[data-org-inn]').val()}`;
+    data.org.orgOGRN = `${$('[data-org-ogrn]').val()}`;
+    data.org.orgPhone = `${$('[data-org-phone]').val()}`;
+    
+
+    // data = JSON.stringify(data);
+
     console.log(data);
-    
+    console.log(typeof(data));
+    console.log(`${baseURL}/org/create`);
+
 
     $.ajax({
       url: `${baseURL}/org/create`,
       method: 'POST',
       type: 'POST',
-      dataType: 'json',
+      contentType: 'application/json',
+      crossDomain: true,
       data: data,
     })
     .done(function(response) {
+
+      id = response.value.userID;
+      key = response.value.userKey;
+      orgID = response.value.orgID;
+
+      localStorage["id"] = id;
+      localStorage["key"] = key;
+      localStorage["orgID"] = orgID;
+
       removePopup(e);
       getInfoBuisnessProfile();
-      console.log('success');
+      getStatisticCampaings();
+      getListCampaings();
+      console.log('buisness profile registered');
     })
     .fail(function(error) {
-      console.log('error');
+      console.log('buisness profile register failed');
     });
 
   });
@@ -573,11 +712,153 @@ $(document).ready(function(){
   //КОНЕЦ СОЗДАНИЯ БИЗНЕС ПРОФИЛЯ
 
 
+  //РЕДАКТИРОВАНИЕ ПРОФИЛЯ
+
+  let addressTemplate = $('[data-edit-address]').clone();
+  $('[data-edit-address]').remove();
+
+  $(document).on('click', '[data-edit-add-addr-btn]', function(e) {
+    e.preventDefault();
+    let city = $('[data-edit-add-city]').val();
+    let addr = $('[data-edit-add-addr]').val();
+
+    $.ajax({
+      url: `${baseURL}/org/${id}/${key}/address`,
+      type: 'POST',
+      dataType: 'json',
+      data: {
+        addressValue: `${city}`,
+        addressLocality: `${addr}`
+      },
+    })
+    .done(function() {
+      getAddresses();
+      console.log("successfull added new address");
+    })
+    .fail(function() {
+      console.log("error adding new address");
+    })
+    
+  });
+
+  $(document).on('click', '.address-list-item__btn', function(e) {
+    e.preventDefault();
+
+    let tempItem = $(this).closest('[data-edit-address]');
+
+    $.ajax({
+      url: `${baseURL}/org/${id}/${key}/address`,
+      type: 'DELETE',
+      dataType: 'json',
+      data: {
+        locality: $(this).closest('[data-edit-address]').attr('data-addr-id')
+      },
+    })
+    .done(function() {
+      tempItem.remove();
+      console.log("successfull deleted item");
+    })
+    .fail(function() {
+      console.log("error of delete of item");
+    })
+    
+  });
+
+  $(document).on('click', '[data-edit-save]', function(e) {
+    e.preventDefault();
+    let data = {};
+
+    data.name = $('[data-edit-name]').val();
+    data.fullname = $('[data-edit-type]').val();
+    data.tin = $('[data-edit-inn]').val();
+    data.ogrn = $('[data-edit-ogrn]').val();
+    data.phone = $('[data-edit-phone]').val();
+    data.addresses = [{
+      addressValue: $('[data-edit-address-city]').val(),
+      addressLocality: $('[data-edit-address-addr]').val(),
+    }];
+    console.log(data);
+    $.ajax({
+      url: `${baseURL}/org/${id}${key}`,
+      method: 'PUT',
+      type: 'PUT',
+      dataType: 'json',
+      data: data,
+    })
+    .done(function() {
+      console.log("edit profile success");
+    })
+    .fail(function() {
+
+      console.log("edit profile error");
+    })
+    
+
+  });
+
+  if (window.location.href.indexOf('edit') > 1) {
+    console.log(1);
+    $.ajax({
+      url: `${baseURL}/org/${id}/${key}`,
+      type: 'GET',
+      dataType: 'json',
+    })
+    .done(function(response) {
+      $('[data-edit-name]').val(response.value.orgName);
+      $('[data-edit-type]').val(response.value.orgFullName);
+      $('[data-edit-inn]').val(response.value.orgTIN);
+      $('[data-edit-ogrn]').val(response.value.orgOGRN);
+      $('[data-edit-phone]').val(response.value.orgPhone);
+      $('[data-edit-addresses]').val(response.value.orgAddress);
+      console.log("success get of info of buisness profile");
+    })
+    .fail(function() {
+      console.log("error get of info of buisness profile");
+    })
+
+    getAddresses();
+  }
+
+  var getAddresses = function() {
+    $.ajax({
+      url: `${baseURL}/org/${id}/${key}/address`,
+      type: 'GET',
+      dataType: 'json',
+    })
+    .done(function(response) {
+      $('.address-list.scroll-content').html('');
+      response.value.forEach(function(item, i) {
+        let city = item.addressValue;
+        let addr = item.addressLocality;
+        let addrID = item.addressID;
+
+        if (city && addr) {
+          let temp = addressTemplate.clone();
+
+          temp.attr('data-addr-id', addrID);
+
+          temp.find('.address-list-item__name').find('.address-list-item__name--city').text(`${city}`);
+          temp.find('.address-list-item__name').find('.address-list-item__name--addr').text(`${addr}`);
+          
+
+          $('.address-list.scroll-content').append(temp);
+        }
+      });
+      console.log("success get of info of buisness profile");
+    })
+    .fail(function() {
+      console.log("error get of info of buisness profile");
+    })
+  }
+
+  //КОНЕЦ РЕДАКТИРОВАНИЕ ПРОФИЛЯ
+
+
   //ПОЛУЧЕНИЕ ИНФОРМАЦИИ О БИЗНЕС ПРОФИЛЕ
 
   var getInfoBuisnessProfile = function() {
 
-    $.$.ajax({
+    $.ajax({
       url: `${baseURL}/org/${id}/${key}`,
       type: 'GET',
       method: 'GET',
@@ -586,24 +867,36 @@ $(document).ready(function(){
     .done(function(response) {
       let orgmoney = response.value.orgMoney || 0;
       $(document).find('.balance-text span').text(orgmoney);
+
       if (response.value.orgLogo) {
         $(document).find('.header-avatar img').attr('src', response.value.orgLogo);
       }
-      
+
+
       $(document).find('.balance-text span').text(response.value.orgMoney);
 
       console.log("get info about buisness profile");
     })
     .fail(function() {
-
-
       console.log("can't get info about buisness profile");
     })
-    
-
-    
   }
 
   //КОНЕЦ ПОЛУЧЕНИЕ ИНФОРМАЦИИ О БИЗНЕС ПРОФИЛЕ
+
+
+  $.ajax({
+    url: `${baseURL}/images`,
+    type: 'GET',
+    dataType: 'json',
+    data: {id: '1'},
+  })
+  .done(function() {
+    console.log("success");
+  })
+  .fail(function() {
+    console.log("error");
+  })
+  
 
 });

@@ -3024,6 +3024,8 @@ html, body {
         color: #0092FF; }
       .date-pick-period__link--wrapper {
         position: relative; }
+        .date-pick-period__link--wrapper .date-pick-period__link {
+          width: 100px; }
         .date-pick-period__link--wrapper svg {
           position: absolute;
           margin-left: 5px;
@@ -3275,7 +3277,7 @@ html, body {
   .form-input_wide {
     position: relative; }
     .form-input_wide input {
-      width: 270px; }
+      width: 200px; }
       .form-input_wide input::placeholder {
         color: #316193; }
     .form-input_wide--right-side {
@@ -3332,7 +3334,8 @@ html, body {
   justify-content: center;
   text-decoration: none;
   outline: none;
-  transition: .3s; }
+  transition: .3s;
+  cursor: pointer; }
   .btn-cancel:hover {
     border: 1px solid #0092FF;
     background: #0092FF; }
@@ -3660,11 +3663,11 @@ a.btn-submit {
   max-width: 1220px;
   margin: 0 auto;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   position: relative;
   z-index: 10;
-  flex-direction: column;
-  align-items: flex-end;
+  flex-direction: row;
+  align-items: flex-start;
   padding: 157px 0 0px; }
   .campaign-spec-additional {
     position: absolute;
@@ -3695,7 +3698,7 @@ a.btn-submit {
     .campaign-spec-btn:last-child {
       margin-bottom: 0px; }
   .campaign-spec-window {
-    max-height: 820px;
+    max-height: calc(100vh - 157px);
     overflow: auto; }
     .campaign-spec-window::-webkit-scrollbar {
       display: none; }
@@ -4133,5 +4136,60 @@ a.btn-submit {
     margin-bottom: 10px; }
     .campaign-spec-container_p-file__output {
       margin-bottom: 20px; }
+
+.form-input__upload_result {
+  margin-bottom: 10px;
+  color: #316193;
+  font-size: 14px; }
+
+.campaign-spec-input {
+  flex: 1;
+  margin-right: 40px;
+  position: relative; }
+  .campaign-spec-input svg {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    z-index: 10; }
+
+#autocomplete {
+  padding: 5px 40px;
+  width: 100%;
+  height: 38px;
+  border-radius: 3px;
+  background: #F3F6FF;
+  color: #316193;
+  border: none;
+  outline: none; }
+  #autocomplete::placeholder {
+    color: #316193; }
+
+.map-shifted {
+  width: calc(100% + 500px);
+  height: calc(100% + 300px);
+  left: -500px;
+  bottom: -300px; }
+
+.map-container {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  position: absolute; }
+
+button[title="Закрыть"] {
+  display: none !important; }
+
+#infowindow-content {
+  background: #FFF;
+  border-radius: 3px;
+  text-align: center;
+  padding: 5px;
+  color: #316193; }
+
+.radius-hidden {
+  display: none; }
 
 /*# sourceMappingURL=maps/main.css.map */

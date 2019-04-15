@@ -12,7 +12,7 @@ block contain
 				a.header-link.main-block-nav__link(href="#" data-tabs-link) FAQ
 			.main-block-content.main-block-tabs-item.main-block-content_card.active
 				.faq-head Если у вас есть вопрос или предложение по работе приложения Get Lucky, напишите нам
-				form.faq-main
+				form.faq-main(method="POST" action="")
 					.faq-main-body
 						.form-input
 							.form-input__descr Тема сообщения
@@ -32,8 +32,9 @@ block contain
 							.form-input__descr Сообщение (при необходимости приложите скриншот)
 							textarea
 						label.form-input__upload
-							input(type="file")
+							input(type="file" multiple)
 							.form-input__upload_link Загрузить скриншот
+							.form-input__upload_result
 							.form-input__upload_descr
 								| Максимум 5 файлов размером до 10 Mb
 				.block-btns.block-btns_ml
@@ -44,8 +45,8 @@ block contain
 
 
 			.main-block-content.main-block-tabs-item.main-block-content_card
-				.faq-head Если ваш вопрос не удалось решить через <a class="date-pick-period__link date-pick-period__link_inline" href="#">форму обратной связи<a>, вы можете оставить номер телефона и мы вам перезвоним
-				form.faq-main
+				.faq-head Если ваш вопрос не удалось решить через <a class="date-pick-period__link date-pick-period__link_inline" href="#" data-form-back>форму обратной связи<a>, вы можете оставить номер телефона и мы вам перезвоним
+				form.faq-main(method="POST" action="")
 					.faq-main-body
 						.form-input
 							.form-input__descr Тема сообщения

@@ -39,7 +39,7 @@
           <div class="main-block-nav main-block-nav_mb"><a class="header-link main-block-nav__link active" href="#" data-tabs-link>Обратиться в техподдержку</a><a class="header-link main-block-nav__link" href="#" data-tabs-link>Заказать звонок</a><a class="header-link main-block-nav__link" href="#" data-tabs-link>FAQ</a></div>
           <div class="main-block-content main-block-tabs-item main-block-content_card active">
             <div class="faq-head">Если у вас есть вопрос или предложение по работе приложения Get Lucky, напишите нам</div>
-            <form class="faq-main">
+            <form class="faq-main" method="POST" action="">
               <div class="faq-main-body">
                 <div class="form-input">
                   <div class="form-input__descr">Тема сообщения</div>
@@ -63,8 +63,9 @@
                   <textarea></textarea>
                 </label>
                 <label class="form-input__upload">
-                  <input type="file">
+                  <input type="file" multiple>
                   <div class="form-input__upload_link">Загрузить скриншот</div>
+                  <div class="form-input__upload_result"></div>
                   <div class="form-input__upload_descr">Максимум 5 файлов размером до 10 Mb</div>
                 </label>
               </div>
@@ -74,8 +75,8 @@
             </div>
           </div>
           <div class="main-block-content main-block-tabs-item main-block-content_card">
-            <div class="faq-head">Если ваш вопрос не удалось решить через <a class="date-pick-period__link date-pick-period__link_inline" href="#">форму обратной связи<a>, вы можете оставить номер телефона и мы вам перезвоним</div>
-            <form class="faq-main">
+            <div class="faq-head">Если ваш вопрос не удалось решить через <a class="date-pick-period__link date-pick-period__link_inline" href="#" data-form-back>форму обратной связи<a>, вы можете оставить номер телефона и мы вам перезвоним</div>
+            <form class="faq-main" method="POST" action="">
               <div class="faq-main-body">
                 <div class="form-input">
                   <div class="form-input__descr">Тема сообщения</div>

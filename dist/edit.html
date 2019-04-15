@@ -55,62 +55,44 @@
                 <div class="block-form-column">
                   <label class="form-input">
                     <div class="form-input__descr">Название компании (не более 20 символов)</div>
-                    <input type="text" maxlength="20">
+                    <input type="text" maxlength="20" data-edit-name>
                   </label>
                   <label class="form-input">
-                    <div class="form-input__descr">Юридический адрес</div>
-                    <input type="text">
+                    <div class="form-input__descr">Полное наименование компании (ООО, ИП...)</div>
+                    <input type="text" data-edit-type>
                   </label>
                   <label class="form-input">
-                    <div class="form-input__descr">Телефон</div>
-                    <input type="text" data-phone>
-                  </label>
-                  <label class="form-input">
-                    <div class="form-input__descr">E-mail</div>
-                    <input type="text">
+                    <div class="form-input__descr">ИНН</div>
+                    <input type="text" data-edit-inn>
                   </label>
                 </div>
                 <div class="block-form-column">
                   <label class="form-input">
-                    <div class="form-input__descr">Логин</div>
-                    <input type="text" max="20">
+                    <div class="form-input__descr">ОГРН</div>
+                    <input type="text" data-edit-ogrn>
                   </label>
                   <label class="form-input">
-                    <div class="form-input__descr">Пароль</div>
-                    <input type="password">
+                    <div class="form-input__descr">Телефон</div>
+                    <input type="text" data-edit-phone>
                   </label>
                   <label class="form-input">
                     <div class="form-input__descr">Адрес выдачи</div>
-                    <textarea></textarea>
+                    <input type="text" data-edit-address-city placeholder="Укажите город">
+                  </label>
+                  <label class="form-input">
+                    <div class="form-input__descr">Адрес выдачи</div>
+                    <input type="text" data-edit-address-addr placeholder="Укажите адрес">
                   </label>
                 </div>
               </div>
               <div class="main-block-tabs-item main-block-tabs-item_flex">
                 <div class="block-form-column">
                   <div class="address-list scrollbar-rail">
-                    <div class="address-list-item">
-                      <div class="address-list-item__name">50404 Coco Palm Drive Indio, CA 92201 USA</div><a class="address-list-item__btn header-link" href="#" data-remove>Удалить</a>
-                    </div>
-                    <div class="address-list-item">
-                      <div class="address-list-item__name">50404 Coco Palm Drive Indio, CA 92201 USA</div><a class="address-list-item__btn header-link" href="#" data-remove>Удалить</a>
-                    </div>
-                    <div class="address-list-item">
-                      <div class="address-list-item__name">50404 Coco Palm Drive Indio, CA 92201 USA</div><a class="address-list-item__btn header-link" href="#" data-remove>Удалить</a>
-                    </div>
-                    <div class="address-list-item">
-                      <div class="address-list-item__name">50404 Coco Palm Drive Indio, CA 92201 USA</div><a class="address-list-item__btn header-link" href="#" data-remove>Удалить</a>
-                    </div>
-                    <div class="address-list-item">
-                      <div class="address-list-item__name">50404 Coco Palm Drive Indio, CA 92201 USA</div><a class="address-list-item__btn header-link" href="#" data-remove>Удалить</a>
-                    </div>
-                    <div class="address-list-item">
-                      <div class="address-list-item__name">50404 Coco Palm Drive Indio, CA 92201 USA</div><a class="address-list-item__btn header-link" href="#" data-remove>Удалить</a>
-                    </div>
-                    <div class="address-list-item">
-                      <div class="address-list-item__name">50404 Coco Palm Drive Indio, CA 92201 USA</div><a class="address-list-item__btn header-link" href="#" data-remove>Удалить</a>
-                    </div>
-                    <div class="address-list-item">
-                      <div class="address-list-item__name">50404 Coco Palm Drive Indio, CA 92201 USA</div><a class="address-list-item__btn header-link" href="#" data-remove>Удалить</a>
+                    <div class="address-list-item" data-edit-address>
+                      <div class="address-list-item__name">
+                        <div class="address-list-item__name--city"></div>
+                        <div class="address-list-item__name--addr"></div>
+                      </div><a class="address-list-item__btn header-link" href="#" data-remove>Удалить</a>
                     </div>
                   </div>
                 </div>
@@ -120,15 +102,15 @@
                     <div class="address-add__inputs">
                       <label class="form-input">
                         <div class="form-input__descr">Город</div>
-                        <input type="text">
+                        <input type="text" data-edit-add-city>
                       </label>
                       <label class="form-input">
                         <div class="form-input__descr">Адрес</div>
-                        <input type="text">
+                        <input type="text" data-edit-add-addr>
                       </label>
                     </div>
                     <div class="address-add__btn">
-                      <input class="btn-submit" type="submit" value="Добавить">
+                      <input class="btn-submit" type="submit" value="Добавить" data-edit-add-addr-btn>
                     </div>
                   </form>
                 </div>
@@ -136,7 +118,7 @@
             </div>
           </div>
           <div class="block-btns"><a class="btn-cancel mr-30" href="index.html">Назад</a>
-            <input class="btn-submit" type="submit" value="Сохранить изменения">
+            <input class="btn-submit" type="submit" value="Сохранить изменения" data-edit-save>
           </div>
         </form>
       </div>

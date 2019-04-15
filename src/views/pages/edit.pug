@@ -27,43 +27,43 @@ block contain
 							label.form-input
 								.form-input__descr
 									| Название компании (не более 20 символов)
-								input(type="text" maxlength="20")
+								input(type="text" maxlength="20" data-edit-name)
 							label.form-input
 								.form-input__descr
-									| Юридический адрес
-								input(type="text")
+									| Полное наименование компании (ООО, ИП...)
+								input(type="text" data-edit-type)
+							label.form-input
+								.form-input__descr
+									| ИНН
+								input(type="text" data-edit-inn)
+							
+							
+							
+						.block-form-column
+							label.form-input
+								.form-input__descr
+									| ОГРН
+								input(type="text" data-edit-ogrn)
 							label.form-input
 								.form-input__descr
 									| Телефон
-								input(type="text" data-phone)
-							label.form-input
-								.form-input__descr
-									| E-mail
-								input(type="text")
-							
-						.block-form-column
-							label.form-input
-								.form-input__descr
-									| Логин
-								input(type="text" max="20")
-							label.form-input
-								.form-input__descr
-									| Пароль
-								input(type="password")
-							
-							
+								input(type="text" data-edit-phone)
 							label.form-input
 								.form-input__descr
 									| Адрес выдачи
-								textarea
+								input(type="text" data-edit-address-city placeholder="Укажите город")
+							label.form-input
+								.form-input__descr
+									| Адрес выдачи
+								input(type="text" data-edit-address-addr placeholder="Укажите адрес")
 					.main-block-tabs-item.main-block-tabs-item_flex
 						.block-form-column
 							.address-list.scrollbar-rail
-								- for (var x = 0; x < 8; x++) 
-									.address-list-item
-										.address-list-item__name
-											| 50404 Coco Palm Drive Indio, CA 92201 USA
-										a.address-list-item__btn.header-link(href="#" data-remove) Удалить
+								.address-list-item(data-edit-address)
+									.address-list-item__name
+										.address-list-item__name--city
+										.address-list-item__name--addr
+									a.address-list-item__btn.header-link(href="#" data-remove) Удалить
 									
 						.block-form-column
 							form.address-add
@@ -72,14 +72,14 @@ block contain
 									label.form-input
 										.form-input__descr
 											| Город
-										input(type="text")
+										input(type="text" data-edit-add-city)
 									label.form-input
 										.form-input__descr
 											| Адрес
-										input(type="text")
+										input(type="text" data-edit-add-addr)
 								.address-add__btn
-									input.btn-submit(type="submit" value="Добавить")
+									input.btn-submit(type="submit" value="Добавить" data-edit-add-addr-btn)
 
 			.block-btns
 				a(href="index.html").btn-cancel.mr-30 Назад
-				input(type="submit" value="Сохранить изменения").btn-submit
+				input(type="submit" value="Сохранить изменения" data-edit-save).btn-submit

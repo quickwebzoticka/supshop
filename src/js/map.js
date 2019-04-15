@@ -282,35 +282,96 @@ $(document).ready(function() {
 					]
         });
 
-		var service;
-		var infowindow;
+		var marker = new google.maps.Marker({
+          map: map,
+          icon: '../img/icons/map-marker.svg'
+        });
 
-		function initialize() {
-		  var pyrmont = new google.maps.LatLng(-33.8665433,151.1956316);
+		var input = document.getElementById('autocomplete');
 
-		  map = new google.maps.Map(document.getElementById('map'), {
-		      center: pyrmont,
-		      zoom: 15
-		    });
+        var autocomplete = new google.maps.places.Autocomplete(input);
 
-		  var request = {
-		    location: pyrmont,
-		    radius: '500',
-		    query: 'restaurant'
-		  };
+        // Bind the map's bounds (viewport) property to the autocomplete object,
+        // so that the autocomplete requests use the current map bounds for the
+        // bounds option in the request.
+        autocomplete.bindTo('bounds', map);
 
-		  service = new google.maps.places.PlacesService(map);
-		  service.textSearch(request, callback);
-		}
+        // Set the data fields to return when the user selects a place.
+        autocomplete.setFields(
+            ['address_components', 'geometry', 'icon', 'name']);
 
-		function callback(results, status) {
-		  if (status == google.maps.places.PlacesServiceStatus.OK) {
-		    for (var i = 0; i < results.length; i++) {
-		      var place = results[i];
-		      createMarker(results[i]);
-		    }
-		  }
-		}
+        var infowindow = new google.maps.InfoWindow();
+        var infowindowContent = document.getElementById('infowindow-content');
+        infowindow.setContent(infowindowContent);
+        var marker = new google.maps.Marker({
+          map: map,
+          anchorPoint: new google.maps.Point(0, -29),
+          icon: '../img/icons/map-marker.svg'
+        });
+
+        autocomplete.addListener('place_changed', function() {
+          infowindow.close();
+          marker.setVisible(false);
+          var place = autocomplete.getPlace();
+          if (!place.geometry) {
+            // User entered the name of a Place that was not suggested and
+            // pressed the Enter key, or the Place Details request failed.
+            window.alert("No details available for input: '" + place.name + "'");
+            return;
+          }
+
+          // If the place has a geometry, then present it on a map.
+          if (place.geometry.viewport) {
+            map.fitBounds(place.geometry.viewport);
+          } else {
+            map.setCenter(place.geometry.location);
+            map.setZoom(17);  // Why 17? Because it looks good.
+          }
+          marker.setPosition(place.geometry.location);
+          if (window.location.href.indexOf('supertarget') > 1) {
+          	marker.setVisible(false);
+          } else {
+          	marker.setVisible(true);
+          }
+          
+
+          var address = '';
+          if (place.address_components) {
+            address = [
+              (place.address_components[0] && place.address_components[0].short_name || ''),
+              (place.address_components[1] && place.address_components[1].short_name || ''),
+              (place.address_components[2] && place.address_components[2].short_name || '')
+            ].join(' ');
+          }
+
+          localStorage['giftLat'] = place.geometry.location.lat();
+          localStorage['giftLng'] = place.geometry.location.lng();
+          localStorage['giftAddress'] = address;
+
+          if (window.location.href.indexOf('supertarget') > 1) {
+          	var cityCircle = new google.maps.Circle({
+	            strokeColor: '#FFFFFF',
+	            strokeOpacity: 0.1,
+	            strokeWeight: 0,
+	            fillColor: '#FFFFFF',
+	            fillOpacity: 0.1,
+	            map: map,
+	            center: place.geometry.location,
+	            radius: 25
+	          });
+
+          	  $('.radius-hidden').show();
+
+	    	google.maps.event.addDomListener(
+			   document.querySelectorAll('.range-slider.container__radius.irs-hidden-input')[0], 'change', function() {
+			       cityCircle.setRadius = document.querySelectorAll('.range-slider.container__radius.irs-hidden-input')[0].value;
+			   });
+          } else {
+          	infowindow.open(map, marker);
+          }
+
+          
+        });
     }
 
     initMap();
