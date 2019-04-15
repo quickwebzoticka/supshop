@@ -483,17 +483,14 @@ $(document).ready(function(){
     let id = localStorage["id"];
     let key = localStorage["key"];
     let orgID = localStorage["orgID"];
-
-
     removePopup();
-    console.log(localStorage);
   } else {
     let id = 0;
     let key = '';
     let orgID = 0;
   }
   
-  
+  localStorage.clear();
 
   let rowTable = $('.row-template').clone();
   $('.row-template').remove();
@@ -549,8 +546,6 @@ $(document).ready(function(){
           $('.table-statistic').append(row);
         });
       }
-      
-
       console.log("gift statistic added");
     })
     .fail(function() {
@@ -647,47 +642,47 @@ $(document).ready(function(){
       avatar = 0;
     }
 
+    data = {
+      "user": {
+        "userName": `${$('[data-org-login]').val()}`,
+        "userKey": `${$('[data-org-password]').val()}`,
+        "userEmail": `${$('[data-org-email]').val()}`
+      },
+      "org": {
+        "orgName": `${$('[data-org-name]').val()}`,
+        "orgFullName": `${$('[data-org-type]').val()}`,
+        "orgBanner": 0,
+        "orgLogo": 0,
+        "orgTIN": `${$('[data-org-inn]').val()}`,
+        "orgOGRN": `${$('[data-org-ogrn]').val()}`,
+        "orgPhone": `${$('[data-org-phone]').val()}`
+      },
+      "addresses": [
+        {
+          "addressValue": `${$('[data-org-address-city]').val()}`,
+          "addressLocality": `${$('[data-org-address-addr]').val()}`
+        }
+      ]
+    }
 
 
-    data.user = {};
-    data.org = {};
-
-    data.addresses = [{
-      addressValue: `${$('[data-org-address-city]').val()}`,
-      addressLocality: `${$('[data-org-address-addr]').val()}`,
-    }]
-
-    data.user.userName = `${$('[data-org-login]').val()}`;
-    data.user.userKey = `${$('[data-org-password]').val()}`;
-    
-    data.user.userEmail = `${$('[data-org-email]').val()}`;
-    data.user.userName = `${$('[data-org-address]').val()}`;
-
-    data.org.orgName = `${$('[data-org-name]').val()}`;
-    data.org.orgFullName = `${$('[data-org-type]').val()}`;
-    data.org.orgBanner = 0;
-    data.org.orgLogo = 0;
-    data.org.orgTIN = `${$('[data-org-inn]').val()}`;
-    data.org.orgOGRN = `${$('[data-org-ogrn]').val()}`;
-    data.org.orgPhone = `${$('[data-org-phone]').val()}`;
-    
-
-    // data = JSON.stringify(data);
+    // data.user.userName = `${$('[data-org-address]').val()}`;
 
     console.log(data);
     console.log(typeof(data));
     console.log(`${baseURL}/org/create`);
 
-
     $.ajax({
       url: `${baseURL}/org/create`,
       method: 'POST',
-      type: 'POST',
       contentType: 'application/json',
       crossDomain: true,
-      data: data,
+      processData: false,
+      data: JSON.stringify(data),
     })
     .done(function(response) {
+
+      console.log(response.responseJSON);
 
       id = response.value.userID;
       key = response.value.userKey;
@@ -704,6 +699,7 @@ $(document).ready(function(){
       console.log('buisness profile registered');
     })
     .fail(function(error) {
+      console.log(error.responseJSON);
       console.log('buisness profile register failed');
     });
 
