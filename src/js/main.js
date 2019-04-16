@@ -38,9 +38,9 @@ $(document).ready(function(){
   $('.container__radius').ionRangeSlider({
     grid: false,
     min: 1,
-    max: 100000,
+    max: 1000,
     from: 25,
-    to: 100000,
+    to: 1000,
     min_interval: null,
     max_interval: null,
     skin: 'round',
@@ -454,6 +454,22 @@ $(document).ready(function(){
 
   };
 
+  const defaultPeriod = function() {
+    let tempDate = new Date();
+    let currentDate, prevDate;
+
+
+    currentDate = `${tempDate.getDate()}.${tempDate.getMonth() + 1}.${tempDate.getFullYear()}`;
+    prevDate = `${tempDate.getDate()}.${tempDate.getMonth() - 1}.${tempDate.getFullYear()}`;
+
+    console.log(`${currentDate} : ${prevDate}`);
+
+    $('[data-date-end]').val(currentDate);
+    $('[data-date-start]').val(prevDate);
+  };
+
+  defaultPeriod();
+
   removeActiveLinks();
   moveToAnchor();
 
@@ -553,24 +569,27 @@ $(document).ready(function(){
   var getStatisticCampaings = function() {
     $('.table-statistic').html('');
 
+    let currentYear = new Date();
+    currentYear = currentYear.getFullYear();
+
     let startDate, endDate;
 
     if ($('[data-date-start]').val()) {
-      startDate = '01.01.2019';
+      startDate = `01.01.${currentYear}`;
       $('[data-date-start]').val(startDate);
     } else {
       startDate = $('[data-date-start]').val();
     }
 
     if ($('[data-date-end]').val()) {
-      endDate = '01.12.2019';
+      endDate = `01.12.${currentYear}`;
       $('[data-date-end]').val(endDate);
     } else {
       endDate = $('[data-date-end]').val();
     }
 
     $.ajax({
-      url: `${baseURL}/gift/${id}${authKey}/stats`,
+      url: `${baseURL}/gift/${id}/${authKey}/stats`,
       type: 'GET',
       dataType: 'json',
       contentType: 'application/json',
@@ -601,8 +620,9 @@ $(document).ready(function(){
       }
       console.log("gift statistic added");
     })
-    .fail(function() {
-      console.log("gift statistic failed");
+    .fail(function(error) {
+      console.log(error);
+      console.log(`gift statistic failed`);
     })
     
   };
@@ -649,6 +669,7 @@ $(document).ready(function(){
       console.log("gift list added");
     })
     .fail(function(error) {
+      console.log(error.responseJSON.message);
       console.log(error);
       console.log("gift list failed");
     })
@@ -659,6 +680,8 @@ $(document).ready(function(){
   //ПОЛУЧЕНИЕ СПИСКА АДРЕСОВ
 
   var getAddresses = function() {
+    let addresses = [];
+
     $.ajax({
       url: `${baseURL}/org/${id}/${authKey}/address`,
       type: 'GET',
@@ -666,6 +689,7 @@ $(document).ready(function(){
     })
     .done(function(response) {
       console.log(response);
+      addresses = response.value;
       $('.address-list.scroll-content').html('');
       response.value.forEach(function(item, i) {
         console.log(item);
@@ -686,10 +710,13 @@ $(document).ready(function(){
         }
       });
       console.log("success get of info of buisness profile");
+      return addresses;
     })
     .fail(function() {
       console.log("error get of info of buisness profile");
     })
+
+    return addresses;
   }
 
    //КОНЕЦ ПОЛУЧЕНИЕ СПИСКА АДРЕСОВ
@@ -736,82 +763,128 @@ $(document).ready(function(){
       let avatarImg = new FormData();
       let avatarImage = $('.block-photo-upload__input')[0].files[0];
       avatarImg.append('file', avatarImage);
-      avatarImg.append('type', 0);
-      avatarImg.append('category', 'banner');
-
 
       $.ajax({
-        url: `${baseURL}/image/upload`,
+        url: `${baseURL}/image/upload?type=0&category=banner`,
         method: 'POST',
         dataType: 'json',
         contentType: 'multipart/form-data',
         processData: false,
         data: avatarImg,
       })
-      .done(function() {
+      .done(function(response) {
+        let orgLogoID = response.value;
+        console.log(response.value);
         console.log("avatar uploaded");
+        data = {
+          "user": {
+            "userName": `${$('[data-org-login]').val()}`,
+            "userKey": `${$('[data-org-password]').val()}`,
+            "userEmail": `${$('[data-org-email]').val()}`
+          },
+          "org": {
+            "orgName": `${$('[data-org-name]').val()}`,
+            "orgFullName": `${$('[data-org-type]').val()}`,
+            "orgBanner": orgLogoID,
+            "orgLogo": orgLogoID,
+            "orgTIN": `${$('[data-org-inn]').val()}`,
+            "orgOGRN": `${$('[data-org-ogrn]').val()}`,
+            "orgPhone": `${$('[data-org-phone]').val()}`
+          },
+          "addresses": [
+            {
+              "addressValue": `${$('[data-org-address-city]').val()}`,
+              "addressLocality": `${$('[data-org-address-addr]').val()}`
+            }
+          ]
+        }
+
+        $.ajax({
+          url: `${baseURL}/org/create`,
+          method: 'POST',
+          contentType: 'application/json',
+          crossDomain: true,
+          processData: false,
+          data: JSON.stringify(data),
+        })
+        .done(function(response) {
+
+          id = response.value.userID;
+          authKey = response.value.userKey;
+          orgID = response.value.orgID;
+
+          localStorage["id"] = id;
+          localStorage["authKey"] = authKey;
+          localStorage["orgID"] = orgID;
+
+          removePopup(e);
+          getInfoBuisnessProfile();
+          getStatisticCampaings();
+          getListCampaings();
+          console.log('buisness profile registered');
+        })
+        .fail(function(error) {
+          console.log('buisness profile register failed');
+        });
       })
       .fail(function(error) {
         console.log(error);
         console.log("avatar not uploaded");
       })    
     } else {
-      avatar = 0;
+      
     }
 
     data = {
-      "user": {
-        "userName": `${$('[data-org-login]').val()}`,
-        "userKey": `${$('[data-org-password]').val()}`,
-        "userEmail": `${$('[data-org-email]').val()}`
-      },
-      "org": {
-        "orgName": `${$('[data-org-name]').val()}`,
-        "orgFullName": `${$('[data-org-type]').val()}`,
-        "orgBanner": 0,
-        "orgLogo": 0,
-        "orgTIN": `${$('[data-org-inn]').val()}`,
-        "orgOGRN": `${$('[data-org-ogrn]').val()}`,
-        "orgPhone": `${$('[data-org-phone]').val()}`
-      },
-      "addresses": [
-        {
-          "addressValue": `${$('[data-org-address-city]').val()}`,
-          "addressLocality": `${$('[data-org-address-addr]').val()}`
-        }
-      ]
-    }
-    console.log(data);
-    console.log(typeof(data));
-    console.log(`${baseURL}/org/create`);
+        "user": {
+          "userName": `${$('[data-org-login]').val()}`,
+          "userKey": `${$('[data-org-password]').val()}`,
+          "userEmail": `${$('[data-org-email]').val()}`
+        },
+        "org": {
+          "orgName": `${$('[data-org-name]').val()}`,
+          "orgFullName": `${$('[data-org-type]').val()}`,
+          "orgBanner": 0,
+          "orgLogo": 0,
+          "orgTIN": `${$('[data-org-inn]').val()}`,
+          "orgOGRN": `${$('[data-org-ogrn]').val()}`,
+          "orgPhone": `${$('[data-org-phone]').val()}`
+        },
+        "addresses": [
+          {
+            "addressValue": `${$('[data-org-address-city]').val()}`,
+            "addressLocality": `${$('[data-org-address-addr]').val()}`
+          }
+        ]
+      }
 
-    $.ajax({
-      url: `${baseURL}/org/create`,
-      method: 'POST',
-      contentType: 'application/json',
-      crossDomain: true,
-      processData: false,
-      data: JSON.stringify(data),
-    })
-    .done(function(response) {
+      $.ajax({
+        url: `${baseURL}/org/create`,
+        method: 'POST',
+        contentType: 'application/json',
+        crossDomain: true,
+        processData: false,
+        data: JSON.stringify(data),
+      })
+      .done(function(response) {
 
-      id = response.value.userID;
-      authKey = response.value.userKey;
-      orgID = response.value.orgID;
+        id = response.value.userID;
+        authKey = response.value.userKey;
+        orgID = response.value.orgID;
 
-      localStorage["id"] = id;
-      localStorage["authKey"] = authKey;
-      localStorage["orgID"] = orgID;
+        localStorage["id"] = id;
+        localStorage["authKey"] = authKey;
+        localStorage["orgID"] = orgID;
 
-      removePopup(e);
-      getInfoBuisnessProfile();
-      getStatisticCampaings();
-      getListCampaings();
-      console.log('buisness profile registered');
-    })
-    .fail(function(error) {
-      console.log('buisness profile register failed');
-    });
+        removePopup(e);
+        getInfoBuisnessProfile();
+        getStatisticCampaings();
+        getListCampaings();
+        console.log('buisness profile registered');
+      })
+      .fail(function(error) {
+        console.log('buisness profile register failed');
+      });
 
   });
 
@@ -829,27 +902,33 @@ $(document).ready(function(){
     e.preventDefault();
     let city = $('[data-edit-add-city]').val();
     let addr = $('[data-edit-add-addr]').val();
-    let data = [
-      {
-        "addressValue": `${city}`,
-        "addressLocality": `${addr}`
-      }
-    ]
 
-    $.ajax({
-      url: `${baseURL}/org/${id}/${authKey}/address`,
-      method: 'POST',
-      dataType: 'json',
-      contentType: 'application/json',
-      data: JSON.stringify(data),
-    })
-    .done(function() {
-      getAddresses();
-      console.log("successfull added new address");
-    })
-    .fail(function() {
-      console.log("error adding new address");
-    })
+    if (city && addr) {
+      let temp = addressTemplate.clone();
+      temp.find('.address-list-item__name').find('.address-list-item__name--city').text(`${city}`);
+      temp.find('.address-list-item__name').find('.address-list-item__name--addr').text(`${addr}`);
+      
+      $('.address-list.scroll-content').append(temp);
+
+      $('[data-edit-add-city]').val('');
+      $('[data-edit-add-addr]').val('');
+    }
+
+    // $.ajax({
+    //   url: `${baseURL}/org/${id}/${authKey}/address`,
+    //   method: 'POST',
+    //   dataType: 'json',
+    //   contentType: 'application/json',
+    //   data: JSON.stringify(data),
+    // })
+    // .done(function(response) {
+    //   console.log(response);
+    //   getAddresses();
+    //   console.log("successfull added new address");
+    // })
+    // .fail(function() {
+    //   console.log("error adding new address");
+    // })
     
   });
 
@@ -858,21 +937,26 @@ $(document).ready(function(){
 
     let tempItem = $(this).closest('[data-edit-address]');
 
-    $.ajax({
-      url: `${baseURL}/org/${id}/${authKey}/address`,
-      type: 'DELETE',
-      dataType: 'json',
-      data: {
-        locality: $(this).closest('[data-edit-address]').attr('data-addr-id')
-      },
-    })
-    .done(function() {
-      tempItem.remove();
-      console.log("successfull deleted item");
-    })
-    .fail(function() {
-      console.log("error of delete of item");
-    })
+    tempItem.remove();
+
+
+    // let tempItemID = $(this).closest('[data-edit-address]').attr('data-addr-id');
+
+    // $.ajax({
+    //   url: `${baseURL}/org/${id}/${authKey}/address?locality=${tempItemID}`,
+    //   type: 'DELETE',
+    //   dataType: 'json',
+    //   contentType: 'application/json',
+    // })
+    // .done(function(response) {
+
+    //   tempItem.remove();
+    //   console.log("successfull deleted item");
+    // })
+    // .fail(function(error) {
+    //   console.log(error)
+    //   console.log("error of delete of item");
+    // })
     
   });
 
@@ -885,23 +969,37 @@ $(document).ready(function(){
       return false;
     }
     
-
-    let data = {};
-
     let editName = $('[data-edit-name]').val();
     let editFullname = $('[data-edit-type]').val();
     let editTin = $('[data-edit-inn]').val();
     let editOgrn = $('[data-edit-ogrn]').val();
     let editPhone = $('[data-edit-phone]').val();
-    data.addresses = [
-      {
-        addressValue: $('[data-edit-address-city]').val(),
-        addressLocality: $('[data-edit-address-addr]').val(),
+    data = [];
+
+    $('[data-edit-address]').each(function(item, i) {
+      console.log(item);
+      console.log($(this));
+
+      let tempObj = {};
+      
+      if ($(this).attr('data-addr-id')) {
+        tempObj.addressID = `${$(this).attr('data-addr-id')}`;
       }
-    ];
+      tempObj.addressValue = $(this).find('.address-list-item__name--city').text();
+      tempObj.addressLocality = $(this).find('.address-list-item__name--addr').text();
+
+      console.log(tempObj);
+      data.push(tempObj);
+    })
+
+    console.log(data);
     console.log(JSON.stringify(data));
+
+    let URLstringMass = [`name=${editName}`, `fullname=${editFullname}`, `tin=${editTin}`, `ogrn=${editOgrn}`, `phone=${editPhone}`];
+
+    URLstringMass = URLstringMass.join('&');
     $.ajax({
-      url: `${baseURL}/org/${id}/${authKey}?name=${editName}&fullname=${editFullname}&tin=${editTin}&ogrn=${editOgrn}&phone=${editPhone}`,
+      url: `${baseURL}/org/${id}/${authKey}?${URLstringMass}`,
       method: 'PUT',
       dataType: 'json',
       contentType: 'application/json',
@@ -915,6 +1013,7 @@ $(document).ready(function(){
     })
     .fail(function(error) {
       console.log(error);
+      console.log(error.message);
       showModal($('#send-error').attr('id'), 'Ошибка изменения');
       console.log("edit profile error");
     })

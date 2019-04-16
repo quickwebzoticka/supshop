@@ -18,13 +18,16 @@ $(document).ready(function() {
 			}
 
 			function makeAddresses (location) {
-				let count = $('[data-addreses-wrapper-1]').find('.address-location').length;
+				if (addressTemplate1) {
+					let count = $('[data-addreses-wrapper-1]').find('.address-location').length;
 
-				addressTemplate1.find('.address-location__name').text(location);
-				addressTemplate2.find('.address-location__name').text(location);
+					addressTemplate1.find('.address-location__name').text(location);
+					addressTemplate2.find('.address-location__name').text(location);
 
-				$('[data-addreses-wrapper-1]').append(addressTemplate1.clone().attr('data-address-id', count));
-				$('[data-addreses-wrapper-2]').append(addressTemplate2.clone().attr('data-address-id', count));
+					$('[data-addreses-wrapper-1]').append(addressTemplate1.clone().attr('data-address-id', count));
+					$('[data-addreses-wrapper-2]').append(addressTemplate2.clone().attr('data-address-id', count));
+				}
+				
 			} 
 
 
