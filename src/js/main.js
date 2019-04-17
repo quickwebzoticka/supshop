@@ -546,11 +546,12 @@ $(document).ready(function(){
       dataType: 'json',
     })
     .done(function(response) {
+      console.log(response);
       let orgmoney = response.value.orgMoney || 0;
       $(document).find('.balance-text span').text(orgmoney);
 
       if (response.value.orgLogo) {
-        $(document).find('.header-avatar img').attr('src', response.value.orgLogo);
+        $('.header-avatar').find('img').attr('src', `${baseURL}/image?id=${response.value.orgLogo}`);
       }
 
 
@@ -764,11 +765,14 @@ $(document).ready(function(){
       let avatarImage = $('.block-photo-upload__input')[0].files[0];
       avatarImg.append('file', avatarImage);
 
+      console.log(avatarImg);
+
       $.ajax({
-        url: `${baseURL}/image/upload?type=0&category=banner`,
+        url: `${baseURL}/image/upload?type=0&category=лого`,
         method: 'POST',
+        type: 'POST',
         dataType: 'json',
-        contentType: 'multipart/form-data',
+        contentType: false,
         processData: false,
         data: avatarImg,
       })
@@ -832,10 +836,7 @@ $(document).ready(function(){
         console.log("avatar not uploaded");
       })    
     } else {
-      
-    }
-
-    data = {
+      data = {
         "user": {
           "userName": `${$('[data-org-login]').val()}`,
           "userKey": `${$('[data-org-password]').val()}`,
@@ -885,7 +886,8 @@ $(document).ready(function(){
       .fail(function(error) {
         console.log('buisness profile register failed');
       });
-
+ 
+    }
   });
 
   //КОНЕЦ СОЗДАНИЯ БИЗНЕС ПРОФИЛЯ
@@ -913,23 +915,6 @@ $(document).ready(function(){
       $('[data-edit-add-city]').val('');
       $('[data-edit-add-addr]').val('');
     }
-
-    // $.ajax({
-    //   url: `${baseURL}/org/${id}/${authKey}/address`,
-    //   method: 'POST',
-    //   dataType: 'json',
-    //   contentType: 'application/json',
-    //   data: JSON.stringify(data),
-    // })
-    // .done(function(response) {
-    //   console.log(response);
-    //   getAddresses();
-    //   console.log("successfull added new address");
-    // })
-    // .fail(function() {
-    //   console.log("error adding new address");
-    // })
-    
   });
 
   $(document).on('click', '.address-list-item__btn', function(e) {
@@ -938,26 +923,6 @@ $(document).ready(function(){
     let tempItem = $(this).closest('[data-edit-address]');
 
     tempItem.remove();
-
-
-    // let tempItemID = $(this).closest('[data-edit-address]').attr('data-addr-id');
-
-    // $.ajax({
-    //   url: `${baseURL}/org/${id}/${authKey}/address?locality=${tempItemID}`,
-    //   type: 'DELETE',
-    //   dataType: 'json',
-    //   contentType: 'application/json',
-    // })
-    // .done(function(response) {
-
-    //   tempItem.remove();
-    //   console.log("successfull deleted item");
-    // })
-    // .fail(function(error) {
-    //   console.log(error)
-    //   console.log("error of delete of item");
-    // })
-    
   });
 
   $(document).on('click', '[data-edit-save]', function(e) {
@@ -968,55 +933,132 @@ $(document).ready(function(){
       showModal($('#send-error').attr('id'), 'Ошибка изменения');
       return false;
     }
+
+    let avatar = $('.block-photo-upload__avatar').attr('style');
+
+
+    if (avatar) {
+      avatar = avatar.split(' ');
+      avatar = avatar[1].split('"');
+      avatar = avatar[1];
+
+      let avatarImg = new FormData();
+      let avatarImage = $('.block-photo-upload__input')[0].files[0];
+      avatarImg.append('file', avatarImage);
+
+      console.log(avatarImg);
+
+      $.ajax({
+        url: `${baseURL}/image/upload?type=0&category=лого`,
+        method: 'POST',
+        type: 'POST',
+        dataType: 'json',
+        contentType: false,
+        processData: false,
+        data: avatarImg,
+      }).done(function(response) {
+        let orgLogoID = response.value || '';
+        let editName = $('[data-edit-name]').val() || '';
+        let editFullname = $('[data-edit-type]').val() || '';
+        let editTin = $('[data-edit-inn]').val() || '';
+        let editOgrn = $('[data-edit-ogrn]').val() || '';
+        let editPhone = $('[data-edit-phone]').val() || '';
+        data = [];
+
+        $('[data-edit-address]').each(function(item, i) {
+          let tempObj = {};
+          
+          if ($(this).attr('data-addr-id')) {
+            tempObj.addressID = `${$(this).attr('data-addr-id')}`;
+          }
+          tempObj.addressValue = $(this).find('.address-list-item__name--city').text();
+          tempObj.addressLocality = $(this).find('.address-list-item__name--addr').text();
+          data.push(tempObj);
+        })
+
+        let URLstringMass = [`name=${editName}`, `fullname=${editFullname}`, `tin=${editTin}`, `ogrn=${editOgrn}`, `phone=${editPhone}`, `image=${orgLogoID}`];
+
+        URLstringMass = URLstringMass.filter((item, i) => {
+          return item.split('=')[1] != ''
+        })
+
+        URLstringMass = URLstringMass.join('&');
+        $.ajax({
+          url: `${baseURL}/org/${id}/${authKey}?${URLstringMass}`,
+          method: 'PUT',
+          dataType: 'json',
+          contentType: 'application/json',
+          processData: true,
+          data: JSON.stringify(data),
+        })
+        .done(function(response) {
+          console.log(response);
+          console.log("edit profile success");
+          showModal($('#send-success').attr('id'), 'Изменения сохранены');
+        })
+        .fail(function(error) {
+          console.log(error);
+          console.log(error.message);
+          showModal($('#send-error').attr('id'), 'Ошибка изменения');
+          console.log("edit profile error");
+        })
+      }).fail(function(error) {
+          console.log(error);
+          console.log(error.message);
+          showModal($('#send-error').attr('id'), 'Ошибка изменения');
+      })
+
+    } else {
+      let orgLogoID = '';
+      let editName = $('[data-edit-name]').val() || '';
+      let editFullname = $('[data-edit-type]').val() || '';
+      let editTin = $('[data-edit-inn]').val() || '';
+      let editOgrn = $('[data-edit-ogrn]').val() || '';
+      let editPhone = $('[data-edit-phone]').val() || '';
+      data = [];
+
+      $('[data-edit-address]').each(function(item, i) {
+        let tempObj = {};
+        
+        if ($(this).attr('data-addr-id')) {
+          tempObj.addressID = `${$(this).attr('data-addr-id')}`;
+        }
+        tempObj.addressValue = $(this).find('.address-list-item__name--city').text();
+        tempObj.addressLocality = $(this).find('.address-list-item__name--addr').text();
+        data.push(tempObj);
+      })
+
+      let URLstringMass = [`name=${editName}`, `fullname=${editFullname}`, `tin=${editTin}`, `ogrn=${editOgrn}`, `phone=${editPhone}`, `image=${orgLogoID}`];
+
+      URLstringMass = URLstringMass.filter((item, i) => {
+        return item.split('=')[1] != ''
+      })
+
+      URLstringMass = URLstringMass.join('&');
+      console.log(URLstringMass);
+      console.log(`${baseURL}/org/${id}/${authKey}?${URLstringMass}`);
+      $.ajax({
+        url: `${baseURL}/org/${id}/${authKey}?${URLstringMass}`,
+        method: 'PUT',
+        dataType: 'json',
+        contentType: 'application/json',
+        processData: true,
+        data: JSON.stringify(data),
+      })
+      .done(function(response) {
+        console.log(response);
+        console.log("edit profile success");
+        showModal($('#send-success').attr('id'), 'Изменения сохранены');
+      })
+      .fail(function(error) {
+        console.log(error);
+        console.log(error.message);
+        showModal($('#send-error').attr('id'), 'Ошибка изменения');
+        console.log("edit profile error");
+      })
+    }
     
-    let editName = $('[data-edit-name]').val();
-    let editFullname = $('[data-edit-type]').val();
-    let editTin = $('[data-edit-inn]').val();
-    let editOgrn = $('[data-edit-ogrn]').val();
-    let editPhone = $('[data-edit-phone]').val();
-    data = [];
-
-    $('[data-edit-address]').each(function(item, i) {
-      console.log(item);
-      console.log($(this));
-
-      let tempObj = {};
-      
-      if ($(this).attr('data-addr-id')) {
-        tempObj.addressID = `${$(this).attr('data-addr-id')}`;
-      }
-      tempObj.addressValue = $(this).find('.address-list-item__name--city').text();
-      tempObj.addressLocality = $(this).find('.address-list-item__name--addr').text();
-
-      console.log(tempObj);
-      data.push(tempObj);
-    })
-
-    console.log(data);
-    console.log(JSON.stringify(data));
-
-    let URLstringMass = [`name=${editName}`, `fullname=${editFullname}`, `tin=${editTin}`, `ogrn=${editOgrn}`, `phone=${editPhone}`];
-
-    URLstringMass = URLstringMass.join('&');
-    $.ajax({
-      url: `${baseURL}/org/${id}/${authKey}?${URLstringMass}`,
-      method: 'PUT',
-      dataType: 'json',
-      contentType: 'application/json',
-      processData: true,
-      data: JSON.stringify(data),
-    })
-    .done(function(response) {
-      console.log(response);
-      console.log("edit profile success");
-      showModal($('#send-success').attr('id'), 'Изменения сохранены');
-    })
-    .fail(function(error) {
-      console.log(error);
-      console.log(error.message);
-      showModal($('#send-error').attr('id'), 'Ошибка изменения');
-      console.log("edit profile error");
-    })
+    
   });
 
   if (window.location.href.indexOf('edit') > 1) {
@@ -1027,6 +1069,7 @@ $(document).ready(function(){
       dataType: 'json',
     })
     .done(function(response) {
+      console.log(response)
       $('[data-edit-name]').val(response.value.orgName);
       $('[data-edit-type]').val(response.value.orgFullName);
       $('[data-edit-inn]').val(response.value.orgTIN);
@@ -1056,6 +1099,10 @@ $(document).ready(function(){
   // .fail(function() {
   //   console.log("error");
   // })
+
+
+  //http://185.162.92.149:8080/api/org/cheat?id={user_id}&status=2&cheat=IDDQD
+  //http://185.162.92.149:8080/api/gift/cheat?cheatcode=IDDQD&id={org_id}
   
 
 });

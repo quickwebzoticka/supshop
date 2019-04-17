@@ -132,12 +132,17 @@ html, body {
 		height: 32px;
 		width: 32px;
 		border-radius: 50%;
-		background: #FFFFFF;
+		overflow: hidden;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		position: relative;
 		margin-right: 10px;
+
+
+		img {
+			width: 100%;
+		}
 	}
 
 	&-menu {
