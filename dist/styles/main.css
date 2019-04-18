@@ -3719,7 +3719,8 @@ a.btn-submit {
     .campaign-spec-additional__count {
       color: #0092FF; }
   .campaign-spec_center {
-    align-items: center; }
+    align-items: flex-start;
+    justify-content: center; }
   .campaign-spec-btns {
     display: flex;
     align-items: center;
@@ -4213,7 +4214,7 @@ a.btn-submit {
 button[title="Закрыть"] {
   display: none !important; }
 
-#infowindow-content {
+.infowindow-content {
   background: #FFF;
   border-radius: 3px;
   text-align: center;

@@ -331,7 +331,7 @@ $(document).ready(function() {
             ['address_components', 'geometry', 'icon', 'name']);
 
         var infowindow = new google.maps.InfoWindow();
-        var infowindowContent = document.getElementById('infowindow-content');
+        var infowindowContent = document.querySelectorAll('.infowindow-content')[0];
         infowindow.setContent(infowindowContent);
         var marker = new google.maps.Marker({
           map: map,
@@ -357,7 +357,7 @@ $(document).ready(function() {
           } else {
           	console.log(11);
             map.setCenter(place.geometry.location);
-            map.setZoom(10);  // Why 14? Because it looks good.
+            map.setZoom(10);
           }
           marker.setPosition(place.geometry.location);
           if (window.location.href.indexOf('supertarget') > 1) {
@@ -384,8 +384,8 @@ $(document).ready(function() {
 
           makeAddresses(address);
 
-          localStorage['giftLat'] = place.geometry.location.lat();
-          localStorage['giftLng'] = place.geometry.location.lng();
+          localStorage['giftLat'] 		= place.geometry.location.lat();
+          localStorage['giftLng'] 		= place.geometry.location.lng();
           localStorage['giftAddress'] = address;
 
           if (window.location.href.indexOf('supertarget') > 1) {

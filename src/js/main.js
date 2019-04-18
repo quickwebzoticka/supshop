@@ -946,8 +946,6 @@ $(document).ready(function(){
       let avatarImage = $('.block-photo-upload__input')[0].files[0];
       avatarImg.append('file', avatarImage);
 
-      console.log(avatarImg);
-
       $.ajax({
         url: `${baseURL}/image/upload?type=0&category=лого`,
         method: 'POST',
