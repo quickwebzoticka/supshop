@@ -524,6 +524,10 @@ $(document).ready(function(){
   // let baseURL = 'https://getlucky.city/api';
   let baseURL = 'http://185.162.92.149:8080/api';
 
+  $(document).on('click', function() {
+    
+  })
+
   const uuid = () => ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,c=>(c^crypto.getRandomValues(new Uint8Array(1))[0]&15 >> c/4).toString(16));
   
   let id, authKey, orgID;
@@ -893,8 +897,6 @@ $(document).ready(function(){
   //КОНЕЦ СОЗДАНИЯ БИЗНЕС ПРОФИЛЯ
 
 
-  
-
   let addressTemplate = $('[data-edit-address]').clone();
   $('[data-edit-address]').remove();
 
@@ -1075,6 +1077,10 @@ $(document).ready(function(){
       $('[data-edit-phone]').val(response.value.orgPhone);
       $('[data-edit-addresses]').val(response.value.orgAddress);
       console.log("success get of info of buisness profile");
+
+      if (response.value.orgLogo) {
+        $('.block-photo-upload__avatar').css('background-image', `url(${baseURL}/image?id=${response.value.orgLogo})`);
+      }
     })
     .fail(function() {
       console.log("error get of info of buisness profile");
