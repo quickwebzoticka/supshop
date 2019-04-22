@@ -90,16 +90,16 @@
             </div>
             <div class="campaign-spec-container">
               <div class="campaign-input">
-                <input type="text" placeholder="Введите название">
+                <input type="text" placeholder="Введите название" data-gift-name>
               </div>
               <div class="campaign-textarea">
-                <textarea placeholder="Описание"></textarea>
+                <textarea placeholder="Описание" data-gift-description></textarea>
               </div>
             </div>
             <div class="campaign-spec-container">
               <div class="campaign-datepicker">
                 <div class="campaign-datepicker__head">Начало кампании</div>
-                <div class="campaign-datepicker-row">
+                <div class="campaign-datepicker-row" data-gift-date-start>
                   <label class="campaign-datepicker__field">
                     <input type="text" data-datepicker placeholder="01.01.2019">
                     <div class="date-icon">
@@ -132,7 +132,7 @@
                   </label>
                 </div>
               </div>
-              <div class="campaign-datepicker">
+              <div class="campaign-datepicker" data-gift-date-end>
                 <div class="campaign-datepicker__head">Завершение кампании</div>
                 <div class="campaign-datepicker-row">
                   <label class="campaign-datepicker__field">
@@ -167,7 +167,7 @@
                   </label>
                 </div>
               </div>
-              <div class="campaign-datepicker">
+              <div class="campaign-datepicker" data-gift-date-until>
                 <div class="campaign-datepicker__head">Выдача подарков до</div>
                 <div class="campaign-datepicker-row">
                   <label class="campaign-datepicker__field">
@@ -206,7 +206,7 @@
             <div class="main-block campaign-spec-container align-stretch radius-hidden">
               <div class="container__text">Всем в радиусе</div>
               <div class="container-slider">
-                <input class="range-slider container__radius">
+                <input class="range-slider container__radius" data-gift-radius>
               </div>
               <div class="container-slider__info">
                 <div class="campaign-spec-additional__count">Охват 10 000 чел</div>
@@ -215,7 +215,7 @@
             </div>
             <div class="campaign-spec-btns">
               <div class="campaign-spec-btn">
-                <input class="btn-submit" type="submit" value="Создать">
+                <input class="btn-submit" type="submit" value="Создать" data-btn-create-gift-3>
               </div>
               <div class="campaign-spec-btn"><a class="btn-cancel" href="campaign.html">Назад</a></div>
             </div>

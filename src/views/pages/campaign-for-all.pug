@@ -8,8 +8,8 @@ block contain
 		.map.map-shifted
 	.map-wrapper
 	.infowindow-content
-		#place-header Количество подарков
-		#place-count 42шт
+		.place-header(style="text-align: center; color: #316193;") Количество подарков
+		.place-count(style="text-align: center; color: #316193;") 42шт
 	.block.campaign-spec
 		.campaign-spec-input
 			<svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -75,14 +75,14 @@ block contain
 
 				.campaign-spec-container
 					.campaign-input
-						input(type="text" placeholder="Введите название")
+						input(type="text" placeholder="Введите название" data-gift-name)
 					.campaign-textarea
-						textarea(placeholder="Описание")
+						textarea(placeholder="Описание" data-gift-description)
 
 				.campaign-spec-container
 					.campaign-datepicker
 						.campaign-datepicker__head Начало кампании
-						.campaign-datepicker-row
+						.campaign-datepicker-row(data-gift-date-start)
 							label.campaign-datepicker__field
 								input(type="text" data-datepicker placeholder="01.01.2019")
 								.date-icon
@@ -111,7 +111,7 @@ block contain
 										<path d="M9 17C8.7 17 8.5 16.8 8.5 16.5V15C8.5 14.7 8.7 14.5 9 14.5C9.3 14.5 9.5 14.7 9.5 15V16.5C9.5 16.8 9.3 17 9 17Z" fill="#316193"/>
 					.campaign-datepicker
 						.campaign-datepicker__head Завершение кампании
-						.campaign-datepicker-row
+						.campaign-datepicker-row(data-gift-date-end)
 							label.campaign-datepicker__field
 								input(type="text" data-datepicker placeholder="01.01.2019")
 								.date-icon
@@ -140,7 +140,7 @@ block contain
 										<path d="M9 17C8.7 17 8.5 16.8 8.5 16.5V15C8.5 14.7 8.7 14.5 9 14.5C9.3 14.5 9.5 14.7 9.5 15V16.5C9.5 16.8 9.3 17 9 17Z" fill="#316193"/>
 					.campaign-datepicker
 						.campaign-datepicker__head Выдача подарков до
-						.campaign-datepicker-row
+						.campaign-datepicker-row(data-gift-date-until)
 							label.campaign-datepicker__field
 								input(type="text" data-datepicker placeholder="01.01.2019")
 								.date-icon
@@ -191,13 +191,15 @@ block contain
 						.main-block-tabs-item.campaign-spec-tab(data-addreses-wrapper-2)
 							.address-location
 								.address-location__name.address-location__name_colored
+									.address-list-item__name--city
+									.address-list-item__name--addr
 								label.address-location__checkbox
 									input(type="checkbox" checked)
 									.address-location__checkbox_square
 
 				.campaign-spec-btns
 					.campaign-spec-btn
-						input(type="submit" value="Создать").btn-submit
+						input(type="submit" value="Создать" data-btn-create-gift-1).btn-submit
 					.campaign-spec-btn
 						a(href="campaign.html").btn-cancel Назад
 	#send-success.send-modal(style="display:none")

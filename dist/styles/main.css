@@ -3659,7 +3659,7 @@ html, body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-around; }
 
 .map {
@@ -4223,5 +4223,25 @@ button[title="Закрыть"] {
 
 .radius-hidden {
   display: none; }
+
+.gm-style .gm-style-iw-t {
+  transform: translate(0, -25px); }
+
+.campaign-main-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .campaign-main-wrapper:hover .campaign-main-text {
+    display: block; }
+
+.campaign-main-text {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  color: #316193;
+  font-size: 14px;
+  text-align: center;
+  display: none;
+  width: 100%; }
 
 /*# sourceMappingURL=maps/main.css.map */

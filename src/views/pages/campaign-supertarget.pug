@@ -72,14 +72,14 @@ block contain
 
 				.campaign-spec-container
 					.campaign-input
-						input(type="text" placeholder="Введите название")
+						input(type="text" placeholder="Введите название" data-gift-name)
 					.campaign-textarea
-						textarea(placeholder="Описание")
+						textarea(placeholder="Описание" data-gift-description)
 
 				.campaign-spec-container
 					.campaign-datepicker
 						.campaign-datepicker__head Начало кампании
-						.campaign-datepicker-row
+						.campaign-datepicker-row(data-gift-date-start)
 							label.campaign-datepicker__field
 								input(type="text" data-datepicker placeholder="01.01.2019")
 								.date-icon
@@ -106,7 +106,7 @@ block contain
 										<path d="M16.5 9.5H15C14.7 9.5 14.5 9.3 14.5 9C14.5 8.7 14.7 8.5 15 8.5H16.5C16.8 8.5 17 8.7 17 9C17 9.3 16.8 9.5 16.5 9.5Z" fill="#316193"/>
 										<path d="M3 9.5H1.5C1.2 9.5 1 9.3 1 9C1 8.7 1.2 8.5 1.5 8.5H3C3.3 8.5 3.5 8.7 3.5 9C3.5 9.3 3.3 9.5 3 9.5Z" fill="#316193"/>
 										<path d="M9 17C8.7 17 8.5 16.8 8.5 16.5V15C8.5 14.7 8.7 14.5 9 14.5C9.3 14.5 9.5 14.7 9.5 15V16.5C9.5 16.8 9.3 17 9 17Z" fill="#316193"/>
-					.campaign-datepicker
+					.campaign-datepicker(data-gift-date-end)
 						.campaign-datepicker__head Завершение кампании
 						.campaign-datepicker-row
 							label.campaign-datepicker__field
@@ -135,7 +135,7 @@ block contain
 										<path d="M16.5 9.5H15C14.7 9.5 14.5 9.3 14.5 9C14.5 8.7 14.7 8.5 15 8.5H16.5C16.8 8.5 17 8.7 17 9C17 9.3 16.8 9.5 16.5 9.5Z" fill="#316193"/>
 										<path d="M3 9.5H1.5C1.2 9.5 1 9.3 1 9C1 8.7 1.2 8.5 1.5 8.5H3C3.3 8.5 3.5 8.7 3.5 9C3.5 9.3 3.3 9.5 3 9.5Z" fill="#316193"/>
 										<path d="M9 17C8.7 17 8.5 16.8 8.5 16.5V15C8.5 14.7 8.7 14.5 9 14.5C9.3 14.5 9.5 14.7 9.5 15V16.5C9.5 16.8 9.3 17 9 17Z" fill="#316193"/>
-					.campaign-datepicker
+					.campaign-datepicker(data-gift-date-until)
 						.campaign-datepicker__head Выдача подарков до
 						.campaign-datepicker-row
 							label.campaign-datepicker__field
@@ -168,7 +168,7 @@ block contain
 				.main-block.campaign-spec-container.align-stretch.radius-hidden
 					.container__text Всем в радиусе
 					.container-slider
-						input.range-slider.container__radius
+						input.range-slider.container__radius(data-gift-radius)
 					.container-slider__info
 						.campaign-spec-additional__count
 							| Охват 10 000 чел
@@ -176,6 +176,6 @@ block contain
 							| Стоимость 1 000 000 руб
 				.campaign-spec-btns
 					.campaign-spec-btn
-						input(type="submit" value="Создать").btn-submit
+						input(type="submit" value="Создать" data-btn-create-gift-3).btn-submit
 					.campaign-spec-btn
 						a(href="campaign.html").btn-cancel Назад

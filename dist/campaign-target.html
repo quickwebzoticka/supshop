@@ -55,7 +55,7 @@
                 <div class="campaign-spec-container">
                   <div class="container-head">1. Название аудитории</div>
                   <div class="campaign-input">
-                    <input type="text" placeholder="Введите название">
+                    <input type="text" placeholder="Введите название" data-gift-target-name>
                   </div>
                 </div>
                 <div class="campaign-spec-container">
@@ -67,11 +67,11 @@
                     </div>
                     <div class="container-category-main">
                       <label class="address-location__checkbox container__checkbox">
-                        <input type="checkbox">
+                        <input type="checkbox" name="targetMale" data-gift-target-sex>
                         <div class="address-location__checkbox_square"></div>Мужской
                       </label>
                       <label class="address-location__checkbox container__checkbox">
-                        <input type="checkbox">
+                        <input type="checkbox" name="targetFemale" data-gift-target-sex>
                         <div class="address-location__checkbox_square"></div>Женщина
                       </label>
                     </div>
@@ -82,7 +82,7 @@
                       <div class="container-category-head__text">Возвраст</div>
                     </div>
                     <div class="container-category-main">
-                      <input class="range-slider container__age">
+                      <input class="range-slider container__age" data-gift-target-age>
                     </div>
                   </div>
                   <div class="container-category">
@@ -92,11 +92,11 @@
                     </div>
                     <div class="container-category-main">
                       <label class="address-location__checkbox container__checkbox">
-                        <input type="checkbox">
+                        <input type="checkbox" name="targetEducationExist" data-gift-target-education>
                         <div class="address-location__checkbox_square"></div>есть высшее
                       </label>
                       <label class="address-location__checkbox container__checkbox">
-                        <input type="checkbox">
+                        <input type="checkbox" name="targetEducationNotExist" data-gift-target-education>
                         <div class="address-location__checkbox_square"></div>нет высшего
                       </label>
                       <div class="campaign-input">
@@ -106,7 +106,7 @@
                         <input type="text" placeholder="Учебное заведение">
                       </div>
                       <div class="container__head-inn">Годы последнего курса</div>
-                      <input class="range-slider container__years">
+                      <input class="range-slider container__years" data-gift-target-education-period>
                     </div>
                   </div>
                   <div class="container-category">
@@ -161,7 +161,7 @@
                       </div>
                       <div class="container-category-inn">
                         <label class="container-category-inn-head address-location__checkbox container__checkbox">
-                          <input type="checkbox">
+                          <input type="checkbox" name="targetChild" data-gift-target-children>
                           <div class="address-location__checkbox_square"></div>Наличие детей
                           <div class="container__checkbox_arrow"><svg width="8" height="4" viewBox="0 0 8 4" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M7.48056 3.97458C7.37758 3.97465 7.27757 3.93729 7.19653 3.86846L4.00002 1.16028L0.803511 3.86838C0.707082 3.95007 0.584647 3.98692 0.463139 3.97082C0.341631 3.95472 0.231004 3.88699 0.155595 3.78252C0.0801859 3.67806 0.0461713 3.54542 0.0610343 3.41379C0.0758972 3.28215 0.13842 3.16231 0.234849 3.08061L3.71569 0.131713C3.79689 0.0629748 3.89698 0.0256341 4.00003 0.0256341C4.10307 0.0256341 4.20316 0.0629747 4.28436 0.131713L7.76519 3.0807C7.84089 3.14483 7.89623 3.23296 7.92349 3.3328C7.95074 3.43264 7.94854 3.5392 7.9172 3.63762C7.88586 3.73604 7.82695 3.82141 7.74868 3.88182C7.6704 3.94222 7.57667 3.97465 7.48057 3.97458L7.48056 3.97458Z" fill="#F3F6FF"/>
@@ -170,7 +170,7 @@
                         </label>
                         <div class="container-category-inn-main">
                           <div class="container__head-inn">Возраст</div>
-                          <input class="range-slider container__age">
+                          <input class="range-slider container__age" data-gift-target-children-period>
                           <div class="container__head-inn">Пол </div>
                           <label class="address-location__checkbox container__checkbox">
                             <input type="checkbox">
@@ -304,7 +304,7 @@
                 </div>
                 <div class="campaign-spec-btns">
                   <div class="campaign-spec-btn">
-                    <input class="btn-submit" type="submit" value="Создать">
+                    <input class="btn-submit" type="submit" value="Продолжить" data-btn-create-gift-2>
                   </div>
                   <div class="campaign-spec-btn"><a class="btn-cancel" href="campaign.html">Назад</a></div>
                 </div>
@@ -344,6 +344,12 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="send-modal" id="send-success" style="display: none">
+        <div class="send-success-content">Регистрация прошла успешно</div>
+      </div>
+      <div class="send-modal" id="send-error" style="display: none">
+        <div class="send-success-content">Ошибка регистрации</div>
       </div>
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtQMpc4MRFpmdc42z0OjRF2HLthIwvgdI&amp;libraries=places"></script>

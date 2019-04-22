@@ -39,8 +39,8 @@
       </div>
       <div class="map-wrapper"></div>
       <div class="infowindow-content">
-        <div id="place-header">Количество подарков</div>
-        <div id="place-count">42шт</div>
+        <div class="place-header" style="text-align: center; color: #316193;">Количество подарков</div>
+        <div class="place-count" style="text-align: center; color: #316193;">42шт</div>
       </div>
       <div class="block campaign-spec">
         <div class="campaign-spec-input"><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -94,16 +94,16 @@
             </div>
             <div class="campaign-spec-container">
               <div class="campaign-input">
-                <input type="text" placeholder="Введите название">
+                <input type="text" placeholder="Введите название" data-gift-name>
               </div>
               <div class="campaign-textarea">
-                <textarea placeholder="Описание"></textarea>
+                <textarea placeholder="Описание" data-gift-description></textarea>
               </div>
             </div>
             <div class="campaign-spec-container">
               <div class="campaign-datepicker">
                 <div class="campaign-datepicker__head">Начало кампании</div>
-                <div class="campaign-datepicker-row">
+                <div class="campaign-datepicker-row" data-gift-date-start>
                   <label class="campaign-datepicker__field">
                     <input type="text" data-datepicker placeholder="01.01.2019">
                     <div class="date-icon">
@@ -138,7 +138,7 @@
               </div>
               <div class="campaign-datepicker">
                 <div class="campaign-datepicker__head">Завершение кампании</div>
-                <div class="campaign-datepicker-row">
+                <div class="campaign-datepicker-row" data-gift-date-end>
                   <label class="campaign-datepicker__field">
                     <input type="text" data-datepicker placeholder="01.01.2019">
                     <div class="date-icon">
@@ -173,7 +173,7 @@
               </div>
               <div class="campaign-datepicker">
                 <div class="campaign-datepicker__head">Выдача подарков до</div>
-                <div class="campaign-datepicker-row">
+                <div class="campaign-datepicker-row" data-gift-date-until>
                   <label class="campaign-datepicker__field">
                     <input type="text" data-datepicker placeholder="01.01.2019">
                     <div class="date-icon">
@@ -231,7 +231,10 @@
                 </div>
                 <div class="main-block-tabs-item campaign-spec-tab" data-addreses-wrapper-2>
                   <div class="address-location">
-                    <div class="address-location__name address-location__name_colored"></div>
+                    <div class="address-location__name address-location__name_colored">
+                      <div class="address-list-item__name--city"></div>
+                      <div class="address-list-item__name--addr"></div>
+                    </div>
                     <label class="address-location__checkbox">
                       <input type="checkbox" checked>
                       <div class="address-location__checkbox_square"></div>
@@ -242,7 +245,7 @@
             </div>
             <div class="campaign-spec-btns">
               <div class="campaign-spec-btn">
-                <input class="btn-submit" type="submit" value="Создать">
+                <input class="btn-submit" type="submit" value="Создать" data-btn-create-gift-1>
               </div>
               <div class="campaign-spec-btn"><a class="btn-cancel" href="campaign.html">Назад</a></div>
             </div>

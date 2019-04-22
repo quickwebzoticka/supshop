@@ -27,7 +27,7 @@ block contain
 						.campaign-spec-container
 							.container-head 1. Название аудитории
 							.campaign-input
-								input(type="text" placeholder="Введите название")
+								input(type="text" placeholder="Введите название" data-gift-target-name)
 
 						.campaign-spec-container
 							.container-head 2. Личные данные
@@ -40,11 +40,11 @@ block contain
 									
 								.container-category-main
 									label.address-location__checkbox.container__checkbox
-										input(type="checkbox")
+										input(type="checkbox" name="targetMale" data-gift-target-sex)
 										.address-location__checkbox_square
 										| Мужской
 									label.address-location__checkbox.container__checkbox
-										input(type="checkbox")
+										input(type="checkbox" name="targetFemale" data-gift-target-sex)
 										.address-location__checkbox_square
 										| Женщина
 							.container-category
@@ -55,7 +55,7 @@ block contain
 									.container-category-head__text Возвраст
 									
 								.container-category-main
-									input.range-slider.container__age
+									input.range-slider.container__age(data-gift-target-age)
 
 							.container-category
 								.container-category-head
@@ -66,11 +66,11 @@ block contain
 									
 								.container-category-main
 									label.address-location__checkbox.container__checkbox
-										input(type="checkbox")
+										input(type="checkbox" name="targetEducationExist" data-gift-target-education)
 										.address-location__checkbox_square
 										| есть высшее
 									label.address-location__checkbox.container__checkbox
-										input(type="checkbox")
+										input(type="checkbox" name="targetEducationNotExist" data-gift-target-education)
 										.address-location__checkbox_square
 										| нет высшего
 									.campaign-input
@@ -79,7 +79,7 @@ block contain
 										input(type="text" placeholder="Учебное заведение")
 
 									.container__head-inn Годы последнего курса
-									input.range-slider.container__years
+									input.range-slider.container__years(data-gift-target-education-period)
 											
 
 
@@ -133,7 +133,7 @@ block contain
 												| Женщина
 									.container-category-inn
 										label.container-category-inn-head.address-location__checkbox.container__checkbox
-											input(type="checkbox")
+											input(type="checkbox" name="targetChild" data-gift-target-children)
 											.address-location__checkbox_square
 											| Наличие детей
 											.container__checkbox_arrow
@@ -142,7 +142,7 @@ block contain
 												</svg>
 										.container-category-inn-main
 											.container__head-inn Возраст
-											input.range-slider.container__age
+											input.range-slider.container__age(data-gift-target-children-period)
 											.container__head-inn Пол 
 											label.address-location__checkbox.container__checkbox
 												input(type="checkbox")
@@ -269,7 +269,7 @@ block contain
 
 						.campaign-spec-btns
 							.campaign-spec-btn
-								input(type="submit" value="Создать").btn-submit
+								input(type="submit" value="Продолжить" data-btn-create-gift-2).btn-submit
 							.campaign-spec-btn
 								a(href="campaign.html").btn-cancel Назад
 
@@ -303,3 +303,7 @@ block contain
 							.campaign-spec-container_p-file__output
 								
 							.campaign-spec-container_p-result Найдено 1120 пользователей
+	#send-success.send-modal(style="display: none")
+		.send-success-content Регистрация прошла успешно
+	#send-error.send-modal(style="display: none")
+		.send-success-content Ошибка регистрации
