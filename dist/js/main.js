@@ -1168,7 +1168,7 @@ $(document).ready(function(){
     let giftDescription = $('[data-gift-description]').val();
 
     let addresses = [];
-    $('.address-location').each(function(element, index) {
+    $('[data-address-location]').each(function(element, index) {
       let address = {};
       address.giftLongitude = parseFloat($(this).attr('longitude'));
       address.giftLatitude = parseFloat($(this).attr('latitude'));
@@ -1194,9 +1194,8 @@ $(document).ready(function(){
     }
 
     $.ajax({
-      
-      // url: `${baseURL}/gift/${id}/${authKey}`,
-      url: `${baseURL}/gift/cheat?cheatcode=IDDQD&id=${localStorage.orgID}`,
+      url: `${baseURL}/gift/${id}/${authKey}`,
+      // url: `${baseURL}/gift/cheat?cheatcode=IDDQD&id=${localStorage.orgID}`,
       method: 'POST',
       contentType: 'application/json',
       crossDomain: true,
