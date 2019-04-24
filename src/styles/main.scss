@@ -1662,9 +1662,10 @@ a.btn-submit {
 		.dropdown-item {
 			flex: 0 1 30px;
 			height: 100%;
-
+			width: 100px;
 			img  {
 				height: 100%;
+				width: unset;
 			}
 		}
 	}
@@ -1704,12 +1705,17 @@ a.btn-submit {
 }
 
 .dropdown-item {
-	flex: 0 1 25%;
+	flex: 0 1 50px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	margin-bottom: 5px;
+	margin-right: 30px;
 	cursor: pointer;
+
+	img {
+		width: 100%;
+	}
 }
 
 .campaign-input {
@@ -2309,3 +2315,15 @@ button[title="Закрыть"] {
 	display: none;
 	width: 100%;
 }
+
+.required {
+	.form-input__descr {
+		color: red;
+	}
+
+	input {
+		border: 1px solid red;
+		color: red;
+	}
+}
+

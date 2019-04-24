@@ -23,7 +23,7 @@ $(document).ready(function() {
 			const countEdit = function () {
 				let index = $(this).closest('.address-location').data('address-id');
 				let count = $(this).find('input').val();
-				$(document).find('.place-count').eq(index).text(`${count} шт.`);
+				$(document).find(`[data-address-id-count-marker=${index}]`).text(`${count} шт.`);
 			}
 
 			function makeAddresses (location, markers) {
@@ -383,7 +383,9 @@ $(document).ready(function() {
 						markers.push(marker);
 
 						var infowindow = new google.maps.InfoWindow();
-						var infowindowContent = `${infoWindowInner.clone()[0].innerHTML}`;
+						var infowindowTemplate = $(infoWindowInner).clone();
+						infowindowTemplate.find('.place-count').attr('data-address-id-count-marker', $('.place-count').length)
+						var infowindowContent = `${infowindowTemplate[0].innerHTML}`;
 
 						infowindow.setContent(infowindowContent);
 						infowindow.open(map, marker);

@@ -3,7 +3,53 @@ $(document).ready(function(){
   $('.address-list').scrollbar();
   $('.select-emul-dropdown').scrollbar();
 
-  $('[data-datepicker]').datepicker();
+  $('[data-datepicker]').datepicker({
+    dateFormat: 'dd-mm-yyyy'
+  });
+  $('[data-date-start]').datepicker({
+    onSelect: function() {
+      getStatisticCampaings();
+    }
+  });
+  $('[data-date-end]').datepicker({
+    onSelect: function() {
+      getStatisticCampaings();
+    }
+  });
+
+  $('[data-gift-date-start] .campaign-datepicker__field input').datepicker({
+    minDate: new Date(),
+    onSelect: function(formattedDatestring, date, inst) {
+      let day = date;
+      let dayAfter = date;
+      day.setDate(date.getDate() + 1);
+      day = day.toLocaleString();
+      day = day.split(',')[0];
+
+      dayAfter.setDate(date.getDate() + 2);
+      dayAfter = dayAfter.toLocaleString();
+      dayAfter = dayAfter.split(',')[0];
+
+      $('[data-gift-date-end] .campaign-datepicker__field input').val(day);
+      $('[data-gift-date-until] .campaign-datepicker__field input').val(dayAfter);
+    }
+  })
+
+  $('[data-gift-date-until] .campaign-datepicker__field input').datepicker({
+    minDate: new Date()
+  })
+
+  $('[data-gift-date-end] .campaign-datepicker__field input').datepicker({
+    minDate: new Date(),
+    onSelect: function(formattedDatestring, date, inst) {
+      let day = date;
+      day.setDate(date.getDate() + 1);
+      day = day.toLocaleString();
+      day = day.split(',')[0];
+
+      $('[data-gift-date-until] .campaign-datepicker__field input').val(day)
+    }
+  })
 
   $('.select_default').SumoSelect();
 
@@ -60,7 +106,9 @@ $(document).ready(function(){
   });
 
 
-  $('[data-time]').inputmask('99:99:99');
+  $('[data-time]').inputmask({
+    regex: '^(00|01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20|21|22|23):[0-5][0-9]:[0-5][0-9]$',
+  });
   $('[data-datepicker]').inputmask('99.99.9999');
 
 
@@ -75,7 +123,7 @@ $(document).ready(function(){
     showMaskOnFocus: true
   });
   $('[data-org-inn], [data-edit-inn]').inputmask({ 
-    mask: "9999999999",
+    mask: "9999999999[99]",
     showMaskOnHover: false,
     showMaskOnFocus: true
   });
@@ -142,8 +190,7 @@ $(document).ready(function(){
   };
 
   const inputFocusOn = function() {
-    $(this).addClass('active');
-
+    $(this).addClass('active').removeClass('required');
   };
 
   const inputFocusOff = function() {
@@ -302,10 +349,8 @@ $(document).ready(function(){
   const selectGift = function() {
     let textField = $(this).closest('.select-emul-wrapper').find('.select-emul__text');
     let itemCloned = $(this).clone();
-    let itemClonedDescr = itemCloned.find('img').data('value');
 
     textField.html(itemCloned);
-    textField.append(` - ${itemClonedDescr}`);
 
     $('.select-emul-dropdown')
            .css({
@@ -389,34 +434,6 @@ $(document).ready(function(){
     $('.campaign-spec-container_p-file__output').text(fileName);
   }
 
-
-  const testAPICall = function(e) {
-    e.preventDefault();
-    $.ajax({
-      type: 'GET',
-      method: 'POST',
-      url: 'http://api.auto.ria.com/average',
-      data: {
-        marka_id: 9,
-        model_id: 31887,
-        yers: 2014,
-        fuel_id: 1,
-        fuel_id: 2
-      },
-      dataType: 'json',
-      cache: false,
-      contentType: false, // важно - убираем форматирование данных по умолчанию
-      processData: false, // важно - убираем преобразование строк по умолчанию
-    }).
-    done(function(data) {
-      alert('Данные отправлены');
-      console.log(data);
-    }).fail(function() {
-      alert('Произошла ошибка');
-    });
-  };
-
-
   const uploadPhoto = function(e) {
     let file = this.files[0];
 
@@ -468,11 +485,36 @@ $(document).ready(function(){
     $('[data-date-start]').val(prevDate);
   };
 
+  const checkRequired = function() {
+    $(this).closest('label').removeClass('required');
+
+
+    if ($(this).attr('im-insert')) {
+      if ($(this).inputmask('isComplete')) {
+        $(this).closest('label').addClass('completed');
+        console.log(22)
+        return false;
+      } else {
+        $(this).closest('label').removeClass('completed');
+      }
+      return false;
+    }
+
+    if ($(this).val() > 0) {
+      $(this).closest('label').addClass('completed');
+      console.log(11)
+      return false;
+    } else {
+      $(this).closest('label').removeClass('completed');
+    }
+  }
+
   defaultPeriod();
 
   removeActiveLinks();
   moveToAnchor();
 
+  $(document).on('input', '[data-required]', checkRequired);
   $(document).on('click', '[data-form-back]', linkForm);
   $(document).on('change', '.form-input__upload input[type="file"]', uploadScreenShot);
   $(document).on('change', '.block-photo-upload__input', uploadPhoto);
@@ -524,10 +566,6 @@ $(document).ready(function(){
   // let baseURL = 'https://getlucky.city/api';
   let baseURL = 'http://185.162.92.149:8080/api';
 
-  $(document).on('click', function() {
-    
-  })
-
   const uuid = () => ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,c=>(c^crypto.getRandomValues(new Uint8Array(1))[0]&15 >> c/4).toString(16));
   
   let id, authKey, orgID;
@@ -558,9 +596,10 @@ $(document).ready(function(){
         $('.header-avatar').find('img').attr('src', `${baseURL}/image?id=${response.value.orgLogo}`);
       }
 
-
       $(document).find('.balance-text span').text(response.value.orgMoney);
-
+      if (response.value.orgKey) {
+        localStorage.orgKey = response.value.orgKey
+      }
       console.log("get info about buisness profile");
     })
     .fail(function() {
@@ -572,6 +611,7 @@ $(document).ready(function(){
 
   //ПОЛУЧЕНИЕ СТАТИСТИКИ КАМПАНИИ  
   var getStatisticCampaings = function() {
+    console.log(11);
     $('.table-statistic').html('');
 
     let currentYear = new Date();
@@ -594,13 +634,11 @@ $(document).ready(function(){
     }
 
     $.ajax({
-      url: `${baseURL}/gift/${id}/${authKey}/stats`,
+      url: `${baseURL}/gift/${localStorage.orgID}/${localStorage.orgKey}/stats`,
       type: 'GET',
-      dataType: 'json',
-      contentType: 'application/json',
-      data:{
-        start: startDate,
-        end: endDate,
+      data: {
+        "start": `${startDate}`,
+        "end": `${endDate}`,
       }
     })
     .done(function(response) {
@@ -631,8 +669,7 @@ $(document).ready(function(){
     })
     
   };
-  $(document).on('change', '[data-date-start]', getStatisticCampaings);
-  $(document).on('change', '[data-date-end]', getStatisticCampaings);
+  
   //КОНЕЦ ПОЛУЧЕНИЕ СТАТИСТИКИ КАМПАНИИ
 
   //ПОЛУЧЕНИЕ СПИСКА КАМПАНИИ
@@ -640,33 +677,39 @@ $(document).ready(function(){
     console.log(`${baseURL}/gift/${id}/${authKey}`);
 
     $.ajax({
-      url: `${baseURL}/gift/${id}/${authKey}`,
+      url: `${baseURL}/gift/${localStorage.orgID}/${localStorage.orgKey}`,
       type: 'GET',
       dataType: 'json',
     })
     .done(function(response) {
-
+      console.log(response);
       let gifts = response.value;
+      
+      $('[data-giftsbackpack-active]').find('.campaings-inn-row.campaings-item').remove();
+      $('[data-giftsbackpack-moderating]').find('.campaings-inn-row.campaings-item').remove();
+      $('[data-giftsbackpack-finished]').find('.campaings-inn-row.campaings-item').remove();
 
       if (gifts) {
         gifts.forEach(function(item, i) {
-          $('[data-giftsbackpack-active]').find('.campaings-inn-row.campaings-item').remove();
-          $('[data-giftsbackpack-moderating]').find('.campaings-inn-row.campaings-item').remove();
-          $('[data-giftsbackpack-finished]').find('.campaings-inn-row.campaings-item').remove();
-
+          console.log(item)
           let campaingRow = campaingItem.clone();
+          let count = 0;
 
-          campaingRow.attr('data-gift-id', item.Gift.giftID);
-          campaingRow.find('.campaings-item-info__name').text(item.Gift.giftName);
-          campaingRow.find('.campaings-item-info__period').text(`${item.Gift.giftDateCreation} - ${item.Gift.giftDateUserEnd}`);
-          campaingRow.find('.campaings-item-info__count').text(item.locations.giftCount);
-          if (item.Gift.giftStatus == 'in_progress') {
+          item.locations.map((item, index) => {return count = count + item.giftCount})
+
+          console.log(count);
+          campaingRow.attr('data-gift-id', item.gift.giftID);
+          campaingRow.find('.campaings-item-img img').attr('src', `${baseURL}/image?id=${item.gift.giftImageArID}`);
+          campaingRow.find('.campaings-item-info__name').text(item.gift.giftName);
+          campaingRow.find('.campaings-item-info__period').text(`${item.gift.giftDateCreation} - ${item.gift.giftDateUserEnd}`);
+          campaingRow.find('.campaings-item-info__count').text(`${count} ед.`);
+          if (item.gift.giftStatus == 'available') {
             $('[data-giftsbackpack-active]').find('.campaings-inn').append(campaingRow);
           }
-          if (item.Gift.giftStatus == 'available') {
+          if (item.gift.giftStatus == 'in_progress') {
             $('[data-giftsbackpack-moderating]').find('.campaings-inn').append(campaingRow);
           }
-          if (item.Gift.giftStatus == 'not_available') {
+          if (item.gift.giftStatus == 'not_available') {
             $('[data-giftsbackpack-finished]').find('.campaings-inn').append(campaingRow);
           }
         });
@@ -776,12 +819,26 @@ $(document).ready(function(){
   $(document).on('click', '#btn-create-profile', function(e) {
     e.preventDefault();
 
-    if ($('.block-form input').val() == "" || !$('[data-org-phone], [data-org-email], [data-org-inn], [data-org-ogrn]').inputmask("isComplete")) {
+    let requiredCount = 0;
+
+    $('.block-form').find('.form-input').each(function() {
+      if ($(this).hasClass('completed')) {
+        ++requiredCount;
+      }
+    })
+
+    console.log(requiredCount);
+
+    if (requiredCount < 11) {
+      $('[data-required]').each(function(index, item) {
+        if (!$(this).closest('label').hasClass('completed')) {
+          $(this).closest('label').addClass('required');
+        }
+      })
       $('.block-btns-wrap span').attr('style', 'visibility:initial');
       showModal($('#send-error').attr('id'));
       return false;
     }
-    showModal($('#send-success').attr('id'));
 
     let data = {};
     let avatar = $('.block-photo-upload__avatar').attr('style');
@@ -808,6 +865,7 @@ $(document).ready(function(){
         data: avatarImg,
       })
       .done(function(response) {
+        showModal($('#send-success').attr('id'));
         let orgLogoID = response.value;
         console.log(response.value);
         console.log("avatar uploaded");
@@ -857,6 +915,22 @@ $(document).ready(function(){
           getStatisticCampaings();
           getListCampaings();
           console.log('buisness profile registered');
+
+          $.ajax({
+            url: `${baseURL}/org/cheat`,
+            method: 'GET',
+            data: {
+              'id': `${id}`,
+              'status': 2,
+              'cheat': `IDDQD`
+            }
+          }).done(function(response) {
+            console.log(response)
+            console.log('cheat verfification success')
+          }).fail(function(error) {
+            console.log(error)
+            console.log('cheat verfification fail')
+          })
         })
         .fail(function(error) {
           console.log('buisness profile register failed');
@@ -899,7 +973,7 @@ $(document).ready(function(){
         data: JSON.stringify(data),
       })
       .done(function(response) {
-
+        showModal($('#send-success').attr('id'));
         id = response.value.userID;
         authKey = response.value.userKey;
         orgID = response.value.orgID;
@@ -913,6 +987,21 @@ $(document).ready(function(){
         getStatisticCampaings();
         getListCampaings();
         console.log('buisness profile registered');
+        $.ajax({
+          url: `${baseURL}/org/cheat`,
+          method: 'GET',
+          data: {
+            'id': `${id}`,
+            'status': 2,
+            'cheat': `IDDQD`
+          }
+        }).done(function(response) {
+          console.log(response)
+          console.log('cheat verfification success')
+        }).fail(function(error) {
+          console.log(error)
+          console.log('cheat verfification fail')
+        })
       })
       .fail(function(error) {
         console.log('buisness profile register failed');
@@ -1135,32 +1224,23 @@ $(document).ready(function(){
   // СОЗДАНИЕ ПОДАРКА ДЛЯ ВСЕХ
 
   $(document).on('click', '[data-btn-create-gift-1]', function() {
+    function formatDate(value) {
+      return value = value.replace(/\./gi, '-');
+    } 
     let giftStartDate1 = $('[data-gift-date-start]').find('.campaign-datepicker__field input').val();
     let giftStartDate2 = $('[data-gift-date-start]').find('.campaign-datepicker__time input').val();
-    
-    function changeFormat() {
-      giftStartDate1 = giftStartDate1.split('.');
-      [giftStartDate1[0], giftStartDate1[1]] = [giftStartDate1[1], giftStartDate1[0]];
-      giftStartDate1 = giftStartDate1.join('.');
-    } 
+    let giftStartDate3 = $('[data-gift-date-end]').find('.campaign-datepicker__field input').val();
+    let giftStartDate4 = $('[data-gift-date-end]').find('.campaign-datepicker__time input').val();
+    let giftStartDate5 = $('[data-gift-date-until]').find('.campaign-datepicker__field input').val();
+    let giftStartDate6 = $('[data-gift-date-until]').find('.campaign-datepicker__time input').val();
 
-    changeFormat();
-    let giftStartDate = new Date(`${giftStartDate1} ${giftStartDate2}`);
-    giftStartDate = giftStartDate.toISOString();
+    giftStartDate1 = formatDate(giftStartDate1);
+    giftStartDate3 = formatDate(giftStartDate3);
+    giftStartDate5 = formatDate(giftStartDate5);
 
-    giftStartDate1 = $('[data-gift-date-end]').find('.campaign-datepicker__field input').val();
-    giftStartDate2 = $('[data-gift-date-end]').find('.campaign-datepicker__time input').val();
-
-    changeFormat();
-    let giftEndDate = new Date(`${giftStartDate1} ${giftStartDate2}`);
-    giftEndDate = giftEndDate.toISOString();
-
-    giftStartDate1 = $('[data-gift-date-until]').find('.campaign-datepicker__field input').val();
-    giftStartDate2 = $('[data-gift-date-until]').find('.campaign-datepicker__time input').val();
-
-    changeFormat();
-    let giftUntilDate = new Date(`${giftStartDate1} ${giftStartDate2}`);
-    giftUntilDate = giftUntilDate.toISOString();
+    let giftStartDate = `${giftStartDate1} ${giftStartDate2}`;
+    let giftEndDate = `${giftStartDate3} ${giftStartDate4}`;
+    let giftUntilDate = `${giftStartDate5} ${giftStartDate6}`;
 
     console.log(`${giftStartDate} :: ${giftEndDate} :: ${giftUntilDate}`);
 
@@ -1170,31 +1250,49 @@ $(document).ready(function(){
     let addresses = [];
     $('[data-address-location]').each(function(element, index) {
       let address = {};
+      address.giftAddress = `${$(this).find('.address-location__name').text()}`;
+      address.giftCount = parseInt($(this).find('.address-location__count input').val());
       address.giftLongitude = parseFloat($(this).attr('longitude'));
       address.giftLatitude = parseFloat($(this).attr('latitude'));
-      address.giftCount = parseInt($(this).find('.address-location__count input').val());
-      address.giftAddress = `${$(this).find('.address-location__name').text()}`;
-      console.log(address);
+      // address.tmpLocationID = new Date();
+      // address.tmpLocationID = address.tmpLocationID.getTime();
+      address.tmpLocationID = '8712999364740073000'
       addresses.push(address);
     })
 
+    let tempAddresses = [];
+
+    $('[data-addreses-wrapper-2]').find('.address-location').each(function() {
+      let value = $(this).data('addr-id');
+      tempAddresses.push(value)
+    })
+
     let data = {
+      "addresses": tempAddresses,
       "gift": {
-        "orgID": localStorage.orgID,
-        "giftImageArID": 0,
-        "giftType": 0,
-        "giftName": `${giftName}`,
-        "giftDescription": `${giftDescription}`,
-        "giftDateCreation": `${giftStartDate}`,
         "giftDateMapEnd": `${giftUntilDate}`,
+        "giftDateMapStart": `${giftStartDate}`,
         "giftDateUserEnd": `${giftEndDate}`,
-        "giftActive": true,
+        "giftDescription": `${giftDescription}`,
+        "giftImageArID": parseInt($('.select-emul__text').find('.dropdown-item').data('imageid')),
+        "giftName": `${giftName}`,
+        "giftType": 0,
+        "giftActive": 1,
       },
-      "locations": addresses
+      "locations": addresses,
+      
     }
 
+    console.log(JSON.stringify(data));
+    console.log(localStorage.orgKey);
+
+    let dataTest = `{"addresses":[250],"gift":{"giftDateMapEnd":"03-05-2019 20:59:25","giftDateMapStart":"23-04-2019 13:23:25","giftDateUserEnd":"23-05-2019 20:59:25","giftDescription":"","giftImageArID":312,"giftName":"jump","giftType":0},"locations":[{"giftAddress":"Большой Сампсониевский проспект, 108лита","giftCount":10,"giftLatitude":59.99607830997154,"giftLongitude":30.328344348818064,"tmpLocationID":5852066343199460052},{"giftAddress":"улица Харченко, 41","giftCount":10,"giftLatitude":59.98858566695435,"giftLongitude":30.348426718264818,"tmpLocationID":8712999364740073462},{"giftAddress":"Смольный университет","giftCount":10,"giftLatitude":59.97205192130593,"giftLongitude":30.38007376715541,"tmpLocationID":6710328768712560082}]}`
+    dataTest = JSON.parse(dataTest);
+    console.log(dataTest);
+    console.log(JSON.stringify(dataTest));
+
     $.ajax({
-      url: `${baseURL}/gift/${id}/${authKey}`,
+      url: `${baseURL}/gift/${localStorage.orgID}/${localStorage.orgKey}`,
       // url: `${baseURL}/gift/cheat?cheatcode=IDDQD&id=${localStorage.orgID}`,
       method: 'POST',
       contentType: 'application/json',
@@ -1204,13 +1302,21 @@ $(document).ready(function(){
       console.log(response);
       console.log("create simple gift success");
       showModal($('#send-success').attr('id'), 'Создан подарок');
+      $.ajax({
+        url: `${baseURL}/gift/cheat?cheatcode=IDDQD&id=${localStorage.orgID}`,
+        method: 'GET'
+      }).done(function(response) {
+        console.log(response);
+        console.log('cheat verification of gift success');
+      }).fail(function(error) {
+        console.log(error);
+        console.log('cheat verification of gift fail');
+      })
     }).fail(function(error) {
       console.log(error)
       console.log("create simple gift error");
       showModal($('#send-error').attr('id'), 'Ошибка создания');
     });
-
-    console.log(JSON.stringify(data));
   });
 
   // КОНЕЦ СОЗДАНИЕ ПОДАРКА ДЛЯ ВСЕХ
@@ -1218,32 +1324,23 @@ $(document).ready(function(){
   // СОЗДАНИЕ СУПЕРТАРГЕТИРОВАННОГО ПОДАРКА
 
   $(document).on('click', '[data-btn-create-gift-3]', function() {
+    function formatDate(value) {
+      return value = value.replace(/\./gi, '-');
+    } 
     let giftStartDate1 = $('[data-gift-date-start]').find('.campaign-datepicker__field input').val();
     let giftStartDate2 = $('[data-gift-date-start]').find('.campaign-datepicker__time input').val();
-    
-    function changeFormat() {
-      giftStartDate1 = giftStartDate1.split('.');
-      [giftStartDate1[0], giftStartDate1[1]] = [giftStartDate1[1], giftStartDate1[0]];
-      giftStartDate1 = giftStartDate1.join('.');
-    } 
+    let giftStartDate3 = $('[data-gift-date-end]').find('.campaign-datepicker__field input').val();
+    let giftStartDate4 = $('[data-gift-date-end]').find('.campaign-datepicker__time input').val();
+    let giftStartDate5 = $('[data-gift-date-until]').find('.campaign-datepicker__field input').val();
+    let giftStartDate6 = $('[data-gift-date-until]').find('.campaign-datepicker__time input').val();
 
-    changeFormat();
-    let giftStartDate = new Date(`${giftStartDate1} ${giftStartDate2}`);
-    giftStartDate = giftStartDate.toISOString();
+    giftStartDate1 = formatDate(giftStartDate1);
+    giftStartDate3 = formatDate(giftStartDate3);
+    giftStartDate5 = formatDate(giftStartDate5);
 
-    giftStartDate1 = $('[data-gift-date-end]').find('.campaign-datepicker__field input').val();
-    giftStartDate2 = $('[data-gift-date-end]').find('.campaign-datepicker__time input').val();
-
-    changeFormat();
-    let giftEndDate = new Date(`${giftStartDate1} ${giftStartDate2}`);
-    giftEndDate = giftEndDate.toISOString();
-
-    giftStartDate1 = $('[data-gift-date-until]').find('.campaign-datepicker__field input').val();
-    giftStartDate2 = $('[data-gift-date-until]').find('.campaign-datepicker__time input').val();
-
-    changeFormat();
-    let giftUntilDate = new Date(`${giftStartDate1} ${giftStartDate2}`);
-    giftUntilDate = giftUntilDate.toISOString();
+    let giftStartDate = `${giftStartDate1} ${giftStartDate2}`;
+    let giftEndDate = `${giftStartDate3} ${giftStartDate4}`;
+    let giftUntilDate = `${giftStartDate5} ${giftStartDate6}`;
 
     console.log(`${giftStartDate} :: ${giftEndDate} :: ${giftUntilDate}`);
 
@@ -1275,7 +1372,7 @@ $(document).ready(function(){
     }
 
     $.ajax({
-      url: `${baseURL}/gift/${id}/${authKey}`,
+      url: `${baseURL}/gift/${localStorage.orgID}/${localStorage.orgKey}`,
       method: 'POST',
       contentType: 'application/json',
       crossDomain: true,
@@ -1322,7 +1419,7 @@ $(document).ready(function(){
     console.log(data);
 
     $.ajax({
-      url: `${baseURL}/targeting/${id}/${authKey}`,
+      url: `${baseURL}/targeting/${localStorage.orgID}/${localStorage.orgKey}`,
       method: 'POST',
       contentType: 'application/json',
       crossDomain: true,
@@ -1341,8 +1438,64 @@ $(document).ready(function(){
   // КОНЕЦ СОЗДАНИЕ ТАРГЕТИРОВАННОГО ПОДАРКА
 
 
+  let dropdownItem = $(document).find('.dropdown-item').clone();
+  $(document).find('.dropdown-item').remove();
+
+  let allImages = {};
+
+  //ПОДГРУЗКА КАРТИНОК
+
+  $.ajax({
+    url: `${baseURL}/images/category/all`,
+    method: 'GET'
+  }).done(function(response) {
+    console.log(response);
+    console.log('download images ID success');
+    allImages = response.value;
+    console.log(allImages);
+    if (window.location.href.indexOf('campaign-for-all')) {
+      allImages.map(function(item, index) {
+        console.log(item)
+        if (item.categoryID == 0) {
+          item.images.map(function(element) {
+            console.log(element)
+            dropdownItem.attr('data-imageID', element.imageID);
+            dropdownItem.find('img').attr('src', `${baseURL}/image?id=${element.imageID}`)
+            $('.select-emul-dropdown .select-emul-dropdown').append(dropdownItem.clone());
+          })
+        }
+      })
+    }
+  }).fail(function(error) {
+    console.log(error);
+    console.log('download category failed');
+  })
+
+  $(document).on('change', '[data-select-category]', function() {
+    let categoryIDc = parseInt($(this).val());
+    $('.select-emul-dropdown .select-emul-dropdown').html('');
+    allImages.map(function(item, index) {
+      console.log(item)
+      if (item.categoryID == categoryIDc) {
+        item.images.map(function(element) {
+          console.log(element)
+          dropdownItem.attr('data-imageID', element.imageID);
+          dropdownItem.find('img').attr('src', `${baseURL}/image?id=${element.imageID}`)
+          $('.select-emul-dropdown .select-emul-dropdown').append(dropdownItem.clone());
+        })
+      }
+    })
+  })
+
+  //КОНЕЦ ПОДГРУЗКА КАРТИНОК
+
+  let testVar = '{"addresses":[250],"gift":{"giftDateMapEnd":"03-05-2019 20:59:25","giftDateMapStart":"23-04-2019 13:23:25","giftDateUserEnd":"23-05-2019 20:59:25","giftDescription":"","giftImageArID":312,"giftName":"jump","giftType":0},"locations":[{"giftAddress":"Большой Сампсониевский проспект, 108лита","giftCount":10,"giftLatitude":59.99607830997154,"giftLongitude":30.328344348818064,"tmpLocationID":5852066343199460052},{"giftAddress":"улица Харченко, 41","giftCount":10,"giftLatitude":59.98858566695435,"giftLongitude":30.348426718264818,"tmpLocationID":8712999364740073462},{"giftAddress":"Смольный университет","giftCount":10,"giftLatitude":59.97205192130593,"giftLongitude":30.38007376715541,"tmpLocationID":6710328768712560082}]}'
+  let testVarMy = '{"gift":{"giftImageArID":312,"giftType":0,"giftName":"11","giftDescription":"11","giftDateMapStart":"02-04-2019 11:11:11","giftDateMapEnd":"25-04-2019 11:11:11","giftDateUserEnd":"11-04-2019 11:11:11","giftActive":true},"locations":[{"giftLongitude":59.919353,"giftLatitude":30.35258299999998,"giftCount":100,"giftAddress":"113 Лиговский пр. СПБ Центральный Санкт-Петербург RU 191119 "}]}'
+  console.log(JSON.parse(testVar));
+  console.log(JSON.parse(testVarMy));
   //http://185.162.92.149:8080/api/org/cheat?id={user_id}&status=2&cheat=IDDQD
   //http://185.162.92.149:8080/api/gift/cheat?cheatcode=IDDQD&id={org_id}
   
+  //http://185.162.92.149:8080/api/gift/51/4e9d9118-a60d-4ce5-8cf4-84090c4a6c37
 
 });

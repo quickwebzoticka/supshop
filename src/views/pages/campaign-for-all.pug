@@ -22,56 +22,25 @@ block contain
 				.campaign-spec-container
 					.container-head Создать подарок
 					.container-select
-						select.container-select__select.select_default
-							option(value="auto") Авто
-							option(value="auto") Еда и напитки
-							option(value="auto") Красота и здоровье
-							option(value="auto") Одежда и обувь
-							option(value="auto") Развлечения
-							option(value="auto") Спорт
-							option(value="auto") Техника
-							option(value="auto") Услуги
+						select.container-select__select.select_default(data-select-category)
+							option(value="0" data-image-category="0") Без категории 
+							option(value="1" data-image-category="1") Еда
+							option(value="2" data-image-category="2") Напитки
+							option(value="6" data-image-category="6") Красота и здоровье
+							option(value="4" data-image-category="4") Одежда и обувь
+							option(value="5" data-image-category="5") Развлечения
+							option(value="3" data-image-category="3") 18+
+							option(value="8" data-image-category="8") Спорт
+							option(value="9" data-image-category="9") Техника
+							option(value="7" data-image-category="7") Услуги
+							option(value="10" data-image-category="10") Путешествие
 					.container-select.select-emul-wrapper
 						.select-emul
 							.select-emul__text Выберите подарок
 							.select-emul__arrow
 						.select-emul-dropdown.scrollbar-rail
 							.dropdown-item
-								img(src="img/icons/dropdown-1.png" data-value="icon-1")
-							.dropdown-item
-								img(src="img/icons/dropdown-2.png" data-value="icon-2")
-							.dropdown-item
-								img(src="img/icons/dropdown-3.png" data-value="icon-3")
-							.dropdown-item
-								img(src="img/icons/dropdown-4.png" data-value="icon-4")
-							.dropdown-item
-								img(src="img/icons/dropdown-5.png" data-value="icon-5")
-							.dropdown-item
-								img(src="img/icons/dropdown-6.png" data-value="icon-6")
-							.dropdown-item
-								img(src="img/icons/dropdown-7.png" data-value="icon-7")
-							.dropdown-item
-								img(src="img/icons/dropdown-8.png" data-value="icon-8")
-							.dropdown-item
-								img(src="img/icons/dropdown-9.png" data-value="icon-9")
-							.dropdown-item
-								img(src="img/icons/dropdown-10.png" data-value="icon-10")
-							.dropdown-item
-								img(src="img/icons/dropdown-11.png" data-value="icon-11")
-							.dropdown-item
-								img(src="img/icons/dropdown-12.png" data-value="icon-12")
-							.dropdown-item
-								img(src="img/icons/dropdown-1.png" data-value="icon-1")
-							.dropdown-item
-								img(src="img/icons/dropdown-2.png" data-value="icon-2")
-							.dropdown-item
-								img(src="img/icons/dropdown-3.png" data-value="icon-3")
-							.dropdown-item
-								img(src="img/icons/dropdown-4.png" data-value="icon-4")
-							.dropdown-item
-								img(src="img/icons/dropdown-5.png" data-value="icon-5")
-							.dropdown-item
-								img(src="img/icons/dropdown-6.png" data-value="icon-6")
+								img(src="")
 
 				.campaign-spec-container
 					.campaign-input

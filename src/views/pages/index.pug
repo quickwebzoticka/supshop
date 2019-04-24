@@ -200,44 +200,44 @@ block contain
 						label.form-input
 							.form-input__descr
 								| Название компании (не более 20 символов)
-							input(type="text" maxlength="20" data-org-name)
+							input(type="text" maxlength="20" data-org-name data-required)
 						label.form-input
 							.form-input__descr
 								| Полное наименование компании (ООО, ИП...)
-							input(type="text" data-org-type)
+							input(type="text" data-org-type data-required)
 						label.form-input
 							.form-input__descr
 								| ИНН
-							input(type="text" data-org-inn)
+							input(type="text" data-org-inn data-required)
 						label.form-input
 							.form-input__descr
 								| ОГРН
-							input(type="text" data-org-ogrn)
+							input(type="text" data-org-ogrn data-required)
 						label.form-input
 							.form-input__descr
 								| Юридический адрес
-							input(type="text" data-org-address)
+							input(type="text" data-org-address data-required)
 					.block-form-column
 						label.form-input
 							.form-input__descr
 								| Логин
-							input(type="text" max="20" data-org-login)
+							input(type="text" max="20" data-org-login data-required)
 						label.form-input
 							.form-input__descr
 								| Пароль
-							input(type="password" data-org-password)
+							input(type="password" data-org-password data-required)
 						label.form-input
 							.form-input__descr
 								| Телефон
-							input(type="text" data-org-phone)
+							input(type="text" data-org-phone data-required)
 						label.form-input
 							.form-input__descr
 								| E-mail
-							input(type="text" data-org-email)
+							input(type="text" data-org-email data-required)
 						label.form-input.form-input_wide.form-input_wide--right-side
 							.form-input__descr
 								| Адрес выдачи подарков
-							input(type="text" data-org-address-city placeholder="Укажите город")
+							input(type="text" data-org-address-city placeholder="Укажите город" data-required)
 							.glass-icon
 								<svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M5.5 11C2.5 11 0 8.5 0 5.5C0 2.5 2.5 0 5.5 0C8.5 0 11 2.5 11 5.5C11 8.5 8.5 11 5.5 11ZM5.5 1C3 1 1 3 1 5.5C1 8 3 10 5.5 10C8 10 10 8 10 5.5C10 3 8 1 5.5 1Z" fill="#316193"/>
@@ -246,7 +246,7 @@ block contain
 						label.form-input.form-input_wide.form-input_wide--right-side
 							.form-input__descr
 								| Адрес выдачи подарков
-							input(type="text" data-org-address-addr placeholder="Укажите адрес")
+							input(type="text" data-org-address-addr placeholder="Укажите адрес" data-required)
 							.glass-icon
 								<svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M5.5 11C2.5 11 0 8.5 0 5.5C0 2.5 2.5 0 5.5 0C8.5 0 11 2.5 11 5.5C11 8.5 8.5 11 5.5 11ZM5.5 1C3 1 1 3 1 5.5C1 8 3 10 5.5 10C8 10 10 8 10 5.5C10 3 8 1 5.5 1Z" fill="#316193"/>
