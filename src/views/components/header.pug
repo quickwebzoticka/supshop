@@ -1,27 +1,66 @@
 header.header
-	.container
-		.header-container
-			.header-item
-				a.header-logo(href="index.html")
-					img(src="img/logo.svg", alt="logo")
-			.header-item
-				a.header-link.active(href="index.html#campaings") Мои кампании
-				a.header-link(href="index.html#statistic") Статистика
-				a.header-link.no-mr(href="index.html#payment") Пополнить баланс
-			.header-item
-				.balance
-					img.icon(src="img/cash-icon.svg")
-					.balance-text Баланс <span>100500</span>
-				.header-menu-container
-					.header-avatar
-						img(src="img/avatar.svg")
-					.header-arrow
-						<svg width="11" height="6" viewBox="0 0 11 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M5.50009 5.18254C4.99259 5.18254 4.55759 4.96504 4.19509 4.67504L0.860093 1.34003C0.715093 1.19503 0.715093 0.977535 0.860093 0.832535C1.00509 0.687535 1.22259 0.687535 1.36759 0.832535L4.70259 4.16754C5.13759 4.60254 5.79009 4.60254 6.22509 4.16754L9.56009 0.832535C9.70509 0.687535 9.92259 0.687535 10.0676 0.832535C10.2126 0.977535 10.2126 1.19503 10.0676 1.34003L6.73259 4.67504C6.44259 4.96504 6.00759 5.18254 5.50009 5.18254Z" fill="#F3F6FF"/>
-						</svg>
-						.header-menu
-							a.header-menu__link(href="edit.html") Редактировать
-							.line-grey
-							a.header-menu__link(href="faq.html") Помощь
-							.line-grey
-							a.header-menu__link(href="#") Выйти
+    .header-top
+        .header-container
+            .header-top-item.select_city
+                select.select
+                    option(value="Санкт-Петербург") Санкт-Петербург
+                    option(value="Москва") Москва
+                    option(value="Лондон") Лондон
+                    option(value="Париж") Париж
+            .header-top-item
+                a.header-tel(href="#") 8 800 555-35-37
+                a.header-callback(href="#") Перезвоните мне
+            .header-top-item
+                .nested-ul
+                    .nested-ul-head
+                        .nested-ul-head__text Для покупателей
+                        .nested-ul-head__arrow
+                    .nested-ul-inner
+                        a.nested-ul-inner__item(href="#") link
+                        a.nested-ul-inner__item(href="#") link
+                        a.nested-ul-inner__item(href="#") link
+                        a.nested-ul-inner__item(href="#") link
+            .header-top-item.header-top-item--last
+                form.search-bar
+                    input(type="text" placeholder="Поиск по каталогу").search-input
+                    label.search-button
+                        input(type="submit")
+                        img(src="img/icons/zoom.svg")
+    .header-bottom
+        .header-container
+            .header-bottom-item
+                .header-logo
+                    img(src="img/logo.png", alt="supshop")
+            .header-bottom-item.header-bottom-ul
+                a.header-bottom-ul__li(href="#") Доски
+                a.header-bottom-ul__li(href="#") Весла
+                a.header-bottom-ul__li(href="#") Паруса
+                a.header-bottom-ul__li(href="#") Акссесуары
+                a.header-bottom-ul__li(href="#") Одежда
+                a.header-bottom-ul__li(href="#") Гидрофойлы
+                .header-bottom-ul__li
+                    .nested-ul.nested-ul--blue
+                        .nested-ul-head
+                            .nested-ul-head__text Распродажа
+                            .nested-ul-head__arrow
+                        .nested-ul-inner
+                            a.nested-ul-inner__item(href="#") link
+                            a.nested-ul-inner__item(href="#") link
+                            a.nested-ul-inner__item(href="#") link
+                            a.nested-ul-inner__item(href="#") link
+
+            .header-bottom-item.header-bottom-item--last
+                .btn-gradient
+                    a.header-bottom-btn(href="#")
+                        p Пройти тест на выбор доски
+                a.header-functional(href="#")
+                    .header-functional__text лк
+                    img.header-functional__img(src="img/icons/lk.png")
+                div.header-functional
+                    a.header-functional__liked(href="#")
+                        img(src="img/icons/liked.svg")
+                    a.header-functional(href="#")
+                        .header-functional__text 12
+                        img.header-functional__img(src="img/icons/cart.png")
+                    
+

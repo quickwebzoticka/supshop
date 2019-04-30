@@ -6,293 +6,387 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="shortcut icon" href="img/logo.svg">
     <link rel="stylesheet" href="styles/main.css">
-    <title>GetLucky Buisness</title>
+    <title>SUPSHOP | main</title>
   </head>
-  <body class="scrollbar-rail" style="overflow: hidden">
+  <body class="scrollbar-rail">
     <div class="wrapper">
       <header class="header">
-        <div class="container">
+        <div class="header-top">
           <div class="header-container">
-            <div class="header-item"><a class="header-logo" href="index.html"><img src="img/logo.svg" alt="logo"></a></div>
-            <div class="header-item"><a class="header-link active" href="index.html#campaings">Мои кампании</a><a class="header-link" href="index.html#statistic">Статистика</a><a class="header-link no-mr" href="index.html#payment">Пополнить баланс</a></div>
-            <div class="header-item">
-              <div class="balance"><img class="icon" src="img/cash-icon.svg">
-                <div class="balance-text">Баланс <span>100500</span></div>
+            <div class="header-top-item select_city">
+              <select class="select">
+                <option value="Санкт-Петербург">Санкт-Петербург</option>
+                <option value="Москва">Москва</option>
+                <option value="Лондон">Лондон</option>
+                <option value="Париж">Париж</option>
+              </select>
+            </div>
+            <div class="header-top-item"><a class="header-tel" href="#">8 800 555-35-37</a><a class="header-callback" href="#">Перезвоните мне</a></div>
+            <div class="header-top-item">
+              <div class="nested-ul">
+                <div class="nested-ul-head">
+                  <div class="nested-ul-head__text">Для покупателей</div>
+                  <div class="nested-ul-head__arrow"></div>
+                </div>
+                <div class="nested-ul-inner"><a class="nested-ul-inner__item" href="#">link</a><a class="nested-ul-inner__item" href="#">link</a><a class="nested-ul-inner__item" href="#">link</a><a class="nested-ul-inner__item" href="#">link</a></div>
               </div>
-              <div class="header-menu-container">
-                <div class="header-avatar"><img src="img/avatar.svg"></div>
-                <div class="header-arrow"><svg width="11" height="6" viewBox="0 0 11 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M5.50009 5.18254C4.99259 5.18254 4.55759 4.96504 4.19509 4.67504L0.860093 1.34003C0.715093 1.19503 0.715093 0.977535 0.860093 0.832535C1.00509 0.687535 1.22259 0.687535 1.36759 0.832535L4.70259 4.16754C5.13759 4.60254 5.79009 4.60254 6.22509 4.16754L9.56009 0.832535C9.70509 0.687535 9.92259 0.687535 10.0676 0.832535C10.2126 0.977535 10.2126 1.19503 10.0676 1.34003L6.73259 4.67504C6.44259 4.96504 6.00759 5.18254 5.50009 5.18254Z" fill="#F3F6FF"/>
-</svg>
-                  <div class="header-menu"><a class="header-menu__link" href="edit.html">Редактировать</a>
-                    <div class="line-grey"></div><a class="header-menu__link" href="faq.html">Помощь</a>
-                    <div class="line-grey"></div><a class="header-menu__link" href="#">Выйти</a>
+            </div>
+            <div class="header-top-item header-top-item--last">
+              <form class="search-bar">
+                <input class="search-input" type="text" placeholder="Поиск по каталогу">
+                <label class="search-button">
+                  <input type="submit"><img src="img/icons/zoom.svg">
+                </label>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="header-bottom">
+          <div class="header-container">
+            <div class="header-bottom-item">
+              <div class="header-logo"><img src="img/logo.png" alt="supshop"></div>
+            </div>
+            <div class="header-bottom-item header-bottom-ul"><a class="header-bottom-ul__li" href="#">Доски</a><a class="header-bottom-ul__li" href="#">Весла</a><a class="header-bottom-ul__li" href="#">Паруса</a><a class="header-bottom-ul__li" href="#">Акссесуары</a><a class="header-bottom-ul__li" href="#">Одежда</a><a class="header-bottom-ul__li" href="#">Гидрофойлы</a>
+              <div class="header-bottom-ul__li">
+                <div class="nested-ul nested-ul--blue">
+                  <div class="nested-ul-head">
+                    <div class="nested-ul-head__text">Распродажа</div>
+                    <div class="nested-ul-head__arrow"></div>
+                  </div>
+                  <div class="nested-ul-inner"><a class="nested-ul-inner__item" href="#">link</a><a class="nested-ul-inner__item" href="#">link</a><a class="nested-ul-inner__item" href="#">link</a><a class="nested-ul-inner__item" href="#">link</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="header-bottom-item header-bottom-item--last">
+              <div class="btn-gradient"><a class="header-bottom-btn" href="#">
+                  <p>Пройти тест на выбор доски</p></a></div><a class="header-functional" href="#">
+                <div class="header-functional__text">лк</div><img class="header-functional__img" src="img/icons/lk.png"></a>
+              <div class="header-functional"><a class="header-functional__liked" href="#"><img src="img/icons/liked.svg"></a><a class="header-functional" href="#">
+                  <div class="header-functional__text">12</div><img class="header-functional__img" src="img/icons/cart.png"></a></div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="header-container">
+        <div class="brands"></div>
+      </div>
+      <div class="first-slider">
+        <div class="slide"><img src="img/slide-1.png" alt="гидрофойлы"></div>
+      </div>
+      <div class="container">
+        <div class="block content-header">
+          <div class="content-row align-start">
+            <div class="content-side">
+              <h1>
+                 первый
+                специализированный
+                сапсерф магазин
+              </h1>
+            </div>
+            <div class="content-side flex-end">
+              <div class="call-to-active">
+                <div class="call-to-active-item">
+                  <div class="call-to-active-item__text">Покупай сейчас плати потом</div>
+                  <div class="call-to-active-item__img"><img src="img/icons/check.png"></div>
+                </div>
+                <div class="call-to-active-item">
+                  <div class="call-to-active-item__text">бесплатная доставка по россии</div>
+                  <div class="call-to-active-item__img"><img src="img/icons/check.png"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="content-row">
+            <div class="content-side">
+              <div class="text">Высокий стандарт качества, внимание к деталям и любовь к нашему делу<br> являются особенностями нашей студии. </div>
+            </div>
+            <div class="content-side flex-end"><a class="btn-blue" href="#">Перейти в каталог</a></div>
+          </div>
+        </div>
+        <div class="block cards">
+          <div class="card" style="background: url(img/card-1.png) no-repeat center center">
+            <div class="card-head head-bold">guide</div>
+            <div class="card-text text-bold">Гид по выбору надувной доски в 2019</div><a class="card-btn btn-blue" href="#">Подробнее</a>
+          </div>
+          <div class="card" style="background: url(img/card-2.png) no-repeat center center">
+            <div class="card-head head-bold">accessories</div>
+            <div class="card-text text-bold">Что нужно сапсерферу? Топ 10 аксессуаров</div><a class="card-btn btn-blue" href="#">Подробнее</a>
+          </div>
+          <div class="card" style="background: url(img/card-3.png) no-repeat center center">
+            <div class="card-head head-bold">GLADIATOR SUP</div>
+            <div class="card-text text-bold">Доски высокого качества по низкой цене</div><a class="card-btn btn-blue" href="#">Подробнее</a>
+          </div>
+          <div class="card" style="background: url(img/card-4.png) no-repeat center center">
+            <div class="card-head head-bold">SUP SHOP</div>
+            <div class="card-text text-bold">Вступай в сообщество SUP SHOP, узнай все про преимущества</div><a class="card-btn btn-blue" href="#">Подробнее</a>
+          </div>
+        </div>
+        <div class="block popular">
+          <div class="content-row">
+            <div class="content-side">
+              <h2>Популярное</h2>
+            </div>
+            <div class="content-side flex-end"><a class="link-redirect" href="#">
+                 Смотреть страницу
+                <div class="link-redirect__arrow"></div></a></div>
+          </div>
+          <div class="popular-items">
+            <div class="popular-item">
+              <div class="popular-item-img">
+                <div class="popular-item-img__like"><img src="img/icons/like.png"></div><img src="img/popular-item-1.png" alt="">
+              </div>
+              <div class="popular-item-descr">
+                <div class="popular-item-descr__name">GLADIATOR RT 11’00 </div>
+                <div class="popular-item-descr-text">
+                  <div class="text">Supboard надувной с веслом</div>
+                  <div class="popular-item-descr__cost">23 500 р</div>
+                </div>
+                <div class="popular-item-descr-stars">
+                  <div class="popular-item-descr-star"><img src="img/icons/star.png"></div>
+                  <div class="popular-item-descr-star"><img src="img/icons/star.png"></div>
+                  <div class="popular-item-descr-star"><img src="img/icons/star.png"></div>
+                  <div class="popular-item-descr-star"><img src="img/icons/star.png"></div>
+                  <div class="popular-item-descr-star"><img src="img/icons/star.png"></div>
+                </div>
+              </div>
+            </div>
+            <div class="popular-item">
+              <div class="popular-item-img">
+                <div class="popular-item-img__like"><img src="img/icons/like.png"></div><img src="img/popular-item-2.png" alt="">
+              </div>
+              <div class="popular-item-descr">
+                <div class="popular-item-descr__name">raptor 10</div>
+                <div class="popular-item-descr-text">
+                  <div class="text">Supboard надувной с веслом</div>
+                  <div class="popular-item-descr__cost">23 500 р</div>
+                </div>
+                <div class="popular-item-descr-stars">
+                  <div class="popular-item-descr-star"><img src="img/icons/star.png"></div>
+                  <div class="popular-item-descr-star"><img src="img/icons/star.png"></div>
+                  <div class="popular-item-descr-star"><img src="img/icons/star.png"></div>
+                  <div class="popular-item-descr-star"><img src="img/icons/star.png"></div>
+                  <div class="popular-item-descr-star"><img src="img/icons/star.png"></div>
+                </div>
+              </div>
+            </div>
+            <div class="popular-item">
+              <div class="popular-item-img">
+                <div class="popular-item-img__like"><img src="img/icons/like.png"></div><img src="img/popular-item-3.png" alt="">
+              </div>
+              <div class="popular-item-descr">
+                <div class="popular-item-descr__name">memfis 11’00 </div>
+                <div class="popular-item-descr-text">
+                  <div class="text">Supboard надувной с веслом</div>
+                  <div class="popular-item-descr__cost">23 500 р</div>
+                </div>
+                <div class="popular-item-descr-stars">
+                  <div class="popular-item-descr-star"><img src="img/icons/star.png"></div>
+                  <div class="popular-item-descr-star"><img src="img/icons/star.png"></div>
+                  <div class="popular-item-descr-star"><img src="img/icons/star.png"></div>
+                  <div class="popular-item-descr-star"><img src="img/icons/star.png"></div>
+                  <div class="popular-item-descr-star"><img src="img/icons/star.png"></div>
+                </div>
+              </div>
+            </div>
+            <div class="popular-item">
+              <div class="popular-item-img">
+                <div class="popular-item-img__like"><img src="img/icons/like.png"></div><img src="img/popular-item-4.png" alt="">
+              </div>
+              <div class="popular-item-descr">
+                <div class="popular-item-descr__name">GLADIATOR RT 10’00 </div>
+                <div class="popular-item-descr-text">
+                  <div class="text">Supboard надувной с веслом</div>
+                  <div class="popular-item-descr__cost">23 500 р</div>
+                </div>
+                <div class="popular-item-descr-stars">
+                  <div class="popular-item-descr-star"><img src="img/icons/star.png"></div>
+                  <div class="popular-item-descr-star"><img src="img/icons/star.png"></div>
+                  <div class="popular-item-descr-star"><img src="img/icons/star.png"></div>
+                  <div class="popular-item-descr-star"><img src="img/icons/star.png"></div>
+                  <div class="popular-item-descr-star"><img src="img/icons/star.png"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block block_black">
+        <div class="black-item">
+          <div class="black-item__img"><img src="img/icons/icon-1.svg" alt=""></div>
+          <div class="black-item__text">Бесплатная доставка до дверей вашей квартиры</div>
+        </div>
+        <div class="black-item">
+          <div class="black-item__img"><img src="img/icons/icon-2.svg" alt=""></div>
+          <div class="black-item__text">Беспроцентная рассрочка на любой вид товара</div>
+        </div>
+        <div class="black-item">
+          <div class="black-item__img"><img src="img/icons/icon-3.svg" alt=""></div>
+          <div class="black-item__text">Профессиональная помощь и бесплатная консультация</div>
+        </div>
+        <div class="black-item">
+          <div class="black-item__img"><img src="img/icons/icon-4.svg" alt=""></div>
+          <div class="black-item__text">Фирменный ремонт и лояльный сервис для клиентов</div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="block news">
+          <div class="content-row">
+            <div class="content-side">
+              <h2>Статьи и обзоры</h2>
+            </div>
+            <div class="content-side flex-end"><a class="link-redirect" href="#">
+                 Смотреть страницу
+                <div class="link-redirect__arrow"></div></a></div>
+          </div>
+          <div class="news-content">
+            <div class="content-row">
+              <div class="news-item">
+                <div class="news-item__img"><img src="img/news-1.png" alt=""></div>
+                <div class="news-item-descr">
+                  <div class="news-item-descr__name">Заголовок статьи</div>
+                  <div class="news-item-descr__text text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa...</div>
+                  <div class="news-item-descr-bottom"><a class="link-detail" href="#">Подробнее</a>
+                    <div class="date">01.05.19</div>
+                  </div>
+                </div>
+              </div>
+              <div class="news-item">
+                <div class="news-item__img"><img src="img/news-2.png" alt=""></div>
+                <div class="news-item-descr">
+                  <div class="news-item-descr__name">Заголовок статьи</div>
+                  <div class="news-item-descr__text text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa...</div>
+                  <div class="news-item-descr-bottom"><a class="link-detail" href="#">Подробнее</a>
+                    <div class="date">01.05.19</div>
+                  </div>
+                </div>
+              </div>
+              <div class="news-item">
+                <div class="news-item__img"><img src="img/news-3.png" alt=""></div>
+                <div class="news-item-descr">
+                  <div class="news-item-descr__name">Заголовок статьи</div>
+                  <div class="news-item-descr__text text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa...</div>
+                  <div class="news-item-descr-bottom"><a class="link-detail" href="#">Подробнее</a>
+                    <div class="date">01.05.19</div>
+                  </div>
+                </div>
+              </div>
+              <div class="news-item">
+                <div class="news-item__img"><img src="img/news-4.png" alt=""></div>
+                <div class="news-item-descr">
+                  <div class="news-item-descr__name">Заголовок статьи</div>
+                  <div class="news-item-descr__text text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa...</div>
+                  <div class="news-item-descr-bottom"><a class="link-detail" href="#">Подробнее</a>
+                    <div class="date">01.05.19</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </header>
-      <div class="block">
-        <div class="main-block campaings" id="campaings">
-          <div class="main-block-head">Мои кампании</div>
-          <div class="main-block-nav"><a class="header-link main-block-nav__link active" href="#" data-tabs-link>Активные</a><a class="header-link main-block-nav__link" href="#" data-tabs-link>На модерации</a><a class="header-link main-block-nav__link" href="#" data-tabs-link>Завершенные</a></div>
-          <div class="main-block-content campaings-inn main-block-tabs-item active" data-giftsbackpack-active>
-            <div class="campaings-inn campaings-inn-content scrollbar-rail">
-              <div class="campaings-inn-row"><a class="header-link campaings-btn-add" href="campaign.html"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_f)">
-<circle cx="24" cy="24" r="18" fill="#0076FF"/>
-</g>
-<circle cx="24" cy="24" r="18" fill="#0092FF"/>
-<g clip-path="url(#clip0)">
-<path d="M24 16.2857C23.1754 16.2857 22.5069 16.9541 22.5069 17.7787V22.5069H17.7788C16.9542 22.5069 16.2857 23.1753 16.2857 23.9999C16.2857 24.8245 16.9542 25.493 17.7788 25.493H22.5069V30.2212C22.5069 31.0458 23.1754 31.7142 24 31.7142C24.8246 31.7142 25.4931 31.0458 25.4931 30.2212V25.493H30.2212C31.0458 25.493 31.7143 24.8245 31.7143 23.9999C31.7143 23.1753 31.0458 22.5069 30.2212 22.5069H25.4931V17.7787C25.4931 16.9541 24.8246 16.2857 24 16.2857Z" fill="white"/>
-</g>
-<defs>
-<filter id="filter0_f" x="0" y="0" width="48" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feGaussianBlur stdDeviation="3" result="effect1_foregroundBlur"/>
-</filter>
-<clipPath id="clip0">
-<rect width="15.4286" height="15.4286" fill="white" transform="translate(16.2857 16.2857)"/>
-</clipPath>
-</defs>
-</svg>
-                  <div class="campaings-btn-add__text">Создать новую кампанию</div></a></div>
-              <div class="campaings-inn-row campaings-item">
-                <div class="campaings-item-img"><img src="img/coffee.png"></div>
-                <div class="campaings-item-info">
-                  <div class="campaings-item-info__name">Кофе</div>
-                  <div class="campaings-item-info__period">25.01.2019 – 26.01.2019</div>
-                  <div class="campaings-item-info__count">25 ед.</div>
-                </div>
-                <div class="campaings-item-btns"><a class="campaings-item-btn" href="#">Изменить</a><a class="campaings-item-btn" href="#">Остановить</a></div>
-              </div>
+      </div>
+      <div class="container">
+        <div class="block about">
+          <div class="content-row">
+            <div class="content-side">
+              <h2>о сапсерфинге</h2>
             </div>
           </div>
-          <div class="main-block-content campaings-inn main-block-tabs-item" data-giftsbackpack-moderating>
-            <div class="campaings-inn campaings-inn-content scrollbar-rail"></div>
-          </div>
-          <div class="main-block-content campaings-inn main-block-tabs-item" data-giftsbackpack-finished>
-            <div class="campaings-inn campaings-inn-content scrollbar-rail"></div>
-          </div>
-        </div>
-        <div class="main-block" id="statistic">
-          <div class="main-block-head main-block-head_with-p">Статистика</div>
-          <div class="main-block-bar">
-            <div class="date-pick">
-              <div class="date-pick-period">С
-                <div class="date-pick-period__link--wrapper">
-                  <input class="date-pick-period__link" type="text" data-datepicker placeholder="04.01.2019" data-date-start><svg width="8" height="4" viewBox="0 0 8 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.24512 0.777657C1.33883 0.777598 1.42984 0.808089 1.50359 0.864249L4.41241 3.07413L7.32124 0.864316C7.40899 0.797654 7.5204 0.767585 7.63098 0.780724C7.74155 0.793863 7.84222 0.849133 7.91084 0.934376C7.97946 1.01962 8.01042 1.12785 7.99689 1.23527C7.98337 1.34268 7.92647 1.44047 7.83872 1.50713L4.67115 3.91344C4.59726 3.96953 4.50618 4 4.41241 4C4.31863 4 4.22755 3.96953 4.15367 3.91344L0.986108 1.50707C0.917215 1.45474 0.866855 1.38282 0.842057 1.30135C0.817258 1.21988 0.819257 1.13293 0.847774 1.05262C0.876291 0.972304 0.929904 0.902642 1.00113 0.853351C1.07236 0.80406 1.15765 0.777599 1.24511 0.777657L1.24512 0.777657Z" fill="#0092FF"/>
-</svg>
-                </div>
-              </div>
-              <div class="date-pick-period">До
-                <div class="date-pick-period__link--wrapper">
-                  <input class="date-pick-period__link" type="text" data-datepicker placeholder="04.02.2019" data-date-end><svg width="8" height="4" viewBox="0 0 8 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.24512 0.777657C1.33883 0.777598 1.42984 0.808089 1.50359 0.864249L4.41241 3.07413L7.32124 0.864316C7.40899 0.797654 7.5204 0.767585 7.63098 0.780724C7.74155 0.793863 7.84222 0.849133 7.91084 0.934376C7.97946 1.01962 8.01042 1.12785 7.99689 1.23527C7.98337 1.34268 7.92647 1.44047 7.83872 1.50713L4.67115 3.91344C4.59726 3.96953 4.50618 4 4.41241 4C4.31863 4 4.22755 3.96953 4.15367 3.91344L0.986108 1.50707C0.917215 1.45474 0.866855 1.38282 0.842057 1.30135C0.817258 1.21988 0.819257 1.13293 0.847774 1.05262C0.876291 0.972304 0.929904 0.902642 1.00113 0.853351C1.07236 0.80406 1.15765 0.777599 1.24511 0.777657L1.24512 0.777657Z" fill="#0092FF"/>
-</svg>
-                </div>
-              </div>
-            </div><a class="pdf" href="#"><svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M3.52801 4.41381L0.528011 4.39083L4.63201 0.367837L4.60801 3.35634C4.58401 3.95404 4.10401 4.41381 3.52801 4.41381ZM12.384 13.4253C13.296 13.4943 14.376 13.7242 14.664 14.3678C14.76 14.5747 14.832 14.9196 14.544 15.3793C14.424 15.5632 14.256 15.6552 14.04 15.6552C13.872 15.6552 13.344 15.6552 12.048 14.115C11.928 14.115 11.784 14.115 11.664 14.115C11.496 14.115 11.4 14.115 11.352 14.138C9.91201 14.3219 8.28001 14.8276 6.88801 15.5173C6.79201 15.6782 6.72001 15.8391 6.62401 15.977C6.60001 16.023 6.55201 16.092 6.50401 16.1609C5.73601 17.4483 4.89601 18.6207 4.15201 18.6207C3.98401 18.6207 3.76801 18.5747 3.57601 18.3219C3.40801 18.115 3.36001 17.8621 3.38401 17.6092C3.50401 16.8966 4.34401 16.2529 5.08801 15.7701L5.11201 15.7471C5.49601 15.4943 5.92801 15.2414 6.36001 15.0115C6.96001 13.7931 7.48801 12.069 7.89601 10.5288H7.68001C6.67201 10.5288 5.85601 9.74715 5.85601 8.78163V3.47129C5.85601 2.50577 6.67201 1.72416 7.68001 1.72416H16.656C16.656 1.58623 16.656 1.51726 16.656 1.51726C16.656 0.873584 16.08 0.344849 15.384 0.344849H5.32801L5.30401 3.35634C5.30401 4.32186 4.48801 5.10347 3.50401 5.10347H0.480011V18.2989C0.480011 18.9425 1.05601 19.4713 1.75201 19.4713H16.632C16.656 18.8736 16.656 14.6437 16.68 10.4598H10.344C10.968 11.4943 11.688 12.5517 12.384 13.4253ZM9.55201 10.4368H8.64001C8.30401 11.8161 7.87201 13.2644 7.36801 14.4598L7.44001 14.4368L7.41601 14.4828C8.66401 13.954 10.032 13.5862 11.28 13.4023C11.328 13.4023 11.4 13.3793 11.472 13.3793L11.448 13.3334H11.472C10.8 12.4828 10.152 11.4483 9.55201 10.4368ZM14.088 14.6667C14.016 14.5058 13.68 14.3219 13.104 14.2069C13.608 14.7357 13.92 14.9196 14.04 14.9425C14.088 14.8276 14.112 14.7357 14.088 14.6667ZM14.064 14.9425V15.2874V14.9425ZM4.10401 17.6552C4.10401 17.7242 4.10401 17.7701 4.15201 17.8391C4.17601 17.8851 4.20001 17.8851 4.20001 17.8851C4.36801 17.8851 4.77601 17.6552 5.73601 16.1379C5.66401 16.1839 5.59201 16.2299 5.54401 16.2759L5.52001 16.2989C4.63201 16.8506 4.15201 17.3334 4.10401 17.6552ZM15.264 5.01151H14.976V6.94255H15.264C15.504 6.94255 15.672 6.91956 15.768 6.87358C15.864 6.82761 15.96 6.73565 16.008 6.59772C16.056 6.45979 16.104 6.27588 16.104 5.97703C16.104 5.60922 16.032 5.33335 15.912 5.19542C15.792 5.08048 15.576 5.01151 15.264 5.01151ZM11.568 4.94255H11.232V5.72416H11.52C11.736 5.72416 11.904 5.67818 11.976 5.60922C12.072 5.54025 12.12 5.4483 12.12 5.33335C12.12 5.21841 12.072 5.12646 12 5.05749C11.928 4.96554 11.784 4.94255 11.568 4.94255ZM23.52 3.65519V8.52876C23.52 9.17243 22.968 9.70117 22.296 9.70117H7.92001C7.24801 9.70117 6.69601 9.17243 6.69601 8.52876V3.65519C6.69601 3.01152 7.24801 2.48278 7.92001 2.48278H22.32C22.992 2.48278 23.52 3.01152 23.52 3.65519ZM13.224 5.31037C13.224 4.96554 13.128 4.68968 12.912 4.50577C12.696 4.32186 12.384 4.22991 11.976 4.22991H10.08V7.77014H11.232V6.4368H11.856C12.312 6.4368 12.672 6.34485 12.888 6.13795C13.104 5.93106 13.224 5.65519 13.224 5.31037ZM17.256 5.97703C17.256 5.72416 17.232 5.49427 17.16 5.28738C17.088 5.08048 16.992 4.87358 16.872 4.71266C16.728 4.55174 16.56 4.41381 16.368 4.34485C16.152 4.25289 15.888 4.20692 15.552 4.20692H13.848V7.74715H15.552C15.744 7.74715 15.984 7.72416 16.224 7.65519C16.416 7.60922 16.584 7.51726 16.728 7.37933C16.896 7.2414 17.016 7.05749 17.112 6.85059C17.208 6.6437 17.256 6.34485 17.256 5.97703ZM20.688 4.20692H17.856V7.74715H19.008V6.29887H20.448V5.58623H19.008V4.96554H20.688V4.20692Z" fill="#316193"/>
-</svg>
-              <div class="header-link header-link_with-td">Сохранить PDF</div></a>
-          </div>
-          <div class="main-block-content main-block-content_p">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Название</th>
-                  <th>Конверсия</th>
-                  <th>Тип кампании</th>
-                  <th>Дата проведения кампании</th>
-                  <th>Потрачено рублей</th>
-                  <th>Выложено подарков</th>
-                  <th>Собрано подарков</th>
-                  <th>Роздано подарков</th>
-                  <th>Стоимость сбора</th>
-                  <th>Стоимость посетителя</th>
-                </tr>
-              </thead>
-              <tbody class="table-statistic">
-                <tr class="row-template">
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="main-block" id="payment">
-          <div class="main-block-nav main-block-nav_mb"><a class="header-link main-block-nav__link active" href="#" data-tabs-link>Пополнить баланс</a><a class="header-link main-block-nav__link" href="#" data-tabs-link>История платежей</a></div>
-          <div class="main-block-tabs">
-            <div class="main-block-tabs-item active">
-              <div class="main-block-bar main-block-bar_center">
-                <div class="main-block-bar-item">На вашем сету 100500 рублей</div>
-              </div>
-              <div class="main-block-content main-block-content_payment">
-                <label class="input-text">
-                  <div class="placeholder">Сумма</div>
-                  <input type="text">
-                </label>
-                <div class="payment-methods-container">
-                  <div class="payment-methods-head">Метод оплаты</div>
-                  <div class="payment-methods"><a class="payment-methods-item" href="#"><img src="img/method-1.png" alt="visa"></a><a class="payment-methods-item" href="#"><img src="img/method-2.png" alt="mastercard"></a><a class="payment-methods-item" href="#"><img src="img/method-3.png" alt="webmoney"></a><a class="payment-methods-item" href="#"><img src="img/method-4.png" alt="qiwi"></a><a class="payment-methods-item" href="#"><img src="img/method-5.png" alt="yandex"></a><a class="payment-methods-item" href="#"><img src="img/method-6.png" alt="bitcoin"></a><a class="payment-methods-item" href="#"><img src="img/method-7.png" alt="paypal"></a></div>
-                </div>
+          <div class="surf-icon"><img src="img/icons/surf.png" alt=""></div>
+          <div class="about-content">
+            <div class="about-content-side left-sided">
+              <div class="text-bold">
+                 Коротко<br>
+                о нашем магазине
               </div>
             </div>
-            <div class="main-block-tabs-item">
-              <div class="main-block-bar main-block-bar_sb">
-                <div class="main-block-bar-item"><a class="header-link" href="#">Дата заполнения</a></div>
-                <div class="main-block-bar-item"><a class="header-link" href="#">Cумма</a></div>
-                <div class="main-block-bar-item"><a class="header-link" href="#">Метод оплаты</a></div>
-              </div>
-              <div class="main-block-content payment-history-wrapper">
-                <div class="payment-history">
-                  <div class="payment-history-item">06-02-2019</div>
-                  <div class="payment-history-item">100 500</div>
-                  <div class="payment-history-item"><img src="img/method-1.png" alt="visa"></div>
-                </div>
-                <div class="payment-history">
-                  <div class="payment-history-item">10-12-2018</div>
-                  <div class="payment-history-item">1 337</div>
-                  <div class="payment-history-item"><img src="img/method-2.png" alt="mastercard"></div>
-                </div>
-                <div class="payment-history">
-                  <div class="payment-history-item">10-12-2018</div>
-                  <div class="payment-history-item">1 488</div>
-                  <div class="payment-history-item"><img src="img/method-2.png" alt="mastercard"></div>
-                </div>
-                <div class="payment-history">
-                  <div class="payment-history-item">10-12-2018</div>
-                  <div class="payment-history-item">1 488</div>
-                  <div class="payment-history-item"><img src="img/method-2.png" alt="mastercard"></div>
-                </div>
-                <div class="payment-history">
-                  <div class="payment-history-item">10-12-2018</div>
-                  <div class="payment-history-item">1 488</div>
-                  <div class="payment-history-item"><img src="img/method-2.png" alt="mastercard"></div>
-                </div>
-                <div class="payment-history">
-                  <div class="payment-history-item">10-12-2018</div>
-                  <div class="payment-history-item">1 488 500</div>
-                  <div class="payment-history-item"><img src="img/method-2.png" alt="mastercard"></div>
-                </div>
-              </div>
+            <div class="about-content-side">
+              <div class="about-content-head">Lorem ipsum dolor consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis penatibus et magnis</div>
+              <div class="about-content-text text">
+                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                <br><br>
+                In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
+              </div><a class="about-content-btn" href="#">смотреть магазин</a>
             </div>
           </div>
         </div>
       </div>
-      <form class="main-block registration active">
-        <div class="main-block-head registration-head">Регистрация бизнес-профиля</div>
-        <div class="main-block-content registration-main">
-          <div class="block-photo-upload">
-            <div class="block-photo-upload__avatar"></div>
-            <label class="block-photo-upload__link">
-              <svg width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M10.4999 12.3855C12.4125 12.3855 13.9375 10.9227 13.9375 9.14287C13.9375 7.36306 12.3867 5.90021 10.4999 5.90021C8.61315 5.90021 7.06238 7.36306 7.06238 9.14287C7.06238 10.9227 8.5873 12.3855 10.4999 12.3855Z" fill="#0092FF"/>
-<path d="M0.0581055 3.63276V14.336C0.0581055 15.2625 0.859336 16.0183 1.84149 16.0183H19.1843C20.1664 16.0183 20.9676 15.2625 20.9676 14.336V3.63276C20.9676 2.70628 20.1664 1.95047 19.1843 1.95047H1.84149C0.83349 1.95047 0.0581055 2.70628 0.0581055 3.63276ZM17.0649 4.58361C17.6076 4.58361 18.0212 4.99809 18.0212 5.48571C18.0212 5.99771 17.5818 6.3878 17.0649 6.3878C16.548 6.3878 16.1086 5.97333 16.1086 5.48571C16.0827 4.97371 16.5221 4.58361 17.0649 4.58361ZM10.5 4.68114C13.1104 4.68114 15.2298 6.68037 15.2298 9.14285C15.2298 11.6053 13.1104 13.6046 10.5 13.6046C7.88949 13.6046 5.7701 11.6053 5.7701 9.14285C5.7701 6.68037 7.88949 4.68114 10.5 4.68114Z" fill="#0092FF"/>
-<path d="M6.7264 1.09713C7.08825 1.09713 7.37255 0.82894 7.37255 0.487606C7.37255 0.146273 7.0624 -0.121918 6.7264 -0.121918H4.06424C3.7024 -0.121918 3.41809 0.146273 3.41809 0.487606C3.41809 0.82894 3.7024 1.09713 4.06424 1.09713H6.7264Z" fill="#0092FF"/>
-</svg>Загрузить лого компании
-              <input class="block-photo-upload__input" type="file" accept="image/*">
+      <div class="block email">
+        <div class="email-content">
+          <div class="email-head">Оформи подписку и получай свежие предложения и новости</div>
+          <form class="email-form">
+            <input class="email-form-input" type="text" placeholder="Email">
+            <label class="email-form-submit">
+              <input type="submit">Отправить
             </label>
-            <div class="block-photo-upload__description">Размер фотографии не более 20 Mb в формате png или jpg</div>
-          </div>
-          <div class="block-form">
-            <div class="block-form-column">
-              <label class="form-input">
-                <div class="form-input__descr">Название компании (не более 20 символов)</div>
-                <input type="text" maxlength="20" data-org-name data-required>
-              </label>
-              <label class="form-input">
-                <div class="form-input__descr">Полное наименование компании (ООО, ИП...)</div>
-                <input type="text" data-org-type data-required>
-              </label>
-              <label class="form-input">
-                <div class="form-input__descr">ИНН</div>
-                <input type="text" data-org-inn data-required>
-              </label>
-              <label class="form-input">
-                <div class="form-input__descr">ОГРН</div>
-                <input type="text" data-org-ogrn data-required>
-              </label>
-              <label class="form-input">
-                <div class="form-input__descr">Юридический адрес</div>
-                <input type="text" data-org-address data-required>
-              </label>
-            </div>
-            <div class="block-form-column">
-              <label class="form-input">
-                <div class="form-input__descr">Логин</div>
-                <input type="text" max="20" data-org-login data-required>
-              </label>
-              <label class="form-input">
-                <div class="form-input__descr">Пароль</div>
-                <input type="password" data-org-password data-required>
-              </label>
-              <label class="form-input">
-                <div class="form-input__descr">Телефон</div>
-                <input type="text" data-org-phone data-required>
-              </label>
-              <label class="form-input">
-                <div class="form-input__descr">E-mail</div>
-                <input type="text" data-org-email data-required>
-              </label>
-              <label class="form-input form-input_wide form-input_wide--right-side">
-                <div class="form-input__descr">Адрес выдачи подарков</div>
-                <input type="text" data-org-address-city placeholder="Укажите город" data-required>
-                <div class="glass-icon"><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M5.5 11C2.5 11 0 8.5 0 5.5C0 2.5 2.5 0 5.5 0C8.5 0 11 2.5 11 5.5C11 8.5 8.5 11 5.5 11ZM5.5 1C3 1 1 3 1 5.5C1 8 3 10 5.5 10C8 10 10 8 10 5.5C10 3 8 1 5.5 1Z" fill="#316193"/>
-<path d="M9.49995 8.79999L13.9 13.2C14.0999 13.4 14.0999 13.7 13.9 13.9C13.8 14 13.6 14 13.5 14C13.4 14 13.2 14 13.1 13.9L8.69995 9.49999L9.49995 8.79999Z" fill="#316193"/>
-</svg>
-                </div>
-              </label>
-              <label class="form-input form-input_wide form-input_wide--right-side">
-                <div class="form-input__descr">Адрес выдачи подарков</div>
-                <input type="text" data-org-address-addr placeholder="Укажите адрес" data-required>
-                <div class="glass-icon"><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M5.5 11C2.5 11 0 8.5 0 5.5C0 2.5 2.5 0 5.5 0C8.5 0 11 2.5 11 5.5C11 8.5 8.5 11 5.5 11ZM5.5 1C3 1 1 3 1 5.5C1 8 3 10 5.5 10C8 10 10 8 10 5.5C10 3 8 1 5.5 1Z" fill="#316193"/>
-<path d="M9.49995 8.79999L13.9 13.2C14.0999 13.4 14.0999 13.7 13.9 13.9C13.8 14 13.6 14 13.5 14C13.4 14 13.2 14 13.1 13.9L8.69995 9.49999L9.49995 8.79999Z" fill="#316193"/>
-</svg>
-                </div>
-              </label>
+          </form>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="footer-top">
+          <div class="container">
+            <div class="footer-top-content">
+              <div class="footer-top-item">
+                <div class="footer-top-item__head">Покупателям</div>
+                <div class="footer-top-item__link">Обзоры</div>
+                <div class="footer-top-item__link">Оплата</div>
+                <div class="footer-top-item__link">Доставка</div>
+                <div class="footer-top-item__link">Гарантия</div>
+                <div class="footer-top-item__link">Возврат</div>
+                <div class="footer-top-item__link">Сервисный центр</div>
+                <div class="footer-top-item__link">Бонусная программа</div>
+              </div>
+              <div class="footer-top-item">
+                <div class="footer-top-item__head">Компания</div>
+                <div class="footer-top-item__link">О нас</div>
+                <div class="footer-top-item__link">Команда</div>
+                <div class="footer-top-item__link">Блог</div>
+                <div class="footer-top-item__link">Вакансии</div>
+                <div class="footer-top-item__link">Контакты</div>
+              </div>
+              <div class="footer-top-item">
+                <div class="footer-top-item__head">Сапсерферу</div>
+                <div class="footer-top-item__link">БУ оборудования</div>
+                <div class="footer-top-item__link">Сапсерфер</div>
+                <div class="footer-top-item__link">Уроки</div>
+              </div>
+              <div class="footer-top-item">
+                <div class="footer-top-item__head">Сотрудничество</div>
+                <div class="footer-top-item__link">Поставщикам</div>
+                <div class="footer-top-item__link">Оптовикам</div>
+                <div class="footer-top-item__link">Партнерская программа</div>
+              </div>
+              <div class="footer-top-item">
+                <div class="footer-top-item__head">Контакты</div>
+                <div class="footer-top-item__link">Россия: +7 (800) 555 14 69</div>
+                <div class="footer-top-item__link">Москва: 495 118 21 70 </div>
+                <div class="footer-top-item__link">Санкт-Петербург:</div>
+                <div class="footer-top-item__link--row"><a class="social-link" href="#"><img src="img/icons/vk.png" alt="vk"></a><a class="social-link" href="#"><img src="img/icons/tl.png" alt="tl"></a><a class="social-link" href="#"><img src="img/icons/tw.png" alt="tw"></a><a class="social-link" href="#"><img src="img/icons/fb.png" alt="fb"></a></div>
+                <div class="footer-top-item__link__hash">#ясапсерфер</div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="block-btns">
-          <div class="btn-cancel mr-30">Отмена</div>
-          <div class="block-btns-wrap">
-            <input class="btn-submit" type="submit" value="Создать бизнес-профиль" id="btn-create-profile"><span>Заполните все поля</span>
+        <div class="footer-bottom">
+          <div class="container">
+            <div class="footer-bottom-content">
+              <div class="footer-bottom-content-side">
+                <div class="footer-bottom-content-side__item"><img src="img/footer-bottom-1.png" alt="яндекс-маркет"></div>
+                <div class="footer-bottom-content-side__item"><img src="img/footer-bottom-2.png" alt="объединение суп-проектов"></div>
+              </div>
+              <div class="footer-bottom-content-side">
+                <div class="footer-bottom-content-side__item"><img src="img/footer-bottom-3.png" alt="рог"></div>
+                <div class="footer-bottom-content-side__item"><img src="img/footer-bottom-4.png" alt="виза"></div>
+              </div>
+            </div>
           </div>
         </div>
-      </form>
-      <div class="send-modal" id="send-success" style="display:none">
-        <div class="send-success-content">Регистрация прошла успешно</div>
-      </div>
-      <div class="send-modal" id="send-error" style="display:none">
-        <div class="send-success-content">Ошибка регистрации</div>
-      </div>
+      </footer>
     </div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtQMpc4MRFpmdc42z0OjRF2HLthIwvgdI&amp;libraries=places"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.scrollbar.min.js"></script>
-    <script src="js/jquery.sumoselect.min.js"></script>
-    <script src="js/datepicker.min.js"></script>
     <script src="js/jquery.inputmask.bundle.js"></script>
-    <script src="js/ion.rangeSlider.min.js"></script>
-    <script src="js/jquery.kladr.min.js"></script>
-    <script src="js/map.js"></script>
+    <script src="js/jquery.sumoselect.min.js"></script>
+    <script src="js/slick.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

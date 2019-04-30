@@ -7,19 +7,15 @@ html(lang="en").scrollbar-rail
 		link(rel="shortcut icon" href="img/logo.svg")
 		link(rel="stylesheet" href="styles/main.css")
 		block title
-	body.scrollbar-rail(style="overflow: hidden")
+	body.scrollbar-rail
 		.wrapper
 			include components/header
 			block contain
+			include components/footer
 		
-		//- script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkslnk8EAdAaemfr1cAifpzDiolTyy99Q&libraries=places")
-		script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtQMpc4MRFpmdc42z0OjRF2HLthIwvgdI&libraries=places")
 		script(src="js/jquery.min.js")
 		script(src="js/jquery.scrollbar.min.js")
-		script(src="js/jquery.sumoselect.min.js")
-		script(src="js/datepicker.min.js")
 		script(src="js/jquery.inputmask.bundle.js")
-		script(src="js/ion.rangeSlider.min.js")
-		script(src="js/jquery.kladr.min.js")
-		script(src="js/map.js")
+		script(src="js/jquery.sumoselect.min.js")
+		script(src="js/slick.min.js")
 		script(src="js/main.js")
