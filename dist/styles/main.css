@@ -2517,7 +2517,8 @@ h2, .head-bold {
   width: 542px;
   box-sizing: content-box;
   outline: none;
-  padding: 20px; }
+  padding: 20px;
+  border-radius: 0px; }
   @media screen and (max-width: 1440px) {
     .search-input {
       width: 400px; } }
