@@ -1,16 +1,16 @@
 header.header
     .header-top
         .header-container
-            .header-top-item.select_city
+            .header-top-item.select_city(data-mob="city")
                 select.select
                     option(value="Санкт-Петербург") Санкт-Петербург
                     option(value="Москва") Москва
                     option(value="Лондон") Лондон
                     option(value="Париж") Париж
-            .header-top-item
+            .header-top-item(data-mob="callback")
                 a.header-tel(href="#") 8 800 555-35-37
                 a.header-callback(href="#") Перезвоните мне
-            .header-top-item
+            .header-top-item(data-mob="customers")
                 .nested-ul
                     .nested-ul-head
                         .nested-ul-head__text Для покупателей
@@ -31,7 +31,7 @@ header.header
             .header-bottom-item
                 .header-logo
                     img(src="img/logo.png", alt="supshop")
-            .header-bottom-item.header-bottom-ul
+            .header-bottom-item.header-bottom-ul(data-mob="nav-bar")
                 a.header-bottom-ul__li(href="#") Доски
                 a.header-bottom-ul__li(href="#") Весла
                 a.header-bottom-ul__li(href="#") Паруса
@@ -50,17 +50,32 @@ header.header
                             a.nested-ul-inner__item(href="#") link
 
             .header-bottom-item.header-bottom-item--last
-                .btn-gradient
+                .btn-gradient(data-mob="choose-btn")
                     a.header-bottom-btn(href="#")
                         p Пройти тест на выбор доски
-                a.header-functional(href="#")
+                a.header-functional(href="#")(data-mob="lk")
                     .header-functional__text лк
                     img.header-functional__img(src="img/icons/lk.png")
                 div.header-functional
-                    a.header-functional__liked(href="#")
+                    a.header-functional__liked(href="#")(data-mob="like")
                         img(src="img/icons/liked.svg")
                     a.header-functional(href="#")
                         .header-functional__text 12
                         img.header-functional__img(src="img/icons/cart.png")
+                .burger-menu
+                    span.burger-menu__line.burger-menu__line-1
+                    span.burger-menu__line.burger-menu__line-2
+                    span.burger-menu__line.burger-menu__line-3
+        .header-mob
+            .header-mob-container
+                .header-mob-row.mob-city
+                .header-mob-row.mob-nav-lk
+                    .header-mob-row-side.mob-nav
+                    .header-mob-row-side.mob-lk
+                .header-mob-row.mob-callback
+                .header-mob-row.mob-choose-btn
+                .header-mob-row.mob-customers
+
+
                     
 

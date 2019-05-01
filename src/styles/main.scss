@@ -4,6 +4,8 @@
 @import "vendor/normalize";
 @import "vendor/jquery.scrollbar";
 @import "vendor/sumoselect.min";
+@import "vendor/slick";
+@import "vendor/aos";
 
 * {
 	box-sizing: border-box;
@@ -16,6 +18,13 @@ html, body {
 h1, h2, h3, h4, p {
     padding: 0;
     margin: 0;
+}
+
+.wrapper {
+	overflow: hidden;
+	@include adapt(1023px) {
+		padding-top: 139px;
+	}
 }
 
 .container {
@@ -38,6 +47,14 @@ h1, h2, h3, h4, p {
 
 header {
 	font-family: 'Proxima Nova', sans-serif;
+
+	@include adapt(1023px) {
+		position: fixed;
+		z-index: 100;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
 }
 
 h1 {
@@ -45,6 +62,15 @@ h1 {
 	font-size: 52px;
 	color: $black;
 	text-transform: uppercase;
+	@include adapt(1220px) {
+		font-size: 40px;
+	}
+	@include adapt(768px) {
+		font-size: 24px;
+	}
+	@include adapt(767px) {
+		font-size: 22px;
+	}
 }
 
 h2, .head-bold {
@@ -52,6 +78,9 @@ h2, .head-bold {
 	color: $black;
 	font-size: 40px;
 	text-transform: uppercase;
+	@include adapt(767px) {
+		font-size: 24px;
+	}
 }
 
 .header-top {
@@ -64,7 +93,56 @@ h2, .head-bold {
 		&--last {
 			padding: 0;
 			align-items: stretch;
-			width: 600px;
+			justify-content: flex-end;
+			@include adapt(1023px) {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.burger-menu {
+	width: 20px;
+	height: 14px;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-end;
+	cursor: pointer;
+	display: none;
+	margin-left: 20px;
+	@include adapt(1023px) {
+		display: flex;
+	}
+
+	&__line {
+		width: 100%;
+		height: 1px;
+		background: #FFFFFF;
+		transition: .3s;
+		&-1 {
+			width: 70%;
+		}
+		&-2 {
+			width: 40%;
+		}
+	}
+
+	&.active {
+		.burger-menu {
+			&__line {
+				&-1 {
+					width: 100%;
+					transform: translateY(6.5px) rotate(45deg);
+					transition-delay: .4s;
+				}
+				&-2 {
+					width: 0%;
+				}
+				&-3 {
+					transform: translateY(-6.5px) rotate(-45deg);
+					transition-delay: .4s;
+				}
+			}
 		}
 	}
 }
@@ -75,6 +153,10 @@ h2, .head-bold {
 	align-items: stretch;
 	padding-left: 100px;
 	padding-right: 100px;
+	@include adapt(1440px) {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
 }
 
 .select {
@@ -84,6 +166,9 @@ h2, .head-bold {
 			border: none;
 			outline: none;
 			color: #8a8a8a;
+			@include adapt(1220px) {
+				font-size: 14px;
+			}
 
 			&:hover {
 				box-shadow: none;
@@ -97,6 +182,12 @@ h2, .head-bold {
 			border-left: 3px solid transparent;
 			border-top: 3px solid transparent;
 		}
+	}
+}
+
+.SumoSelect {
+	@include adapt(1220px) {
+		width: 170px;
 	}
 }
 
@@ -116,6 +207,7 @@ h2, .head-bold {
 	text-decoration: none;
 	outline: none;
 	margin-right: 35px;
+	white-space: nowrap;
 }
 
 .header-callback {
@@ -142,6 +234,9 @@ h2, .head-bold {
 			color: #FFFFFF;
 			margin-right: 25px;
 			white-space: nowrap;
+			@include adapt(1220px) {
+				margin-right: 10px;
+			}
 		}
 		&__arrow {
 			width: 6px;
@@ -204,6 +299,10 @@ h2, .head-bold {
 .search-bar {
 	display: flex;
 	align-items: stretch;
+	justify-content: flex-end;
+	@include adapt(1023px) {
+		width: 100%;
+	}
 }
 
 .search-input {
@@ -213,6 +312,12 @@ h2, .head-bold {
 	box-sizing: content-box;
 	outline: none;
 	padding: 20px;
+	@include adapt(1440px) {
+		width: 400px;
+	}
+	@include adapt(1220px) {
+		width: 250px;
+	}
 }
 
 .search-button {
@@ -248,6 +353,13 @@ h2, .head-bold {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+			@include adapt(1440px) {
+				width: 458px;
+			}
+			@include adapt(1023px) {
+				width: unset;
+				justify-content: flex-end;
+			}
 		}
 	}
 
@@ -264,6 +376,9 @@ h2, .head-bold {
 			color: #FFFFFF;
 			text-decoration: none;
 			position: relative;
+			@include adapt(1220px) {
+				font-size: 12px;
+			}
 			&:before {
 				content: '';
 				position: absolute;
@@ -312,6 +427,7 @@ h2, .head-bold {
 .header-functional {
 	display: flex;
 	align-items: center;
+	text-decoration: none;
 
 	&__text {
 		color: #FFFFFF;
@@ -322,6 +438,9 @@ h2, .head-bold {
 		margin-right: 30px;
 		display: flex;
 		align-items: center;
+		@include adapt(1220px) {
+			margin-right: 15px;
+		}
 	}
 }
 
@@ -331,6 +450,13 @@ h2, .head-bold {
 	height: 61px;
 	margin: 40px -30px 30px;
 	width: calc(100% + 60px);
+	@include adapt(1440px) {
+		margin: 40px 0 30px;
+		width: 100%;
+	}
+	@include adapt(1023px) {
+		display: none;
+	}
 }
 
 .slide {
@@ -346,9 +472,42 @@ h2, .head-bold {
 	margin-bottom: 30px;
 }
 
+.content-header {
+	.content-row {
+		@include adapt(767px) {
+			flex-direction: column;
+			align-items: flex-start
+		}
+	}
+}
+
+.news {
+	.content-row {
+		@include adapt(768px) {
+			justify-content: space-around;
+			flex-wrap: wrap;
+		}
+	}
+	.content-mob-header {
+		@include adapt(767px) {
+			justify-content: flex-start;
+			flex-wrap: nowrap;
+			.content-side {
+				white-space: nowrap;
+			}
+		}
+	}
+}
+
 .content-side {
 	flex: 0 1 50%;
 	display: flex;
+}
+
+.call-to-active {
+	@include adapt(767px) {
+		margin-top: 30px;
+	}
 }
 
 .call-to-active-item {
@@ -356,15 +515,25 @@ h2, .head-bold {
 	align-items: center;
 	justify-content: flex-end;
 	margin-bottom: 20px;
+	@include adapt(767px) {
+		flex-direction: row-reverse;
+	}
 
 	&__img {
 		margin-left: 50px;
+		@include adapt(767px) {
+			margin-left: 0px;
+			margin-right: 40px;
+		}
 	}
 
 	&__text {
 		font-family: "HelveticaBlack", sans-serif;
 		font-size: 16px;
 		text-transform: uppercase;
+		@include adapt(768px) {
+			font-size: 13px;
+		}
 	}
 }
 
@@ -391,29 +560,51 @@ h2, .head-bold {
 	text-decoration: none;
 	text-transform: uppercase;
 	font-family: 'OpenSans', sans-serif;
+
+	@include adapt(767px) {
+		margin-top: 20px;
+	}
 }
 
 .content-header {
 	padding-top: 80px;
 	padding-bottom: 100px;
+	@include adapt(767px) {
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
 }
 
 .cards {
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	@include adapt(767px) {
+		flex-direction: column;
+		align-items: center;
+	}
 }
 
 .card {
 	padding: 90px 140px 50px;
-	flex: 0 1 707px;
-	margin-bottom: 20px;
+	flex: 0 1 49.8%;
+	margin-bottom: 11px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	background-size: cover;
 	height: 373px;
-
+	@include adapt(1220px) {
+		padding: 90px 60px 50px;
+	}
+	@include adapt(768px) {
+		padding: 54px 20px 50px;
+	}
+	@include adapt(767px) {
+		padding: 30px 20px 30px;
+		height: 300px;
+		width: 100%;
+	}
 	&-head  {
 		margin-bottom: 35px;
 	}
@@ -428,6 +619,10 @@ h2, .head-bold {
 		margin-top: auto;
 		background: $black;
 		color: #FFFFFF;
+
+		@include adapt(420px) {
+			width: 100%;
+		}
 
 		&:hover {
 			background: $blue;
@@ -458,14 +653,28 @@ h2, .head-bold {
 .popular {
 	padding-top: 250px;
 	padding-bottom: 210px;
-
+	@include adapt(1220px) {
+		padding-top: 100px;
+	}
+	@include adapt(767px) {
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
 	&-items {
 		display: flex;
 		justify-content: space-between;
+		@include adapt(768px) {
+			flex-wrap: wrap;
+			justify-content: space-around;
+		}
 	}
 
 	&-item {
 		flex: 0 1 24%;
+		@include adapt(767px) {
+			flex: 1;
+		}
+
 
 		&-img {
 			position: relative;
@@ -495,6 +704,11 @@ h2, .head-bold {
 				line-height: 24px;
 				text-transform: uppercase;
 				margin-bottom: 35px;
+				white-space: nowrap;
+				@include adapt(767px) {
+					text-align: center;
+					margin-bottom: 15px;
+				}
 			}
 
 			&-text {
@@ -503,6 +717,15 @@ h2, .head-bold {
 				justify-content: space-between;
 				height: 36px;
 				margin-bottom: 30px;
+				@include adapt(1220px) {
+					height: 52px;
+				}
+				@include adapt(767px) {
+					height: unset;
+					flex-direction: column;
+					align-items: center;
+					text-align: center;
+				}
 			}
 
 			&__cost {
@@ -518,6 +741,9 @@ h2, .head-bold {
 			&-stars {
 				display: flex;
 				align-items: center;
+				@include adapt(767px) {
+					justify-content: center;
+				}
 			}
 
 			&-star {
@@ -534,6 +760,15 @@ h2, .head-bold {
 	align-items: flex-start;
 	justify-content: center;
 	background: $black;
+	@include adapt(1220px) {
+		padding: 150px;
+	}
+	@include adapt(767px) {
+		padding: 50px;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		height: unset;
+	}
 }
 
 .black-item {
@@ -541,6 +776,11 @@ h2, .head-bold {
 	align-items: center;
 	flex-direction: column;
 	margin: 0 40px;
+	@include adapt(767px) {
+		margin: 40px 0;
+	}
+
+
 	&__img {
 		display: flex;
 		height: 50px;
@@ -569,10 +809,29 @@ h2, .head-bold {
 .news {
 	padding-top: 200px;
 	padding-bottom: 200px;
-
+	@include adapt(1220px) {
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
+	@include adapt(767px) {
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
 	&-item {
+		flex: 0 1 24.5%;
+		@include adapt(768px) {
+			flex: 0 1 48%;
+		}
+
+		&__img {
+			img {
+				width: 100%;
+			}
+		}
+
+
 		&-descr {
-			padding: 70px 30px;
+			padding: 70px 30px 20px;
 
 			&__name {
 				color: $black;
@@ -614,16 +873,37 @@ h2, .head-bold {
 }
 
 .about {
+	h2 {
+		@include adapt(768px) {
+			white-space: nowrap;
+		}
+	}
+}
+
+.about {
 
 	margin-bottom: 260px;
+
+	@include adapt(767px) {
+		margin-bottom: 50px;
+	}
 
 	&-content {
 		display: flex;
 		align-items: flex-start;
 		justify-content: center;
 
+		@include adapt(767px) {
+			flex-direction: column;
+
+		}
+
 		&-side {
-			flex: 0 1 60%;
+			flex: 0 1 65%;
+
+			@include adapt(767px) {
+				margin-bottom: 30px;
+			}
 		}
 
 		&-head {
@@ -634,6 +914,9 @@ h2, .head-bold {
 			font-weight: 400;
 			line-height: 24px;
 			margin-bottom: 90px;
+			@include adapt(767px) {
+				margin-bottom: 40px;
+			}
 		}
 
 		&-text {
@@ -649,28 +932,65 @@ h2, .head-bold {
 			align-items: center;
 			justify-content: center;
 			color: #ffffff;
-			font-family: "Gotham Pro";
+			font-family: "OpenSans", sans-serif;
 			font-size: 15px;
 			font-weight: 700;
 			text-transform: uppercase;
 			text-decoration: none;
+			@include adapt(767px) {
+				width: 100%;
+				height: 84px;
+			}
 		}
 	}
 }
 .left-sided {
-	flex: 0 1 40%;
+	flex: 0 1 35%;
 }
 
 .surf-icon {
 	margin-bottom: 90px;
+	@include adapt(767px) {
+		margin-bottom: 30px;
+	}
+}
+
+.feedback {
+	margin-bottom: 100px;
+	@include adapt(1440px) {
+		padding: 0 50px;
+	}
+}
+
+.feedback-slider-arrow {
+	&__prev {
+		cursor: pointer;
+	}
+
+	&__next {
+		cursor: pointer;
+	}
 }
 
 .feedback-slide {
-	display: block;
+	display: flex;
+	width: 600px;
+
+	@include adapt(767px) {
+		width: 100%;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
 	&-img {
 		padding: 15px;
 		margin-right: 60px;
-
+		@include adapt(1220px) {
+			margin-right: 20px;
+		}
+		@include adapt(767px) {
+			margin-right: 0px;
+		}
 		img {
 			border-radius: 50%;
 		}
@@ -684,14 +1004,30 @@ h2, .head-bold {
 	}
 
 	&-main {
-			max-width: 400px;
+		max-width: 400px;
+		@include adapt(1220px) {
+			max-width: 200px;
+		}
+		@include adapt(768px) {
+			max-width: unset;
+		}
+		@include adapt(767px) {
+			margin-bottom: 20px;
+		}
 	}
 
 	&-name {
 		display: flex;
 		align-items: center;
+		@include adapt(767px) {
+			justify-content: center;
+		}
 		&__text {
 			margin-right: 40px;
+			@include adapt(767px) {
+				margin-right: 0px;
+				margin-bottom: 30px;
+			}
 		}
 
 		&__date {
@@ -700,12 +1036,16 @@ h2, .head-bold {
 			font-size: 13px;
 			font-weight: 400;
 			line-height: 24px;
+
+			@include adapt(767px) {
+				display: none;
+			}
 		}
 	}
 }
 
 .feedback-slider {
-	display: flex;
+	display: block;
 
 	&-wrapper {
 		position: relative;
@@ -749,7 +1089,10 @@ h2, .head-bold {
 		display: flex;
 		align-items: center;
 		flex-direction: column;
-
+		@include adapt(767px) {
+			padding: 0 15px;
+			width: 100%;
+		}
 	}
 
 	&-head {
@@ -759,11 +1102,19 @@ h2, .head-bold {
 		font-weight: 400;
 		line-height: 24px;
 		margin-bottom: 40px;
+		@include adapt(767px) {
+			text-align: center;
+			max-width: 250px;
+		}
 	}
 
 	&-form {
 		display: flex;
 		align-items: stretch;
+		@include adapt(767px) {
+			flex-direction: column;
+			width: 100%;
+		}
 
 		&-input {
 			background: transparent;
@@ -773,8 +1124,12 @@ h2, .head-bold {
 			width: 471px;
 			height: 71px;
 			padding: 30px 60px;
-			color: #b0b0b0;
+			color: #FFFFFF;
 			font-family: "OpenSans", sans-serif;
+			@include adapt(767px) {
+				width: 100%;
+				text-align: center;
+			}
 		}
 
 		&-submit {
@@ -788,6 +1143,10 @@ h2, .head-bold {
 			color: #FFFFFF;
 			font-family: 'OpenSans', sans-serif;
 			cursor: pointer;
+
+			@include adapt(767px) {
+				width: 100%;
+			}
 
 			input {
 				display: none;
@@ -804,9 +1163,26 @@ h2, .head-bold {
 		display: flex;
 		align-items: flex-start;
 		justify-content: space-between;
+		@include adapt(768px) {
+			flex-wrap: wrap;
+		}
+		@include adapt(767px) {
+			padding: 0 10px;
+		}
 	}
 
 	&-item {
+		@include adapt(768px) {
+			flex: 0 1 25%;
+			margin-bottom: 30px;
+		}
+		@include adapt(767px) {
+			flex: 0 1 50%;
+			margin-bottom: 30px;
+			&:nth-child(even) {
+				text-align: right;
+			}
+		}
 		&__head {
 			color: #ffffff;
 			font-family: "OpenSans", sans-serif;
@@ -817,6 +1193,8 @@ h2, .head-bold {
 		}
 
 		&__link {
+			display: block;
+			text-decoration: none;
 			color: #53575f;
 			font-family: "OpenSans", sans-serif;
 			font-size: 15px;
@@ -847,6 +1225,10 @@ h2, .head-bold {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		@include adapt(767px) {
+			flex-direction: column;
+			align-items: stretch;
+		}
 
 		&-side {
 			flex: 1;
@@ -854,5 +1236,105 @@ h2, .head-bold {
 			align-items: center;
 			justify-content: space-between;
 		}
+
+	}
+}
+
+[data-mob=yandex-zaebal] {
+	@include adapt(767px) {
+		transform: translateX(20px);
+	}
+	@include adapt(420px) {
+		transform: translateX(8px);
+	}
+}
+
+
+
+.header-mob {
+	display: none;
+	height: calc(100vh - 139px);
+	overflow: scroll;
+	&-container {
+		display: flex;
+		flex-direction: column;
+		padding: 30px 15px; 
+	}
+
+	&-row {
+		margin-bottom: 20px;
+
+		&-side {
+			flex: 1;
+		}
+	}
+
+	.mob-callback {
+		.header-top-item {
+			flex-direction: column-reverse;
+			align-items: stretch;
+
+			.header-tel {
+				margin: 20px 0 0 0;
+			}
+		}
+	}
+
+	.mob-nav-lk {
+		display: flex;
+		align-items: flex-start;
+
+		.header-bottom-ul {
+			flex-direction: column;
+
+			&__li {
+				justify-content: flex-start;
+				margin-bottom: 10px;
+				font-size: 16px;
+
+				&:before {
+					display: none;
+				}
+			}
+		}
+
+		.mob-lk {
+			display: flex;
+			justify-content: space-around;
+		}
+	}
+
+
+
+	.nested-ul-inner {
+		position: static;
+		transform: none;
+		margin-top: 10px;
+	}
+}
+
+[data-mob=hidden] {
+	@include adapt(767px) {
+		display: none;
+	}
+}
+
+.news-slider-arrows {
+	display: none;
+	@include adapt(767px) {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		width: 100%;
+	}
+
+	&__next, &__prev {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__next {
+		transform: rotate(180deg);
 	}
 }

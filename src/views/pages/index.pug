@@ -12,12 +12,12 @@ block contain
 	.container
 		.block.content-header
 			.content-row.align-start
-				.content-side
+				.content-side(data-aos="fade-right")
 					h1 
 						| первый
 						| специализированный
 						| сапсерф магазин
-				.content-side.flex-end
+				.content-side.flex-end(data-aos="fade-left")
 					.call-to-active
 						.call-to-active-item
 							.call-to-active-item__text Покупай сейчас плати потом
@@ -28,38 +28,38 @@ block contain
 							.call-to-active-item__img
 								img(src="img/icons/check.png")
 			.content-row
-				.content-side
+				.content-side(data-aos="fade-right")
 					.text
 						| Высокий стандарт качества, внимание к деталям и любовь к нашему делу<br> являются особенностями нашей студии. 
-				.content-side.flex-end
+				.content-side.flex-end(data-aos="fade-left")
 					a(href="#").btn-blue Перейти в каталог
 		.block.cards
-			.card(style="background: url(img/card-1.png) no-repeat center center")
+			.card(style="background: url(img/card-1.png) no-repeat center center; background-size: cover;")(data-aos="fade-up" data-aos-delay="0")
 				.card-head.head-bold guide
 				.card-text.text-bold Гид по выбору надувной доски в 2019
 				a.card-btn.btn-blue(href="#") Подробнее
-			.card(style="background: url(img/card-2.png) no-repeat center center")
+			.card(style="background: url(img/card-2.png) no-repeat center center; background-size: cover;")(data-aos="fade-up" data-aos-delay="200")
 				.card-head.head-bold accessories
 				.card-text.text-bold Что нужно сапсерферу? Топ 10 аксессуаров
 				a.card-btn.btn-blue(href="#") Подробнее
-			.card(style="background: url(img/card-3.png) no-repeat center center")
+			.card(style="background: url(img/card-3.png) no-repeat center center; background-size: cover;")(data-aos="fade-up" data-aos-delay="400")
 				.card-head.head-bold GLADIATOR SUP
 				.card-text.text-bold Доски высокого качества по низкой цене
 				a.card-btn.btn-blue(href="#") Подробнее
-			.card(style="background: url(img/card-4.png) no-repeat center center")
+			.card(style="background: url(img/card-4.png) no-repeat center center; background-size: cover;")(data-aos="fade-up" data-aos-delay="600")
 				.card-head.head-bold SUP SHOP
 				.card-text.text-bold Вступай в сообщество SUP SHOP, узнай все про преимущества
 				a.card-btn.btn-blue(href="#") Подробнее
 		.block.popular
 			.content-row
-				.content-side
+				.content-side(data-aos="fade-right" data-aos-delay="0")
 					h2 Популярное
-				.content-side.flex-end
+				.content-side.flex-end(data-aos="fade-right" data-aos-delay="800")
 					a(href="#").link-redirect 
 						| Смотреть страницу
 						.link-redirect__arrow
 			.popular-items
-				.popular-item
+				.popular-item(data-aos="fade-up" data-aos-delay="0")
 					.popular-item-img
 						.popular-item-img__like
 							img(src="img/icons/like.png")
@@ -82,7 +82,7 @@ block contain
 								img(src="img/icons/star.png")
 							.popular-item-descr-star
 								img(src="img/icons/star.png")
-				.popular-item
+				.popular-item(data-aos="fade-up" data-aos-delay="200")
 					.popular-item-img
 						.popular-item-img__like
 							img(src="img/icons/like.png")
@@ -105,7 +105,7 @@ block contain
 								img(src="img/icons/star.png")
 							.popular-item-descr-star
 								img(src="img/icons/star.png")
-				.popular-item
+				.popular-item(data-aos="fade-up" data-aos-delay="400")
 					.popular-item-img
 						.popular-item-img__like
 							img(src="img/icons/like.png")
@@ -128,7 +128,7 @@ block contain
 								img(src="img/icons/star.png")
 							.popular-item-descr-star
 								img(src="img/icons/star.png")
-				.popular-item
+				.popular-item(data-aos="fade-up" data-aos-delay="600")
 					.popular-item-img
 						.popular-item-img__like
 							img(src="img/icons/like.png")
@@ -152,34 +152,39 @@ block contain
 							.popular-item-descr-star
 								img(src="img/icons/star.png")
 	.block.block_black
-		.black-item
+		.black-item(data-aos="fade-up" data-aos-delay="600")
 			.black-item__img
 				img(src="img/icons/icon-1.svg", alt="")
 			.black-item__text Бесплатная доставка до дверей вашей квартиры
-		.black-item
+		.black-item(data-aos="fade-up" data-aos-delay="400")
 			.black-item__img
 				img(src="img/icons/icon-2.svg", alt="")
 			.black-item__text Беспроцентная рассрочка на любой вид товара
-		.black-item
+		.black-item(data-aos="fade-up" data-aos-delay="200")
 			.black-item__img
 				img(src="img/icons/icon-3.svg", alt="")
 			.black-item__text Профессиональная помощь и бесплатная консультация
-		.black-item
+		.black-item(data-aos="fade-up" data-aos-delay="0")
 			.black-item__img
 				img(src="img/icons/icon-4.svg", alt="")
 			.black-item__text Фирменный ремонт и лояльный сервис для клиентов
 	.container
 		.block.news
-			.content-row
-				.content-side
+			.content-row.content-mob-header
+				.content-side(data-aos="fade-right" data-aos-delay="0")
 					h2 Статьи и обзоры
-				.content-side.flex-end
-					a(href="#").link-redirect 
+				.content-side.flex-end(data-aos="fade-right" data-aos-delay="800")
+					.news-slider-arrows(data-mob="show")
+						.news-slider-arrows__prev
+							<svg width="8" height="14" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:avocode="https://avocode.com/" viewBox="0 0 8 14"><defs><path d="M100.00019,5855.99902l7.99988,6.99907v-13.99771z" id="Path-0"/></defs><desc>Generated with Avocode.</desc><g transform="matrix(1,0,0,1,-100,-5849)"><g><title>Polygon 1 copy 5</title><use xlink:href="#Path-0" fill="#121315" fill-opacity="1"/></g></g></svg>
+						.news-slider-arrows__next
+							<svg width="8" height="14" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:avocode="https://avocode.com/" viewBox="0 0 8 14"><defs><path d="M100.00019,5855.99902l7.99988,6.99907v-13.99771z" id="Path-0"/></defs><desc>Generated with Avocode.</desc><g transform="matrix(1,0,0,1,-100,-5849)"><g><title>Polygon 1 copy 5</title><use xlink:href="#Path-0" fill="#121315" fill-opacity="1"/></g></g></svg>
+					a(href="#" data-mob="hidden").link-redirect 
 						| Смотреть страницу
 						.link-redirect__arrow
 			.news-content
 				.content-row
-					.news-item
+					.news-item(data-aos="fade-up" data-aos-delay="0")
 						.news-item__img
 							img(src="img/news-1.png", alt="")
 						.news-item-descr
@@ -189,7 +194,7 @@ block contain
 							.news-item-descr-bottom
 								a.link-detail(href="#") Подробнее
 								.date 01.05.19
-					.news-item
+					.news-item(data-aos="fade-up" data-aos-delay="200")
 						.news-item__img
 							img(src="img/news-2.png", alt="")
 						.news-item-descr
@@ -199,7 +204,7 @@ block contain
 							.news-item-descr-bottom
 								a.link-detail(href="#") Подробнее
 								.date 01.05.19
-					.news-item
+					.news-item(data-aos="fade-up" data-aos-delay="400")
 						.news-item__img
 							img(src="img/news-3.png", alt="")
 						.news-item-descr
@@ -209,7 +214,7 @@ block contain
 							.news-item-descr-bottom
 								a.link-detail(href="#") Подробнее
 								.date 01.05.19
-					.news-item
+					.news-item(data-aos="fade-up" data-aos-delay="600")
 						.news-item__img
 							img(src="img/news-4.png", alt="")
 						.news-item-descr
@@ -222,109 +227,113 @@ block contain
 	.container
 		.block.about
 			.content-row
-				.content-side
+				.content-side(data-aos="fade-right" data-aos-delay="0")
 					h2 о сапсерфинге
-			.surf-icon
+			.surf-icon(data-aos="fade-right" data-aos-delay="0")
 				img(src="img/icons/surf.png", alt="")
 			.about-content
-				.about-content-side.left-sided
+				.about-content-side.left-sided(data-aos="fade-right" data-aos-delay="400")
 					.text-bold 
 						| Коротко<br>
 						| о нашем магазине
-				.about-content-side
+				.about-content-side(data-aos="fade-left" data-aos-delay="0")
 					.about-content-head Lorem ipsum dolor consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis penatibus et magnis
 					.about-content-text.text 
 						| Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
 						| <br><br>
 						| In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
 					a.about-content-btn(href="#") смотреть магазин
-		//- .block.feedback
-		//- 	.feedback-slider-wrapper
-		//- 		.feedback-slider
-		//- 			.feedback-slide
-		//- 				.feedback-slide-img
-		//- 					img(src="img/avatar.png", alt="")
-		//- 				.feedback-slide-text
-		//- 					.feedback-slide-name
-		//- 						.feedback-slide-name__text.text-bold Dmitry Ivanov
-		//- 						.feedback-slide-name__date 3 дня назад
-		//- 					.feedback-slide-main.text
-		//- 						| Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
-		//- 					.popular-item-descr-stars
-		//- 						.popular-item-descr-star
-		//- 							img(src="img/icons/star.png")
-		//- 						.popular-item-descr-star
-		//- 							img(src="img/icons/star.png")
-		//- 						.popular-item-descr-star
-		//- 							img(src="img/icons/star.png")
-		//- 						.popular-item-descr-star
-		//- 							img(src="img/icons/star.png")
-		//- 						.popular-item-descr-star
-		//- 							img(src="img/icons/star.png")
-		//- 			.feedback-slide
-		//- 				.feedback-slide-img
-		//- 					img(src="img/avatar.png", alt="")
-		//- 				.feedback-slide-text
-		//- 					.feedback-slide-name
-		//- 						.feedback-slide-name__text.text-bold Dmitry Ivanov
-		//- 						.feedback-slide-name__date 3 дня назад
-		//- 					.feedback-slide-main.text
-		//- 						| Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
-		//- 					.popular-item-descr-stars
-		//- 						.popular-item-descr-star
-		//- 							img(src="img/icons/star.png")
-		//- 						.popular-item-descr-star
-		//- 							img(src="img/icons/star.png")
-		//- 						.popular-item-descr-star
-		//- 							img(src="img/icons/star.png")
-		//- 						.popular-item-descr-star
-		//- 							img(src="img/icons/star.png")
-		//- 						.popular-item-descr-star
-		//- 							img(src="img/icons/star.png")
-		//- 			.feedback-slide
-		//- 				.feedback-slide-img
-		//- 					img(src="img/avatar.png", alt="")
-		//- 				.feedback-slide-text
-		//- 					.feedback-slide-name
-		//- 						.feedback-slide-name__text.text-bold Dmitry Ivanov
-		//- 						.feedback-slide-name__date 3 дня назад
-		//- 					.feedback-slide-main.text
-		//- 						| Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
-		//- 					.popular-item-descr-stars
-		//- 						.popular-item-descr-star
-		//- 							img(src="img/icons/star.png")
-		//- 						.popular-item-descr-star
-		//- 							img(src="img/icons/star.png")
-		//- 						.popular-item-descr-star
-		//- 							img(src="img/icons/star.png")
-		//- 						.popular-item-descr-star
-		//- 							img(src="img/icons/star.png")
-		//- 						.popular-item-descr-star
-		//- 							img(src="img/icons/star.png")
-		//- 			.feedback-slide
-		//- 				.feedback-slide-img
-		//- 					img(src="img/avatar.png", alt="")
-		//- 				.feedback-slide-text
-		//- 					.feedback-slide-name
-		//- 						.feedback-slide-name__text.text-bold Dmitry Ivanov
-		//- 						.feedback-slide-name__date 3 дня назад
-		//- 					.feedback-slide-main.text
-		//- 						| Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
-		//- 					.popular-item-descr-stars
-		//- 						.popular-item-descr-star
-		//- 							img(src="img/icons/star.png")
-		//- 						.popular-item-descr-star
-		//- 							img(src="img/icons/star.png")
-		//- 						.popular-item-descr-star
-		//- 							img(src="img/icons/star.png")
-		//- 						.popular-item-descr-star
-		//- 							img(src="img/icons/star.png")
-		//- 						.popular-item-descr-star
-		//- 							img(src="img/icons/star.png")
-		//- 		.feedback-slider-arrow__prev
-		//- 			<svg width="8" height="14" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:avocode="https://avocode.com/" viewBox="0 0 8 14"><defs><path d="M100.00019,5855.99902l7.99988,6.99907v-13.99771z" id="Path-0"/></defs><desc>Generated with Avocode.</desc><g transform="matrix(1,0,0,1,-100,-5849)"><g><title>Polygon 1 copy 5</title><use xlink:href="#Path-0" fill="#121315" fill-opacity="1"/></g></g></svg>
-		//- 		.feedback-slider-arrow__next
-		//- 			<svg width="8" height="14" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:avocode="https://avocode.com/" viewBox="0 0 8 14"><defs><path d="M100.00019,5855.99902l7.99988,6.99907v-13.99771z" id="Path-0"/></defs><desc>Generated with Avocode.</desc><g transform="matrix(1,0,0,1,-100,-5849)"><g><title>Polygon 1 copy 5</title><use xlink:href="#Path-0" fill="#121315" fill-opacity="1"/></g></g></svg>
+		.block.feedback
+			.feedback-slider-wrapper
+				.feedback-slider
+					.feedback-slide-wrapper
+						.feedback-slide
+							.feedback-slide-img
+								img(src="img/avatar.png", alt="")
+							.feedback-slide-text
+								.feedback-slide-name
+									.feedback-slide-name__text.text-bold Dmitry Ivanov
+									.feedback-slide-name__date 3 дня назад
+								.feedback-slide-main.text
+									| Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
+								.popular-item-descr-stars
+									.popular-item-descr-star
+										img(src="img/icons/star.png")
+									.popular-item-descr-star
+										img(src="img/icons/star.png")
+									.popular-item-descr-star
+										img(src="img/icons/star.png")
+									.popular-item-descr-star
+										img(src="img/icons/star.png")
+									.popular-item-descr-star
+										img(src="img/icons/star.png")
+					.feedback-slide-wrapper
+						.feedback-slide
+							.feedback-slide-img
+								img(src="img/avatar.png", alt="")
+							.feedback-slide-text
+								.feedback-slide-name
+									.feedback-slide-name__text.text-bold Dmitry Ivanov
+									.feedback-slide-name__date 3 дня назад
+								.feedback-slide-main.text
+									| Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
+								.popular-item-descr-stars
+									.popular-item-descr-star
+										img(src="img/icons/star.png")
+									.popular-item-descr-star
+										img(src="img/icons/star.png")
+									.popular-item-descr-star
+										img(src="img/icons/star.png")
+									.popular-item-descr-star
+										img(src="img/icons/star.png")
+									.popular-item-descr-star
+										img(src="img/icons/star.png")
+					.feedback-slide-wrapper
+						.feedback-slide
+							.feedback-slide-img
+								img(src="img/avatar.png", alt="")
+							.feedback-slide-text
+								.feedback-slide-name
+									.feedback-slide-name__text.text-bold Dmitry Ivanov
+									.feedback-slide-name__date 3 дня назад
+								.feedback-slide-main.text
+									| Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
+								.popular-item-descr-stars
+									.popular-item-descr-star
+										img(src="img/icons/star.png")
+									.popular-item-descr-star
+										img(src="img/icons/star.png")
+									.popular-item-descr-star
+										img(src="img/icons/star.png")
+									.popular-item-descr-star
+										img(src="img/icons/star.png")
+									.popular-item-descr-star
+										img(src="img/icons/star.png")
+					.feedback-slide-wrapper
+						.feedback-slide
+							.feedback-slide-img
+								img(src="img/avatar.png", alt="")
+							.feedback-slide-text
+								.feedback-slide-name
+									.feedback-slide-name__text.text-bold Dmitry Ivanov
+									.feedback-slide-name__date 3 дня назад
+								.feedback-slide-main.text
+									| Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
+								.popular-item-descr-stars
+									.popular-item-descr-star
+										img(src="img/icons/star.png")
+									.popular-item-descr-star
+										img(src="img/icons/star.png")
+									.popular-item-descr-star
+										img(src="img/icons/star.png")
+									.popular-item-descr-star
+										img(src="img/icons/star.png")
+									.popular-item-descr-star
+										img(src="img/icons/star.png")
+				.feedback-slider-arrow__prev
+					<svg width="8" height="14" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:avocode="https://avocode.com/" viewBox="0 0 8 14"><defs><path d="M100.00019,5855.99902l7.99988,6.99907v-13.99771z" id="Path-0"/></defs><desc>Generated with Avocode.</desc><g transform="matrix(1,0,0,1,-100,-5849)"><g><title>Polygon 1 copy 5</title><use xlink:href="#Path-0" fill="#121315" fill-opacity="1"/></g></g></svg>
+				.feedback-slider-arrow__next
+					<svg width="8" height="14" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:avocode="https://avocode.com/" viewBox="0 0 8 14"><defs><path d="M100.00019,5855.99902l7.99988,6.99907v-13.99771z" id="Path-0"/></defs><desc>Generated with Avocode.</desc><g transform="matrix(1,0,0,1,-100,-5849)"><g><title>Polygon 1 copy 5</title><use xlink:href="#Path-0" fill="#121315" fill-opacity="1"/></g></g></svg>
 	.block.email
 		.email-content
 			.email-head Оформи подписку и получай свежие предложения и новости
@@ -339,35 +348,35 @@ block contain
 				.footer-top-content
 					.footer-top-item
 						.footer-top-item__head Покупателям
-						.footer-top-item__link Обзоры
-						.footer-top-item__link Оплата
-						.footer-top-item__link Доставка
-						.footer-top-item__link Гарантия
-						.footer-top-item__link Возврат
-						.footer-top-item__link Сервисный центр
-						.footer-top-item__link Бонусная программа
+						a.footer-top-item__link(href="#") Обзоры
+						a.footer-top-item__link(href="#") Оплата
+						a.footer-top-item__link(href="#") Доставка
+						a.footer-top-item__link(href="#") Гарантия
+						a.footer-top-item__link(href="#") Возврат
+						a.footer-top-item__link(href="#") Сервисный центр
+						a.footer-top-item__link(href="#") Бонусная программа
 					.footer-top-item
 						.footer-top-item__head Компания
-						.footer-top-item__link О нас
-						.footer-top-item__link Команда
-						.footer-top-item__link Блог
-						.footer-top-item__link Вакансии
-						.footer-top-item__link Контакты
+						a.footer-top-item__link(href="#") О нас
+						a.footer-top-item__link(href="#") Команда
+						a.footer-top-item__link(href="#") Блог
+						a.footer-top-item__link(href="#") Вакансии
+						a.footer-top-item__link(href="#") Контакты
 					.footer-top-item
 						.footer-top-item__head Сапсерферу
-						.footer-top-item__link БУ оборудования
-						.footer-top-item__link Сапсерфер
-						.footer-top-item__link Уроки
+						a.footer-top-item__link(href="#") БУ оборудования
+						a.footer-top-item__link(href="#") Сапсерфер
+						a.footer-top-item__link(href="#") Уроки
 					.footer-top-item
 						.footer-top-item__head Сотрудничество
-						.footer-top-item__link Поставщикам
-						.footer-top-item__link Оптовикам
-						.footer-top-item__link Партнерская программа
+						a.footer-top-item__link(href="#") Поставщикам
+						a.footer-top-item__link(href="#") Оптовикам
+						a.footer-top-item__link(href="#") Партнерская программа
 					.footer-top-item
 						.footer-top-item__head Контакты
-						.footer-top-item__link Россия: +7 (800) 555 14 69
-						.footer-top-item__link Москва: 495 118 21 70 
-						.footer-top-item__link Санкт-Петербург:
+						a.footer-top-item__link(href="tel: +7 (800) 555 14 69") Россия: +7 (800) 555 14 69
+						a.footer-top-item__link(href="tel: 495 118 21 70") Москва: 495 118 21 70 
+						a.footer-top-item__link Санкт-Петербург:
 						.footer-top-item__link--row
 							a.social-link(href="#")
 								img(src="img/icons/vk.png", alt="vk")
@@ -382,7 +391,7 @@ block contain
 			.container
 				.footer-bottom-content
 					.footer-bottom-content-side
-						.footer-bottom-content-side__item
+						.footer-bottom-content-side__item(data-mob="yandex-zaebal")
 							img(src="img/footer-bottom-1.png", alt="яндекс-маркет")
 						.footer-bottom-content-side__item
 							img(src="img/footer-bottom-2.png", alt="объединение суп-проектов")
