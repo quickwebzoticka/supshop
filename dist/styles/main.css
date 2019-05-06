@@ -2514,6 +2514,10 @@ h2, .head-bold {
   @media screen and (max-width: 1023px) {
     .search-bar {
       width: 100%; } }
+  .search-bar:hover .search-button {
+    background: #57c5ff; }
+    .search-bar:hover .search-button img {
+      transform: rotate(15deg); }
 
 .search-input {
   border: none;
@@ -2536,12 +2540,14 @@ h2, .head-bold {
   justify-content: center;
   background: #24b4ff;
   flex: 0 1 58px;
-  cursor: pointer; }
+  cursor: pointer;
+  transition: .3s; }
   .search-button input {
     display: none; }
   .search-button img {
     width: 18px;
-    height: 25px; }
+    height: 25px;
+    transition: .3s; }
 
 .header-bottom {
   background-color: #36383d; }
@@ -2746,7 +2752,7 @@ h2, .head-bold {
 .card {
   padding: 90px 140px 50px;
   flex: 0 1 49.8%;
-  margin-bottom: 11px;
+  margin-bottom: 6px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -2859,7 +2865,8 @@ h2, .head-bold {
         align-items: center;
         justify-content: center; }
     .popular-item-descr {
-      padding: 35px; }
+      padding: 35px;
+      text-align: center; }
       .popular-item-descr__name {
         color: #121315;
         font-family: "Open Sans", sans-serif;
@@ -2876,9 +2883,9 @@ h2, .head-bold {
       .popular-item-descr-text {
         display: flex;
         align-items: flex-start;
-        justify-content: space-between;
+        justify-content: center;
         height: 36px;
-        margin-bottom: 30px; }
+        margin-bottom: 0px; }
         @media screen and (max-width: 1220px) {
           .popular-item-descr-text {
             height: 52px; } }
@@ -2890,15 +2897,24 @@ h2, .head-bold {
             text-align: center; } }
       .popular-item-descr__cost {
         color: #121315;
-        font-family: "Open Sans", sans-serif;
+        font-family: "OpenSansBold", sans-serif;
         font-size: 15px;
         font-weight: 400;
         line-height: 24px;
-        flex: 0 1 50%;
-        text-align: right; }
+        text-align: center;
+        text-transform: uppercase; }
       .popular-item-descr-stars {
         display: flex;
         align-items: center; }
+        .popular-item-descr-stars-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          margin-bottom: 20px; }
+        .popular-item-descr-stars-count {
+          font-family: 'OpenSans', sans-serif;
+          color: #969aa4;
+          font-size: 12px; }
         @media screen and (max-width: 767px) {
           .popular-item-descr-stars {
             justify-content: center; } }
