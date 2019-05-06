@@ -95,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   $(document).on('click', '.popular-item-img__like', function() {
     $(this).toggleClass('active');
+    $(this).find('img').attr('src') == 'img/icons/like.png' ? $(this).find('img').attr('src', 'img/icons/liked.svg') : $(this).find('img').attr('src', 'img/icons/like.png')
   });
 
   if (windowWidth >= 1024 ) {

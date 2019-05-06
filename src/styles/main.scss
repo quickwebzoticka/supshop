@@ -721,6 +721,10 @@ h2, .head-bold {
 				transition: .3s;
 				cursor: pointer;
 
+				img {
+					width: 21px;
+				}
+
 				&:hover {
 					opacity: 1;
 				}
@@ -737,8 +741,7 @@ h2, .head-bold {
 				opacity: 0;
 				transform: translateX(30px);
 				transition: .3s;
-
-
+				
 				&:hover {
 					opacity: 1;
 				}
@@ -831,6 +834,8 @@ h2, .head-bold {
 		}
 
 		&:hover {
+			outline: 1px solid $blue;
+
 			.popular-item-img__cart {
 				transform: translateX(0px);
 				opacity: 1;
@@ -1305,9 +1310,15 @@ h2, .head-bold {
 }
 
 .social-link {
+	opacity: 0.6;
+	transition: .3s;
 	img {
 		width: 40px;
 		height: 40px;
+	}
+
+	&:hover {
+		opacity: 1;
 	}
 }
 
