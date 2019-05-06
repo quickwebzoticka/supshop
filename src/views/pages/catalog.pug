@@ -4,4 +4,296 @@ block title
     title SUPSHOP | Catalog
 
 block contain
-    
+    .header-container.catalog-wrapper
+        .breadcrumbs
+            a.breadcrumbs__item(href="index.html") Главная
+            a.breadcrumbs__item(href="index.html") Магазин
+            a.breadcrumbs__item(href="index.html") Доски
+
+        .catalog
+            .catalog-filter
+                .catalog-filter-name Доски
+                .catalog-filter--line.catalog-filter--line_colored
+                .catalog-row
+                    .text
+                        | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                .catalog-row
+                    .catalog-sumoselect
+                        select
+                            option(value="0") По убыванию
+                            option(value="1") По возрастанию
+                .catalog-filter--line
+                .catalog-row
+                    .catalog-row-head Пол
+
+                    label.catalog-row-label
+                        .catalog-row-label__name Мужской
+                        .catalog-row-label__square
+                        input.catalog-row-label__input(type="checkbox")
+                    label.catalog-row-label
+                        .catalog-row-label__name Женский
+                        .catalog-row-label__square
+                        input.catalog-row-label__input(type="checkbox")
+                .catalog-filter--line
+                .catalog-row
+                    .catalog-row-head Бренд
+
+                    .catalog-input
+                        input.catalog-input__input(type="text" placeholder="Поиск")
+                        .catalog-input__img
+                            img(src="img/icons/search-img.png")
+                    label.catalog-row-label
+                        .catalog-row-label__name Adidas
+                        .catalog-row-label__square
+                        input.catalog-row-label__input(type="checkbox")
+                    label.catalog-row-label
+                        .catalog-row-label__name Nike
+                        .catalog-row-label__square
+                        input.catalog-row-label__input(type="checkbox")
+                    label.catalog-row-label
+                        .catalog-row-label__name Puma
+                        .catalog-row-label__square
+                        input.catalog-row-label__input(type="checkbox")
+                .catalog-filter--line
+
+                .catalog-row
+                    .catalog-row-head Размер
+
+                    .catalog-circle-row.catalog-size-row(data-choose-size="0")
+                        .catalog-circle-item.catalog-size-item
+                            | 36
+                        .catalog-circle-item.catalog-size-item.active
+                            | 38
+                        .catalog-circle-item.catalog-size-item
+                            | 40
+                        .catalog-circle-item.catalog-size-item
+                            | 42
+                    .catalog-circle-row.catalog-size-row(data-choose-size="1")
+                        .catalog-circle-item.catalog-size-item
+                            | M
+                        .catalog-circle-item.catalog-size-item.active
+                            | L
+                        .catalog-circle-item.catalog-size-item
+                            | XL
+                        .catalog-circle-item.catalog-size-item
+                            | XXL
+
+                            
+                .catalog-filter--line
+
+                .catalog-row
+                    .catalog-row-head Цвет
+
+                    .catalog-circle-row.catalog-color-row
+                        .catalog-circle-item.catalog-color-item(style="background-color: #FFFFFF")
+                        .catalog-circle-item.catalog-color-item(style="background-color: #ebebeb")
+                        .catalog-circle-item.catalog-color-item(style="background-color: #e32020")
+                        .catalog-circle-item.catalog-color-item(style="background-color: #3dedc2")
+            .catalog-results
+                .catalog-results-head
+                    .tabs
+                        .tabs-item.active SWEATER
+                        .tabs-item T-SHIRT
+                        .tabs-item DRESS
+                .catalog-results-output
+                    .catalog-output-item
+                        .popular-item(data-aos="fade-up" data-aos-delay="0")
+                            .popular-item-img
+                                .popular-item-img__like
+                                    img(src="img/icons/like.png")
+                                img(src="img/popular-item-1.png", alt="")
+                                .popular-item-img__cart
+                                    a(href="#")
+                                        img(src="img/icons/cart_black.png")
+                            .popular-item-descr
+                                .popular-item-descr-stars-wrapper
+                                    .popular-item-descr-stars
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                    .popular-item-descr-stars-count
+                                        | (24)
+                                .popular-item-descr-text
+                                    .text
+                                        | Supboard надувной с веслом
+                                .popular-item-descr__name GLADIATOR RT 11’00 
+                                .popular-item-descr__cost
+                                    | 23 500 р
+                    .catalog-output-item
+                        .popular-item(data-aos="fade-up" data-aos-delay="200")
+                            .popular-item-img
+                                .popular-item-img__discount
+                                    img(src="img/icons/discount.png")
+                                .popular-item-img__like
+                                    img(src="img/icons/like.png")
+                                img(src="img/popular-item-2.png", alt="")
+                                .popular-item-img__cart
+                                    a(href="#")
+                                        img(src="img/icons/cart_black.png")
+                            .popular-item-descr
+                                .popular-item-descr-stars-wrapper
+                                    .popular-item-descr-stars
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                    .popular-item-descr-stars-count
+                                        | (24)
+                                .popular-item-descr-text
+                                    .text
+                                        | Supboard надувной с веслом
+                                .popular-item-descr__name raptor 10
+                                .popular-item-descr__cost
+                                    | 23 500 р    
+                    .catalog-output-item
+                        .popular-item(data-aos="fade-up" data-aos-delay="0")
+                            .popular-item-img
+                                .popular-item-img__like
+                                    img(src="img/icons/like.png")
+                                img(src="img/popular-item-1.png", alt="")
+                                .popular-item-img__cart
+                                    a(href="#")
+                                        img(src="img/icons/cart_black.png")
+                            .popular-item-descr
+                                .popular-item-descr-stars-wrapper
+                                    .popular-item-descr-stars
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                    .popular-item-descr-stars-count
+                                        | (24)
+                                .popular-item-descr-text
+                                    .text
+                                        | Supboard надувной с веслом
+                                .popular-item-descr__name GLADIATOR RT 11’00 
+                                .popular-item-descr__cost
+                                    | 23 500 р
+                    .catalog-output-item
+                        .popular-item(data-aos="fade-up" data-aos-delay="0")
+                            .popular-item-img
+                                .popular-item-img__like
+                                    img(src="img/icons/like.png")
+                                img(src="img/popular-item-1.png", alt="")
+                                .popular-item-img__cart
+                                    a(href="#")
+                                        img(src="img/icons/cart_black.png")
+                            .popular-item-descr
+                                .popular-item-descr-stars-wrapper
+                                    .popular-item-descr-stars
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                    .popular-item-descr-stars-count
+                                        | (24)
+                                .popular-item-descr-text
+                                    .text
+                                        | Supboard надувной с веслом
+                                .popular-item-descr__name GLADIATOR RT 11’00 
+                                .popular-item-descr__cost
+                                    | 23 500 р
+                    .catalog-output-item
+                        .popular-item(data-aos="fade-up" data-aos-delay="0")
+                            .popular-item-img
+                                .popular-item-img__like
+                                    img(src="img/icons/like.png")
+                                img(src="img/popular-item-1.png", alt="")
+                                .popular-item-img__cart
+                                    a(href="#")
+                                        img(src="img/icons/cart_black.png")
+                            .popular-item-descr
+                                .popular-item-descr-stars-wrapper
+                                    .popular-item-descr-stars
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                    .popular-item-descr-stars-count
+                                        | (24)
+                                .popular-item-descr-text
+                                    .text
+                                        | Supboard надувной с веслом
+                                .popular-item-descr__name GLADIATOR RT 11’00 
+                                .popular-item-descr__cost
+                                    | 23 500 р
+                    .catalog-output-item
+                        .popular-item(data-aos="fade-up" data-aos-delay="0")
+                            .popular-item-img
+                                .popular-item-img__like
+                                    img(src="img/icons/like.png")
+                                img(src="img/popular-item-1.png", alt="")
+                                .popular-item-img__cart
+                                    a(href="#")
+                                        img(src="img/icons/cart_black.png")
+                            .popular-item-descr
+                                .popular-item-descr-stars-wrapper
+                                    .popular-item-descr-stars
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                        .popular-item-descr-star
+                                            img(src="img/icons/star.png")
+                                    .popular-item-descr-stars-count
+                                        | (24)
+                                .popular-item-descr-text
+                                    .text
+                                        | Supboard надувной с веслом
+                                .popular-item-descr__name GLADIATOR RT 11’00 
+                                .popular-item-descr__cost
+                                    | 23 500 р
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
