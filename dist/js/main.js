@@ -92,4 +92,14 @@ document.addEventListener('DOMContentLoaded', () => {
     $(this).hasClass('active') ? $('.header-mob').slideDown(300) : $('.header-mob').slideUp(300)
     $(this).hasClass('active') ? $('html, body').css('overflow', 'hidden') : $('html, body').css('overflow', 'auto') 
   });
+
+  $(document).on('click', '.popular-item-img__like', function() {
+    $(this).toggleClass('active');
+  });
+
+  if (windowWidth >= 1024 ) {
+    let height = $('header').height();
+    $(document).find('.header-bottom-menu-dropdown').css('top', height);
+  }
+  
 })

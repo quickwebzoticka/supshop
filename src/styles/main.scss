@@ -86,8 +86,8 @@ h2, .head-bold {
 .header-top {
 	background-color: $black;
 	&-item {
-		padding-top: 20px;
-		padding-bottom: 20px;
+		padding-top: 10px;
+		padding-bottom: 10px;
 		display: flex;
 		align-items: center;
 		&--last {
@@ -280,6 +280,10 @@ h2, .head-bold {
 	}
 
 	&--blue {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
 		.nested-ul-head {
 			&__text {
 				color: $blue;
@@ -311,7 +315,7 @@ h2, .head-bold {
 	width: 542px;
 	box-sizing: content-box;
 	outline: none;
-	padding: 20px;
+	padding: 10px 20px;
 	border-radius: 0px;
 	@include adapt(1440px) {
 		width: 400px;
@@ -371,12 +375,22 @@ h2, .head-bold {
 
 		&__li {
 			display: flex;
+			align-items: stretch;
+			justify-content: center;
+			&:hover .header-bottom-menu-dropdown {
+				display: flex;
+			}
+		}
+
+		&__li--text {
+			display: flex;
 			align-items: center;
 			justify-content: center;
 			padding: 0 5px;
 			color: #FFFFFF;
 			text-decoration: none;
 			position: relative;
+			cursor: pointer;
 			@include adapt(1220px) {
 				font-size: 12px;
 			}
@@ -394,8 +408,10 @@ h2, .head-bold {
 				display: none;
 			}
 
-			&:hover:before {
-				height: 5px;
+			&:hover {
+				&:before {
+					height: 5px;
+				}
 			}
 		}
 	}
@@ -676,7 +692,6 @@ h2, .head-bold {
 			flex: 1;
 		}
 
-
 		&-img {
 			position: relative;
 			padding: 60px 35px;
@@ -685,11 +700,50 @@ h2, .head-bold {
 			align-items: center;
 			justify-content: center;
 			height: 433px;
+			overflow: hidden;
 
 			&__like {
 				position: absolute;
 				top: 35px;
 				right: 35px;
+				opacity: 0.6;
+				transition: .3s;
+				cursor: pointer;
+
+				&:hover {
+					opacity: 1;
+				}
+
+				&.active {
+					opacity: 1;
+				}
+			}
+
+			&__cart {
+				position: absolute;
+				right: 35px;
+				bottom: 35px;
+				opacity: 0;
+				transform: translateX(30px);
+				transition: .3s;
+
+
+				&:hover {
+					opacity: 1;
+				}
+			}
+
+			&__discount {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 60px;
+				height: 60px;
+				background: $blue;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
 
 			}
 		}
@@ -751,6 +805,14 @@ h2, .head-bold {
 				margin-right: 5px;
 			}
 		}
+
+		&:hover {
+			.popular-item-img__cart {
+				transform: translateX(0px);
+				opacity: 1;
+			}
+		}
+
 	}
 }
 
@@ -1218,6 +1280,12 @@ h2, .head-bold {
 	}
 }
 
+.social-link {
+	img {
+		width: 40px;
+		height: 40px;
+	}
+}
 
 .footer-bottom {
 	background: #313236;
@@ -1292,9 +1360,13 @@ h2, .head-bold {
 				justify-content: flex-start;
 				margin-bottom: 10px;
 				font-size: 16px;
+				flex-direction: column;
+				align-items: flex-start;
 
-				&:before {
-					display: none;
+				&--text {
+					&:before {
+						display: none;
+					}
 				}
 			}
 		}
@@ -1337,5 +1409,50 @@ h2, .head-bold {
 
 	&__next {
 		transform: rotate(180deg);
+	}
+}
+
+
+.header-bottom-menu-dropdown {
+	position: absolute;
+	left: 0px;
+	width: 100vw;
+	background: rgba(18, 19, 21, 0.95);
+	display: none;
+	height: 300px;
+	align-items: flex-start;
+	justify-content: center;
+	padding: 75px;
+	z-index: 100;
+	@include adapt(1023px) {
+		position: static;
+		width: 100%;
+		height: auto;
+		padding: 20px 5px 10px;
+		background: none;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+	}
+
+	&__link {
+		color: #FFFFFF;
+		text-decoration: none;
+		margin-right: 20px;
+		margin-bottom: 20px;
+
+		@include adapt(1023px) {
+			font-size: 12px;
+			margin-right: 0px;
+			margin-bottom: 10px;
+		}
+
+		&:hover {
+			text-decoration: underline;
+		}
+
+		&:last-child {
+			margin-right: 0px;
+		}
 	}
 }

@@ -32,12 +32,45 @@ header.header
                 .header-logo
                     img(src="img/logo.png", alt="supshop")
             .header-bottom-item.header-bottom-ul(data-mob="nav-bar")
-                a.header-bottom-ul__li(href="#") Доски
-                a.header-bottom-ul__li(href="#") Весла
-                a.header-bottom-ul__li(href="#") Паруса
-                a.header-bottom-ul__li(href="#") Акссесуары
-                a.header-bottom-ul__li(href="#") Одежда
-                a.header-bottom-ul__li(href="#") Гидрофойлы
+                .header-bottom-ul__li(href="#")
+                    .header-bottom-ul__li--text Доски
+                    .header-bottom-menu-dropdown
+                        a.header-bottom-menu-dropdown__link(href="#") Гидрофойлы
+                        a.header-bottom-menu-dropdown__link(href="#") Паруса
+                .header-bottom-ul__li(href="#")
+                    .header-bottom-ul__li--text Весла
+                    .header-bottom-menu-dropdown
+                        a.header-bottom-menu-dropdown__link(href="#") Гидрофойлы
+                        a.header-bottom-menu-dropdown__link(href="#") Паруса
+                        a.header-bottom-menu-dropdown__link(href="#") Гидрофойлы
+                .header-bottom-ul__li(href="#")
+                    .header-bottom-ul__li--text Паруса
+                    .header-bottom-menu-dropdown
+                        a.header-bottom-menu-dropdown__link(href="#") Гидрофойлы
+                        a.header-bottom-menu-dropdown__link(href="#") Паруса
+                .header-bottom-ul__li(href="#")
+                    .header-bottom-ul__li--text Акссесуары
+                    .header-bottom-menu-dropdown
+                        a.header-bottom-menu-dropdown__link(href="#") Гидрофойлы
+                        a.header-bottom-menu-dropdown__link(href="#") Паруса
+                        a.header-bottom-menu-dropdown__link(href="#") Гидрофойлы
+                        a.header-bottom-menu-dropdown__link(href="#") Паруса
+                        a.header-bottom-menu-dropdown__link(href="#") Гидрофойлы
+                        a.header-bottom-menu-dropdown__link(href="#") Паруса
+                .header-bottom-ul__li(href="#")
+                    .header-bottom-ul__li--text Одежда
+                    .header-bottom-menu-dropdown
+                        a.header-bottom-menu-dropdown__link(href="#") Гидрофойлы
+                        a.header-bottom-menu-dropdown__link(href="#") Паруса
+                        a.header-bottom-menu-dropdown__link(href="#") Гидрофойлы
+                        a.header-bottom-menu-dropdown__link(href="#") Паруса
+                .header-bottom-ul__li(href="#")
+                    .header-bottom-ul__li--text Гидрофойлы
+                    .header-bottom-menu-dropdown
+                        a.header-bottom-menu-dropdown__link(href="#") Гидрофойлы
+                        a.header-bottom-menu-dropdown__link(href="#") Паруса
+                        a.header-bottom-menu-dropdown__link(href="#") Гидрофойлы
+                        a.header-bottom-menu-dropdown__link(href="#") Паруса
                 .header-bottom-ul__li
                     .nested-ul.nested-ul--blue
                         .nested-ul-head
@@ -53,11 +86,11 @@ header.header
                 .btn-gradient(data-mob="choose-btn")
                     a.header-bottom-btn(href="#")
                         p Пройти тест на выбор доски
-                a.header-functional(href="#")(data-mob="lk")
+                a.header-functional(href="#" data-mob="lk")
                     .header-functional__text лк
                     img.header-functional__img(src="img/icons/lk.png")
                 div.header-functional
-                    a.header-functional__liked(href="#")(data-mob="like")
+                    a.header-functional__liked(href="#" data-mob="like")
                         img(src="img/icons/liked.svg")
                     a.header-functional(href="#")
                         .header-functional__text 12
