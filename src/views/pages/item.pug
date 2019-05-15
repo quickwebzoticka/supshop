@@ -1,0 +1,187 @@
+extends ../template
+
+block title
+    title SUPSHOP | Item
+
+block contain
+    .header-container.card-wrapper
+        .breadcrumbs
+            a.breadcrumbs__item(href="index.html") Главная
+            a.breadcrumbs__item(href="index.html") Магазин
+            a.breadcrumbs__item(href="index.html") Доски
+            a.breadcrumbs__item(href="index.html") Gladiator
+        
+    .container
+        .block.card-block
+            .card-main
+                .card-gallery-wrapper
+                    .card-gallery-mini
+                        .card-gallery-mini__img
+                            img(src="https://picsum.photos/123")
+                        .card-gallery-mini__img
+                            img(src="https://picsum.photos/123")
+                        .card-gallery-mini__img
+                            img(src="https://picsum.photos/123")
+                        .card-gallery-mini__img
+                            img(src="https://picsum.photos/123")
+                        .card-gallery-mini__img
+                            img(src="https://picsum.photos/123")
+                        .card-gallery-mini__img
+                            img(src="https://picsum.photos/123")
+                        .card-gallery-mini__img
+                            img(src="https://picsum.photos/123")
+                        .card-gallery-mini__img
+                            img(src="https://picsum.photos/123")
+                        .card-gallery-mini__img
+                            img(src="https://picsum.photos/123")
+                    .card-gallery-big
+                        .card-gallery-big__img
+                            img(src="https://picsum.photos/700")
+                        .card-gallery-big__img
+                            img(src="https://picsum.photos/700")
+                        .card-gallery-big__img
+                            img(src="https://picsum.photos/700")
+                        .card-gallery-big__img
+                            img(src="https://picsum.photos/700")
+                        .card-gallery-big__img
+                            img(src="https://picsum.photos/700")
+                        .card-gallery-big__img
+                            img(src="https://picsum.photos/700")
+                        .card-gallery-big__img
+                            img(src="https://picsum.photos/700")
+                        .card-gallery-big__img
+                            img(src="https://picsum.photos/700")
+                        .card-gallery-big__img
+                            img(src="https://picsum.photos/700")
+                .card-info-wrapper
+                    .card-info-row.card-info-head
+                        h2 Надувная доска GLADIATOR RT 11’00 
+                    .card-info-row.card-info-buy-btns
+                        a(href="#").card-info-btn.card-info-btn--blue
+                            img(src="img/icons/cart.png")
+                            .card-info-btn__text 25 000р
+                        a(href="#").card-info-btn.card-info-btn--yellow
+                            .card-info-btn--yellow__left
+                                img(src="img/icons/yellow-btn.png")
+                            .card-info-btn--yellow__center
+                                .card-info-btn--yellow__center--head Купить
+                                .card-info-btn--yellow__center--main 2400 р / мес
+                            .card-info-btn--yellow__right
+                                img(src="img/icons/question.png")
+                    .card-info-row.card-info-buy-click
+                        a(href="#").link-detail Купить в один клик
+                        .supcoins-description
+                            img(src="img/icons/supcoin.png").supcoins-img
+                            .text +250 сапкойнов на счёт
+                    .card-info-row.card-info-like-compare
+                        .card-info-like
+                            .popular-item-img__like
+                                img(src="img/icons/like.png")
+                        .card-info-compare
+                             a(href="#").link-detail К сравнению
+                        
+                    .card-info-row.card-info-benefit
+                        .card-info-benefit__img
+                            img(src="img/icons/card-benefit-1.png")
+                        .text Бесплатная доставка
+                    .card-info-row.card-info-benefit
+                        .card-info-benefit__img
+                            img(src="img/icons/card-benefit-2.png")
+                        .text Беспроцентная рассрочка
+                    .card-info-row.card-info-benefit
+                        .card-info-benefit__img
+                            img(src="img/icons/card-benefit-3.png")
+                        .text Нашли дешевле? Вернём разницу!
+                    .card-info-row.card-info-text.text
+                        | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br><br>
+                        | Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+        .block.recommendation
+            .block-head.recommendation-head
+                h3  С этим товаром часто покупают
+            .block-main.recommendation-main
+                .recommendation-main-wrapper
+                    .recommendation-item
+                        .recommendation-item-img-wrapper
+                            .recommendation-item-img
+                                img(src="img/recommendation-1.png", alt="")
+                        .recommendation-item-description
+                            .recommendation-item-description__name raptor 10
+                            .recommendation-item-description__cart
+                                a(href="#")
+                                    img(src="img/icons/cart_black.png")
+                    .recommendation-item
+                        .recommendation-item-img-wrapper
+                            .recommendation-item-img
+                                img(src="img/recommendation-2.png", alt="")
+                        .recommendation-item-description
+                            .recommendation-item-description__name GLADIATOR RT 10’00 
+                            .recommendation-item-description__cart
+                                a(href="#")
+                                    img(src="img/icons/cart_black.png")
+                    .recommendation-item
+                        .recommendation-item-img-wrapper
+                            .recommendation-item-img
+                                img(src="img/recommendation-1.png", alt="")
+                        .recommendation-item-description
+                            .recommendation-item-description__name raptor 10
+                            .recommendation-item-description__cart
+                                a(href="#")
+                                    img(src="img/icons/cart_black.png")
+                    .recommendation-item
+                        .recommendation-item-img-wrapper
+                            .recommendation-item-img
+                                img(src="img/recommendation-2.png", alt="")
+                        .recommendation-item-description
+                            .recommendation-item-description__name GLADIATOR RT 10’00 
+                            .recommendation-item-description__cart
+                                a(href="#")
+                                    img(src="img/icons/cart_black.png")
+                    .recommendation-item
+                        .recommendation-item-img-wrapper
+                            .recommendation-item-img
+                                img(src="img/recommendation-2.png", alt="")
+                        .recommendation-item-description
+                            .recommendation-item-description__name GLADIATOR RT 10’00 
+                            .recommendation-item-description__cart
+                                a(href="#")
+                                    img(src="img/icons/cart_black.png")
+        .block.card-tabs
+            .card-tabs-wrapper
+                .card-tab.active
+                    | Описание
+                .card-tab
+                    | Характеристики
+                .card-tab
+                    | Комплектация
+                .card-tab
+                    | Отзывы (12)
+                .card-tab
+                    | Тест-драйв
+            .card-tabs-content-wrapper
+                .card-tabs-content-item
+                    .card-tabs-content-item__text.text
+                        | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br><br>
+                        | Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                .card-tabs-content-item
+                    .card-tabs-content-item__text.text
+                        | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br><br>
+                        | Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                .card-tabs-content-item
+                    .card-tabs-content-item__text.text
+                        | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br><br>
+                        | Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                .card-tabs-content-item
+                    .card-tabs-content-item__text.text
+                        | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br><br>
+                        | Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                
+        
+
+
+
+
+
+
+
+
+

@@ -30,7 +30,7 @@ block contain
 					.text
 						| Высокий стандарт качества, внимание к деталям и любовь к нашему делу<br> являются особенностями нашей студии. 
 				.content-side.flex-end(data-aos="fade-left")
-					a(href="#").btn-blue Перейти в каталог
+					a(href="catalog.html").btn-blue Перейти в каталог
 		.block.cards
 			.card(style="background: url(img/card-1.png) no-repeat center center; background-size: cover;" data-aos="fade-up" data-aos-delay="0")
 				.card-head.head-bold guide
@@ -266,7 +266,7 @@ block contain
 						| Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
 						| <br><br>
 						| In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
-					a.about-content-btn(href="#") смотреть магазин
+					a.about-content-btn(href="catalog.html") смотреть магазин
 		.block.feedback
 			.feedback-slider-wrapper
 				.feedback-slider
@@ -358,14 +358,7 @@ block contain
 					<svg width="8" height="14" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:avocode="https://avocode.com/" viewBox="0 0 8 14"><defs><path d="M100.00019,5855.99902l7.99988,6.99907v-13.99771z" id="Path-0"/></defs><desc>Generated with Avocode.</desc><g transform="matrix(1,0,0,1,-100,-5849)"><g><title>Polygon 1 copy 5</title><use xlink:href="#Path-0" fill="#121315" fill-opacity="1"/></g></g></svg>
 				.feedback-slider-arrow__next
 					<svg width="8" height="14" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:avocode="https://avocode.com/" viewBox="0 0 8 14"><defs><path d="M100.00019,5855.99902l7.99988,6.99907v-13.99771z" id="Path-0"/></defs><desc>Generated with Avocode.</desc><g transform="matrix(1,0,0,1,-100,-5849)"><g><title>Polygon 1 copy 5</title><use xlink:href="#Path-0" fill="#121315" fill-opacity="1"/></g></g></svg>
-	.block.email
-		.email-content
-			.email-head Оформи подписку и получай свежие предложения и новости
-			form.email-form
-				input(type="text" placeholder="Email").email-form-input
-				label.email-form-submit
-					input(type="submit")
-					| Отправить
+	include ../components/email.pug
 	
 
 
