@@ -2019,7 +2019,10 @@ h2, .head-bold {
 .catalog.news-comp {
 	.catalog-results {
 		padding-top: 95px; 
+		display: flex;
+		justify-content: center;
 		.catalog-results-output {
+			max-width: 1024px;
 			.catalog-output-item {
 				flex: 0 1 100%;
 				margin-bottom: 100px;
@@ -2041,6 +2044,10 @@ h2, .head-bold {
 							justify-content: center;
 							align-items: center;
 							background-color: #121315;
+							cursor: pointer;
+							&:hover {
+								background-color: #24b4ff;
+							}
 							a {
 								text-decoration: none;
 								color: #fff;
@@ -2102,13 +2109,13 @@ h2, .head-bold {
 											color: #fff;
 										}
 									}
-									.catalog-row-tags-item {
-										cursor: pointer;
+									.catalog-row-tags-item {										
 										padding: 10px 20px;
 										background-color: #e5e5e5;
 										margin-right: 8px;
 										margin-bottom: 8px;
 										a {
+											cursor: default;
 											text-decoration: none;
 											color: #9f9f9f;
 											font-size: 12px;
@@ -2145,6 +2152,79 @@ h2, .head-bold {
 					color: #9f9f9f;
 					font-size: 12px;
 					font-family: OpenSans;
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 1280px) {
+	.catalog.news-comp {
+		.catalog-results {
+			.catalog-results-output {
+				.catalog-output-item {
+					margin-right: 0;
+					.catalog-output-item-new {
+						flex-wrap: wrap;
+						.catalog-output-item-new-img, .catalog-output-item-new-info {
+							flex: 0 1 100%;
+						}
+						.catalog-output-item-new-img {
+							margin-bottom: 40px;
+							margin-right: 0;
+						}						
+					}
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 768px) {
+	.catalog.news-comp {
+		padding-left: 0;
+		.catalog-filter {
+			display: none;
+		}
+		.catalog-results {
+			padding-top: 0;
+			.catalog-results-output {
+				.catalog-output-item {
+					.catalog-output-item-new {					
+						.catalog-output-item-new-info {
+							.catalog-output-item-new-top-row {
+								flex-direction: column;
+								.catalog-output-item-new-top-row-left {
+									margin-bottom: 20px;
+								}
+								.catalog-output-item-new-top-row-right {
+									max-width: unset;
+									margin-bottom: 20px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 425px) {
+	.catalog.news-comp {
+		.catalog-results {
+			.catalog-results-output {
+				.catalog-output-item {
+					.catalog-output-item-new {
+						.catalog-output-item-new-img {
+							img {
+								width: 100%;
+							}
+						}
+						.catalog-output-item-new-info {
+							.catalog-output-item-new-top-row.btn {
+								margin: 0 auto;
+								margin-top: 35px;
+							}
+						}
+					}
 				}
 			}
 		}
