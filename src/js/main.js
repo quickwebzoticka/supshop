@@ -1,6 +1,4 @@
 $(document).ready(() => {
-  console.log('DOM structured');
-
   let windowWidth = window.innerWidth;  
   
   const mobRebuild = () => {
@@ -36,6 +34,8 @@ $(document).ready(() => {
     }
   }
   mobRebuild();
+
+  //todo: loop for aos animation delay on catalog-output-items
 
   AOS.init({
     once: true
@@ -227,18 +227,27 @@ $(document).ready(() => {
     $('.cart-block').css('display', 'block');
     $('.cart-overlay').css('display', 'block');
     $('.cart-main').css('display', 'block');
-    $('html, body').css('overflow', 'hidden');
+    $('html, body').css('overflowY', 'hidden');
 
     setTimeout(function() {
       $('.cart-overlay').css('opacity', 1);
-    },0);
-
-    setTimeout(function() {
       $('.cart-main').css('opacity', 1).css('transform', 'translateX(0%)');
-    }, 0);
+    },0);
   });
 
-  $(document).on('click', '.cart-main-close', function() {
+  var closeCart = function() {
+    $(this).css({pointerEvents: 'none'});
+    $('.cart-overlay').css({opacity: 0});
+    $('.cart-main').css({opacity: 0, transform: 'translateX(100%)'});
+    setTimeout(() => {
+      $('.cart-overlay').css({display: 'none'});
+      $('.cart-block').css('display', 'none');
+      $('.cart-main').css({display: 'none'});
+      $('html, body').css('overflowY', 'auto');
+      $(this).css({pointerEvents: 'auto'});
+    },400);
+  }
 
-  });
+  $(document).on('click', '.cart-main-close', closeCart);
+  $(document).on('click', '.cart-overlay', closeCart);
 })

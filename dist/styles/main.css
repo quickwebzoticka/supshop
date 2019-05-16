@@ -2286,7 +2286,17 @@ template {
   box-sizing: border-box; }
 
 html, body {
-  color: #121315; }
+  color: #121315;
+  overflow-x: hidden; }
+  html::-webkit-scrollbar, body::-webkit-scrollbar {
+    width: 3px; }
+  html::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
+    width: 3px;
+    background: #24b4ff;
+    border-radius: 3px; }
+  html::-webkit-scrollbar-track, body::-webkit-scrollbar-track {
+    width: 3px;
+    background: #ebebeb; }
 
 h1, h2, h3, h4, p {
   padding: 0;
@@ -2299,7 +2309,8 @@ input {
   outline: none; }
 
 .wrapper {
-  overflow: hidden; }
+  overflow: hidden;
+  width: calc(100vw); }
   @media screen and (max-width: 1023px) {
     .wrapper {
       padding-top: 139px; } }
@@ -2455,6 +2466,8 @@ h2, .head-bold {
   text-decoration: none;
   outline: none;
   white-space: nowrap; }
+  .header-callback:hover {
+    text-decoration: underline; }
 
 .nested-ul {
   position: relative; }
@@ -3906,13 +3919,20 @@ h3 {
 
 .cart-wrapper {
   display: flex;
-  align-items: stretch; }
+  align-items: stretch;
+  justify-content: flex-end;
+  position: relative; }
 
 .cart-overlay {
   flex: 1;
   background: rgba(255, 255, 255, 0.7);
   transition: .4s ease;
-  opacity: 0; }
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
 
 .cart-main {
   flex: 0 1 900px;
