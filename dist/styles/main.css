@@ -3305,7 +3305,10 @@ h2, .head-bold {
     font-family: "OpenSans", sans-serif;
     font-size: 15px;
     font-weight: 400;
-    line-height: 29px; }
+    line-height: 29px;
+    transition: .4s ease; }
+    .footer-top-item__link:hover {
+      color: #24b4ff; }
     .footer-top-item__link--row {
       display: flex;
       margin: 50px 0; }
@@ -4037,5 +4040,42 @@ h3 {
       width: 100%; }
   .cart-main-bottom .text {
     max-width: 60%; }
+
+.check-block {
+  width: 100%;
+  min-height: 100vh;
+  background: #ececec;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-direction: column; }
+
+.check-header {
+  display: flex;
+  align-items: center; }
+
+.check-link--back {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: .4s ease; }
+  .check-link--back img {
+    margin-right: 20px;
+    transition: .4s ease; }
+  .check-link--back:hover img {
+    transform: translateX(-20px); }
+
+.check-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center; }
+
+.check-goods .cart-main-wrapper {
+  padding: 0px 78px 0 0; }
+
+.check-goods .cart-main-bottom {
+  margin-bottom: 55px; }
 
 /*# sourceMappingURL=maps/main.css.map */
