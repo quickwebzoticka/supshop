@@ -75,10 +75,18 @@ $(document).ready(() => {
         breakpoint: 769,
         settings: {
           vertical: false,
-          slidesToShow: 3,
+          slidesToShow: 5,
           slidesToScroll: 1
-        }
-      }
+        }        
+      },
+      {
+        breakpoint: 425,
+        settings: {
+          vertical: false,
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }        
+      }      
     ]
   });
 
@@ -89,7 +97,7 @@ $(document).ready(() => {
     slidesToShow: 1,
     slidesToScroll: 1,
     fade: true,
-    asNavFor: '.card-gallery-mini'
+    asNavFor: '.card-gallery-mini'    
   })
 
   if (windowWidth < 768) {
