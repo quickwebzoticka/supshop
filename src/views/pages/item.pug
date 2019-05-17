@@ -158,6 +158,17 @@ block contain
                 .card-tab
                     | Тест-драйв
             .card-tabs-content-wrapper
+                .card-tabs-content-item.active
+                    .card-tabs-content-item__text.text
+                        | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br><br>
+                        | Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                .card-tabs-content-item
+                    .card-tabs-content-item__text.text
+                        | Lorem ipsum sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br><br>
+                        | Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                .card-tabs-content-item
+                    .card-tabs-content-item__text.text
+                        | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br><br>
                 .card-tabs-content-item
                     .card-tabs-content-item__text.text
                         | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br><br>
@@ -166,17 +177,149 @@ block contain
                     .card-tabs-content-item__text.text
                         | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br><br>
                         | Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-                .card-tabs-content-item
-                    .card-tabs-content-item__text.text
-                        | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br><br>
-                        | Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-                .card-tabs-content-item
-                    .card-tabs-content-item__text.text
-                        | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br><br>
-                        | Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-                
-        
+        .block
+            .block-head.recommendation-head
+                h3  видео
+    .block-wide.video-block
+        video(src="" poster="img/video-preview.png").video
+        .video-play-btn
+            <svg width="13" height="14" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:avocode="https://avocode.com/" viewBox="0 0 13 14"><defs></defs><desc>Generated with Avocode.</desc><g><g><path d="M12.36517,6.77957v0l-11.56757,6.583v0v-13.16563v0z" fill="#ffffff" fill-opacity="1"></path></g></g></svg>
+    .block-wide.comments-block
 
+    .container
+        .block.popular.similar
+            .content-row
+                .content-side(data-aos="fade-right" data-aos-delay="0")
+                    h3 похожие товары
+                .content-side.flex-end(data-aos="fade-right" data-aos-delay="800")
+                    a(href="#").link-redirect 
+                        | Смотреть страницу
+                        .link-redirect__arrow
+            .popular-items
+                .popular-item(data-aos="fade-up" data-aos-delay="0")
+                    .popular-item-img
+                        .popular-item-img__like
+                            img(src="img/icons/like.png")
+                        img(src="img/popular-item-1.png", alt="")
+                        .popular-item-img__cart
+                            a(href="#")
+                                img(src="img/icons/cart_black.png")
+                    .popular-item-descr
+                        .popular-item-descr-stars-wrapper
+                            .popular-item-descr-stars
+                                .popular-item-descr-star
+                                    img(src="img/icons/star.png")
+                                .popular-item-descr-star
+                                    img(src="img/icons/star.png")
+                                .popular-item-descr-star
+                                    img(src="img/icons/star.png")
+                                .popular-item-descr-star
+                                    img(src="img/icons/star.png")
+                                .popular-item-descr-star
+                                    img(src="img/icons/star.png")
+                            .popular-item-descr-stars-count
+                                | (24)
+                        .popular-item-descr-text
+                            .text
+                                | Supboard надувной с веслом
+                        .popular-item-descr__name GLADIATOR RT 11’00 
+                        .popular-item-descr__cost
+                            | 23 500 р
+                .popular-item(data-aos="fade-up" data-aos-delay="200")
+                    .popular-item-img
+                        .popular-item-img__discount
+                            img(src="img/icons/discount.png")
+                        .popular-item-img__like
+                            img(src="img/icons/like.png")
+                        img(src="img/popular-item-2.png", alt="")
+                        .popular-item-img__cart
+                            a(href="#")
+                                img(src="img/icons/cart_black.png")
+                    .popular-item-descr
+                        .popular-item-descr-stars-wrapper
+                            .popular-item-descr-stars
+                                .popular-item-descr-star
+                                    img(src="img/icons/star.png")
+                                .popular-item-descr-star
+                                    img(src="img/icons/star.png")
+                                .popular-item-descr-star
+                                    img(src="img/icons/star.png")
+                                .popular-item-descr-star
+                                    img(src="img/icons/star.png")
+                                .popular-item-descr-star
+                                    img(src="img/icons/star.png")
+                            .popular-item-descr-stars-count
+                                | (24)
+                        .popular-item-descr-text
+                            .text
+                                | Supboard надувной с веслом
+                        .popular-item-descr__name raptor 10
+                        .popular-item-descr__cost
+                            span.line-through 23 500 р
+                            span.text-blue 13 000 р
+                .popular-item(data-aos="fade-up" data-aos-delay="400")
+                    .popular-item-img
+                        .popular-item-img__like
+                            img(src="img/icons/like.png")
+                        img(src="img/popular-item-3.png", alt="")
+                        .popular-item-img__cart
+                            a(href="#")
+                                img(src="img/icons/cart_black.png")
+                    .popular-item-descr
+                        .popular-item-descr-stars-wrapper
+                                .popular-item-descr-stars
+                                    .popular-item-descr-star
+                                        img(src="img/icons/star.png")
+                                    .popular-item-descr-star
+                                        img(src="img/icons/star.png")
+                                    .popular-item-descr-star
+                                        img(src="img/icons/star.png")
+                                    .popular-item-descr-star
+                                        img(src="img/icons/star.png")
+                                    .popular-item-descr-star
+                                        img(src="img/icons/star.png")
+                                .popular-item-descr-stars-count
+                                    | (24)
+                        .popular-item-descr-text
+                            .text
+                                | Supboard надувной с веслом
+                        .popular-item-descr__name memfis 11’00 
+                        .popular-item-descr__cost
+                            | 23 500 р
+                .popular-item(data-aos="fade-up" data-aos-delay="600")
+                    .popular-item-img
+                        .popular-item-img__like
+                            img(src="img/icons/like.png")
+                        img(src="img/popular-item-4.png", alt="")
+                        .popular-item-img__cart
+                            a(href="#")
+                                img(src="img/icons/cart_black.png")
+                    .popular-item-descr
+                        .popular-item-descr-stars-wrapper
+                                .popular-item-descr-stars
+                                    .popular-item-descr-star
+                                        img(src="img/icons/star.png")
+                                    .popular-item-descr-star
+                                        img(src="img/icons/star.png")
+                                    .popular-item-descr-star
+                                        img(src="img/icons/star.png")
+                                    .popular-item-descr-star
+                                        img(src="img/icons/star.png")
+                                    .popular-item-descr-star
+                                        img(src="img/icons/star.png")
+                                .popular-item-descr-stars-count
+                                    | (24)
+                        .popular-item-descr-text
+                            .text
+                                | Supboard надувной с веслом
+                        .popular-item-descr__name GLADIATOR RT 10’00 
+                        .popular-item-descr__cost
+                            | 23 500 р
+        .block.pb-130
+            .block-head.text-center
+                h3 отзывы о магазине
+        include ../components/feedback.pug
+    include ../components/email.pug
 
 
 
