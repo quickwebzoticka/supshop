@@ -43,22 +43,42 @@ $(document).ready(() => {
 
   $('select').SumoSelect();
 
-  $('.feedback-slider').slick({
-    arrows: false,
-    infinite: false,
-    speed: 300,
-    slidesToShow: 2,
-    slidesToScroll: 2,
-    responsive: [
-      {
-        breakpoint: 769,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
+  if ($('.lk-message-gallery').length) {
+    $('.lk-message-gallery').find('.feedback-slider').slick({
+      arrows: false,
+      infinite: false,
+      speed: 300,
+      slidesToShow: 2,
+      slidesToScroll: 2,
+      responsive: [
+        {
+          breakpoint: 1366,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
         }
-      }
-    ]
-  });
+      ]
+    });
+  } else {
+    $('.feedback-slider').slick({
+      arrows: false,
+      infinite: false,
+      speed: 300,
+      slidesToShow: 2,
+      slidesToScroll: 2,
+      responsive: [
+        {
+          breakpoint: 769,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+  }
+
 
   $('.card-gallery-mini').slick({
     arrows: false,
@@ -256,8 +276,68 @@ $(document).ready(() => {
       $(this).addClass('active');
     }       
   });
-});
 
+  $(document).on('click', '.check-tabs-nav-item:not(.active)', function() {
+    $(this).addClass('active').siblings().removeClass('active');
+
+    $('.check-tabs-content-item').removeClass('active').eq($(this).index()).addClass('active');
+  });
+
+  $(document).on('click', '.lk-main-item-btn', function() {
+    let parentNode = $(this).closest('.lk-main-item');
+
+    if (parentNode.hasClass('opened')) {
+      if ($(this).data('btn-text') == "normal") {
+        $(this).text('Подробнее');
+      }
+      if ($(this).data('btn-text') == "diff") {
+        $(this).text('Развернуть');
+      }
+      if ($(this).closest('.lk-main-item[data-item-blue]')) {
+        $(this).closest('.lk-main-item[data-item-blue]').addClass('lk-main-item_blue')
+      }
+
+      $(this).closest('.lk-main-item')
+            .removeClass('opened')
+            .find('.lk-main-item-content')
+            .hide();
+    } else {
+      if ($(this).closest('.lk-main-item[data-item-blue]')) {
+        $(this).closest('.lk-main-item[data-item-blue]').removeClass('lk-main-item_blue')
+      }
+      $(this).text('Скрыть')
+            .closest('.lk-main-item')
+            .addClass('opened')
+            .find('.lk-main-item-content')
+            .show();
+    }
+  });
+
+  var windowPath = window.location.href;
+
+  if (windowPath.indexOf('lk.html') > 0) {
+    console.log(`current page: ${window.location.href}`);
+    $(document).find('.lk-sidebar-main-ul-li')
+              .eq(0)
+              .addClass('active');
+  }
+  if (windowPath.indexOf('lk-orders.html') > 0) {
+    console.log(`current page: ${window.location.href}`);
+    $(document).find('.lk-sidebar-main-ul-li')
+              .eq(1)
+              .addClass('active');
+  }
+  if (windowPath.indexOf('lk-message.html') > 0) {
+    console.log(`current page: ${window.location.href}`);
+    $(document).find('.lk-sidebar-main-ul-li')
+              .eq(3)
+              .addClass('active');
+  }
+
+  $(document).on('click', '.lk-sidebar-btn', function() {
+    $(this).closest('.lk-sidebar').toggleClass('closed');
+  })
+});
 
 
 //-------------------------------------------------------------NEWSNEWPROMO------------------------------------------------

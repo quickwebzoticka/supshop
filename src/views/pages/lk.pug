@@ -1,0 +1,174 @@
+extends ../template-lk
+
+block title
+    title SUPSHOP | LK
+
+block contain
+    .lk-block
+        .lk-wrapper
+            include ../components/lk-sidebar.pug
+            .lk-main
+                .lk-main-block
+                    .lk-main-block-column
+                        .lk-main-item.lk-main-item_blue.lk-main-item_bb(data-item-blue)
+                            .lk-main-item-head 
+                                .lk-main-item-head__name Моя корзина
+                                .lk-main-item-head__additional /&nbsp;&nbsp;&nbsp;2 товара
+                                .lk-main-item-head__icon
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="21" viewBox="0 0 24 21" fill="none">
+                                        <path d="M0 1H3.78378L4.65697 4.78378M7.02703 15.0541H20.5405L23.2432 4.78378H4.65697M7.02703 15.0541L4.65697 4.78378M7.02703 15.0541L7.56757 16.9459M17.8378 18.8378H9.72973" stroke="#24b4ff"></path>
+                                        <circle cx="8.10821" cy="18.8379" r="1.66216" stroke="#24b4ff"></circle>
+                                        <circle cx="18.919" cy="18.8379" r="1.66216" stroke="#24b4ff"></circle>
+                                    </svg>
+                            .lk-main-item-content-mini 
+                                .sum-total 13 500 руб.
+                            .lk-main-item-content
+                                .cart-main-goods
+                                    .cart-main-goods-item
+                                        .cart-main-goods-item__img
+                                            img(src="img/cart-good-preview-1.png", alt="GLADIATOR RT 11’00")
+                                        .cart-main-goods-item-description
+                                            .cart-main-goods-item-column
+                                                .cart-main-goods-item__name.popular-item-descr__name 
+                                                    .cart-main-goods-item__name--text GLADIATOR RT 10’00
+                                                    .cart-main-goods-item__name--count (1x)
+                                                .cart-main-goods-item__text.text Supboard надувной с веслом
+                                            .cart-main-goods-item-column
+                                                .cart-main-goods-item__remove
+                                                    .cart-main-goods-item__remove--wrapper
+                                                        .cart-main-goods-item__remove--line
+                                                        .cart-main-goods-item__remove--line
+                                                .cart-main-goods-item__count.popular-item-descr__cost 23 500 р
+                                    .cart-main-goods-item
+                                        .cart-main-goods-item__img
+                                            img(src="img/cart-good-preview-2.png", alt="raptor 10")
+                                        .cart-main-goods-item-description
+                                            .cart-main-goods-item-column
+                                                .cart-main-goods-item__name.popular-item-descr__name 
+                                                    .cart-main-goods-item__name--text raptor 10
+                                                    .cart-main-goods-item__name--count
+                                                .cart-main-goods-item__text.text Supboard надувной
+                                            .cart-main-goods-item-column
+                                                .cart-main-goods-item__remove
+                                                    .cart-main-goods-item__remove--wrapper
+                                                        .cart-main-goods-item__remove--line
+                                                        .cart-main-goods-item__remove--line
+                                                .cart-main-goods-item__count.popular-item-descr__cost 13 500 р
+                                    .cart-main-goods-item
+                                        .cart-main-goods-item__img
+                                            img(src="img/cart-good-preview-1.png", alt="GLADIATOR RT 11’00")
+                                        .cart-main-goods-item-description
+                                            .cart-main-goods-item-column
+                                                .cart-main-goods-item__name.popular-item-descr__name 
+                                                    .cart-main-goods-item__name--text GLADIATOR RT 10’00
+                                                    .cart-main-goods-item__name--count (1x)
+                                                .cart-main-goods-item__text.text Supboard надувной с веслом
+                                            .cart-main-goods-item-column
+                                                .cart-main-goods-item__remove
+                                                    .cart-main-goods-item__remove--wrapper
+                                                        .cart-main-goods-item__remove--line
+                                                        .cart-main-goods-item__remove--line
+                                                .cart-main-goods-item__count.popular-item-descr__cost 23 500 р
+                                    .cart-main-goods-item
+                                        .cart-main-goods-item__img
+                                            img(src="img/cart-good-preview-1.png", alt="GLADIATOR RT 11’00")
+                                        .cart-main-goods-item-description
+                                            .cart-main-goods-item-column
+                                                .cart-main-goods-item__name.popular-item-descr__name 
+                                                    .cart-main-goods-item__name--text GLADIATOR RT 10’00
+                                                    .cart-main-goods-item__name--count (1x)
+                                                .cart-main-goods-item__text.text Supboard надувной с веслом
+                                            .cart-main-goods-item-column
+                                                .cart-main-goods-item__remove
+                                                    .cart-main-goods-item__remove--wrapper
+                                                        .cart-main-goods-item__remove--line
+                                                        .cart-main-goods-item__remove--line
+                                                .cart-main-goods-item__count.popular-item-descr__cost 23 500 р
+                                    .cart-main-goods-item
+                                        .cart-main-goods-item__img
+                                            img(src="img/cart-good-preview-1.png", alt="GLADIATOR RT 11’00")
+                                        .cart-main-goods-item-description
+                                            .cart-main-goods-item-column
+                                                .cart-main-goods-item__name.popular-item-descr__name 
+                                                    .cart-main-goods-item__name--text GLADIATOR RT 10’00
+                                                    .cart-main-goods-item__name--count (1x)
+                                                .cart-main-goods-item__text.text Supboard надувной с веслом
+                                            .cart-main-goods-item-column
+                                                .cart-main-goods-item__remove
+                                                    .cart-main-goods-item__remove--wrapper
+                                                        .cart-main-goods-item__remove--line
+                                                        .cart-main-goods-item__remove--line
+                                                .cart-main-goods-item__count.popular-item-descr__cost 23 500 р
+                            .lk-main-item-bottom
+                                .lk-main-item-btn(data-btn-text="normal") Подробнее
+                        .lk-main-item
+                            .lk-main-item-head 
+                                .lk-main-item-head__name Мои желания
+                                .lk-main-item-head__icon
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="17" viewBox="0 0 21 17" fill="none">
+                                        <path d="M0 6.50007C0 12 10.5 17 10.5 17C10.5 17 21 11.5 21 6.50007C21 2 17.5 1.58008e-05 15 0C12.8879 -1.3349e-05 10.5 3.00007 10.5 3.00007C10.5 3.00007 8.11208 2.34317e-06 6 0C3.5 -2.77343e-06 0 2 0 6.50007Z" fill="#24b4ff"/>
+                                    </svg>
+                            .lk-main-item-content-mini
+                            .lk-main-item-content
+                            .lk-main-item-bottom
+                                .lk-main-item-btn(data-btn-text="diff") Развернуть
+                    .lk-main-block-column
+                        .lk-main-item.lk-main-item_bb
+                            .lk-main-item-head 
+                                .lk-main-item-head__name Мои данные
+                                .lk-main-item-head__icon
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" fill="none">
+                                        <path d="M8.11107 12C7.69885 12 6.81304 12 6.3333 12C2.3716 12.0002 1 20.0001 1 20.0001H20.5554C20.5554 20.0001 19.5476 11.9999 15.6666 11.9999C15.01 11.9999 13.9808 12 13.4444 12" stroke="#24b4ff"></path>
+                                        <path d="M16.0555 6.66663C16.0555 10.1419 13.6278 12.8333 10.7777 12.8333C7.9277 12.8333 5.5 10.1419 5.5 6.66663C5.5 3.19133 7.9277 0.5 10.7777 0.5C13.6278 0.5 16.0555 3.19133 16.0555 6.66663Z" stroke="#24b4ff"></path>
+                                    </svg>
+                            .lk-main-item-content-mini
+                                .personal-info__full-name Дмитрий Александрович Иванов
+                                .personal-info__email dmitry@gmail.com
+
+                            .lk-main-item-content
+                                .personal-info__avatar
+                                    img(src="img/avatar.png")
+                                .text 
+                                    | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+                                    | Aenean commodo ligula eget dolor. Aenean massa. 
+                                    | Cum sociis natoque penatibus et magnis dis parturient montes, 
+                                    | nascetur ridiculus mus.
+                            .lk-main-item-bottom
+                                .lk-main-item-btn(data-btn-text="normal") Подробнее
+                        .lk-main-item
+                            .lk-main-item-head 
+                                .lk-main-item-head__name Сапкойны
+                                .lk-main-item-head__additional Сапкойнов на счету
+                                .lk-main-item-head__icon
+                                    img(src="img/icons/supcoin.png")
+                            .lk-main-item-content-mini
+                                .sum-total 2 800
+                            .lk-main-item-content
+                            .lk-main-item-bottom
+                                .lk-main-item-btn(data-btn-text="diff") Развернуть
+                .lk-main-block-head
+                    h3.lk-main-block-head__h3 акции партнеров
+                .lk-main-block
+                    .partners-wrapper
+                        .lk-main-item.partners-item(style="background: url(img/partners-img-1.png) no-repeat center center; background-size: cover")
+                            .partners-item__head Starboard  Drive Zen
+                            .partners-item__main Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
+                            .partners-item__bottom 30%
+                        .lk-main-item.partners-item(style="background: url(img/partners-img-2.png) no-repeat center center; background-size: cover")
+                            .partners-item__head Starboard  Drive Zen
+                            .partners-item__main
+                            .partners-item__bottom Выгодно!
+                        .lk-main-item.partners-item
+                            .partners-item__head Starboard  Drive Zen
+                            .partners-item__main Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
+                            .partners-item__bottom 90%
+
+
+
+
+
+
+
+
+
+

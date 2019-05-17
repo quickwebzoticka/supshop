@@ -11,7 +11,7 @@
   <body class="scrollbar-rail">
     <div class="wrapper">
       <div class="check-block">
-        <div class="check-header"><a class="check-link--back text" href="index.html"> <img src="img/icons/arrow-left.png">Возврат к магазину</a><a class="card-logo" href="index.html"><img src="img/icons/logo-black.png" alt="supshop"></a></div>
+        <div class="check-header"><a class="check-link--back text" href="index.html"> <img src="img/icons/arrow-left.png">Возврат к магазину</a><a class="check-logo" href="index.html"><img src="img/icons/logo-black.png" alt="supshop"></a></div>
         <div class="check-wrapper">
           <div class="check-goods">
             <div class="cart-main-wrapper">
@@ -36,15 +36,19 @@
                     </div>
                     <div class="cart-main-goods-item-column">
                       <div class="cart-main-goods-item__remove">
-                        <div class="cart-main-goods-item__remove--line"></div>
-                        <div class="cart-main-goods-item__remove--line"></div>
+                        <div class="cart-main-goods-item__remove--wrapper">
+                          <div class="cart-main-goods-item__remove--line"></div>
+                          <div class="cart-main-goods-item__remove--line"></div>
+                        </div>
                       </div>
                       <div class="cart-main-goods-item__count popular-item-descr__cost">23 500 р</div>
                     </div>
                   </div>
                 </div>
                 <div class="cart-main-goods-item">
-                  <div class="cart-main-goods-item__img"><img src="img/cart-good-preview-2.png" alt="raptor 10"></div>
+                  <div class="cart-main-goods-item__img">
+                    <div class="popular-item-img__discount popular-item-img__discount_small"><img src="img/icons/discount.png"></div><img src="img/cart-good-preview-2.png" alt="raptor 10">
+                  </div>
                   <div class="cart-main-goods-item-description">
                     <div class="cart-main-goods-item-column">
                       <div class="cart-main-goods-item__name popular-item-descr__name"> 
@@ -55,10 +59,12 @@
                     </div>
                     <div class="cart-main-goods-item-column">
                       <div class="cart-main-goods-item__remove">
-                        <div class="cart-main-goods-item__remove--line"></div>
-                        <div class="cart-main-goods-item__remove--line"></div>
+                        <div class="cart-main-goods-item__remove--wrapper">
+                          <div class="cart-main-goods-item__remove--line"></div>
+                          <div class="cart-main-goods-item__remove--line"></div>
+                        </div>
                       </div>
-                      <div class="cart-main-goods-item__count popular-item-descr__cost">13 500 р</div>
+                      <div class="cart-main-goods-item__count popular-item-descr__cost"> <span class="line-through">18 500 р</span><span class="text-blue">13 500 р</span></div>
                     </div>
                   </div>
                 </div>
@@ -74,8 +80,10 @@
                     </div>
                     <div class="cart-main-goods-item-column">
                       <div class="cart-main-goods-item__remove">
-                        <div class="cart-main-goods-item__remove--line"></div>
-                        <div class="cart-main-goods-item__remove--line"></div>
+                        <div class="cart-main-goods-item__remove--wrapper">
+                          <div class="cart-main-goods-item__remove--line"></div>
+                          <div class="cart-main-goods-item__remove--line"></div>
+                        </div>
                       </div>
                       <div class="cart-main-goods-item__count popular-item-descr__cost">23 500 р</div>
                     </div>
@@ -93,8 +101,10 @@
                     </div>
                     <div class="cart-main-goods-item-column">
                       <div class="cart-main-goods-item__remove">
-                        <div class="cart-main-goods-item__remove--line"></div>
-                        <div class="cart-main-goods-item__remove--line"></div>
+                        <div class="cart-main-goods-item__remove--wrapper">
+                          <div class="cart-main-goods-item__remove--line"></div>
+                          <div class="cart-main-goods-item__remove--line"></div>
+                        </div>
                       </div>
                       <div class="cart-main-goods-item__count popular-item-descr__cost">23 500 р</div>
                     </div>
@@ -112,8 +122,10 @@
                     </div>
                     <div class="cart-main-goods-item-column">
                       <div class="cart-main-goods-item__remove">
-                        <div class="cart-main-goods-item__remove--line"></div>
-                        <div class="cart-main-goods-item__remove--line"></div>
+                        <div class="cart-main-goods-item__remove--wrapper">
+                          <div class="cart-main-goods-item__remove--line"></div>
+                          <div class="cart-main-goods-item__remove--line"></div>
+                        </div>
                       </div>
                       <div class="cart-main-goods-item__count popular-item-descr__cost">23 500 р</div>
                     </div>
@@ -122,7 +134,23 @@
               </div>
             </div>
           </div>
-          <div class="check-billing"></div>
+          <div class="check-billing">
+            <div class="check-tabs-nav">
+              <div class="check-tabs-nav-item active">перевод</div>
+              <div class="check-tabs-nav-item"><img src="img/icons/paypal.png" alt="paypal"></div>
+            </div>
+            <div class="check-tabs-content-wrapper">
+              <div class="check-tabs-content-item active">
+                <form action="">
+                  <div class="check-tabs-content-item-main"><img src="img/billing.png"></div>
+                  <div class="check-tabs-content-item-bottom">
+                    <input class="submit-btn btn-blue" type="submit" value="ОТПРАВИТЬ">
+                  </div>
+                </form>
+              </div>
+              <div class="check-tabs-content-item"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

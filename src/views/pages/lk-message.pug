@@ -1,0 +1,39 @@
+extends ../template-lk
+
+block title
+    title SUPSHOP | LK-message
+
+block contain
+    .lk-block
+        .lk-wrapper
+            include ../components/lk-sidebar.pug
+            .lk-main
+                .lk-message
+                    .lk-message-head
+                        .lk-message-head__text Сообщения
+                        .lk-message-head__additional /&nbsp;&nbsp;&nbsp;2 новых сообщения
+                    form(action="").lk-message-main
+                        .lk-message-main-select-wrapper
+                            select.lk-message-main-select
+                                option(value="Задать вопрос") Задать вопрос
+                                option(value="Дать совет") Дать совет
+                                option(value="Оставить благодарность") Оставить благодарность
+                                option(value="Оставить жалобу") Оставить жалобу
+                        .lk-message-main-textarea-wrapper
+                            textarea.lk-message-main-textarea
+                        .lk-message-main-bottom
+                            input(type="submit" value="Отправить").submit-btn.btn-blue.btn-red
+                    .lk-message-gallery
+                        include ../components/feedback.pug
+
+
+
+
+
+
+
+
+
+
+
+
