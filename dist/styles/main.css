@@ -2313,7 +2313,11 @@ input {
   width: 100vw; }
   @media screen and (max-width: 1023px) {
     .wrapper {
+<<<<<<< HEAD
       padding-top: 119px; } }
+=======
+      padding-top: 120px; } }
+>>>>>>> a9492cb98cce2acbb363823416c8cac1a2bb9d25
 
 .container {
   max-width: 1440px;
@@ -3840,6 +3844,8 @@ h2, .head-bold {
         .catalog.news-comp .catalog-results .catalog-results-output .catalog-output-item .catalog-output-item-new .catalog-output-item-new-img {
           flex: 0 1 370px;
           margin-right: 65px; }
+          .catalog.news-comp .catalog-results .catalog-results-output .catalog-output-item .catalog-output-item-new .catalog-output-item-new-img img {
+            width: 100%; }
         .catalog.news-comp .catalog-results .catalog-results-output .catalog-output-item .catalog-output-item-new .catalog-output-item-new-info {
           flex: 0 1 560px;
           font-family: OpenSans; }
@@ -4146,8 +4152,6 @@ h2, .head-bold {
 
 .goodsSlider .popular-item {
   width: 95%; }
-  .goodsSlider .popular-item:hover {
-    outline: none; }
 
 .formBlock {
   background: url(../img/formBlockBack.png);
@@ -4233,7 +4237,7 @@ textarea:focus {
     flex-wrap: wrap; }
     .feedbackBlock .feedBackVariables .feedBackVar {
       padding: 63px 118px 65px 175px;
-      max-width: 33.3%; }
+      max-width: 33.33%; }
       .feedbackBlock .feedBackVariables .feedBackVar h3 {
         font-family: 'OpenSansBold';
         font-size: 20px;
@@ -4253,7 +4257,8 @@ textarea:focus {
         color: #fff;
         border: none;
         padding: 20px 60px;
-        transition: all 300ms ease-in-out; }
+        transition: all 300ms ease-in-out;
+        font-family: OpenSansBold; }
         .feedbackBlock .feedBackVariables .questionBlock button:hover {
           background: #fff;
           color: #048fa8;
@@ -4271,8 +4276,9 @@ textarea:focus {
           border: #638228 solid 1px;
           padding: 10px 30px;
           width: 100%; }
-          .feedbackBlock .feedBackVariables .subForNewsBlock .emailSend input ::-webkit-input-placeholder {
-            color: #638228; }
+          .feedbackBlock .feedBackVariables .subForNewsBlock .emailSend input ::placeholder {
+            color: #638228;
+            font-family: OpenSans; }
         .feedbackBlock .feedBackVariables .subForNewsBlock .emailSend button {
           position: absolute;
           top: 10px;
@@ -4320,12 +4326,12 @@ textarea:focus {
 @media (min-width: 1201px) and (max-width: 1500px) {
   .feedbackBlock .feedBackVariables .feedBackVar {
     padding: 63px 118px 65px 100px;
-    max-width: 33.3%; } }
+    max-width: 33.33%; } }
 
 @media (min-width: 1000px) and (max-width: 1200px) {
   .feedbackBlock .feedBackVariables .feedBackVar {
     padding: 63px 80px 65px 80px;
-    max-width: 33.3%; } }
+    max-width: 33.33%; } }
 
 @media (min-width: 200px) and (max-width: 999px) {
   .feedbackBlock .feedBackVariables .feedBackVar {
@@ -4432,13 +4438,14 @@ textarea:focus {
         color: #000;
         font-family: 'OpenSans', sans-serif;
         font-size: 15px; }
-  .guideBlock .buttons {
+  .guideBlock .desk-page-tab-buttons {
     display: flex;
     align-items: center;
     max-width: 575px;
-    margin-bottom: 105px;
+    margin-bottom: 90px;
     flex-wrap: wrap; }
-    .guideBlock .buttons button {
+    .guideBlock .desk-page-tab-buttons button {
+      cursor: pointer;
       border: #999999 solid 1px;
       background: none;
       color: #999999;
@@ -4446,16 +4453,17 @@ textarea:focus {
       font-size: 15px;
       padding: 17px 33px;
       margin-right: 9px;
+      margin-bottom: 15px;
       transition: all 300ms ease-in-out; }
-      .guideBlock .buttons button:hover {
+      .guideBlock .desk-page-tab-buttons button:hover {
         background: #999999;
         color: #fff;
         transition: all 300ms ease-in-out; }
-    .guideBlock .buttons .activeButton {
+    .guideBlock .desk-page-tab-buttons .active {
       border: #00aecd solid 1px;
       color: #00aecd;
       transition: all 300ms ease-in-out; }
-      .guideBlock .buttons .activeButton:hover {
+      .guideBlock .desk-page-tab-buttons .active:hover {
         background: #00aecd;
         color: #fff;
         transition: all 300ms ease-in-out; }
@@ -4525,12 +4533,20 @@ textarea:focus {
     z-index: 98;
     transform: translateY(-100%);
     transition: all 300ms ease-in-out;
-    padding: 15px; }
-    .dropDownBlock .dropDownMenu p {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .dropDownBlock .dropDownMenu a {
+      text-decoration: none;
+      padding: 15px 0px;
+      width: 100%;
+      text-align: center;
       color: #fff;
       font-family: 'OpenSans', sans-serif;
       font-size: 15px;
-      margin-bottom: 10px; }
+      margin-bottom: 10px;
+      cursor: pointer; }
 
 @media (min-width: 200px) and (max-width: 420px) {
   .dropDownBlock {
@@ -4539,30 +4555,6 @@ textarea:focus {
 .descriptionTabs {
   position: relative;
   overflow: hidden; }
-
-#universalTab {
-  transform: translateX(0%);
-  transition: all 300ms ease-in-out; }
-
-#turingTab {
-  transform: translateX(100vw);
-  position: absolute;
-  transition: all 300ms ease-in-out; }
-
-#serfingTab {
-  transform: translateX(100vw);
-  position: absolute;
-  transition: all 300ms ease-in-out; }
-
-.tabArrives {
-  transform: translateX(0vw) !important;
-  transition: all 300ms ease-in-out;
-  position: static !important; }
-
-.tabGoes {
-  transform: translateX(100vw) !important;
-  transition: all 300ms ease-in-out;
-  position: absolute; }
 
 .card-tabs-wrapper {
   display: flex;
@@ -5417,5 +5409,127 @@ svg circle {
   @media screen and (max-width: 1023px) {
     .lk-sidebar-btn {
       display: block; } }
+
+.timerSlideWrap .feedback-slider-arrow__prev {
+  left: 20px; }
+
+.timerSlideWrap .feedback-slider-arrow__next {
+  right: 20px; }
+
+.desk-page-tab-content .tab {
+  height: 0px;
+  overflow: hidden;
+  transition-duration: 0.5s;
+  transform: translateX(-10000px); }
+
+.desk-page-tab-content .tab.active {
+  height: unset;
+  transform: translateX(0px); }
+
+.emailSend input {
+  font-family: OpenSans; }
+  .emailSend input::placeholder {
+    font-family: OpenSans; }
+
+@media screen and (max-width: 1440px) {
+  .recommendation-main-wrapper {
+    flex-wrap: wrap;
+    justify-content: flex-start; }
+  .card-tabs-wrapper {
+    flex-wrap: wrap; } }
+
+@media screen and (max-width: 768px) {
+  .card-main {
+    flex-wrap: wrap; }
+  .card-info-wrapper {
+    margin: 0 auto; }
+  .card-gallery-wrapper {
+    flex-wrap: wrap;
+    margin: 0 auto;
+    margin-bottom: 40px; }
+  .card-gallery-mini {
+    order: 2;
+    flex: 0 1 100%;
+    padding: 0;
+    height: 135px;
+    margin-top: 20px; }
+  .card-gallery-big {
+    order: 1;
+    flex: 0 1 100%; }
+  .card-gallery-mini__img img {
+    width: 135px;
+    margin: 0 auto; }
+  .cart-block {
+    top: 120px; }
+  .cart-main-wrapper {
+    padding: 100px 60px 100px 110px; }
+  .cart-main-close {
+    top: 20px;
+    right: 40px; }
+  .cart-main-head {
+    margin-bottom: 40px; }
+  .cart-main-line {
+    margin-bottom: 40px; }
+  .card-tabs-content-wrapper {
+    padding: 55px 0;
+    min-height: 200px; } }
+
+@media screen and (max-width: 426px) {
+  .email-form-input {
+    margin-bottom: 20px; }
+  .cart-main-wrapper {
+    padding: 60px 25px 60px 30px; }
+  .cart-main-close {
+    width: 25px;
+    height: 25px;
+    right: 20px; }
+  .cart-main-goods-item {
+    padding: 30px 0px;
+    flex-wrap: wrap; }
+    .cart-main-goods-item:first-child {
+      padding: 0 0 30px; }
+    .cart-main-goods-item:last-child {
+      padding: 30px 0 0; }
+  .cart-main-goods-item__img {
+    margin-right: 0;
+    margin-bottom: 25px;
+    flex: 0 1 100%; }
+  .cart-main-goods-item-description {
+    flex-wrap: wrap; }
+    .cart-main-goods-item-description .cart-main-goods-item-column {
+      flex: 0 1 100%; }
+      .cart-main-goods-item-description .cart-main-goods-item-column:first-child {
+        margin-top: 15px;
+        order: 2; }
+  .cart-main-btn-wrapper {
+    padding: 30px 0; }
+  .popular-item-descr__cost {
+    text-align: left; }
+  .cart-main-goods-item__text {
+    max-width: 200px; }
+  .cart-main-goods-item__name {
+    padding-right: 10px; }
+  .timerDiv {
+    width: 100%; }
+  .guideBlock .desk-page-tab-buttons {
+    margin-bottom: 50px; }
+  .guideBlock .rowOfContent {
+    margin-bottom: 70px; }
+  .guideBlock .thin {
+    margin-bottom: 70px; }
+  .guideBlock .thinText.biggerMarBot {
+    margin-bottom: 70px; }
+  .guideBlock .ulBlock {
+    margin-bottom: 80px; }
+    .guideBlock .ulBlock ul {
+      margin: 0; }
+  .guideBlock .feedbackBlock {
+    padding-top: 0; } }
+
+@media screen and (max-width: 400px) {
+  .timerDiv .timer {
+    padding: 40px 10px 40px 10px; }
+    .timerDiv .timer .colon {
+      margin: 0 10px; } }
 
 /*# sourceMappingURL=maps/main.css.map */
