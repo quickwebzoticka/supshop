@@ -47,7 +47,7 @@ input {
 	overflow: hidden;
 	width: calc(100vw);
 	@include adapt(1023px) {
-		padding-top: 139px;
+		padding-top: 120px;
 	}
 }
 
@@ -2060,6 +2060,9 @@ h2, .head-bold {
 					.catalog-output-item-new-img {
 						flex: 0 1 370px;
 						margin-right: 65px;
+						img {
+							width: 100%;
+						}
 					}
 					.catalog-output-item-new-info {
 						flex: 0 1 560px;
@@ -2126,7 +2129,7 @@ h2, .head-bold {
 							}
 							.catalog-output-item-new-top-row-right {
 								display: flex;
-								max-width: 40%;								
+								max-width: 40%;																
 								.catalog-row-tags {
 									display: flex;
 									flex-wrap: wrap;
@@ -2500,10 +2503,7 @@ h2, .head-bold {
 }
 
 .goodsSlider .popular-item {
-	width: 95%;
-	&:hover {
-		outline: none;
-	}
+	width: 95%;	
 }
 
 .formBlock {
@@ -2613,7 +2613,7 @@ textarea:focus {
 
 		& .feedBackVar {
 			padding: 63px 118px 65px 175px;
-			max-width: 33.3%;
+			max-width: 33.33%;
 
 			& h3  {
 				font-family: 'OpenSansBold';
@@ -2645,6 +2645,7 @@ textarea:focus {
 				border: none;
 				padding: 20px 60px;
 				transition: all 300ms ease-in-out;
+				font-family: OpenSansBold;
 
 				&:hover {
 					background: #fff;
@@ -2672,8 +2673,9 @@ textarea:focus {
 					padding: 10px 30px;
 					width: 100%;
 
-					& ::-webkit-input-placeholder {
+					& ::placeholder {
 						color: #638228;
+						font-family: OpenSans;
 					}
 				}
 
@@ -2747,14 +2749,14 @@ textarea:focus {
 @media (min-width: 1201px) and (max-width: 1500px) {
 	.feedbackBlock .feedBackVariables .feedBackVar {
 		padding: 63px 118px 65px 100px;
-		max-width: 33.3%;
+		max-width: 33.33%;
 	}
 }
 
 @media (min-width: 1000px) and (max-width: 1200px) {
 	.feedbackBlock .feedBackVariables .feedBackVar {
 		padding: 63px 80px 65px 80px;
-		max-width: 33.3%;
+		max-width: 33.33%;
 	}
 }
 
@@ -2909,14 +2911,15 @@ textarea:focus {
 		}
 	}
 
-	& .buttons {
+	& .desk-page-tab-buttons {		
 		display: flex;
 		align-items: center;
 		max-width: 575px;
-		margin-bottom: 105px;
+		margin-bottom: 90px;
 		flex-wrap: wrap;
 
 		& button {
+			cursor: pointer;
 			border: #999999 solid 1px;
 			background: none;
 			color: #999999;
@@ -2924,6 +2927,7 @@ textarea:focus {
 			font-size: 15px;
 			padding: 17px 33px;
 			margin-right: 9px;
+			margin-bottom: 15px;
 			transition: all 300ms ease-in-out;
 
 			&:hover {
@@ -2933,7 +2937,7 @@ textarea:focus {
 			}
 		}
 
-		& .activeButton {
+		& .active {
 			border: #00aecd solid 1px;
 			color: #00aecd;
 			transition: all 300ms ease-in-out;
@@ -3060,35 +3064,6 @@ textarea:focus {
 .descriptionTabs {
 	position: relative;
 	overflow: hidden;
-}
-
-#universalTab {
-	transform: translateX(0%);
-	transition: all 300ms ease-in-out;
-}
-
-#turingTab {
-	transform: translateX(100vw);
-	position: absolute;
-	transition: all 300ms ease-in-out;
-}
-
-#serfingTab {
-	transform: translateX(100vw);
-	position: absolute;
-	transition: all 300ms ease-in-out;
-}
-
-.tabArrives {
-	transform: translateX(0vw) !important;
-	transition: all 300ms ease-in-out;
-	position: static !important;
-}
-
-.tabGoes {
-	transform: translateX(100vw) !important;
-	transition: all 300ms ease-in-out;
-	position: absolute;
 }
 .card-tabs {
 	&-wrapper {
@@ -3487,3 +3462,14 @@ h3 {
 		}
 	}
 }
+
+.timerSlideWrap {
+	.feedback-slider-arrow__prev {
+		left: 20px;
+	}
+	.feedback-slider-arrow__next {
+		right: 20px;
+	}
+}
+
+@import "adaptive";

@@ -2313,7 +2313,7 @@ input {
   width: calc(100vw); }
   @media screen and (max-width: 1023px) {
     .wrapper {
-      padding-top: 139px; } }
+      padding-top: 120px; } }
 
 .container {
   max-width: 1440px;
@@ -3806,6 +3806,8 @@ h2, .head-bold {
         .catalog.news-comp .catalog-results .catalog-results-output .catalog-output-item .catalog-output-item-new .catalog-output-item-new-img {
           flex: 0 1 370px;
           margin-right: 65px; }
+          .catalog.news-comp .catalog-results .catalog-results-output .catalog-output-item .catalog-output-item-new .catalog-output-item-new-img img {
+            width: 100%; }
         .catalog.news-comp .catalog-results .catalog-results-output .catalog-output-item .catalog-output-item-new .catalog-output-item-new-info {
           flex: 0 1 560px;
           font-family: OpenSans; }
@@ -4112,8 +4114,6 @@ h2, .head-bold {
 
 .goodsSlider .popular-item {
   width: 95%; }
-  .goodsSlider .popular-item:hover {
-    outline: none; }
 
 .formBlock {
   background: url(../img/formBlockBack.png);
@@ -4199,7 +4199,7 @@ textarea:focus {
     flex-wrap: wrap; }
     .feedbackBlock .feedBackVariables .feedBackVar {
       padding: 63px 118px 65px 175px;
-      max-width: 33.3%; }
+      max-width: 33.33%; }
       .feedbackBlock .feedBackVariables .feedBackVar h3 {
         font-family: 'OpenSansBold';
         font-size: 20px;
@@ -4219,7 +4219,8 @@ textarea:focus {
         color: #fff;
         border: none;
         padding: 20px 60px;
-        transition: all 300ms ease-in-out; }
+        transition: all 300ms ease-in-out;
+        font-family: OpenSansBold; }
         .feedbackBlock .feedBackVariables .questionBlock button:hover {
           background: #fff;
           color: #048fa8;
@@ -4237,8 +4238,9 @@ textarea:focus {
           border: #638228 solid 1px;
           padding: 10px 30px;
           width: 100%; }
-          .feedbackBlock .feedBackVariables .subForNewsBlock .emailSend input ::-webkit-input-placeholder {
-            color: #638228; }
+          .feedbackBlock .feedBackVariables .subForNewsBlock .emailSend input ::placeholder {
+            color: #638228;
+            font-family: OpenSans; }
         .feedbackBlock .feedBackVariables .subForNewsBlock .emailSend button {
           position: absolute;
           top: 10px;
@@ -4286,12 +4288,12 @@ textarea:focus {
 @media (min-width: 1201px) and (max-width: 1500px) {
   .feedbackBlock .feedBackVariables .feedBackVar {
     padding: 63px 118px 65px 100px;
-    max-width: 33.3%; } }
+    max-width: 33.33%; } }
 
 @media (min-width: 1000px) and (max-width: 1200px) {
   .feedbackBlock .feedBackVariables .feedBackVar {
     padding: 63px 80px 65px 80px;
-    max-width: 33.3%; } }
+    max-width: 33.33%; } }
 
 @media (min-width: 200px) and (max-width: 999px) {
   .feedbackBlock .feedBackVariables .feedBackVar {
@@ -4398,13 +4400,14 @@ textarea:focus {
         color: #000;
         font-family: 'OpenSans', sans-serif;
         font-size: 15px; }
-  .guideBlock .buttons {
+  .guideBlock .desk-page-tab-buttons {
     display: flex;
     align-items: center;
     max-width: 575px;
-    margin-bottom: 105px;
+    margin-bottom: 90px;
     flex-wrap: wrap; }
-    .guideBlock .buttons button {
+    .guideBlock .desk-page-tab-buttons button {
+      cursor: pointer;
       border: #999999 solid 1px;
       background: none;
       color: #999999;
@@ -4412,16 +4415,17 @@ textarea:focus {
       font-size: 15px;
       padding: 17px 33px;
       margin-right: 9px;
+      margin-bottom: 15px;
       transition: all 300ms ease-in-out; }
-      .guideBlock .buttons button:hover {
+      .guideBlock .desk-page-tab-buttons button:hover {
         background: #999999;
         color: #fff;
         transition: all 300ms ease-in-out; }
-    .guideBlock .buttons .activeButton {
+    .guideBlock .desk-page-tab-buttons .active {
       border: #00aecd solid 1px;
       color: #00aecd;
       transition: all 300ms ease-in-out; }
-      .guideBlock .buttons .activeButton:hover {
+      .guideBlock .desk-page-tab-buttons .active:hover {
         background: #00aecd;
         color: #fff;
         transition: all 300ms ease-in-out; }
@@ -4505,30 +4509,6 @@ textarea:focus {
 .descriptionTabs {
   position: relative;
   overflow: hidden; }
-
-#universalTab {
-  transform: translateX(0%);
-  transition: all 300ms ease-in-out; }
-
-#turingTab {
-  transform: translateX(100vw);
-  position: absolute;
-  transition: all 300ms ease-in-out; }
-
-#serfingTab {
-  transform: translateX(100vw);
-  position: absolute;
-  transition: all 300ms ease-in-out; }
-
-.tabArrives {
-  transform: translateX(0vw) !important;
-  transition: all 300ms ease-in-out;
-  position: static !important; }
-
-.tabGoes {
-  transform: translateX(100vw) !important;
-  transition: all 300ms ease-in-out;
-  position: absolute; }
 
 .card-tabs-wrapper {
   display: flex;
@@ -4816,5 +4796,50 @@ h3 {
 
 .check-goods .cart-main-bottom {
   margin-bottom: 55px; }
+
+.timerSlideWrap .feedback-slider-arrow__prev {
+  left: 20px; }
+
+.timerSlideWrap .feedback-slider-arrow__next {
+  right: 20px; }
+
+.desk-page-tab-content .tab {
+  height: 0px;
+  overflow: hidden;
+  transition-duration: 0.5s;
+  transform: translateX(-10000px); }
+
+.desk-page-tab-content .tab.active {
+  height: unset;
+  transform: translateX(0px); }
+
+.emailSend input {
+  font-family: OpenSans; }
+  .emailSend input::placeholder {
+    font-family: OpenSans; }
+
+@media screen and (max-width: 426px) {
+  .timerDiv {
+    width: 100%; }
+  .guideBlock .desk-page-tab-buttons {
+    margin-bottom: 50px; }
+  .guideBlock .rowOfContent {
+    margin-bottom: 70px; }
+  .guideBlock .thin {
+    margin-bottom: 70px; }
+  .guideBlock .thinText.biggerMarBot {
+    margin-bottom: 70px; }
+  .guideBlock .ulBlock {
+    margin-bottom: 80px; }
+    .guideBlock .ulBlock ul {
+      margin: 0; }
+  .guideBlock .feedbackBlock {
+    padding-top: 0; } }
+
+@media screen and (max-width: 400px) {
+  .timerDiv .timer {
+    padding: 40px 10px 40px 10px; }
+    .timerDiv .timer .colon {
+      margin: 0 10px; } }
 
 /*# sourceMappingURL=maps/main.css.map */

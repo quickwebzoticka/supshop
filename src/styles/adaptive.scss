@@ -1,0 +1,58 @@
+.desk-page-tab-content {
+    .tab {
+        height: 0px;
+        overflow: hidden;
+        transition-duration: 0.5s;
+        transform: translateX(-10000px);
+    }
+    .tab.active {
+        height: unset;
+        transform: translateX(0px);
+    }    
+}
+.emailSend {
+    input {
+        font-family: OpenSans;
+        &::placeholder {
+            font-family: OpenSans;
+        } 
+    }    
+}
+@media screen and (max-width: 426px) {
+    .timerDiv {
+        width: 100%;
+    }
+    .guideBlock {
+        .desk-page-tab-buttons {        
+            margin-bottom: 50px;
+        }
+        .rowOfContent {
+            margin-bottom: 70px;
+        }
+        .thin {
+            margin-bottom: 70px;
+        }
+        .thinText.biggerMarBot {
+            margin-bottom: 70px;
+        }
+        .ulBlock {
+            margin-bottom: 80px;
+            ul {
+                margin: 0;
+            }
+        }
+        .feedbackBlock {
+            padding-top: 0;
+        }
+    }
+}
+@media screen and (max-width: 400px) {
+    .timerDiv {
+        .timer {
+            padding: 40px 10px 40px 10px;
+            .colon {
+                margin: 0 10px;
+            }
+        }
+    }
+}

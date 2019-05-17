@@ -250,6 +250,9 @@ $(document).ready(() => {
   $(document).on('click', '.cart-overlay', closeCart);
   $(document).on('click', '.catalog-row-tags-item', function(event) {
     event.preventDefault();
+    if($(this).hasClass('disabled')) {
+      return 0;
+    }
     if($(this).hasClass('active')) {
       $(this).removeClass('active');
     } else {
@@ -272,6 +275,23 @@ $(document).ready(() => {
 //-------------------------------------------------------------NEWSNEWPROMO------------------------------------------------
 //-------------------------------------------------------------NEWSNEWPROMO------------------------------------------------
 $(document).ready(function() {
+  $(document).on('click', '.desk-page-tab-buttons button', function() {
+    var tabButton = $(this);
+    var indexOfTab = tabButton.index();
+    var tabContent = $(document).find('.desk-page-tab-content .tab').eq(indexOfTab);
+    if(tabContent.hasClass('active')) {
+
+    } else {
+      $(document).find('.desk-page-tab-content .tab').each(function() {
+        $(this).removeClass('active');
+      });
+      $(document).find('.desk-page-tab-buttons button').each(function() {
+        $(this).removeClass('active');
+      });
+      tabContent.addClass('active');
+      tabButton.addClass('active');
+    }
+  });
   $('.goodsSlider').slick({
     arrows: false,
     infinite: true,
@@ -321,18 +341,18 @@ $(document).ready(function() {
       }
     ]
   });
-  $(document).on('click', '.timerSlider-arrow__prev', function() {
+  $(document).on('click', '.feedback-slider-arrow__prev.promo-header-slider__btn', function() {
     $('.timerSlider').slick('slickPrev');
   });
   
-  $(document).on('click', '.timerSlider-arrow__next', function() {
+  $(document).on('click', '.feedback-slider-arrow__next.promo-header-slider__btn', function() {
     $('.timerSlider').slick('slickNext');
   });
-  $(document).on('click', '.goodsSlider-arrow__prev', function() {
+  $(document).on('click', '.feedback-slider-arrow__prev.promo-footer-slider__btn', function() {
     $('.goodsSlider').slick('slickPrev');
   });
   
-  $(document).on('click', '.goodsSlider-arrow__next', function() {
+  $(document).on('click', '.feedback-slider-arrow__next.promo-footer-slider__btn', function() {
     $('.goodsSlider').slick('slickNext');
   });  
   // Set the date we're counting down to
@@ -386,62 +406,7 @@ $(document).ready(function() {
       document.getElementById("minutes").innerHTML = '0';
       document.getElementById("seconds").innerHTML = '0';
     }
-  }, 1000);
-  
-  function universalToggle () {
-    var button = document.getElementById('universal');
-    var button_1 = document.getElementById('turing');
-    var button_2 = document.getElementById('serfing');
-    var tab = document.getElementById('universalTab');
-    var tab_1 = document.getElementById('turingTab');
-    var tab_2 = document.getElementById('serfingTab');
-  
-    button.classList.add('activeButton');
-    button_1.classList.remove('activeButton');
-    button_2.classList.remove('activeButton');
-  
-    tab.classList.add('tabArrives');
-    tab.classList.remove('tabGoes');
-    tab_1.classList.remove('tabArrives');
-    tab_2.classList.remove('tabArrives');
-  };
-  
-  function turingToggle () {
-    var button = document.getElementById('turing');
-    var button_1 = document.getElementById('universal');
-    var button_2 = document.getElementById('serfing');
-    var tab = document.getElementById('turingTab');
-    var tab_1 = document.getElementById('universalTab');
-    var tab_2 = document.getElementById('serfingTab');
-  
-    button.classList.add('activeButton');
-    button_1.classList.remove('activeButton');
-    button_2.classList.remove('activeButton');
-  
-    tab.classList.add('tabArrives');
-    tab.classList.remove('tabGoes')
-    tab_1.classList.remove('tabArrives');
-    tab_1.classList.add('tabGoes')
-    tab_2.classList.remove('tabArrives');
-  };
-  
-  function serfingToggle () {
-    var button = document.getElementById('serfing');
-    var button_1 = document.getElementById('universal');
-    var button_2 = document.getElementById('turing');
-    var tab = document.getElementById('serfingTab');
-    var tab_1 = document.getElementById('universalTab');
-    var tab_2 = document.getElementById('turingTab');
-  
-    button.classList.add('activeButton');
-    button_1.classList.remove('activeButton');
-    button_2.classList.remove('activeButton');
-  
-    tab.classList.add('tabArrives');
-    tab.classList.remove('tabGoes')
-    tab_1.classList.remove('tabArrives');
-    tab_1.classList.add('tabGoes')
-    tab_2.classList.remove('tabArrives');
-  };
+  }, 1000); 
+
 }
 });
