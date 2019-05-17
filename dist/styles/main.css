@@ -2313,11 +2313,7 @@ input {
   width: 100vw; }
   @media screen and (max-width: 1023px) {
     .wrapper {
-<<<<<<< HEAD
-      padding-top: 119px; } }
-=======
       padding-top: 120px; } }
->>>>>>> a9492cb98cce2acbb363823416c8cac1a2bb9d25
 
 .container {
   max-width: 1440px;
