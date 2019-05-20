@@ -466,11 +466,11 @@ $(document).ready(function() {
   // Set the date we're counting down to
   var progressBar = document.getElementById('progressBar');
   if(progressBar) {
-  
+  console.log(1);
   
   //countDownDate ---- date timer expires
   //dateOfStart ------ actual date u are setting this timer
-  var countDownDate = new Date("May 18, 2019 02:30:25").getTime();
+  var countDownDate = new Date("May 30, 2019 02:30:25").getTime();
   var dateOfStart = new Date("May 16, 2019 02:20:25").getTime();
   var ProgressNow = new Date().getTime();
   var hundredPerc = countDownDate - dateOfStart;
