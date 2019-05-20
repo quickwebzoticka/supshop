@@ -43,7 +43,12 @@
 @font-face {
 	font-family: "Proxima Nova Light";
 	src: url(../fonts/ProximaNovaLight.ttf);
-	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Proxima Nova Thin";
+	src: url(../fonts/ProximaNovaThin.ttf);
 	font-style: normal;
 }
 

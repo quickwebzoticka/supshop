@@ -76,6 +76,7 @@ input {
 
 header {
 	font-family: 'Proxima Nova', sans-serif;
+	font-weight: 100;
 	z-index: 1100;
 	position: fixed;
 	top: 0;
@@ -1833,9 +1834,12 @@ h2, .head-bold {
 		}
 	}
 	&-output-item {
-		flex: 0 1 ;
+		width: 21%;
 		margin-bottom: 20px;
 		margin-right: 20px;
+		@include adapt(1220px) {
+			width: unset;
+		}
 		@include adapt(910px) {
 			margin-right: 0px;
 		}

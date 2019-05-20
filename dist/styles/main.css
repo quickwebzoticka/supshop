@@ -37,7 +37,11 @@
 @font-face {
   font-family: "Proxima Nova Light";
   src: url(../fonts/ProximaNovaLight.ttf);
-  font-weight: 700;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Proxima Nova Thin";
+  src: url(../fonts/ProximaNovaThin.ttf);
   font-style: normal; }
 
 @font-face {
@@ -2337,6 +2341,7 @@ input {
 
 header {
   font-family: 'Proxima Nova', sans-serif;
+  font-weight: 100;
   z-index: 1100;
   position: fixed;
   top: 0;
@@ -3656,9 +3661,12 @@ h2, .head-bold {
           align-items: center;
           flex-direction: column; } }
   .catalog-output-item {
-    flex: 0 1;
+    width: 21%;
     margin-bottom: 20px;
     margin-right: 20px; }
+    @media screen and (max-width: 1220px) {
+      .catalog-output-item {
+        width: unset; } }
     @media screen and (max-width: 910px) {
       .catalog-output-item {
         margin-right: 0px; } }
