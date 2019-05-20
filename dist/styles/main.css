@@ -4362,7 +4362,7 @@ textarea:focus {
         border: none;
         padding: 20px 60px;
         transition: all 300ms ease-in-out;
-        font-family: OpenSansBold; }
+        font-family: 'OpenSansBold', sans-serif; }
         .feedbackBlock .feedBackVariables .questionBlock button:hover {
           background: #fff;
           color: #048fa8;
