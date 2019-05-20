@@ -3,7 +3,14 @@ $(document).ready(() => {
 
   if (windowWidth >= 1024) {
     let windowOffsetTop = [];
+    
     $(window).scroll(function() {
+      // if ($(window).scrollTop() < 141 ) {
+      //   $('.header').addClass('static');
+      //   return false;
+      // } else {
+      //   $('.header').removeClass('static');
+      // }
       windowOffsetTop.push($(window).scrollTop());
 
       if (windowOffsetTop.length === 2) {

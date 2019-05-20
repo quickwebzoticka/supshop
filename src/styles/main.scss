@@ -76,13 +76,17 @@ input {
 
 header {
 	font-family: 'Proxima Nova', sans-serif;
-	position: relative;
 	z-index: 1100;
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
 	transition: .4s ease;
+	// &.static {
+	// 	position: absolute;
+	// 	transform: translateY(0%);
+	// 	transition: 0s;
+	// }
 	&.closed {
 		transform: translateY(-100%);
 	}

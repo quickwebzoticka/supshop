@@ -2337,7 +2337,6 @@ input {
 
 header {
   font-family: 'Proxima Nova', sans-serif;
-  position: relative;
   z-index: 1100;
   position: fixed;
   top: 0;
