@@ -3659,6 +3659,9 @@ h3 {
 //----------------------------------------------------check----------------------------------------------
 //----------------------------------------------------check----------------------------------------------
 
+.no-pt {
+	padding-top: 0px;
+}
 
 .check {
 	&-block {
@@ -3670,12 +3673,19 @@ h3 {
 		justify-content: center;
 		flex-direction: column;
 		padding: 100px 100px 0px 100px;
+		@include adapt(1023px) {
+			padding: 50px 15px;
+		}
 	}
 
 	&-header {
 		display: flex;
 		align-items: center;
 		margin-bottom: 100px;
+		@include adapt(1023px) {
+			flex-direction: column;
+			align-items: flex-start;
+		} 
 	}
 
 	&-link--back {
@@ -3684,6 +3694,9 @@ h3 {
 		align-items: center;
 		text-decoration: none;
 		transition: .4s ease;
+		@include adapt(1023px) {
+			margin-bottom: 20px;
+		}
 		img {
 			margin-right: 20px;
 			transition: .4s ease;
@@ -3704,7 +3717,10 @@ h3 {
 		width: 100%;
 		height: 100%;
 		display: flex;
-		align-items: flex-start;
+		align-items: stretch;
+		@include adapt(1023px) {
+			flex-direction: column;
+		}
 	}
 
 	&-goods {
@@ -3714,6 +3730,12 @@ h3 {
 		}
 		.cart-main-bottom {
 			margin-bottom: 55px;
+		}
+		@include adapt(1023px) {
+			.cart-main-wrapper {
+				padding: 0;
+				margin-bottom: 40px;
+			}
 		}
 	}
 
@@ -3753,6 +3775,10 @@ h3 {
 			background: #FFFFFF;
 			padding: 150px 150px 100px 150px;
 			min-height: 818px;
+			@include adapt(1023px) {
+				padding: 50px;
+				width: 100%;
+			}
 		}
 
 		&-item {
@@ -3767,6 +3793,10 @@ h3 {
 			}
 			&-main {
 				margin-bottom: 30px;
+				img {
+					width: 100%;
+
+				}
 			}
 			&-bottom {
 				display: flex;
@@ -3913,6 +3943,7 @@ h3 {
 		padding-right: 100px;
 		@include adapt(1023px) {
 			padding-right: 15px;
+			padding-left: 15px;
 		}
 
 		&-block {
@@ -3940,6 +3971,10 @@ h3 {
 				flex-direction: column;
 				margin-right: 20px;
 				flex: 1;
+				@include adapt(850px) {
+					width: 100%;
+					margin-right: 0px;
+				}
 
 				&:last-child {
 					margin-right: 0px;
@@ -4178,7 +4213,7 @@ svg {
 		align-items: flex-start;
 		flex-direction: column;
 		@include adapt(850px) {
-			width: 300px;
+			width: 100%;
 			margin-right: 0px;
 		}
 
