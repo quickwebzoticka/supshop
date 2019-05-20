@@ -46,6 +46,7 @@ input {
 .wrapper {
 	overflow: hidden;
 	width: 100vw;
+	padding-top: 141px;
 	@include adapt(1023px) {
 		padding-top: 120px;
 	}
@@ -53,9 +54,13 @@ input {
 
 .container {
 	max-width: 1440px;
-	padding-left: 5px;
-	padding-right: 5px;
+	padding-left: 50px;
+	padding-right: 50px;
 	margin: 0 auto;
+	@include adapt(768px) {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
 }
 
 .text {
@@ -73,6 +78,14 @@ header {
 	font-family: 'Proxima Nova', sans-serif;
 	position: relative;
 	z-index: 1100;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	transition: .4s ease;
+	&.closed {
+		transform: translateY(-100%);
+	}
 	@include adapt(1023px) {
 		position: fixed;
 		z-index: 1100;
@@ -105,6 +118,9 @@ h2, .head-bold {
 	text-transform: uppercase;
 	@include adapt(767px) {
 		font-size: 24px;
+	}
+	@include adapt(390px) {
+		font-size: 18px;
 	}
 }
 
@@ -179,8 +195,12 @@ h2, .head-bold {
 	padding-left: 100px;
 	padding-right: 100px;
 	@include adapt(1440px) {
-		padding-left: 15px;
-		padding-right: 15px;
+		padding-left: 50px;
+		padding-right: 50px;
+	}
+	@include adapt(768px) {
+		padding-left: 5px;
+		padding-right: 5px;
 	}
 }
 
@@ -562,6 +582,9 @@ h2, .head-bold {
 			flex-direction: column;
 			align-items: flex-start
 		}
+		@include adapt(450px) {
+			align-items: stretch;
+		}
 	}
 }
 
@@ -648,6 +671,9 @@ h2, .head-bold {
 	@include adapt(767px) {
 		margin-top: 20px;
 	}
+	@include adapt(450px) {
+		width: 100%;
+	}
 }
 
 .content-header {
@@ -722,6 +748,7 @@ h2, .head-bold {
 	font-size: 14px;
 	font-weight: 400;
 	text-decoration: underline;
+	white-space: nowrap;
 	&__arrow {
 		margin-left: 25px;
 		width: 6px;
@@ -907,15 +934,12 @@ h2, .head-bold {
 }
 
 .block_black {
-	height: 475px;
+	height: auto;
 	display: flex;
-	padding: 200px;
+	padding: 100px;
 	align-items: flex-start;
 	justify-content: center;
 	background: $black;
-	@include adapt(1220px) {
-		padding: 150px;
-	}
 	@include adapt(767px) {
 		padding: 50px;
 		flex-wrap: wrap;
@@ -1322,6 +1346,9 @@ h2, .head-bold {
 .footer-top {
 	background: $black;
 	padding: 125px 0 60px;
+	@include adapt(768px) {
+		padding: 60px 0 60px;
+	}
 	&-content {
 		display: flex;
 		align-items: flex-start;
@@ -1582,16 +1609,24 @@ h2, .head-bold {
 
 
 .breadcrumbs {
-	padding-top: 110px;
-	padding-bottom: 80px;
+	padding-top: 50px;
+	padding-bottom: 70px;
 	display: flex;
 	align-items: center;
+	@include adapt (768px) {
+		padding-top: 40px;
+		padding-bottom: 40px;
+		flex-wrap: wrap;
+	}
 	&__item {
 		margin-right: 40px;
 		position: relative;
 		text-decoration: none;
 		color: $black;
 		font-family: 'OpenSansBold', sans-serif;
+		@include adapt(768px) {
+			margin-bottom: 20px;
+		}
 
 		&:after {
 			content: '/';
@@ -1701,8 +1736,27 @@ h2, .head-bold {
 		top: 0;
 		left: 0;
 		padding-right: 20px;
+		background: #FFFFFF;
 		@include adapt(910px) {
-			display: none;
+			transition: .4s ease;
+			position: fixed;
+			top: 119px;
+			left: 0;
+			height: calc(100vh - 119px);
+			z-index: 100;
+			width: 300px;
+			padding: 50px 20px;
+			overflow-y: auto;
+		}
+
+		&.closed {
+			transform: translateX(-100%);
+			overflow-y: unset;
+			.catalog-filter-btn {
+				left: calc(100% + 5px);
+				right: unset;
+				transform: rotate(-45deg);
+			}
 		}
 
 		&::-webkit-scrollbar {
@@ -1892,6 +1946,9 @@ h2, .head-bold {
 		flex: 0 1 153px;
 		width: 135px;
 		height: 700px;
+		@include adapt(1400px) {
+			height: 500px;
+		}
 
 		&__img {
 			height: 135px;
@@ -1910,6 +1967,25 @@ h2, .head-bold {
 		flex: 0 1 700px;
 		width: 700px;
 		height: 700px;
+		@include adapt(1400px) {
+			width: 500px;
+			height: 500px;
+		}
+
+		@include adapt(768px) {
+			width: 500px;
+			height: auto;
+		}
+
+		@include adapt(525px) {
+			width: 320px;
+		}
+
+		&__img {
+			img {
+				width: 100%;
+			}
+		}
 	}
 }
 
@@ -1923,6 +1999,9 @@ h2, .head-bold {
 .card-info {
 	&-wrapper {
 		flex: 0 1 35%;
+		@include adapt(768px) {
+			flex: 0 1 100%;
+		}
 	}
 
 	&-head {
@@ -1944,6 +2023,12 @@ h2, .head-bold {
 		margin-bottom: 40px;
 	}
 
+	&-buy-btns {
+		@include adapt(768px) {
+			justify-content: center;
+		} 
+	}
+
 	&-btn {
 		font-family: 'OpenSansBold', sans-serif;
 		font-size: 17px;
@@ -1963,6 +2048,10 @@ h2, .head-bold {
 			width: 175px;
 			height: 60px;
 			padding: 20px 25px;
+			@include adapt(450px) {
+				width: 40%;
+				padding: 20px 10px;
+			}
 		}
 
 
@@ -1989,6 +2078,7 @@ h2, .head-bold {
 				}
 				&--main {
 					font-size: 14px;
+					white-space: nowrap;
 				}
 			}
 			&__right {
@@ -2004,15 +2094,31 @@ h2, .head-bold {
 	&-like {
 		.popular-item-img__like {
 			position: static;
+			display: flex;
+			align-items: center;
+			font-family: 'OpenSans', sans-serif;
+			font-size: 15px;
+			font-weight: 400;
+			line-height: 24px;
+			img {
+				margin-right: 15px;
+			}
 		}
+		
+		
 	}
 
 	&-benefit {
 		justify-content: flex-start;
+		margin-bottom: 10px;
 
 		&__img {
 			width: 85px;
 		}
+	}
+
+	&-text {
+		margin: 40px 0;
 	}
 }
 
@@ -2045,11 +2151,27 @@ h2, .head-bold {
 			display: flex;
 			align-items: center;
 			justify-content: flex-start;
+			@include adapt(1440px) {
+				flex-wrap: wrap;
+        justify-content: flex-start;
+			}
+			@include adapt(768px) {
+				justify-content: space-between;
+			} 
 		}
 	}
 
 	&-item {
 		margin-right: 20px;
+		@include adapt(768px) {
+			margin-right: 0px;
+			width: 49%;
+			flex: 0 1 49%;
+		}
+		@include adapt(450px) {
+			width: 100%;
+			flex: 0 1 100%;
+		}
 
 		&-img {
 			&-wrapper {
@@ -2060,6 +2182,9 @@ h2, .head-bold {
 				align-items: center;
 				justify-content: center;
 				margin-bottom: 45px;
+				@include adapt(768px) {
+					width: 100%;
+				}
 			}
 
 
@@ -2262,9 +2387,9 @@ h2, .head-bold {
 @media screen and (max-width: 768px) {
 	.catalog.news-comp {
 		padding-left: 0;
-		.catalog-filter {
-			display: none;
-		}
+		// .catalog-filter {
+		// 	display: none;
+		// }
 		.catalog-results {
 			padding-top: 0;
 			.catalog-results-output {
@@ -2776,19 +2901,19 @@ textarea:focus {
 						cursor: pointer;
 						background: #4c6c91;
 						color: #fff;
-						transition: all 300ms ease-in-out;
 					}
 				}
 
 				& .lightBlue {
 					border: #33a7da solid 1px;
 					color: #33a7da;
+					transition: all 300ms ease-in-out;
 
 					&:hover {
 						cursor: pointer;
 						background: #33a7da;
 						color: #fff;
-						transition: all 300ms ease-in-out;
+						
 					}
 				}
 			}
@@ -3281,7 +3406,7 @@ h3 {
 		position: fixed;
 		z-index: 1000;
 		top: 141px;
-		right: 0;
+		width: 100%;
 		left: 0;
 		bottom: 0;
 		display: none;
@@ -3311,6 +3436,9 @@ h3 {
 		overflow-y: auto;
 		transition: .4s ease;
 		transform: translateX(100%);
+		@include adapt(1023px) {
+			height: calc(100vh - 119px);
+		}
 		&::-webkit-scrollbar {
 			width: 3px;
 		}
@@ -3333,6 +3461,9 @@ h3 {
 			justify-content: flex-start;
 			align-items: stretch;
 			flex-direction: column;
+			@include adapt(560px) {
+				padding: 60px 25px 60px 30px;
+			}
 		}
 
 		&-close {
@@ -3372,7 +3503,8 @@ h3 {
 		}
 
 		&-goods {
-			overflow-x: auto;
+			overflow-x: hidden;
+			overflow-y: auto;
 			height: 310px;
 
 			&::-webkit-scrollbar {
@@ -3396,9 +3528,13 @@ h3 {
 				justify-content: space-between;
 				padding: 40px 0px;
 				border-bottom: 1px solid $grey-light-1;
+				position: relative;
 
 				&:first-child {
 					padding: 0 0 40px;
+					.cart-main-goods-item__remove--wrapper {
+						top: 0px;
+					}
 				}
 
 				&:last-child {
@@ -3412,6 +3548,9 @@ h3 {
 					flex: 0 1 108px;
 					margin-right: 70px;
 					position: relative;
+					@include adapt(615px) {
+						margin-right: 30px;
+					}
 				}
 
 				&-description {
@@ -3457,6 +3596,11 @@ h3 {
 						cursor: pointer;
 						transform: translateX(20px);
 						transition: .4s ease;
+						@include adapt(426px) {
+							position: absolute;
+							top: 30px;
+							right: 10px;
+						}
 					}
 
 					&--line {
@@ -3477,6 +3621,7 @@ h3 {
 					flex: 1;
 					text-align: right;
 					padding: 0 20px 0 0;
+					white-space: nowrap;
 				}
 
 				&:hover {
@@ -4306,3 +4451,33 @@ svg {
 }
 
 @import "adaptive";
+
+
+.catalog.news-comp .catalog-results .catalog-results-output {
+	@include adapt(1220px) {
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: unset;
+	}
+	
+}
+
+
+.catalog-filter-btn {
+	position: absolute;
+	top: 10px;
+	z-index: 110;
+	right: 10px;
+	width: 20px;
+	height: 20px;
+	border-right: 3px solid $blue;
+	border-bottom: 3px solid $blue;
+	transform: rotate(135deg);
+	cursor: pointer;
+	display: none;
+
+	@include adapt(1023px) {
+		display: block;
+	}
+}
