@@ -5,12 +5,6 @@ $(document).ready(() => {
     let windowOffsetTop = [];
     
     $(window).scroll(function() {
-      // if ($(window).scrollTop() < 141 ) {
-      //   $('.header').addClass('static');
-      //   return false;
-      // } else {
-      //   $('.header').removeClass('static');
-      // }
       windowOffsetTop.push($(window).scrollTop());
 
       if (windowOffsetTop.length === 2) {
@@ -292,7 +286,7 @@ $(document).ready(() => {
       $('.cart-overlay').css({display: 'none'});
       $('.cart-block').css('display', 'none');
       $('.cart-main').css({display: 'none'});
-      $('html, body').css('overflow', 'auto');
+      $('html, body').css('overflowY', 'auto');
       $(this).css({pointerEvents: 'auto'});
     },400);
   }
