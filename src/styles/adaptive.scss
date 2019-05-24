@@ -18,14 +18,6 @@
         } 
     }    
 }
-@media screen and (max-width: 1440px) {
-    .card-tabs-wrapper {
-        flex-wrap: wrap;
-    }
-    .card-gallery-big {
-       
-    }
-} 
 @media screen and (max-width: 768px) {    
     .card-main {
         flex-wrap: wrap;
@@ -38,13 +30,7 @@
         margin: 0 auto;
         margin-bottom: 40px;
     }
-    .card-gallery-mini {
-        order: 2;
-        padding: 0;
-        height: 135px;
-        margin-top: 20px;
-        width: 500px;
-    }
+
     .card-gallery-big {
         order: 1;
     }
