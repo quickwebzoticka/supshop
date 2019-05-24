@@ -40,21 +40,13 @@
     }
     .card-gallery-mini {
         order: 2;
-        flex: 0 1 100%;
         padding: 0;
         height: 135px;
         margin-top: 20px;
-        width: 300px;
+        width: 500px;
     }
     .card-gallery-big {
         order: 1;
-        flex: 0 1 100%;        
-    }
-    .card-gallery-mini__img {                
-        img {
-            width: 135px;
-            margin: 0 auto;
-        }
     }
     .cart-block {
         top: 120px;

@@ -5,6 +5,10 @@ $(document).ready(() => {
     let windowOffsetTop = [];
     
     $(window).scroll(function() {
+      if ( $(window).scrollTop() < 141) {
+        $('.header').removeClass('closed');
+        return false;
+      }
       windowOffsetTop.push($(window).scrollTop());
 
       if (windowOffsetTop.length === 2) {
@@ -47,8 +51,6 @@ $(document).ready(() => {
     }
   }
   mobRebuild();
-
-  //todo: loop for aos animation delay on catalog-output-items
 
   AOS.init({
     once: true
@@ -97,13 +99,20 @@ $(document).ready(() => {
     arrows: false,
     infinite: true,
     speed: 300,
-    slidesToShow: 5,
+    slidesToShow: 6,
     slidesToScroll: 1,
     vertical: true,
     asNavFor: '.card-gallery-big',
     draggable: true,
     focusOnSelect: true,
     responsive: [
+      {
+        breakpoint: 1500,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1
+        }        
+      },
       {
         breakpoint: 769,
         settings: {

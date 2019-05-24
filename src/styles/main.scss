@@ -272,6 +272,7 @@ h2, .head-bold {
 
 .nested-ul {
 	position: relative;
+	padding: 0 10px;
 
 	&:hover {
 		.nested-ul-inner {
@@ -285,11 +286,8 @@ h2, .head-bold {
 		cursor: pointer;
 		&__text {
 			color: #FFFFFF;
-			margin-right: 25px;
+			margin-right: 10px;
 			white-space: nowrap;
-			@include adapt(1220px) {
-				margin-right: 10px;
-			}
 		}
 		&__arrow {
 			width: 6px;
@@ -727,6 +725,7 @@ h2, .head-bold {
 	&-text {
 		max-width:  250px;
 		line-height: 24px;
+		margin-bottom: 20px;
 	}
 
 	&-btn {
@@ -1614,8 +1613,8 @@ h2, .head-bold {
 
 
 .breadcrumbs {
-	padding-top: 50px;
-	padding-bottom: 70px;
+	padding-top: 20px;
+	padding-bottom: 30px;
 	display: flex;
 	align-items: center;
 	@include adapt (768px) {
@@ -1948,40 +1947,74 @@ h2, .head-bold {
 		align-items: flex-start;
 		justify-content: space-between;
 		flex: 0 1 60%;
+		@include adapt (768px) {
+			max-width: 500px;
+			width: 500px;
+			margin: 0 auto;
+			flex: unset;
+		}
 	}
 	&-mini {
 		padding: 0 15px 0 0;
-		flex: 0 1 153px;
-		width: 135px;
 		height: 700px;
+		width: 123px;
+		display: block;
 		@include adapt(1400px) {
-			height: 500px;
+			height: 450px;
 		}
 
 		&__img {
-			height: 135px;
-			width: 135px;
+			height: 112px;
+			width: 113px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			@include adapt(1500px) {
+				width: 87px;
+				height: 87px;
+			}
+	
+			@include adapt(768px) {
+				width: auto;
+				height: auto;
+			}
+	
+			@include adapt(525px) {
+				width: auto;
+				height: auto;
+			}
 
 			img {
 				height: 100%;
 				width: 100%;
+				margin: 0 auto;
+				@include adapt(1400px) {
+					width: 95px;
+					height: 95px;
+				}
+		
+				@include adapt(768px) {
+					width: auto;
+					height: auto;
+				}
+		
+				@include adapt(525px) {
+					width: auto;
+					height: auto;
+				}
 			}
 		}
 	}
 	&-big {
-		flex: 0 1 700px;
-		width: 700px;
-		height: 700px;
-		@include adapt(1400px) {
-			width: 500px;
-			height: 500px;
+		width: 703px;
+		height: 703px;
+		@include adapt(1500px) {
+			height: 460px;
 		}
 
 		@include adapt(768px) {
 			width: 500px;
+			flex: unset;
 			height: auto;
 		}
 
@@ -1991,7 +2024,20 @@ h2, .head-bold {
 
 		&__img {
 			img {
-				width: 100%;
+				height: 703px;
+				margin: 0 auto;
+				@include adapt(1500px) {
+					height: 460px;
+				}
+		
+				@include adapt(768px) {
+					width: 500px;
+					height: auto;
+				}
+		
+				@include adapt(525px) {
+					width: 320px;
+				}
 			}
 		}
 	}
@@ -2006,7 +2052,7 @@ h2, .head-bold {
 
 .card-info {
 	&-wrapper {
-		flex: 0 1 35%;
+		flex: 0 1 32%;
 		@include adapt(768px) {
 			flex: 0 1 100%;
 		}
@@ -2028,7 +2074,7 @@ h2, .head-bold {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		margin-bottom: 40px;
+		margin-bottom: 15px;
 	}
 
 	&-buy-btns {
@@ -2053,7 +2099,7 @@ h2, .head-bold {
 		&--blue {
 			background-color: #00aecd;
 			border-radius: 6px 3px 3px;
-			width: 175px;
+			width: 185px;
 			height: 60px;
 			padding: 20px 25px;
 			@include adapt(450px) {
@@ -2158,10 +2204,13 @@ h2, .head-bold {
 		&-wrapper {
 			display: flex;
 			align-items: center;
-			justify-content: flex-start;
+			justify-content: space-between;
 			@include adapt(1440px) {
 				flex-wrap: wrap;
-        justify-content: flex-start;
+        justify-content: space-between;
+			}
+			@include adapt(1100px) {
+				justify-content: flex-start;
 			}
 			@include adapt(768px) {
 				justify-content: space-between;
@@ -2170,7 +2219,13 @@ h2, .head-bold {
 	}
 
 	&-item {
+		flex: 0 1 18%;
+		width: 18%;
 		margin-right: 20px;
+		@include adapt(1100px) {
+			flex: unset;
+			width: 270px;
+		}
 		@include adapt(768px) {
 			margin-right: 0px;
 			width: 49%;
@@ -2183,7 +2238,6 @@ h2, .head-bold {
 
 		&-img {
 			&-wrapper {
-				width: 270px;
 				height: 270px;
 				background-color: #f3f3f3;
 				display: flex;
@@ -4005,7 +4059,7 @@ h3 {
 			position: relative;
 			@include adapt(450px) {
 				padding: 20px;
-				width: 300px;
+				width: 100%;
 			}
 
 			&_bb {
@@ -4047,6 +4101,9 @@ h3 {
 					transform: translateX(-50%);
 					@include adapt(850px) {
 						display: none;
+					}
+					@include adapt(1650px) {
+						transform: none;
 					}
 				}
 
@@ -4203,6 +4260,7 @@ svg {
 		align-items: flex-start;
 		justify-content: flex-start;
 		flex-wrap: wrap;
+		width: 100%;
 
 		@include adapt(850px) {
 			flex-direction: column;
@@ -4348,6 +4406,9 @@ svg {
 			.feedback-slide-img {
 				width: 150px;
 				margin-right: 20px;
+				@include adapt(767px) {
+					margin-right: 0px;
+				}
 				img {
 					width: 100%;
 				}
